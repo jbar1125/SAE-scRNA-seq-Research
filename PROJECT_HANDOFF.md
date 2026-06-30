@@ -1,5 +1,7 @@
 # PROJECT HANDOFF: SAE Features in Hematopoietic Lineage Commitment
 
+> **AUDIT NOTE:** This is the Phase-1-closeout snapshot, left intact as a historical record. For verified corrections, the V0b notebook trap, and rigor upgrades, read [`PROJECT_AUDIT.md`](./PROJECT_AUDIT.md). Where the two conflict, the audit is authoritative.
+
 **Handoff target:** Claude Code (repo-based agentic work)
 **Prepared:** end of Phase 1, before summer Phase 2
 **Researcher:** Jacob Barzideh (jbarz), high school, Jericho Science Research

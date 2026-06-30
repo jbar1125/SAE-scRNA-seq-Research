@@ -1,0 +1,15 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Raw data and checkpoints live in Drive, not git (too large; see data/README.md).
+data/*
+!data/README.md
+
+# V0b run outputs are regenerable. EXCEPTION: the frozen pre-registration
+# artifacts SHOULD be committed once the run is verified.
+v0b_outputs/*
+!v0b_outputs/module_assignments_v0b.csv
+!v0b_outputs/modularity_metrics_per_seed.csv
+!v0b_outputs/v0b_provenance.json
