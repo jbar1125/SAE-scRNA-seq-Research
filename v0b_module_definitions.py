@@ -447,7 +447,8 @@ def main():
     out_dir.mkdir(parents=True, exist_ok=True)
     rng = np.random.default_rng(SEED)
     np.random.seed(SEED)
-    torch.manual_seed(SEED)
+    # torch needs no seeding here: checkpoint load + eval are deterministic, and
+    # the only stochastic step (bootstrap) uses the numpy generators above.
 
     gene_names = load_gene_names(data_dir)
     n_genes = len(gene_names)
