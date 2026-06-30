@@ -122,3 +122,41 @@ to be run is the superseded v1. Until `v0b_module_definitions.py` runs on the re
 data and the verdict is recorded, every Phase-2 claim that depends on it is
 provisional. The script is built to report a null honestly if the asymmetry does
 not hold.
+
+---
+
+## G. V0b first run + diagnostic (2026-06-30)
+
+Ran `v0b_module_definitions.py` on the real data. MD5 verified; cell-group counts
+(committed_granulocyte 897, committed_erythroid 751, uncommitted 697,
+intermediate 385) match the handoff's v2 predictions; all v2 markers fully present
+in the HVG set. Verdict: **asymmetric modularity NOT SUPPORTED**, but the result is
+confounded and the metric was uninformative (erythroid 0-1 features assigned per
+seed). module_assignments_v0b.csv SHA-256 `f18b088a95e8e4f3248561d72a711f2bd6d1302127afd60b753a4e9d211d96b5`. **NOT frozen as pre-registration** (inconclusive run).
+
+Per-submodule enrichment diagnostic (640 tests = 5 seeds x 128 features each):
+
+| submodule | max overlap | n(overlap>=2) | n(sig, q<.05) | min q |
+|-----------|-------------|---------------|---------------|-------|
+| Ery_TF | 2 | 7 | 0 | 0.304 |
+| Ery_Heme | 3 | 9 | **2** | 0.006 |
+| Ery_Membrane | 2 | 6 | 0 | 0.188 |
+| Gran_TF | 2 | 2 | 0 | 0.053 |
+| Gran_Primary | 4 | 43 | **29** | 0.000 |
+| Progenitor | 2 | 1 | 0 | 0.096 |
+| Cycling | 4 | 40 | 3 | 0.006 |
+
+Findings:
+1. The asymmetry signal is essentially one submodule, **Gran_Primary** (Mpo/Elane/Prtn3/Ctsg). "Granulocyte unified" reduces to "the primary-granule effector co-occurs."
+2. **Both** TF programs are undetected (Gran_TF and Ery_TF: 0 significant). The granulocyte TF program is as invisible as the erythroid one, so the lineage asymmetry as stated is absent.
+3. Real biological axis is **effector-concentration vs TF-dilution** (Gran_Primary + Ery_Heme concentrate; all TF/membrane sets dilute), orthogonal to granulocyte-vs-erythroid.
+4. The test is partly underpowered: Ery_TF/Ery_Membrane/Gran_TF have real overlap-2 co-occurrence killed by BH across ~896 mostly-null tests. Gran_TF min_q=0.053 just misses; dropping controls from the FDR family or per-lineage FDR may change it.
+5. The defensible remaining finding is smaller: primary-granule and heme-synthesis effector modules are recovered as concentrated SAE features.
+
+Required redesign (V0b v3): replace thresholded winner-take-all with a continuous
+per-feature submodule loading score (e.g., summed |decoder weight| on present
+markers, or a rank-enrichment score), measure distribution on the continuous
+scores with no significance gate, run the TOP_K sweep (10/20/30/50) and per-lineage
+FDR as sensitivity checks, and reframe the hypothesis around effector-vs-TF
+concentration. Treat the v1 "supported" result as not replicated under rigorous
+markers.
