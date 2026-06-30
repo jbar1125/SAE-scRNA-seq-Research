@@ -160,3 +160,57 @@ scores with no significance gate, run the TOP_K sweep (10/20/30/50) and per-line
 FDR as sensitivity checks, and reframe the hypothesis around effector-vs-TF
 concentration. Treat the v1 "supported" result as not replicated under rigorous
 markers.
+
+---
+
+## H. V0b v3 run (continuous loading) + why "SUPPORTED" is not trustworthy (2026-06-30)
+
+`v0b_v3_loading.py` removes the BH gate (continuous decoder-loading enrichment).
+The lineage-axis decision returns **SUPPORTED** (5/5 seeds, both bootstrap CIs
+exclude 0). That contradicts the v2 result and the prior prediction. On scrutiny
+the SUPPORTED verdict is an artifact, not a finding.
+
+Per-submodule mean strength (1.0 = null), with permutation p:
+
+| submodule | strength | perm_p | vs Progenitor control (2.05) |
+|-----------|----------|--------|------------------------------|
+| Gran_Primary | 4.68 | 0.001 | strong, real |
+| Gran_TF | 2.63 | 0.005 | above control |
+| Ery_Heme | 2.43 | 0.002 | modestly above control |
+| Progenitor (control) | 2.05 | 0.17 | reference |
+| Ery_Membrane | 1.93 | 0.027 | BELOW control |
+| Cycling (control) | 1.86 | 0.001 | should be null; is "significant" |
+| Ery_TF | 1.78 | 0.044 | BELOW control |
+
+Three reasons the verdict fails scrutiny:
+1. **`largest_fraction` count bias.** Its floor is 1/n (0.50 for granulocyte's 2
+   submodules, 0.33 for erythroid's 3). ~0.17 of the 0.244 largest-fraction gap is
+   pure bin-count artifact: erythroid is mechanically forced to look distributed.
+2. **The count-fair criterion is marginal.** Normalized entropy (corrects for n)
+   shows a gap of only 0.048. The headline number lives in the biased criterion.
+3. **Permutation null mis-calibrated.** Cycling (a control) is "significant"
+   (p=0.001). Random gene sets include dead/low-variance HVGs, so any real marker
+   set beats them; "significant" reflects "expressed genes attract decoder mass,"
+   not a coherent feature program.
+
+Decisive observation: **Ery_TF (1.78) and Ery_Membrane (1.93) load below the
+Progenitor control (2.05).** Erythroid is not three real sub-programs; it is one
+modest program (Ery_Heme) plus two noise-floor submodules the metric miscounts as
+"distribution."
+
+Verdict across versions: v2 NOT SUPPORTED (gate kills diluted signal), v3
+SUPPORTED (count bias + noise-floor submodules + liberal null). **The claim is
+metric-dependent, therefore not robustly supported.** Defensible real structure:
+the primary-granule effector (Mpo/Elane/Prtn3/Ctsg) is a strong concentrated SAE
+feature; heme-synthesis is a weaker one; the rest sit at/below control.
+
+Required fix (v3.1) before any asymmetry claim is made:
+- Subtract a control/noise baseline (Progenitor and/or abundance-matched random)
+  from each submodule strength before measuring distribution; drop submodules at
+  or below control.
+- Count-normalize the concentration criterion: `(frac - 1/n)/(1 - 1/n)` so uniform
+  maps to 0 and the metric is comparable across 2- vs 3-submodule lineages.
+- Abundance/expression-matched permutation null (or permute feature identities) so
+  controls come out null.
+- Require an effect-size floor on absolute strength, not just a p-value.
+- Pre-register ONE metric. Two metrics giving opposite answers cannot both headline.
