@@ -12,7 +12,10 @@ v0b_module_definitions.MARKER_SETS, including the globin and late-granulocyte
 submodules) on top of the top-variance HVGs, so no lineage is analyzed with its
 effector program removed. Everything else matches the project pipeline.
 
-CRITICAL: Paul15 is already log-transformed. Do NOT normalize_total/log1p.
+NOTE ON LOG-TRANSFORM: the handoff calls Paul15 "pre-log-transformed", but
+sc.datasets.paul15() actually returns RAW-scale data (max ~168). That claim is
+also inconsistent with hemoglobins being HVG-filtered (only happens on log data).
+So this script log1p's raw data by default (--log1p auto). See PROJECT_AUDIT.md.
 
 Output (a NEW matrix, deliberately different from the MD5-locked original; it
 carries its own recorded MD5):
@@ -40,21 +43,40 @@ import pandas as pd
 import v0b_module_definitions as v0b
 
 
+def apply_log_policy(X, mode, raw_threshold=30.0):
+    """Decide whether to log1p. sc.datasets.paul15() returns RAW-scale data
+    (max ~168), contradicting the handoff's 'pre-log-transformed' claim. That
+    claim is also inconsistent with hemoglobins being HVG-filtered, which only
+    happens on log-scale data. So 'auto' log1p's when the data looks raw.
+    Returns (X_out, did_log, raw_max)."""
+    raw_max = float(X.max())
+    do_log = (mode == "yes") or (mode == "auto" and raw_max > raw_threshold)
+    if do_log:
+        X = np.log1p(X)
+    return X, do_log, raw_max
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--n-hvg", type=int, default=2000)
     ap.add_argument("--out-dir", default="./data_markeraware")
+    ap.add_argument("--log1p", choices=["auto", "yes", "no"], default="auto",
+                    help="auto: log1p when data looks raw (max>30). See PROJECT_AUDIT.md.")
     args = ap.parse_args()
 
     import scanpy as sc  # lazy: only needed to run, not to import/syntax-check
     out = Path(args.out_dir); out.mkdir(parents=True, exist_ok=True)
 
-    ad = sc.datasets.paul15()                 # pre-log-transformed; do NOT log again
+    ad = sc.datasets.paul15()
     genes = list(map(str, ad.var_names))
     X = np.asarray(ad.X, dtype=np.float32)    # (n_cells, n_genes_all)
-    if float(X.max()) > 50:
-        raise ValueError(f"Paul15 max {X.max():.1f} looks un-logged; expected "
-                         f"pre-log values. Do not normalize/log this data.")
+    X, did_log, raw_max = apply_log_policy(X, args.log1p)
+    if did_log:
+        print(f"Applied log1p (raw max was {raw_max:.1f}). NOTE: handoff claims "
+              f"Paul15 is pre-log-transformed, but this source is raw-scale; "
+              f"see PROJECT_AUDIT.md.")
+    else:
+        print(f"Skipped log1p (raw max {raw_max:.1f}, --log1p={args.log1p}).")
 
     gene_to_idx = {g: i for i, g in enumerate(genes)}
     variance = X.var(axis=0)
@@ -90,6 +112,7 @@ def main():
                        "present_genes": present}
     report = {"n_cells": int(Xs.shape[0]), "n_genes": int(Xs.shape[1]),
               "n_hvg_requested": args.n_hvg, "expression_matrix_md5": md5,
+              "log1p_applied": bool(did_log), "raw_max_before_log": raw_max,
               "n_markers_forced": len(forced),
               "rescued_markers_not_in_top_variance": rescued,
               "submodule_coverage": coverage}
