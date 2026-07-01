@@ -43,6 +43,36 @@ import pandas as pd
 import v0b_module_definitions as v0b
 
 
+def _load_paul15(sc):
+    """Load Paul15 via scanpy; fall back to reading the local h5 directly if the
+    installed scanpy parser is incompatible with the on-disk file version (the
+    file layout has changed over scanpy releases). The local file is scanpy's
+    datasetdir/paul15/paul15.h5."""
+    try:
+        return sc.datasets.paul15()
+    except Exception as e:
+        import h5py
+        import anndata as ad_mod
+        path = Path(sc.settings.datasetdir) / "paul15" / "paul15.h5"
+        if not path.exists():
+            raise
+        print(f"scanpy paul15 parser failed ({type(e).__name__}); reading {path} directly.")
+        with h5py.File(path, "r") as f:
+            X = np.asarray(f["data.debatched"][()], dtype=np.float32)      # (cells, genes)
+            rown = f["data.debatched_rownames"][()].astype(str)
+            genes = [r.split(";")[0] for r in rown]                         # primary symbol
+            clusters = np.asarray(f["cluster.id"][()]).reshape(-1).astype(int)
+        # drop duplicate gene symbols (keep first occurrence)
+        seen, keep, kept_genes = set(), [], []
+        for i, g in enumerate(genes):
+            if g not in seen:
+                seen.add(g); keep.append(i); kept_genes.append(g)
+        A = ad_mod.AnnData(X[:, keep])
+        A.var_names = kept_genes
+        A.obs["paul15_clusters"] = [str(c) for c in clusters]
+        return A
+
+
 def apply_log_policy(X, mode, raw_threshold=30.0):
     """Decide whether to log1p. sc.datasets.paul15() returns RAW-scale data
     (max ~168), contradicting the handoff's 'pre-log-transformed' claim. That
@@ -67,7 +97,7 @@ def main():
     import scanpy as sc  # lazy: only needed to run, not to import/syntax-check
     out = Path(args.out_dir); out.mkdir(parents=True, exist_ok=True)
 
-    ad = sc.datasets.paul15()
+    ad = _load_paul15(sc)
     genes = list(map(str, ad.var_names))
     X = np.asarray(ad.X, dtype=np.float32)    # (n_cells, n_genes_all)
     X, did_log, raw_max = apply_log_policy(X, args.log1p)
