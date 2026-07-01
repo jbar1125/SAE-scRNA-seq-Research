@@ -68,9 +68,9 @@ def loading_enrichment(decoder_weights, coverage, usable, n_genes) -> pd.DataFra
         for module in usable:
             idx = coverage[module]["present_indices"]
             K = len(idx)
-            mass = Wabs[idx, :].sum(axis=0)             # (128,)
-            enr = (mass / total) * (n_genes / K)        # (128,)
-            for feat in range(v0b.LATENT_DIM):
+            mass = Wabs[idx, :].sum(axis=0)             # (n_latent,)
+            enr = (mass / total) * (n_genes / K)        # (n_latent,)
+            for feat in range(Wabs.shape[1]):          # actual latent dim (supports overcomplete)
                 rows.append({"seed": seed, "feature_idx": feat,
                              "module": module, "enrichment": float(enr[feat])})
     return pd.DataFrame(rows)

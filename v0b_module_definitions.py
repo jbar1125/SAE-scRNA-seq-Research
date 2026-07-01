@@ -112,21 +112,30 @@ N_PT_BINS = 40
 # Erythroid has 3 submodules, granulocyte has 2 (this asymmetry in submodule
 # count is exactly why v2 normalizes entropy by log(n_submodules)).
 MARKER_SETS = {
-    # ===== ERYTHROID SUBMODULES (3) =====
+    # ===== ERYTHROID SUBMODULES =====
     "Ery_TF":       ["Gata1", "Klf1", "Tal1", "Lmo2", "Zfpm1", "Stat5a", "Bcl11a", "Myb"],
     "Ery_Heme":     ["Fech", "Hmbs", "Ppox", "Cpox", "Urod", "Alad"],
     "Ery_Membrane": ["Gypc", "Ank1", "Rhag", "Aqp1", "Epor", "Tspo"],
-    # ===== GRANULOCYTE SUBMODULES (2) =====
+    # Effector (globins). Absent from the original HVG set (dropped -> excluded);
+    # present only under marker-aware preprocessing (preprocess_paul15.py).
+    "Ery_Effector": ["Hba-a1", "Hba-a2", "Hbb-bs", "Hbb-bt", "Hbb-y", "Hbb-bh1"],
+    # ===== GRANULOCYTE SUBMODULES =====
     "Gran_TF":      ["Cebpa", "Cebpe", "Runx1"],
     "Gran_Primary": ["Mpo", "Elane", "Prtn3", "Ctsg"],
+    # Secondary/specific granule. Also HVG-dropped originally; marker-aware only.
+    "Gran_Secondary": ["Ltf", "Lcn2", "Camp", "Ngp", "S100a8", "S100a9", "Mmp8", "Mmp9"],
     # ===== CONTROLS (must not preferentially load on Ery or Gran) =====
     "Progenitor":   ["Kit", "Cd34", "Mllt3", "Eif4ebp1"],
     "Cycling":      ["Top2a", "Pcna", "Mcm2", "Mcm3", "Mcm4", "Mcm5", "Mcm6",
                      "Mcm7", "Cdk1", "Cdk4", "Cdk6", "Cenpe", "Cenpf", "Aurkb",
                      "Birc5", "Ccnb2"],
 }
-ERY_SUBMODULES = ["Ery_TF", "Ery_Heme", "Ery_Membrane"]
-GRAN_SUBMODULES = ["Gran_TF", "Gran_Primary"]
+# Lineage submodule lists. Effector/Secondary self-adapt: compute_coverage drops
+# them when their genes are absent (original data), includes them under
+# marker-aware preprocessing. So the recorded v2/v3 results (globins/late-gran
+# absent) are unchanged; the upgraded run gains the effector submodules.
+ERY_SUBMODULES = ["Ery_TF", "Ery_Heme", "Ery_Membrane", "Ery_Effector"]
+GRAN_SUBMODULES = ["Gran_TF", "Gran_Primary", "Gran_Secondary"]
 
 # The seven Palantir terminal branch-probability columns. prob_19Lymph is
 # included in the uncommitted test (the v1 bug fixed in v2).
@@ -177,12 +186,14 @@ def load_expression(data_dir: Path) -> np.ndarray | None:
 
 
 def load_checkpoints(data_dir: Path, input_dim: int):
+    """Load the 5 SAE checkpoints. latent_dim is INFERRED from each checkpoint's
+    decoder shape, so overcomplete SAEs (512/1024 latents) load without changes."""
     import torch
     import torch.nn as nn
     import torch.nn.functional as F
 
     class SparseAutoencoder(nn.Module):
-        def __init__(self, input_dim=2000, latent_dim=LATENT_DIM):
+        def __init__(self, input_dim, latent_dim):
             super().__init__()
             self.encoder = nn.Linear(input_dim, latent_dim, bias=True)
             self.decoder = nn.Linear(latent_dim, input_dim, bias=True)
@@ -197,12 +208,14 @@ def load_checkpoints(data_dir: Path, input_dim: int):
                           map_location="cpu", weights_only=False)
         sd = ckpt.get("model_state", ckpt.get("state_dict", ckpt)) \
             if isinstance(ckpt, dict) else ckpt
-        model = SparseAutoencoder(input_dim=input_dim, latent_dim=LATENT_DIM)
+        latent_dim = sd["decoder.weight"].shape[1]      # inferred, not hardcoded
+        model = SparseAutoencoder(input_dim=input_dim, latent_dim=latent_dim)
         model.load_state_dict(sd)
         model.eval()
-        decoder_weights[seed] = model.decoder.weight.detach().numpy()  # (input_dim, 128)
+        decoder_weights[seed] = model.decoder.weight.detach().numpy()  # (input_dim, latent_dim)
         models[seed] = model
-    print(f"Loaded {len(decoder_weights)} SAE checkpoints.")
+    dims = {seed: decoder_weights[seed].shape[1] for seed in decoder_weights}
+    print(f"Loaded {len(decoder_weights)} SAE checkpoints. latent dims: {set(dims.values())}")
     return decoder_weights, models
 
 
@@ -243,7 +256,7 @@ def run_enrichment(decoder_weights, coverage, usable, n_genes):
     records = []
     for seed in range(N_SEEDS):
         W = decoder_weights[seed]
-        for feat in range(LATENT_DIM):
+        for feat in range(W.shape[1]):            # actual latent dim (supports overcomplete)
             top_idx = set(np.argsort(np.abs(W[:, feat]))[::-1][:TOP_K].tolist())
             for module in usable:
                 marker_idx = set(coverage[module]["present_indices"])
@@ -268,8 +281,9 @@ def winner_take_all(enrich_df):
     tiebreak by larger overlap. UNASSIGNED if no submodule qualifies."""
     rows = []
     sig = enrich_df[enrich_df["significant"]]
+    feats = sorted(enrich_df["feature_idx"].unique())     # actual latent dim
     for seed in range(N_SEEDS):
-        for feat in range(LATENT_DIM):
+        for feat in feats:
             cand = sig[(sig["seed"] == seed) & (sig["feature_idx"] == feat)]
             if len(cand):
                 best = cand.sort_values(["q_value", "overlap"],

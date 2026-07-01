@@ -14,11 +14,16 @@ import v0b_module_definitions as v0b
 import v0b_v3_loading as v3
 
 
+# Core v2 submodules only (exclude marker-aware-only Effector/Secondary).
+_CORE = [m for m in v0b.MARKER_SETS if m not in ("Ery_Effector", "Gran_Secondary")]
+
+
 def _build_gene_index():
     markers = []
-    for g in sum(v0b.MARKER_SETS.values(), []):
-        if g not in markers:
-            markers.append(g)
+    for m in _CORE:
+        for g in v0b.MARKER_SETS[m]:
+            if g not in markers:
+                markers.append(g)
     filler = [f"FILLER_{i}" for i in range(300 - len(markers))]
     names = markers + filler
     return names, {g: i for i, g in enumerate(names)}

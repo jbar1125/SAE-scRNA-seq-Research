@@ -13,12 +13,18 @@ sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import v0b_module_definitions as v0b
 
 
+# Core v2 submodules (exclude the marker-aware-only Effector/Secondary so tests
+# keep the original 3-ery / 2-gran structure they assert on).
+_CORE = [m for m in v0b.MARKER_SETS if m not in ("Ery_Effector", "Gran_Secondary")]
+
+
 def _build(gene_names):
-    """gene_names with every marker present + filler to 300 genes, plus an index."""
+    """gene_names with every core marker present + filler to 300 genes, plus an index."""
     markers = []
-    for g in sum(v0b.MARKER_SETS.values(), []):
-        if g not in markers:
-            markers.append(g)
+    for m in _CORE:
+        for g in v0b.MARKER_SETS[m]:
+            if g not in markers:
+                markers.append(g)
     filler = [f"FILLER_{i}" for i in range(300 - len(markers))]
     names = markers + filler
     gene_names.extend(names)
