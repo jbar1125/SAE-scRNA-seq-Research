@@ -114,11 +114,15 @@ N_PT_BINS = 40
 MARKER_SETS = {
     # ===== ERYTHROID SUBMODULES =====
     "Ery_TF":       ["Gata1", "Klf1", "Tal1", "Lmo2", "Zfpm1", "Stat5a", "Bcl11a", "Myb"],
-    "Ery_Heme":     ["Fech", "Hmbs", "Ppox", "Cpox", "Urod", "Alad"],
-    "Ery_Membrane": ["Gypc", "Ank1", "Rhag", "Aqp1", "Epor", "Tspo"],
-    # Effector (globins). Absent from the original HVG set (dropped -> excluded);
-    # present only under marker-aware preprocessing (preprocess_paul15.py).
-    "Ery_Effector": ["Hba-a1", "Hba-a2", "Hbb-bs", "Hbb-bt", "Hbb-y", "Hbb-bh1"],
+    # Alas2 is the erythroid-specific heme synthase (the strongest heme gene);
+    # it was wrongly omitted before. Verified present in Paul15 2026-06-30.
+    "Ery_Heme":     ["Alas2", "Fech", "Hmbs", "Ppox", "Cpox", "Urod", "Alad"],
+    # Ermap = erythroid membrane-associated protein, verified present in Paul15.
+    "Ery_Membrane": ["Gypc", "Ank1", "Rhag", "Aqp1", "Epor", "Tspo", "Ermap"],
+    # Globins under Paul15 (mouse MARS-seq) symbols: Hba-a2, Hbb-b1. The newer
+    # Hba-a1/Hbb-bs/bt/y symbols used before are ABSENT from this panel, which is
+    # why earlier "erythroid undetected" results were a marker-curation artifact.
+    "Ery_Effector": ["Hba-a2", "Hbb-b1"],
     # ===== GRANULOCYTE SUBMODULES =====
     "Gran_TF":      ["Cebpa", "Cebpe", "Runx1"],
     "Gran_Primary": ["Mpo", "Elane", "Prtn3", "Ctsg"],
