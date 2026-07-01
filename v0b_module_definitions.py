@@ -216,10 +216,14 @@ def load_checkpoints(data_dir: Path, input_dim: int):
             z = F.relu(self.encoder(x))
             return self.decoder(z), z
 
+    # Auto-detect all sae_seed*.pt (supports >=10 seeds without editing constants).
+    paths = sorted(Path(data_dir).glob("sae_seed*.pt"),
+                   key=lambda p: int("".join(c for c in p.stem if c.isdigit()) or "0"))
+    if not paths:
+        raise FileNotFoundError(f"No sae_seed*.pt in {data_dir}")
     decoder_weights, models = {}, {}
-    for seed in range(N_SEEDS):
-        ckpt = torch.load(data_dir / f"sae_seed{seed}.pt",
-                          map_location="cpu", weights_only=False)
+    for seed, path in enumerate(paths):
+        ckpt = torch.load(path, map_location="cpu", weights_only=False)
         sd = ckpt.get("model_state", ckpt.get("state_dict", ckpt)) \
             if isinstance(ckpt, dict) else ckpt
         latent_dim = sd["decoder.weight"].shape[1]      # inferred, not hardcoded
@@ -228,8 +232,10 @@ def load_checkpoints(data_dir: Path, input_dim: int):
         model.eval()
         decoder_weights[seed] = model.decoder.weight.detach().numpy()  # (input_dim, latent_dim)
         models[seed] = model
+    global N_SEEDS
+    N_SEEDS = len(decoder_weights)                      # all downstream loops follow this
     dims = {seed: decoder_weights[seed].shape[1] for seed in decoder_weights}
-    print(f"Loaded {len(decoder_weights)} SAE checkpoints. latent dims: {set(dims.values())}")
+    print(f"Loaded {N_SEEDS} SAE checkpoints. latent dims: {set(dims.values())}")
     return decoder_weights, models
 
 

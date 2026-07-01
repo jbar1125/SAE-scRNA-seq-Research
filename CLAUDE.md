@@ -2,7 +2,7 @@
 
 Operating manual for this repo. Read top to bottom before doing anything.
 
-**Read [`PROJECT_HANDOFF.md`](./PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results — section J is the current finding), **then [`STRATEGY_AND_POSITIONING.md`](./STRATEGY_AND_POSITIONING.md)** (field situating, novelty audit vs Kendiukhov et al., the reframe, revised plan). Where they conflict, the audit wins on facts and the strategy doc wins on framing.
+**Read [`PROJECT_HANDOFF.md`](./PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results — section J is the current finding), **then [`STRATEGY_AND_POSITIONING.md`](./STRATEGY_AND_POSITIONING.md)** (field situating, novelty audit vs Kendiukhov et al., the reframe), **[`PREREGISTRATION.md`](./PREREGISTRATION.md)** (the frozen analysis spec), and **[`COMPONENT0_STATUS.md`](./COMPONENT0_STATUS.md)** (Gate-0 state + the runner). Where they conflict, the audit wins on facts and the strategy doc wins on framing.
 
 ---
 
@@ -61,7 +61,8 @@ When code reaches the user's environment (Colab), give a paste that is self-veri
 - Current finding (PROJECT_AUDIT.md J): with corrected Paul15 markers (Hba-a2/Hbb-b1 globins + Alas2 + Ermap), overcomplete 512-latent SAEs, and log-scaled data, the erythroid hemoglobin program is the STRONGEST feature; control-referenced counts give erythroid 1 above-control program (unified), granulocyte 3 (distributed). So "asymmetric modularity" is real but the **REVERSE** of the v1 headline. Not yet locked: L0~63 (retune L1), n=5, mouse-only, one metric not yet pre-registered.
 - The prior "erythroid undetected" runs (Audit F-I) were a marker-curation artifact (wrong globin symbols, missing Alas2), fixed. Do not cite them as the finding.
 - Reframe (STRATEGY_AND_POSITIONING.md): the novel contribution is the artifact-vs-signal framework + the causal CRISPRi test, NOT "SAEs on single-cell" (now published: Kendiukhov 2026 arXiv 2603.02952 and the 2025-2026 wave). Lead with the framework and the causal spine.
-- Priority (gated): pre-register v3.1 (Progenitor-only baseline, abundance-matched null) + freeze; fix sparsity (L0 20-50, >=10 seeds); finish NMF/PCA baselines; human replication; then the Replogle CRISPRi causal test vs the 6.2% null.
+- Component 0 (Gate 0) is CODE-COMPLETE and pushed: pre-registered metric `v0b_v3_1_decision.py` + freeze (`PREREGISTRATION.md`, spec SHA `fc342829`), PCA/NMF baselines (`baselines_nmf_pca.py`), marker leave-one-out (`marker_sensitivity.py`), overcomplete + marker-aware training, seed auto-detection, 60%-majority rule. All logic tests pass. See `COMPONENT0_STATUS.md` for the single Colab runner that executes Gate 0 (sparsity sweep -> >=10-seed retrain -> v3.1 -> baselines -> sensitivity -> human replication -> freeze output SHA).
+- Do NOT freeze the module-assignment output table until the sparsity-corrected (L0 20-50), >=10-seed, human-replicated run. Reframe/plan in `STRATEGY_AND_POSITIONING.md` and `phase2_research_plan_v6.md`; the causal head-to-head vs the 6.2% null is the centerpiece.
 
 ## 6. WORKING STYLE
 

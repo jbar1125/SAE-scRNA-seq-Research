@@ -127,6 +127,8 @@ def decide(cr_df):
     both = ((cr_df["ery_excess_entropy"] > cr_df["gran_excess_entropy"]) &
             (cr_df["ery_n_real"] >= 2) &
             (cr_df["ery_n_real"] >= cr_df["gran_n_real"]))
+    # Pre-registered >=3/5 rule as a >=60% majority (scales to >=10 seeds).
+    support_threshold = int(np.ceil(0.6 * len(cr_df)))
     e, g = cr_df["ery_n_real"].median(), cr_df["gran_n_real"].median()
     if e == 0 and g == 0:
         finding = "Neither lineage has a real above-control program (undetected)."
@@ -141,7 +143,8 @@ def decide(cr_df):
         "control_baseline": CONTROL_SUBMODULE,
         "median_ery_n_real": float(e), "median_gran_n_real": float(g),
         "n_seeds_supported_pattern": int(both.sum()),
-        "asymmetric_modularity_supported": bool(int(both.sum()) >= 3),
+        "support_threshold_60pct": support_threshold,
+        "asymmetric_modularity_supported": bool(int(both.sum()) >= support_threshold),
         "plain_finding": finding,
     }
 
