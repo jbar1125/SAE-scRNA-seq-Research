@@ -248,3 +248,52 @@ so asymmetric modularity is NOT SUPPORTED, and the plain finding is: SAEs recove
 granulocyte effector programs (primary + secondary granule); erythroid programs are
 not recovered in Paul15. Whether that is biology or the globin-absence + sparsity
 confounds is not yet separable; both are fixable next.
+
+---
+
+## J. Corrected-marker run: the asymmetry is REAL but REVERSED (2026-06-30)
+
+The globin diagnostic showed the prior erythroid null was a MARKER-CURATION
+ARTIFACT (mine): Paul15 uses Hba-a2 / Hbb-b1 (not Hba-a1/Hbb-bs/bt), and Alas2 /
+Ermap were omitted. After correcting the markers and force-including them
+(matrix 2730x2005, L0 ~63 at lambda=0.5, marginally over the 20-50 band):
+
+Submodule strength (1.0 = null):
+
+| submodule | strength | perm_p | vs Progenitor control (2.20) |
+|-----------|----------|--------|------------------------------|
+| Ery_Effector (globins) | 5.07 | 0.001 | STRONGEST feature in the dataset |
+| Gran_Primary | 4.02 | 0.001 | strong |
+| Gran_Secondary | 3.51 | 0.001 | strong |
+| Gran_TF | 3.00 | 0.004 | strong |
+| Progenitor (control) | 2.20 | 0.67 | null (good) |
+| Ery_Heme | 2.10 | 0.02 | at control |
+| Ery_Membrane | 1.82 | 0.81 | null |
+| Ery_TF | 1.79 | 0.72 | null |
+
+Control-referenced (v3.1): above-control programs = erythroid 1, granulocyte 3.
+v3 lineage metric now runs NEGATIVE (mean norm-entropy diff -0.075, 0/5 seeds in
+the original direction).
+
+**Finding: the asymmetry is real but the REVERSE of the original claim.**
+- Erythroid = UNIFIED: one dominant program (hemoglobin); the rest at/below control.
+- Granulocyte = DISTRIBUTED: three real programs (primary granule, secondary
+  granule, TF).
+The v1 headline was "granulocyte unified, erythroid distributed." Corrected data
+says the opposite, and it is biologically coherent (neutrophil granules come in
+distinct primary/secondary waves = multiple modules; terminal erythropoiesis is
+overwhelmingly hemoglobin = one module).
+
+Caveats before this becomes a headline:
+- L0 ~63 is marginally above the sparse band; retrain at lambda ~0.6-0.7.
+- Cycling (a control) is still "significant" (p=0.001), but cell cycle IS a real
+  program, so it is a poor null; use Progenitor-only or an abundance-matched null.
+  Ery_Heme sits AT the control, so erythroid's real count is 1 (globins), robustly.
+- n=5 seed bootstrap is weak; the direction is now consistent 5/5 with larger
+  effect sizes than any prior run.
+- Paul15 mouse only; replicate on the human data (which has full globins).
+- Pre-register ONE metric (v3.1 control-referenced) before freezing.
+
+Net status: the headline is not dead, it is inverted and now defensible. Prior
+"erythroid undetected" conclusions (Audit F, G, H, I) were confounded by the
+marker bug fixed here and should be read as superseded by J.
