@@ -215,3 +215,36 @@ Required fix (v3.1) before any asymmetry claim is made:
   controls come out null.
 - Require an effect-size floor on absolute strength, not just a p-value.
 - Pre-register ONE metric. Two metrics giving opposite answers cannot both headline.
+
+---
+
+## I. Marker-aware + overcomplete run + v3.1 (2026-06-30)
+
+Ran the upgraded track (log1p marker-aware preprocessing, 512-latent SAEs, 5 seeds)
+and built the control-referenced v3.1 decision.
+
+Wins:
+- log1p FIXED the permutation-null calibration: controls are now non-significant
+  (Progenitor p=0.53, Cycling p=0.54), where original-v3 had Cycling "significant".
+  So the granulocyte findings are now trustworthy.
+- Granulocyte has TWO strong, significant, above-control effector programs:
+  Gran_Primary (2.94, p=0.001) and Gran_Secondary (3.45, p=0.002).
+
+Problems the run exposed:
+- Globin rescue mostly failed: Ery_Effector 1/6 present. Five globin symbols
+  (Hba-a1, Hbb-bs/bt/y/bh1) are not in Paul15 under those names. Erythroid effector
+  still unmeasurable -> the "erythroid handicap" is confounded by missing genes,
+  not resolved. Check Paul15's actual globin symbols (may be Hbb-b1/b2) or accept
+  that Paul15's panel cannot test erythroid effector (use human data).
+- SAEs not sparse: L0 ~213 of 512 (QC band 20-50). lambda=0.1 too weak for 512
+  latents; retrain with higher --l1 until L0 in band. Current v3 numbers are on
+  under-regularized models.
+
+Result: every erythroid submodule (Heme 1.63, TF 1.62, Membrane 1.59) is at/below
+the Progenitor control (2.25) and non-significant. v3's lineage verdict is again
+SUPPORTED but on negligible effects (norm-entropy diff 0.006). Under v3.1
+(control-referenced): erythroid n_real = 0 above-control programs, granulocyte = 2,
+so asymmetric modularity is NOT SUPPORTED, and the plain finding is: SAEs recover
+granulocyte effector programs (primary + secondary granule); erythroid programs are
+not recovered in Paul15. Whether that is biology or the globin-absence + sparsity
+confounds is not yet separable; both are fixable next.
