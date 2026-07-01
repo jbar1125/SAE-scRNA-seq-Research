@@ -171,6 +171,10 @@ def load_palantir(data_dir: Path, n_cells_expected: int | None) -> pd.DataFrame:
 
 
 def load_expression(data_dir: Path) -> np.ndarray | None:
+    """Load and MD5-verify the expression matrix. The original matrix must match
+    the locked hash; a marker-aware matrix (preprocess_paul15.py) must match its
+    OWN recorded hash in preprocess_report.json. Either way it is verified, never
+    silently skipped."""
     path = data_dir / "expression_matrix.npy"
     if not path.exists():
         print(f"WARNING: {path} not found. Skipping MD5 verification and "
@@ -178,10 +182,16 @@ def load_expression(data_dir: Path) -> np.ndarray | None:
         return None
     X = np.load(path)
     actual_md5 = hashlib.md5(X.tobytes()).hexdigest()
-    if actual_md5 != EXPECTED_X_MD5:
-        raise ValueError(f"Expression matrix MD5 mismatch! expected "
-                         f"{EXPECTED_X_MD5}, got {actual_md5}")
-    print(f"Expression matrix MD5 verified: {actual_md5}  shape={X.shape}")
+    expected, source = EXPECTED_X_MD5, "locked original"
+    report = data_dir / "preprocess_report.json"
+    if report.exists():
+        rec = json.load(open(report)).get("expression_matrix_md5")
+        if rec:
+            expected, source = rec, "preprocess_report.json (marker-aware)"
+    if actual_md5 != expected:
+        raise ValueError(f"Expression matrix MD5 mismatch vs {source}! expected "
+                         f"{expected}, got {actual_md5}")
+    print(f"Expression matrix MD5 verified ({source}): {actual_md5}  shape={X.shape}")
     return X
 
 
