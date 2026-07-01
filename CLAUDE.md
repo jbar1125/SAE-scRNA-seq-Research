@@ -2,7 +2,7 @@
 
 Operating manual for this repo. Read top to bottom before doing anything.
 
-**Read [`PROJECT_HANDOFF.md`](./PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results). Where they conflict, the audit wins.
+**Read [`PROJECT_HANDOFF.md`](./PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results — section J is the current finding), **then [`STRATEGY_AND_POSITIONING.md`](./STRATEGY_AND_POSITIONING.md)** (field situating, novelty audit vs Kendiukhov et al., the reframe, revised plan). Where they conflict, the audit wins on facts and the strategy doc wins on framing.
 
 ---
 
@@ -58,9 +58,10 @@ When code reaches the user's environment (Colab), give a paste that is self-veri
 
 ## 5. IMMEDIATE STATUS
 
-- V0b v2 has now RUN (2026-06-30). Verdict: asymmetric modularity **NOT SUPPORTED**, but the result is confounded — erythroid was undetected (0-1 features/seed), so the test is blind, not the biology refuted. Diagnosis in progress; method redesign likely needed. See PROJECT_AUDIT.md.
-- Do not treat the SHA `f18b088a...` as the frozen finding. It is a record of an inconclusive run.
-- Open: V0c (bimodality), V14/V15/V0d (perturbation), V11/V12 (participation ratio, resolves 43.4-vs-42.3 and the NMF 1.8x-vs-34.94 conflicts), citation verification (Kendiukhov year/arXiv mismatch).
+- Current finding (PROJECT_AUDIT.md J): with corrected Paul15 markers (Hba-a2/Hbb-b1 globins + Alas2 + Ermap), overcomplete 512-latent SAEs, and log-scaled data, the erythroid hemoglobin program is the STRONGEST feature; control-referenced counts give erythroid 1 above-control program (unified), granulocyte 3 (distributed). So "asymmetric modularity" is real but the **REVERSE** of the v1 headline. Not yet locked: L0~63 (retune L1), n=5, mouse-only, one metric not yet pre-registered.
+- The prior "erythroid undetected" runs (Audit F-I) were a marker-curation artifact (wrong globin symbols, missing Alas2), fixed. Do not cite them as the finding.
+- Reframe (STRATEGY_AND_POSITIONING.md): the novel contribution is the artifact-vs-signal framework + the causal CRISPRi test, NOT "SAEs on single-cell" (now published: Kendiukhov 2026 arXiv 2603.02952 and the 2025-2026 wave). Lead with the framework and the causal spine.
+- Priority (gated): pre-register v3.1 (Progenitor-only baseline, abundance-matched null) + freeze; fix sparsity (L0 20-50, >=10 seeds); finish NMF/PCA baselines; human replication; then the Replogle CRISPRi causal test vs the 6.2% null.
 
 ## 6. WORKING STYLE
 
