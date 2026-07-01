@@ -1,33 +1,32 @@
 #!/usr/bin/env python3
-"""V0b v3.1: control-referenced, count-fair asymmetry decision.
+"""V0b v3.1: control-referenced, count-fair, pre-registered asymmetry decision.
 
-v3 removed the significance gate but its verdict was still an artifact
-(PROJECT_AUDIT.md H): the `largest_fraction` criterion has a 1/n count bias, and
-"distribution" was measured on submodules sitting at the noise floor. v3.1 fixes
-the decision, reusing v3's continuous loading strengths:
+This is the SINGLE pre-registered modularity metric (Component 0, Gate 0). It
+fixes the v3 verdict artifact (PROJECT_AUDIT.md H) and locks the decision rule
+before the final runs. Changes vs the earlier v3.1 draft:
 
-1. Control baseline. Per seed, baseline = mean strength of the control submodules
-   (Progenitor, Cycling). Real programs must clear this noise floor.
-2. Excess strength = max(0, strength - baseline). Submodules at/below control
-   contribute 0, so noise-floor submodules can no longer masquerade as
-   "distribution".
-3. n_real = submodules per lineage with excess > EXCESS_FLOOR. This is the honest
-   count of detected programs.
-4. Count-fair concentration = (largest_frac(excess) - 1/n)/(1 - 1/n), so uniform
-   maps to 0 and the metric is comparable across lineages with different submodule
-   counts. Normalized entropy is also on excess.
-5. Decision. The original claim (erythroid MORE distributed than granulocyte) is
-   SUPPORTED only if erythroid actually has real programs to distribute:
-   ery_n_real >= 2 AND ery_n_real >= gran_n_real AND ery more distributed
-   (higher excess entropy) in >= 3/5 seeds. A lineage with 0 real programs cannot
-   be "distributed"; it is undetected.
+1. Progenitor-ONLY control baseline. Cycling is dropped from the baseline because
+   cell cycle is a real biological program (a poor null); it is still reported as a
+   secondary control that should sit near the baseline.
+2. Abundance-matched permutation null. Random gene sets are matched to each marker
+   set's per-gene decoder mass (binned), so "significant" means a coherent program,
+   not merely "high-decoder-mass genes." This addresses the mis-calibrated null in
+   which the Cycling control tested significant.
+3. Effect-size floor. A submodule is a REAL program only if its excess strength
+   over the Progenitor baseline exceeds EXCESS_FLOOR AND its abundance-matched
+   permutation q < 0.05.
 
-Reports the plain finding regardless of verdict: which lineage has real
-above-control programs, and how many.
+Decision rule (pre-registered; do not change after freezing):
+- Per seed, per lineage: excess[m] = max(0, strength[m] - Progenitor_baseline).
+- n_real[lineage] = submodules with excess > EXCESS_FLOOR AND perm_q < 0.05.
+- The original claim (erythroid MORE distributed than granulocyte) is SUPPORTED
+  only if, in >= 3 of 5 seeds: ery_n_real >= 2 AND ery_n_real >= gran_n_real AND
+  ery has higher excess-entropy than gran. A lineage with < 2 real programs cannot
+  be "distributed"; it is unified or undetected. The plain finding (which lineage
+  has how many real programs) is reported regardless of the SUPPORTED/NOT verdict.
 
-Run (after training on marker-aware data):
-  python v0b_v3_1_decision.py --data-dir /content/drive/MyDrive/data_ma \
-      --output-dir /content/drive/MyDrive/data_ma/v0b_outputs
+Run:
+  python v0b_v3_1_decision.py --data-dir <dir> --output-dir <dir>/v0b_outputs
 """
 from __future__ import annotations
 
@@ -38,43 +37,86 @@ from pathlib import Path
 
 import numpy as np
 import pandas as pd
+from statsmodels.stats.multitest import multipletests
 
 import v0b_module_definitions as v0b
 import v0b_v3_loading as v3
 
-CONTROL_SUBMODULES = ["Progenitor", "Cycling"]
-EXCESS_FLOOR = 0.10          # excess strength above control to count as a real program
+CONTROL_SUBMODULE = "Progenitor"      # primary baseline (Cycling dropped: real program)
+SECONDARY_CONTROLS = ["Cycling"]      # reported, should sit near baseline
+EXCESS_FLOOR = 0.10
+PERM_Q = 0.05
+N_PERM = 1000
+N_ABUND_BINS = 20
 SEED = v0b.SEED
 
 
 def _norm_largest_frac(vals):
-    """Count-normalized concentration: uniform -> 0, fully concentrated -> 1."""
-    vals = [v for v in vals]
-    n = len(vals)
-    total = float(sum(vals))
+    n = len(vals); total = float(sum(vals))
     if n <= 1 or total == 0:
         return np.nan
     frac = max(vals) / total
     return (frac - 1.0 / n) / (1.0 - 1.0 / n)
 
 
-def per_seed_control_referenced(strength_df, ery_subs, gran_subs, control_subs):
+def abundance_matched_null(decoder_weights, coverage, usable, n_genes, n_perm, rng,
+                           n_bins=N_ABUND_BINS):
+    """Per-submodule empirical p: is the submodule's mean-across-seeds strength above
+    what abundance-matched random gene sets achieve? Matching is on per-gene total
+    |decoder weight| (binned), so significance reflects coherent concentration, not
+    gene abundance."""
+    abund = sum(np.abs(decoder_weights[s]).sum(axis=1) for s in decoder_weights)  # (n_genes,)
+    edges = np.quantile(abund, np.linspace(0, 1, n_bins + 1)[1:-1])
+    gene_bin = np.digitize(abund, edges)                    # bin index per gene
+    genes_by_bin = {b: np.where(gene_bin == b)[0] for b in np.unique(gene_bin)}
+    Wabs = {s: np.abs(decoder_weights[s]) for s in decoder_weights}
+    total = {s: np.where(Wabs[s].sum(0) == 0, np.nan, Wabs[s].sum(0)) for s in decoder_weights}
+
+    def strength_for(idx, K):
+        per_seed = []
+        for s in decoder_weights:
+            enr = (Wabs[s][idx, :].sum(0) / total[s]) * (n_genes / K)
+            per_seed.append(v3._top_mean(enr))
+        return float(np.mean(per_seed))
+
+    modules, pvals = [], []
+    for m in usable:
+        idx = np.asarray(coverage[m]["present_indices"])
+        K = len(idx)
+        obs = strength_for(idx, K)
+        null = np.array([strength_for(
+            np.array([rng.choice(genes_by_bin[gene_bin[g]]) for g in idx]), K)
+            for _ in range(n_perm)])
+        modules.append(m)
+        pvals.append((1 + int((null >= obs).sum())) / (1 + n_perm))
+    q = multipletests(pvals, method="fdr_bh")[1]
+    return {m: {"perm_p": float(p), "perm_q": float(qq)}
+            for m, p, qq in zip(modules, pvals, q)}
+
+
+def per_seed_control_referenced(strength_df, ery_subs, gran_subs, perm, usable):
+    real = {m for m in usable if perm.get(m, {}).get("perm_q", 1.0) < PERM_Q}
     rows = []
     for seed in range(v0b.N_SEEDS):
         s = strength_df[strength_df.seed == seed].set_index("module")["strength"]
-        baseline = float(np.mean([s.get(m, np.nan) for m in control_subs])) if control_subs else 0.0
+        baseline = float(s.get(CONTROL_SUBMODULE, 0.0))
 
         def excess(subs):
             return [max(0.0, float(s.get(m, 0.0)) - baseline) for m in subs]
 
+        def n_real(subs, x):
+            return int(sum((xi > EXCESS_FLOOR) and (m in real)
+                           for m, xi in zip(subs, x)))
+
         ery_x, gran_x = excess(ery_subs), excess(gran_subs)
         rows.append({
-            "seed": seed, "control_baseline": baseline,
+            "seed": seed, "progenitor_baseline": baseline,
+            "cycling_strength": float(s.get("Cycling", np.nan)),
             "ery_excess": ery_x, "gran_excess": gran_x,
-            "ery_n_real": int(sum(x > EXCESS_FLOOR for x in ery_x)),
-            "gran_n_real": int(sum(x > EXCESS_FLOOR for x in gran_x)),
-            "ery_norm_entropy": v0b._norm_entropy(ery_x),
-            "gran_norm_entropy": v0b._norm_entropy(gran_x),
+            "ery_n_real": n_real(ery_subs, ery_x),
+            "gran_n_real": n_real(gran_subs, gran_x),
+            "ery_excess_entropy": v0b._norm_entropy(ery_x),
+            "gran_excess_entropy": v0b._norm_entropy(gran_x),
             "ery_conc": _norm_largest_frac(ery_x),
             "gran_conc": _norm_largest_frac(gran_x),
         })
@@ -82,18 +124,25 @@ def per_seed_control_referenced(strength_df, ery_subs, gran_subs, control_subs):
 
 
 def decide(cr_df):
-    ery_more_distributed = (cr_df["ery_norm_entropy"] > cr_df["gran_norm_entropy"])
-    ery_has_programs = (cr_df["ery_n_real"] >= 2)
-    ery_ge_gran = (cr_df["ery_n_real"] >= cr_df["gran_n_real"])
-    both = ery_more_distributed & ery_has_programs & ery_ge_gran
-    supported = int(both.sum()) >= 3
+    both = ((cr_df["ery_excess_entropy"] > cr_df["gran_excess_entropy"]) &
+            (cr_df["ery_n_real"] >= 2) &
+            (cr_df["ery_n_real"] >= cr_df["gran_n_real"]))
+    e, g = cr_df["ery_n_real"].median(), cr_df["gran_n_real"].median()
+    if e == 0 and g == 0:
+        finding = "Neither lineage has a real above-control program (undetected)."
+    elif e >= g and e >= 2:
+        finding = f"Erythroid distributed across {e:.0f} real programs vs granulocyte {g:.0f}."
+    elif g > e:
+        finding = (f"Granulocyte has more real programs (median {g:.0f}) than erythroid "
+                   f"({e:.0f}); erythroid is unified/undetected. NOT the original claim.")
+    else:
+        finding = f"Erythroid {e:.0f} real programs vs granulocyte {g:.0f}."
     return {
-        "median_ery_n_real": float(cr_df["ery_n_real"].median()),
-        "median_gran_n_real": float(cr_df["gran_n_real"].median()),
-        "n_seeds_ery_has>=2_programs": int(ery_has_programs.sum()),
+        "control_baseline": CONTROL_SUBMODULE,
+        "median_ery_n_real": float(e), "median_gran_n_real": float(g),
         "n_seeds_supported_pattern": int(both.sum()),
-        "asymmetric_modularity_supported": bool(supported),
-        "plain_finding": None,   # filled below
+        "asymmetric_modularity_supported": bool(int(both.sum()) >= 3),
+        "plain_finding": finding,
     }
 
 
@@ -101,61 +150,51 @@ def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--data-dir", default=os.environ.get("V0B_DATA_DIR", "./data"))
     ap.add_argument("--output-dir", default=os.environ.get("V0B_OUTPUT_DIR", "./v0b_outputs"))
+    ap.add_argument("--n-perm", type=int, default=N_PERM)
     args = ap.parse_args()
     out = Path(args.output_dir); out.mkdir(parents=True, exist_ok=True)
+    rng = np.random.default_rng(SEED)
 
     data_dir = Path(args.data_dir)
     gene_names = v0b.load_gene_names(data_dir)
     n_genes = len(gene_names)
-    v0b.load_expression(data_dir)                       # MD5 check if present
+    v0b.load_expression(data_dir)
     decoder_weights, _ = v0b.load_checkpoints(data_dir, input_dim=n_genes)
     coverage, usable = v0b.compute_coverage(gene_names)
-
     ery_subs = [m for m in v0b.ERY_SUBMODULES if m in usable]
     gran_subs = [m for m in v0b.GRAN_SUBMODULES if m in usable]
-    control_subs = [m for m in CONTROL_SUBMODULES if m in usable]
 
     enrich = v3.loading_enrichment(decoder_weights, coverage, usable, n_genes)
     strength = v3.submodule_strength(enrich, usable)
-    cr = per_seed_control_referenced(strength, ery_subs, gran_subs, control_subs)
+    perm = abundance_matched_null(decoder_weights, coverage, usable, n_genes, args.n_perm, rng)
+    cr = per_seed_control_referenced(strength, ery_subs, gran_subs, perm, usable)
     decision = decide(cr)
-
-    e_real, g_real = decision["median_ery_n_real"], decision["median_gran_n_real"]
-    if e_real == 0 and g_real == 0:
-        finding = "Neither lineage has an above-control program (undetected)."
-    elif e_real == 0:
-        finding = (f"Only granulocyte has real above-control programs "
-                   f"(median {g_real:.0f}); erythroid is undetected. This is NOT "
-                   f"the 'erythroid distributed' claim.")
-    elif g_real == 0:
-        finding = (f"Only erythroid has real programs (median {e_real:.0f}); "
-                   f"granulocyte undetected.")
-    else:
-        finding = (f"Both lineages detected: erythroid median {e_real:.0f} vs "
-                   f"granulocyte {g_real:.0f} above-control programs.")
-    decision["plain_finding"] = finding
 
     strength_summary = (strength.groupby("module")["strength"].mean()
                         .reset_index().sort_values("strength", ascending=False))
+    strength_summary["perm_q"] = strength_summary["module"].map(
+        lambda m: perm.get(m, {}).get("perm_q", np.nan))
     cr.to_csv(out / "v0b_v3_1_per_seed.csv", index=False)
     with open(out / "v0b_v3_1_decision.json", "w") as f:
-        json.dump({"control_submodules": control_subs, "excess_floor": EXCESS_FLOOR,
-                   "decision": decision,
-                   "mean_strength": strength_summary.set_index("module")["strength"].to_dict()},
+        json.dump({"excess_floor": EXCESS_FLOOR, "perm_q_threshold": PERM_Q,
+                   "control_baseline": CONTROL_SUBMODULE, "decision": decision,
+                   "submodule": strength_summary.set_index("module").to_dict("index")},
                   f, indent=2)
 
     print("\n" + "=" * 72)
-    print("V0b v3.1 CONTROL-REFERENCED DECISION")
+    print("V0b v3.1 (pre-registered) SUBMODULE STRENGTH + abundance-matched perm q")
     print("=" * 72)
-    print(cr[["seed", "control_baseline", "ery_n_real", "gran_n_real",
-              "ery_norm_entropy", "gran_norm_entropy"]].to_string(index=False))
-    print("\n  above-control programs (median): "
-          f"erythroid {e_real:.0f}, granulocyte {g_real:.0f}")
+    print(strength_summary.to_string(index=False))
+    print("\n" + "=" * 72)
+    print("CONTROL-REFERENCED DECISION (Progenitor baseline)")
+    print("=" * 72)
+    print(cr[["seed", "progenitor_baseline", "ery_n_real", "gran_n_real",
+              "ery_excess_entropy", "gran_excess_entropy"]].to_string(index=False))
     for k, v in decision.items():
         print(f"  {k}: {v}")
-    print(f"\n  ASYMMETRIC MODULARITY (control-referenced): "
+    print(f"\n  ASYMMETRIC MODULARITY (pre-registered): "
           f"{'SUPPORTED' if decision['asymmetric_modularity_supported'] else 'NOT SUPPORTED'}")
-    print(f"  FINDING: {finding}")
+    print(f"  FINDING: {decision['plain_finding']}")
 
 
 if __name__ == "__main__":
