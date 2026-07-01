@@ -35,17 +35,33 @@ SAEs on single-cell data is an active, published area, not white space:
 - Field leadership: Fabian Theis (2025 ISCB Innovator, single-cell + ML), James
   Zou (2025 ISCB Overton, ML for biology). Judges in this niche may know this work.
 
-Implication: "apply SAEs to scRNA-seq to find interpretable gene programs" is
-2024-2025 state of the art, published by multiple groups. It is not novel in 2026.
+Implication: "apply SAEs to single-cell data to find interpretable features" is
+established (2024-2026). But — CORRECTION to an earlier overstatement in this doc:
+verifying the actual papers shows ALL of the prior SAE-single-cell work is on
+FOUNDATION-MODEL EMBEDDING/activation space at the atlas level. Kendiukhov trains
+SAEs on Geneformer/scGPT residual streams (~82k / ~24k features), not on raw
+expression, and its 6.2% is the causal rate OF FOUNDATION-MODEL features. None of
+the prior work does expression-space SAEs along a developmental trajectory + causal
+validation of those features + clinical/tumor translation as an integrated program.
+So the base technique is not novel; the integrated program is open. The earlier
+"the project is done" framing was too strong and is retracted.
+
+Two adjacent papers to personally verify (I could not fully read them):
+- CytoSAE: Interpretable Cell Embeddings for Hematology (arXiv 2507.12464).
+- Discovery of a Hematopoietic Manifold in scGPT (arXiv 2603.10261).
+Both are hematology + SAE/foundation-model; check whether either does
+expression-space + causal + clinical before claiming that ground.
 
 ## 2. Novelty audit — what dies, what survives
 
-DEAD as novelty:
-- "SAEs recover interpretable gene programs from single-cell data." Done, published.
-- "Embedding-space SAEs on Geneformer/scGPT" (Phase 2 Part 4). This is exactly
-  Kendiukhov's atlas. Do NOT frame as novel; frame as a replication/concordance arm.
+DEAD as novelty (do not claim these):
+- "SAEs recover interpretable features from single-cell data" as a general idea.
+- "Embedding-space SAEs on Geneformer/scGPT" (Phase 2 Component 4). This IS
+  Kendiukhov's atlas. Frame Component 4 as a controlled comparison/replication, not
+  a novel contribution.
 
-SURVIVES as genuine differentiation (rank order of strength):
+SURVIVES as genuine differentiation (rank order of strength) — and the key point:
+NO prior paper does the integrated expression-space + causal + clinical program:
 1. **The artifact-vs-signal framework.** The v1->v2->v3->v3.1 saga is not
    embarrassing history; it is the contribution. You have a documented, executed,
    pre-registered method for deciding whether an SAE "program" is real or a metric
@@ -53,11 +69,15 @@ SURVIVES as genuine differentiation (rank order of strength):
    null, marker-curation audit). No SAE-single-cell paper does this rigorously.
    This is the novel, defensible core. Most of the field reports features and
    asserts interpretability; you built the adversarial test.
-2. **Causal validation against a pre-registered null (Replogle CRISPRi vs 6.2%).**
-   The interpretability field mostly stops at "features look meaningful." A direct,
-   pre-registered causal test (does knocking down TF X specifically move the feature
-   annotated for X, beating Kendiukhov's 6.2%) is the strongest, least-crowded
-   differentiator. Make this the centerpiece, not an appendix.
+2. **The head-to-head causal question (the sharpest novel claim).** Kendiukhov
+   showed FOUNDATION-MODEL SAE features have minimal causal logic (6.2% of TFs).
+   The open, unpublished question: do EXPRESSION-SPACE SAE features, annotated along
+   a developmental trajectory, have BETTER causal grounding when tested against the
+   same Replogle CRISPRi data? This is a direct, pre-registered head-to-head against
+   a published null, and nobody has run it. Make it the centerpiece. Either outcome
+   is publishable: if expression-space beats 6.2%, that is a real finding about where
+   causal structure lives; if it matches, that corroborates Kendiukhov from a new
+   angle. Frame the whole project around THIS question.
 3. **Expression-space + developmental trajectory.** Most of the field does
    embedding-space, atlas-level "what features exist." You do direct expression
    SAEs along a commitment trajectory (pseudotime + branch probabilities +
