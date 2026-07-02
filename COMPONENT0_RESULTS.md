@@ -154,21 +154,60 @@ median gran_n_real = 2 vs ery_n_real = 1. Submodule strength (1.0=null) + perm_q
   sampling/composition difference, not a contradiction of the direction.
 - Control calibration holds cross-species (human Progenitor perm_q 0.748).
 
-Human PCA/NMF baselines and leave-one-marker-out sensitivity: running in the same
-chained job; numbers appended in the finalizing commit. Human decision bundle
-frozen there.
+**Human baselines** (same v3.1 metric on PCA/NMF decoders, rank 512):
+- Effective dimensionality (PR): **SAE 278.6, PCA 270.7, NMF 5.9.** Note the human
+  contrast with mouse: here PCA is nearly as high-dimensional as the SAE, while NMF
+  is again heavily compressed.
+- **PCA**: ery=1, gran=3, NOT supported -> granulocyte-distributed (AGREES with SAE).
+- **NMF**: ery=0, gran=0, NOT supported -> detects no above-control program at all.
+- **SAE**: ery=1, gran=2, NOT supported -> granulocyte-distributed.
+
+**Human marker sensitivity** (leave-one-out, 36 present markers): **0/36 drops flip
+the verdict.** Robust, same as mouse.
+
+## 6b. Cross-species x cross-method synthesis (the money table)
+
+Each cell = does that method+species SUPPORT the ORIGINAL claim (erythroid more
+distributed), and the plain direction it points:
+
+| method | mouse | human |
+|--------|-------|-------|
+| SAE  | NO - granulocyte more distributed (gran 3 / ery 1.5) | NO - granulocyte more distributed (gran 2 / ery 1) |
+| PCA  | NO - resolves almost nothing (ery 1 / gran 1) | NO - granulocyte more distributed (gran 3 / ery 1) |
+| NMF  | **YES** - erythroid more distributed (ery 2.5 / gran 2) | NO - detects nothing (ery 0 / gran 0) |
+
+Two things to read off this:
+1. **The original claim survives in exactly 1 of 6 method x species combinations**
+   (mouse NMF), and that one is the method most prone to parts-based artifact
+   (inflated strengths, a non-significant Gran_Primary). Every other combination
+   rejects it. So the v1 headline is not just unsupported by the SAE; it is
+   unsupported by the weight of methods and species.
+2. **The SAE direction (granulocyte more distributed) is the only claim that holds
+   in both species**, and in human PCA independently agrees. But NMF disagrees in
+   both species (opposite in mouse, null in human). So even the reversed finding is
+   method-contingent, not decomposition-invariant. This is the artifact-vs-signal
+   thesis, now demonstrated across two species and three decompositions.
 
 ## 7. Freeze (provenance hashes)
 
-The Gate-0 mouse decision output is frozen for provenance:
-- `data_g0/v0b_outputs/v0b_v3_1_decision.json` sha256 `0e88f982...`
-- `data_g0/v0b_outputs/v0b_v3_1_per_seed.csv`   sha256 `683eea9d...`
+The Gate-0 decision outputs are frozen for provenance.
+
+Mouse (primary):
 - combined canonical bundle sha256
   `172861417a923a83705812a96e5ad1e555055e968323289879447e53beb84396`
 
-This freezes a NEGATIVE-plus-method-dependence result from a properly regularized,
-10-seed, sparsity-corrected run - not a positive claim from a broken run. That
-distinction is the whole point of the gate (CLAUDE.md section 2).
+Human (replication):
+- `v0b_v3_1_decision.json` sha256 `28301fec...`; `v0b_v3_1_per_seed.csv` sha256 `5fdc2e8c...`
+- combined canonical bundle sha256
+  `cc8159c882cf326bca5bbbc7f74d110d4a81338ec0ba07e208eb935bc8f729d3`
+
+(Bundle = `cat <decision.json> <per_seed.csv> | sha256sum`, regenerable from the
+committed artifacts.) This freezes a NEGATIVE-plus-method-dependence result from a
+properly regularized, 10-seed, sparsity-corrected run in BOTH species - not a
+positive claim from a broken run. That distinction is the whole point of the gate
+(CLAUDE.md section 2). Gate 0 is now EXECUTED end to end: sparsity fixed, >=10
+seeds, pre-registered v3.1, PCA/NMF baselines, marker sensitivity, and human
+replication all done in-container.
 
 ## 8. Honest limitations (do not omit)
 

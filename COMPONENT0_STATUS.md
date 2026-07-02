@@ -9,10 +9,16 @@ preprocessed marker-aware, and the full chain ran: 300-epoch L1 retune -> 10-see
 overcomplete SAE (L0 mean 35.75, all in band) -> frozen v3.1 -> PCA/NMF baselines
 -> leave-one-marker-out sensitivity -> freeze. See **COMPONENT0_RESULTS.md** for
 every number. Verdict: original asymmetric-modularity claim NOT SUPPORTED; the
-modularity call is method-dependent (PCA/NMF/SAE disagree). The human replication
-arm (Setty 2019 CD34+ marrow) is downloaded, preprocessed, and training as of this
-commit. The runner below is retained for reproduction/Colab; CPU in-container also
-works (~50-75s/seed).
+modularity call is method-dependent (PCA/NMF/SAE disagree).
+
+**UPDATE 2026-07-02 (finalizing): the HUMAN replication arm is also EXECUTED.**
+Setty 2019 CD34+ marrow, 10-seed SAE (L0 mean 32.5, all in band), frozen v3.1 +
+PCA/NMF baselines + leave-one-out (0/36 flips). Original claim NOT SUPPORTED in
+human too; granulocyte-more-distributed direction replicates; human globin program
+is not significant vs the abundance-matched null (CD34+ progenitor selection). Both
+decision bundles frozen (mouse `172861...`, human `cc8159c8...`). **Gate 0 is now
+complete end to end.** The runner below is retained for GPU/Colab reproduction; CPU
+in-container also works (~50-75s/seed).
 
 ## Code-complete and verified in-container
 
