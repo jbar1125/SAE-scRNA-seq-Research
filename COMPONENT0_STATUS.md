@@ -1,11 +1,18 @@
 # COMPONENT 0 STATUS (Gate 0: lock the foundation)
 
 Component 0 is the prerequisite gate before any Phase 2 work: pre-register one
-metric, fix sparsity, finish baselines, prove marker robustness, and freeze. All
-CODE for this gate is written, tested in-container, committed, and pushed. The
-remaining work is EXECUTION on a GPU (Colab), which cannot run in this sandbox
-(no data, Paul15 download proxy-blocked). This file states exactly what is done and
-gives the single runner that finishes the gate.
+metric, fix sparsity, finish baselines, prove marker robustness, and freeze.
+
+**UPDATE 2026-07-02: the mouse arm has been EXECUTED in-container on real data.**
+Paul15 was obtained via a git-LFS mirror (the direct download is proxy-blocked),
+preprocessed marker-aware, and the full chain ran: 300-epoch L1 retune -> 10-seed
+overcomplete SAE (L0 mean 35.75, all in band) -> frozen v3.1 -> PCA/NMF baselines
+-> leave-one-marker-out sensitivity -> freeze. See **COMPONENT0_RESULTS.md** for
+every number. Verdict: original asymmetric-modularity claim NOT SUPPORTED; the
+modularity call is method-dependent (PCA/NMF/SAE disagree). The human replication
+arm (Setty 2019 CD34+ marrow) is downloaded, preprocessed, and training as of this
+commit. The runner below is retained for reproduction/Colab; CPU in-container also
+works (~50-75s/seed).
 
 ## Code-complete and verified in-container
 

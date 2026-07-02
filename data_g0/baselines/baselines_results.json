@@ -1,0 +1,110 @@
+{
+  "rank": 512,
+  "participation_ratio": {
+    "data_pca": 14.025420561751176,
+    "nmf": 5.2373335934500735,
+    "nmf_note": "NMF fit on max(X,0); ideally the log-normalized pre-scaling matrix.",
+    "sae": 195.89235438326375
+  },
+  "modularity": {
+    "pca": {
+      "decision": {
+        "control_baseline": "Progenitor",
+        "median_ery_n_real": 1.0,
+        "median_gran_n_real": 1.0,
+        "n_seeds_supported_pattern": 0,
+        "support_threshold_60pct": 6,
+        "asymmetric_modularity_supported": false,
+        "plain_finding": "Erythroid 1 real programs vs granulocyte 1."
+      },
+      "mean_strength": {
+        "Cycling": 2.779491583506266,
+        "Ery_Effector": 6.0217180252075195,
+        "Ery_Heme": 2.0232514142990112,
+        "Ery_Membrane": 2.0509742498397827,
+        "Ery_TF": 1.901967167854309,
+        "Gran_Primary": 4.643708149592082,
+        "Gran_Secondary": 3.4397311210632324,
+        "Gran_TF": 2.9968154430389404,
+        "Progenitor": 2.187726378440857
+      },
+      "perm_q": {
+        "Ery_TF": 0.11688311688311688,
+        "Ery_Heme": 0.1550949050949051,
+        "Ery_Membrane": 0.1550949050949051,
+        "Ery_Effector": 0.005994005994005994,
+        "Gran_TF": 0.09530469530469529,
+        "Gran_Primary": 0.004495504495504496,
+        "Gran_Secondary": 0.09530469530469529,
+        "Progenitor": 0.43456543456543456,
+        "Cycling": 0.004495504495504496
+      }
+    },
+    "nmf": {
+      "decision": {
+        "control_baseline": "Progenitor",
+        "median_ery_n_real": 2.5,
+        "median_gran_n_real": 2.0,
+        "n_seeds_supported_pattern": 8,
+        "support_threshold_60pct": 6,
+        "asymmetric_modularity_supported": true,
+        "plain_finding": "Erythroid distributed across 2 real programs vs granulocyte 2."
+      },
+      "mean_strength": {
+        "Cycling": 4.6216674963633215,
+        "Ery_Effector": 25.024677181243895,
+        "Ery_Heme": 13.592367831865946,
+        "Ery_Membrane": 7.2156752665837605,
+        "Ery_TF": 5.589353116353353,
+        "Gran_Primary": 7.619022552172344,
+        "Gran_Secondary": 38.15280551910401,
+        "Gran_TF": 15.262852319081622,
+        "Progenitor": 8.38069502512614
+      },
+      "perm_q": {
+        "Ery_TF": 0.019480519480519484,
+        "Ery_Heme": 0.0017982017982017982,
+        "Ery_Membrane": 0.0017982017982017982,
+        "Ery_Effector": 0.0017982017982017982,
+        "Gran_TF": 0.0282574568288854,
+        "Gran_Primary": 0.17682317682317683,
+        "Gran_Secondary": 0.0017982017982017982,
+        "Progenitor": 0.04720279720279721,
+        "Cycling": 0.0017982017982017982
+      }
+    },
+    "sae": {
+      "decision": {
+        "control_baseline": "Progenitor",
+        "median_ery_n_real": 1.5,
+        "median_gran_n_real": 3.0,
+        "n_seeds_supported_pattern": 0,
+        "support_threshold_60pct": 6,
+        "asymmetric_modularity_supported": false,
+        "plain_finding": "Granulocyte has more real programs (median 3) than erythroid (2); erythroid is unified/undetected. NOT the original claim."
+      },
+      "mean_strength": {
+        "Cycling": 2.0071138302485148,
+        "Ery_Effector": 5.072889153162638,
+        "Ery_Heme": 2.3997562646865847,
+        "Ery_Membrane": 1.9928410410881043,
+        "Ery_TF": 1.9028604388237,
+        "Gran_Primary": 4.30128296216329,
+        "Gran_Secondary": 3.3574685414632164,
+        "Gran_TF": 2.9303250551223754,
+        "Progenitor": 2.328529755274455
+      },
+      "perm_q": {
+        "Ery_TF": 0.03596403596403597,
+        "Ery_Heme": 0.0017982017982017982,
+        "Ery_Membrane": 0.01048951048951049,
+        "Ery_Effector": 0.0017982017982017982,
+        "Gran_TF": 0.021835307549593265,
+        "Gran_Primary": 0.0017982017982017982,
+        "Gran_Secondary": 0.0017982017982017982,
+        "Progenitor": 0.07992007992007992,
+        "Cycling": 0.0017982017982017982
+      }
+    }
+  }
+}

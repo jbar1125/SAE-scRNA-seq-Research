@@ -242,7 +242,34 @@ def load_checkpoints(data_dir: Path, input_dim: int):
 # --------------------------------------------------------------------------- #
 # Marker coverage
 # --------------------------------------------------------------------------- #
+_MARKERS_SOURCE = "built-in mouse (Paul15)"
+
+
+def _maybe_override_markers():
+    """Optionally replace the built-in MOUSE marker sets with an external panel
+    (e.g. human orthologs for the replication arm) when the env var
+    V0B_MARKERS_JSON points to a JSON file with keys: marker_sets (dict),
+    ery_submodules (list), gran_submodules (list). This leaves the pre-registered
+    mouse pipeline byte-for-byte identical when the var is unset, and lets the
+    human run reuse the SAME metric/submodule structure with orthologous genes.
+    Idempotent: a given file is applied once."""
+    global MARKER_SETS, ERY_SUBMODULES, GRAN_SUBMODULES, _MARKERS_SOURCE
+    path = os.environ.get("V0B_MARKERS_JSON")
+    if not path:
+        return
+    if _MARKERS_SOURCE == path:
+        return
+    spec = json.load(open(path))
+    MARKER_SETS = {str(k): [str(g) for g in v] for k, v in spec["marker_sets"].items()}
+    ERY_SUBMODULES = [str(m) for m in spec["ery_submodules"]]
+    GRAN_SUBMODULES = [str(m) for m in spec["gran_submodules"]]
+    _MARKERS_SOURCE = path
+    print(f"Marker sets OVERRIDDEN from {path} "
+          f"({spec.get('species', 'unknown')}); {len(MARKER_SETS)} submodules.")
+
+
 def compute_coverage(gene_names: list[str]):
+    _maybe_override_markers()
     gene_to_idx = {g: i for i, g in enumerate(gene_names)}
     coverage = {}
     for module, genes in MARKER_SETS.items():

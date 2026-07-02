@@ -13,3 +13,20 @@ v0b_outputs/*
 !v0b_outputs/module_assignments_v0b.csv
 !v0b_outputs/modularity_metrics_per_seed.csv
 !v0b_outputs/v0b_provenance.json
+
+# Executed Gate-0 run dirs (mouse data_g0, human data_g0_human): the large
+# matrices/checkpoints/raw h5ad are regenerable and stay out of git; the small
+# result artifacts (reports, decisions, per-seed CSVs) ARE committed as evidence.
+data_g0/**/*.npy
+data_g0/**/*.pt
+data_g0/*.npy
+data_g0/*.pt
+data_g0/cell_metadata.csv
+data_g0/*_log.txt
+data_g0_human/**/*.npy
+data_g0_human/**/*.pt
+data_g0_human/*.npy
+data_g0_human/*.pt
+data_g0_human/*.h5ad
+data_g0_human/cell_metadata.csv
+data_g0_human/*_log.txt

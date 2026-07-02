@@ -1,0 +1,93 @@
+{
+  "species": "human",
+  "marker_sets": {
+    "Ery_TF": [
+      "GATA1",
+      "KLF1",
+      "TAL1",
+      "LMO2",
+      "ZFPM1",
+      "STAT5A",
+      "BCL11A",
+      "MYB"
+    ],
+    "Ery_Heme": [
+      "ALAS2",
+      "FECH",
+      "HMBS",
+      "PPOX",
+      "CPOX",
+      "UROD",
+      "ALAD"
+    ],
+    "Ery_Membrane": [
+      "GYPC",
+      "ANK1",
+      "RHAG",
+      "AQP1",
+      "EPOR",
+      "TSPO",
+      "ERMAP"
+    ],
+    "Ery_Effector": [
+      "HBB",
+      "HBA1",
+      "HBA2"
+    ],
+    "Gran_TF": [
+      "CEBPA",
+      "CEBPE",
+      "RUNX1"
+    ],
+    "Gran_Primary": [
+      "MPO",
+      "ELANE",
+      "PRTN3",
+      "CTSG"
+    ],
+    "Gran_Secondary": [
+      "LTF",
+      "LCN2",
+      "CAMP",
+      "MMP8",
+      "MMP9",
+      "S100A8",
+      "S100A9"
+    ],
+    "Progenitor": [
+      "KIT",
+      "CD34",
+      "MLLT3",
+      "EIF4EBP1"
+    ],
+    "Cycling": [
+      "TOP2A",
+      "PCNA",
+      "MCM2",
+      "MCM3",
+      "MCM4",
+      "MCM5",
+      "MCM6",
+      "MCM7",
+      "CDK1",
+      "CDK4",
+      "CDK6",
+      "CENPE",
+      "CENPF",
+      "AURKB",
+      "BIRC5",
+      "CCNB2"
+    ]
+  },
+  "ery_submodules": [
+    "Ery_TF",
+    "Ery_Heme",
+    "Ery_Membrane",
+    "Ery_Effector"
+  ],
+  "gran_submodules": [
+    "Gran_TF",
+    "Gran_Primary",
+    "Gran_Secondary"
+  ]
+}
