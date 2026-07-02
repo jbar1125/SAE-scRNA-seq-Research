@@ -118,15 +118,45 @@ that the earlier globin-symbol bug made concrete.
 
 ## 6. Human replication arm
 
-IN PROGRESS (this commit). The human CD34+ marrow atlas has been obtained
-(sha256 be4f8603...), preprocessed with the CELLxGENE pipeline (normalize_total +
-log1p + marker-aware HVG on human orthologs; all 9 submodules usable, MD5
-`62796189...`), and the human L1 is being retuned to the 20-50 L0 band (human data
-are denser: l1=0.4 -> L0 99.5, l1=0.6 -> L0 54.4, higher L1 needed than mouse).
-The pre-registered v3.1 decision will then run with `V0B_MARKERS_JSON=human_markers.json`.
-This section is filled with the human verdict in the finalizing commit. The
-question it answers: does the SAE's granulocyte-distributed / erythroid-unified
-direction hold cross-species, and does the PCA/NMF/SAE method-disagreement recur?
+Human CD34+ marrow atlas (Setty 2019, sha256 be4f8603...), CELLxGENE pipeline
+(normalize_total(1e4) + log1p + marker-aware HVG on human orthologs; all 9
+submodules usable, MD5 `62796189...`). Human L1 retuned to band (human is denser:
+l1=0.4->L0 99.5, 0.6->54.4, **0.8->32.5 chosen**, 1.0->21.4). Final 10-seed run:
+**L0 mean 32.5, all 10 in band**, recon_mse ~0.666 (extremely tight). Analysis run
+with `V0B_MARKERS_JSON=human_markers.json` so the pre-registered metric and
+submodule structure are reused with human orthologs.
+
+**v3.1 verdict (human): original claim NOT SUPPORTED (0/10 seeds)** - same as mouse.
+median gran_n_real = 2 vs ery_n_real = 1. Submodule strength (1.0=null) + perm_q:
+
+| submodule | strength | perm_q | note |
+|-----------|---------:|-------:|------|
+| Gran_Primary | 5.44 | 0.0045 | strongest program in human |
+| Gran_Secondary | 4.02 | 0.043 | real program |
+| Ery_Effector (globins) | 3.75 | 0.216 | present but NOT significant vs abundance-matched null |
+| Cycling | 3.67 | 0.0045 | real (expected) |
+| Ery_TF | 2.74 | 0.018 | the one erythroid submodule that clears |
+| Gran_TF | 2.74 | 0.298 | n.s. |
+| Ery_Membrane | 2.51 | 0.304 | n.s. |
+| **Progenitor (control)** | **2.22** | **0.748** | **non-significant (null calibrated)** |
+| Ery_Heme | 2.21 | 0.736 | at control |
+
+**Cross-species reading (honest):**
+- The DIRECTION replicates: granulocyte carries more real above-control programs
+  than erythroid in BOTH species; the original "erythroid distributed / granulocyte
+  unified" claim is rejected in mouse AND human.
+- The MECHANISM differs by species and it is worth stating plainly. In mouse the
+  dominant, highly-significant program is erythroid hemoglobin (`Ery_Effector`); in
+  human the dominant program is the granulocyte primary granule, and the erythroid
+  globin program is present but NOT significant against the abundance-matched null.
+  Most likely cause: Setty is CD34+ progenitor-SELECTED marrow, so terminal
+  hemoglobin-high erythroblasts are underrepresented relative to Paul15. This is a
+  sampling/composition difference, not a contradiction of the direction.
+- Control calibration holds cross-species (human Progenitor perm_q 0.748).
+
+Human PCA/NMF baselines and leave-one-marker-out sensitivity: running in the same
+chained job; numbers appended in the finalizing commit. Human decision bundle
+frozen there.
 
 ## 7. Freeze (provenance hashes)
 
