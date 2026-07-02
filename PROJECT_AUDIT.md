@@ -297,3 +297,34 @@ Caveats before this becomes a headline:
 Net status: the headline is not dead, it is inverted and now defensible. Prior
 "erythroid undetected" conclusions (Audit F, G, H, I) were confounded by the
 marker bug fixed here and should be read as superseded by J.
+
+## K. DEFINITIVE Gate-0 execution: sparsity-corrected 10-seed run (2026-07-02)
+
+J's caveats are now closed. The full Gate-0 chain was EXECUTED in-container on real
+Paul15 (obtained via git-LFS mirror; direct download proxy-blocked). Details and
+all numbers in COMPONENT0_RESULTS.md; summary:
+
+- **Sparsity fixed properly.** New lesson: L0 depends on TRAINING LENGTH, not just
+  L1. l1=3.0 gave L0 34.6 at 150 epochs but ~17 at the real 300 epochs. Retuned at
+  300 epochs: l1=0.8 -> L0 band-center. Final 10-seed run L0 mean **35.75**, all 10
+  in the 20-50 band (J's L0~63 concern is resolved).
+- **v3.1 (frozen metric, Progenitor-only baseline, abundance-matched null):**
+  original claim **NOT SUPPORTED (0/10 seeds)**. gran_n_real=3 in 10/10 seeds;
+  ery_n_real median 1.5. Ery_Effector strongest (5.07). Progenitor control perm_q
+  **0.085** (non-significant) - J's mis-calibrated-null concern is resolved by the
+  abundance-matched null.
+- **Baselines (NEW, decisive):** the verdict is METHOD-DEPENDENT. PR SAE 195.9 vs
+  PCA 14.0 vs NMF 5.2; PCA finds ery=1/gran=1, NMF finds ery-distributed
+  ("supported"), SAE finds gran-distributed. Three methods, three answers. The
+  reversed SAE direction is therefore SAE-specific, not decomposition-invariant
+  biology. This is the artifact-vs-signal centerpiece and it downgrades ALL prior
+  single-method modularity claims (v1 headline included) to method-contingent.
+- **Marker sensitivity (NEW):** 0/34 leave-one-out drops flip the verdict.
+- **Human replication:** Setty 2019 CD34+ marrow obtained + preprocessed; SAE
+  training underway (see COMPONENT0_RESULTS.md section 6).
+- **Freeze:** v3.1 decision bundle sha256 172861417a923a... (a negative + method-
+  dependence result from a clean run, not a frozen artifact of a broken one).
+
+Bottom line change vs J: "inverted and now defensible" becomes "inverted for the
+SAE specifically, but NOT method-invariant - so the honest Gate-0 output is a
+calibrated negative that motivates the causal test, not a new headline."
