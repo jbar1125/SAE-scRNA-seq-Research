@@ -225,5 +225,23 @@ PERM_Q in {0.01,0.05,0.10}, 12 configs) on the existing 10-seed checkpoints; the
 expensive permutation null is computed once and the grid evaluated on top. Result:
 in BOTH species, **0/12 configs support the original claim and granulocyte >=
 erythroid real-program count at every point** -> the NOT-SUPPORTED verdict is not a
-knob-tuning artifact. Artifacts: `data_g0{,_human}/robustness/`. Next: R2 (retrain
-at L0 spanning the 20-50 band) and R3 (20 seeds).
+knob-tuning artifact. Artifacts: `data_g0{,_human}/robustness/`.
+
+**Autonomy update.** Per `/goal`, mode switched to fully autonomous: no halting to
+ask; forks are resolved with a conservative default and logged here as "Decision
+(auto)". Only irreversible/outward-facing actions or hard capability limits block.
+
+**Decision (auto) — compute documentation.** Added `docs/COMPUTE.md` recording the
+CPU-vs-GPU reasoning (Gate 0 is CPU-fine; GPU starts at Component 2; the AMD RX 5700
+XT is not practical for the PyTorch/ROCm stack). Reason: the user asked how GPU work
+is handled; documenting it prevents repeated confusion for mentors.
+
+**Decision (auto) — external DB reachability (for later units).** Probed: TRRUST
+direct host grnpedia.org is proxy-BLOCKED (000); pySCENIC installs from PyPI but its
+cisTarget motif-ranking databases (aertslab) are large and expected to be blocked.
+Plan when those units come up: try a GitHub mirror for TRRUST; if blocked, defer the
+DB cross-reference and note it as an external-resource limit rather than fake it. For
+SCENIC: if cisTarget DBs are unreachable, run a GRNBoost2-only co-expression baseline
+labeled honestly as such (NOT full SCENIC), or defer. No fabricated regulons.
+
+Next: R2 (retrain at L0 spanning the 20-50 band) then R3 (20 seeds), R4 (HVG count).
