@@ -314,3 +314,15 @@ seeds; ery_n_real = 1 in ten seeds and 2 in ten (median 1.5); granulocyte > eryt
 in 20/20; 0/20 support the original pattern; NOT SUPPORTED.** Doubling the seed count
 changes nothing -> n=10 was sufficient and the granulocyte-more-distributed direction
 is highly stable. Artifact: `data_g0/robustness/r3_20seed_summary.json`.
+
+**R4 HVG-count sensitivity — DONE.** Re-preprocessed mouse at n-hvg 1000 (1023 genes)
+and 3000 (3006 genes), 5 seeds each, l1=0.8. **NOT SUPPORTED at 1000/2000/3000 HVGs;
+granulocyte 3 / erythroid 1-2 throughout.** Honest caveat: at fixed l1=0.8, L0 leaves
+the band at 1000 genes (~90, too dense) and 3000 genes (~18, too sparse) because L0
+depends on gene count; a per-count l1 retune would recenter L0, but the verdict is
+stable without it. Artifact: `data_g0/robustness/r4_hvg_summary.json`.
+
+**Hardening battery COMPLETE.** R1-R4 + TRRUST all confirm the frozen Gate-0 verdict.
+Summary written to `docs/COMPONENT0_HARDENING.md`. Terminal state for the CPU
+container: SCENIC + second human dataset deferred (documented), Component 2 specified
+(`docs/COMPONENT2_PLAN.md`, GPU-blocked). PR #3 carries all of it.
