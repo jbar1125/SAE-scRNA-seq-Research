@@ -1,0 +1,158 @@
+{
+  "species": "human",
+  "source": "Setty2019 CD34+ marrow (Palantir)",
+  "n_cells": 4142,
+  "n_genes": 2032,
+  "n_hvg_requested": 2000,
+  "expression_matrix_md5": "627961897d52a50c7a81f5bbf7e04097",
+  "normalize_total_target_sum": 10000.0,
+  "log1p_applied": true,
+  "raw_max_before_norm": 632.0,
+  "n_markers_forced": 56,
+  "rescued_markers_not_in_top_variance": [
+    "GATA1",
+    "TAL1",
+    "ZFPM1",
+    "ALAS2",
+    "FECH",
+    "HMBS",
+    "PPOX",
+    "CPOX",
+    "ALAD",
+    "ANK1",
+    "RHAG",
+    "AQP1",
+    "EPOR",
+    "ERMAP",
+    "HBA1",
+    "HBA2",
+    "CEBPA",
+    "CEBPE",
+    "LCN2",
+    "CAMP",
+    "S100A8",
+    "S100A9",
+    "KIT",
+    "TOP2A",
+    "MCM2",
+    "MCM4",
+    "MCM6",
+    "CDK1",
+    "CENPE",
+    "AURKB",
+    "BIRC5",
+    "CCNB2"
+  ],
+  "submodule_coverage": {
+    "Ery_TF": {
+      "present": 8,
+      "requested": 8,
+      "present_genes": [
+        "GATA1",
+        "KLF1",
+        "TAL1",
+        "LMO2",
+        "ZFPM1",
+        "STAT5A",
+        "BCL11A",
+        "MYB"
+      ]
+    },
+    "Ery_Heme": {
+      "present": 7,
+      "requested": 7,
+      "present_genes": [
+        "ALAS2",
+        "FECH",
+        "HMBS",
+        "PPOX",
+        "CPOX",
+        "UROD",
+        "ALAD"
+      ]
+    },
+    "Ery_Membrane": {
+      "present": 7,
+      "requested": 7,
+      "present_genes": [
+        "GYPC",
+        "ANK1",
+        "RHAG",
+        "AQP1",
+        "EPOR",
+        "TSPO",
+        "ERMAP"
+      ]
+    },
+    "Ery_Effector": {
+      "present": 3,
+      "requested": 3,
+      "present_genes": [
+        "HBB",
+        "HBA1",
+        "HBA2"
+      ]
+    },
+    "Gran_TF": {
+      "present": 3,
+      "requested": 3,
+      "present_genes": [
+        "CEBPA",
+        "CEBPE",
+        "RUNX1"
+      ]
+    },
+    "Gran_Primary": {
+      "present": 4,
+      "requested": 4,
+      "present_genes": [
+        "MPO",
+        "ELANE",
+        "PRTN3",
+        "CTSG"
+      ]
+    },
+    "Gran_Secondary": {
+      "present": 4,
+      "requested": 7,
+      "present_genes": [
+        "LCN2",
+        "CAMP",
+        "S100A8",
+        "S100A9"
+      ]
+    },
+    "Progenitor": {
+      "present": 4,
+      "requested": 4,
+      "present_genes": [
+        "KIT",
+        "CD34",
+        "MLLT3",
+        "EIF4EBP1"
+      ]
+    },
+    "Cycling": {
+      "present": 16,
+      "requested": 16,
+      "present_genes": [
+        "TOP2A",
+        "PCNA",
+        "MCM2",
+        "MCM3",
+        "MCM4",
+        "MCM5",
+        "MCM6",
+        "MCM7",
+        "CDK1",
+        "CDK4",
+        "CDK6",
+        "CENPE",
+        "CENPF",
+        "AURKB",
+        "BIRC5",
+        "CCNB2"
+      ]
+    }
+  }
+}

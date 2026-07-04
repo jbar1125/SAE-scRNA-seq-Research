@@ -1,0 +1,37 @@
+__pycache__/
+*.pyc
+.ipynb_checkpoints/
+.DS_Store
+
+# Raw data and checkpoints live in Drive, not git (too large; see data/README.md).
+data/*
+!data/README.md
+
+# V0b run outputs are regenerable. EXCEPTION: the frozen pre-registration
+# artifacts SHOULD be committed once the run is verified.
+v0b_outputs/*
+!v0b_outputs/module_assignments_v0b.csv
+!v0b_outputs/modularity_metrics_per_seed.csv
+!v0b_outputs/v0b_provenance.json
+
+# Executed Gate-0 run dirs (mouse data_g0, human data_g0_human): the large
+# matrices/checkpoints/raw h5ad are regenerable and stay out of git; the small
+# result artifacts (reports, decisions, per-seed CSVs) ARE committed as evidence.
+data_g0/**/*.npy
+data_g0/**/*.pt
+data_g0/*.npy
+data_g0/*.pt
+data_g0/cell_metadata.csv
+data_g0/*_log.txt
+data_g0_human/**/*.npy
+data_g0_human/**/*.pt
+data_g0_human/*.npy
+data_g0_human/*.pt
+data_g0_human/*.h5ad
+data_g0_human/cell_metadata.csv
+data_g0_human/*_log.txt
+
+# Robustness-sweep scratch retrain dirs (R2 L0-band, etc.): entirely regenerable;
+# a single committed summary under data_g0*/robustness/ is the evidence, not these.
+data_g0/r2_l1_*/
+data_g0_human/r2_l1_*/

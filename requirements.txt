@@ -1,0 +1,18 @@
+# Canonical environment for the V0b pipeline (v0b_module_definitions.py).
+# These are the exact versions the script + tests were validated against in this
+# repo. NOTE: the original Phase-1 Colab run used unrecorded versions; capturing
+# those from the training notebook is an open reproducibility action
+# (PROJECT_AUDIT.md, Reproducibility gaps).
+numpy==2.4.6
+pandas==3.0.3
+scipy==1.17.1
+statsmodels==0.14.6
+
+# torch is required to load sae_seed*.pt checkpoints, compute activation dynamics,
+# and train SAEs (train_sae.py). The core module-assignment + asymmetry decision
+# logic does not need it (and is unit-tested without it in tests/).
+torch>=2.0
+
+# scanpy is required ONLY by preprocess_paul15.py (Paul15 download + HVG). Not
+# needed for training or analysis if you already have expression_matrix.npy.
+scanpy>=1.10

@@ -1,0 +1,19 @@
+{
+  "dataset": "data_g0_human",
+  "grid_points": 12,
+  "excess_floors": [
+    0.05,
+    0.1,
+    0.15,
+    0.2
+  ],
+  "perm_qs": [
+    0.01,
+    0.05,
+    0.1
+  ],
+  "n_perm": 500,
+  "any_config_supports_original_claim": false,
+  "granulocyte_ge_erythroid_in_all_configs": true,
+  "verdict_robust_to_thresholds": true
+}

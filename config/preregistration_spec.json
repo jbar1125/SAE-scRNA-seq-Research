@@ -1,0 +1,127 @@
+{
+  "constants": {
+    "EXCESS_FLOOR": 0.1,
+    "FEAT_TOP": 3,
+    "N_ABUND_BINS": 20,
+    "N_PERM": 1000,
+    "PERM_Q": 0.05,
+    "SEED": 42,
+    "TOP_K_note": "v3.1 uses full-decoder continuous loading (no TOP_K)",
+    "control_baseline_submodule": "Progenitor",
+    "min_seeds_for_support": 3,
+    "n_seeds": 5,
+    "secondary_controls": [
+      "Cycling"
+    ]
+  },
+  "decision_rule": "A submodule is a REAL program iff excess over Progenitor baseline > EXCESS_FLOOR AND abundance-matched permutation q < PERM_Q. Asymmetric modularity (erythroid more distributed than granulocyte) is SUPPORTED iff in >=3/5 seeds: ery_n_real>=2 AND ery_n_real>=gran_n_real AND ery excess-entropy > gran. Report the plain program-count finding regardless of verdict.",
+  "ery_submodules": [
+    "Ery_TF",
+    "Ery_Heme",
+    "Ery_Membrane",
+    "Ery_Effector"
+  ],
+  "frozen_before": "Phase 1 finalization final runs and all Phase 2 data inspection",
+  "gran_submodules": [
+    "Gran_TF",
+    "Gran_Primary",
+    "Gran_Secondary"
+  ],
+  "loading_enrichment_definition": "per (seed,feature,submodule): (sum |decoder| on submodule markers / total feature |decoder|) * (N_genes / K). 1.0 = null. submodule strength = mean of top-FEAT_TOP features.",
+  "marker_sets": {
+    "Cycling": [
+      "Top2a",
+      "Pcna",
+      "Mcm2",
+      "Mcm3",
+      "Mcm4",
+      "Mcm5",
+      "Mcm6",
+      "Mcm7",
+      "Cdk1",
+      "Cdk4",
+      "Cdk6",
+      "Cenpe",
+      "Cenpf",
+      "Aurkb",
+      "Birc5",
+      "Ccnb2"
+    ],
+    "Ery_Effector": [
+      "Hba-a2",
+      "Hbb-b1"
+    ],
+    "Ery_Heme": [
+      "Alas2",
+      "Fech",
+      "Hmbs",
+      "Ppox",
+      "Cpox",
+      "Urod",
+      "Alad"
+    ],
+    "Ery_Membrane": [
+      "Gypc",
+      "Ank1",
+      "Rhag",
+      "Aqp1",
+      "Epor",
+      "Tspo",
+      "Ermap"
+    ],
+    "Ery_TF": [
+      "Gata1",
+      "Klf1",
+      "Tal1",
+      "Lmo2",
+      "Zfpm1",
+      "Stat5a",
+      "Bcl11a",
+      "Myb"
+    ],
+    "Gran_Primary": [
+      "Mpo",
+      "Elane",
+      "Prtn3",
+      "Ctsg"
+    ],
+    "Gran_Secondary": [
+      "Ltf",
+      "Lcn2",
+      "Camp",
+      "Ngp",
+      "S100a8",
+      "S100a9",
+      "Mmp8",
+      "Mmp9"
+    ],
+    "Gran_TF": [
+      "Cebpa",
+      "Cebpe",
+      "Runx1"
+    ],
+    "Progenitor": [
+      "Kit",
+      "Cd34",
+      "Mllt3",
+      "Eif4ebp1"
+    ]
+  },
+  "phase2_causal_null": {
+    "gate2": {
+      "match_null": "0-2 TFs -> descriptive reframe",
+      "modest_pass": "3-7 TFs",
+      "strong_pass": ">=8/24 TFs top-3 q<0.05 effect>0.5SD in >=2 seeds"
+    },
+    "null_rate": 0.062,
+    "source": "Kendiukhov 2026 (arXiv 2603.02952), foundation-model SAE features",
+    "test": "one-sided exact binomial vs 6.2%, expression-space AND embedding-space SAE features run through the identical pipeline (head-to-head)"
+  },
+  "preregistration_version": "1.0",
+  "primary_metric": "v0b_v3_1_decision (control-referenced, count-fair, abundance-matched null)",
+  "reproducibility": {
+    "cross_seed_rule": ">=3/5 mouse or >=2/3 human",
+    "expression_matrix_md5_verified_at_load": true,
+    "fdr": "Benjamini-Hochberg per test family"
+  }
+}

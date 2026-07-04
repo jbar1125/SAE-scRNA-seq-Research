@@ -1,0 +1,330 @@
+# PROJECT AUDIT: consistency + rigor
+
+Authoritative correction and rigor layer over `PROJECT_HANDOFF.md`. The handoff is
+a Phase-1-closeout snapshot and is left intact as a historical record; this file
+carries every inconsistency found, its resolution status, and the rigor upgrades.
+Read both.
+
+Status keys: RESOLVED (fixed in this repo), OPEN (needs data/run), VERIFY (needs
+source check before any submission), FLAG (needs a decision/recompute).
+
+---
+
+## A. Inconsistencies found
+
+| # | Location | Issue | Severity | Status |
+|---|----------|-------|----------|--------|
+| A1 | Handoff 5 (V11), 7 | PCA participation ratio given as both **43.4** and **42.3** | med | FLAG: recompute once with one documented formula; lock the value. No code/data in repo to recompute here. |
+| A2 | Handoff 7 | NMF participation ratio: "**1.8x higher** than SAE" vs "**~34.94**". With SAE=24.2, 34.94/24.2 = **1.44x**, not 1.8x (1.8x would be ~43.6). Internal arithmetic conflict. | med | FLAG: compute V11 NMF once, report one number + consistent multiplier. |
+| A3 | Handoff 13 | Kendiukhov "**2025**, arXiv **2603.02952**". An arXiv id `2603.xxxxx` is March **2026**, not 2025. Year vs id-date conflict. Same for the two 2026 Kendiukhov ids (2603.01752, 2603.11940) sitting implausibly close to the "2025" one. | med | VERIFY: confirm real ids + years before citing. The 6.2% null depends on this paper; get it exactly right. |
+| A4 | Handoff 13 | Beneyto-Calabuig 2023, Lasry 2023, Petti 2019 not confirmed (volume/pages). | med | VERIFY before submission (already flagged at handoff). |
+| A5 | Drive | The canonically-named, latest `v0b_module_definitions.ipynb` is **V1**, not v2 (see B). The handoff assumes the user runs v2. | HIGH | RESOLVED: `v0b_module_definitions.py` is the canonical v2 and supersedes all three notebooks. |
+| A6 | Drive `v0b_outputs/` | No `module_assignments_v0b.csv` exists anywhere. V0b has **never been completed/frozen**. The linchpin finding is unvalidated. | HIGH | OPEN: run the new script, freeze the SHA-256. |
+| A7 | Handoff 4.3 | Phase-1 SAE training config only partially pinned: batch 256 / wd 1e-5 / clip 1.0 / cosine+warmup are attributed to the *Phase-2 embedding-SAE* config, leaving the exact Phase-1 schedule unspecified. | med | OPEN (V3): extract exact Phase-1 hyperparameters from the training notebook. |
+| A8 | Handoff 4.2 | CELLxGENE Census release date not pinned. | med | OPEN: record census version + date (handoff action #2). |
+| A9 | Handoff 9 (Part 1), 4.6 | The "committed_granulocyte" group is `prob_14Mo + prob_16Neu + prob_13Baso`. Monocytes (14Mo/15Mo) are not granulocytes; basophils are granulocytes. So the group is really "committed myeloid (mono+neu+baso)". The "granulocyte unified module" claim inherits this loose label. | low-med | FLAG: either rename to "myeloid" or justify the grouping explicitly in text. The v2 script keeps the handoff definition but the label is imprecise. |
+| A10 | Handoff 7 | Annotation table GATA1/TAL1 absorbed into GFI1B (overlap + short-marker normalization bias). | med | OPEN: regenerate `generate_annotation_table.py` with the curated non-overlapping v2 marker sets; refreeze SHA-256. |
+| A11 | Handoff 4.1, CLAUDE.md 3 | **"Paul15 is pre-log-transformed, skip log1p" is FALSE for `sc.datasets.paul15()`.** Found on the 2026-06-30 Colab run: raw max is 168.0 (log-scale would be ~5). Corroborated by A11b: the handoff also says hemoglobins were HVG-filtered, which only happens on LOG-scale data (on raw data hemoglobins have top variance and are kept). So the original pipeline almost certainly DID log-transform, contradicting the stated rule. | HIGH | RESOLVED in the marker-aware track: `preprocess_paul15.py --log1p auto` log1p's raw data (records `log1p_applied` in the report). OPEN: reconcile what the MD5-locked original matrix actually did, and correct the CLAUDE.md/handoff non-negotiable. |
+
+### Cross-checks that PASSED (no inconsistency)
+- Recon MSE table (4.4): mean 0.6157 and std 0.0055 are arithmetically correct for the five per-seed values.
+- 19 paul15 clusters (4.1) enumerate to exactly 19.
+- V0b v2 predicted cell counts sum to 2730 (751+897+700+382), and the v1 variant (751+897+973+109) also sums to 2730. Internally consistent.
+- Test-family sizes: 896 = 128x7 and 3072 = 24x128 both check out.
+- 640 annotation entries = 128x5. Checks out.
+
+---
+
+## B. The V0b notebook trap (evidence)
+
+The most-recently-modified `v0b_module_definitions.ipynb` (Drive id
+`1Jg1fS80...`, 2026-05-29), which also carries the canonical name, fails all of
+the handoff's own v2 verification checks:
+
+| Handoff v2 marker | That notebook | Verdict |
+|---|---|---|
+| `WINNER_TAKE_ALL_MIN_OVERLAP = 2` | `CROSS_SEED_THRESHOLD = 3` | v1 |
+| `Ery_TF` = Gata1, Klf1, Tal1, Lmo2, Zfpm1, Stat5a, Bcl11a, Myb (HVG-restricted) | adds Nfe2/Gata2/Mafg/Sox6/Foxo3 + hemoglobin (`Hba-a1`...) and late-granulocyte (`Ltf`, `S100a8`...) submodules not in the HVG set | v1 |
+| `terminal_cols` includes `prob_19Lymph` | `['prob_1Ery','prob_14Mo','prob_16Neu','prob_13Baso','prob_11DC','prob_8Mk']` (no `prob_19Lymph`) | v1 |
+| metric = normalized entropy + largest-submodule fraction, per seed | metric = `H_ery / H_gran` entropy ratio | v1 |
+| output `module_assignments_v0b.csv` | output `module_assignments.csv` | v1 |
+
+Consequence: anyone opening the obvious notebook runs v1, reproducing every bug
+v2 was built to fix. The repo's `v0b_module_definitions.py` removes this hazard:
+one file, in version control, reviewable, unit-tested.
+
+---
+
+## C. Methodological rigor upgrades
+
+1. **Small-marker-set FDR floor (new finding).** `Gran_TF` has 3 HVG markers and
+   `Gran_Primary` 4. Their *best-case* hypergeometric p-values at full overlap are
+   ~9e-4 and ~8e-5. Under BH-FDR across ~896 tests/seed, a granulocyte submodule
+   only survives q<0.05 when many other tests are co-significant (favorable rank).
+   If few features genuinely load on granulocyte programs, granulocyte will look
+   under-assigned for a *statistical* reason (tiny marker sets + multiple testing),
+   confounding the biological asymmetry signal. This was surfaced by the synthetic
+   smoke test. Mitigations to add: report each submodule's minimum achievable q;
+   consider per-lineage FDR families; or size-match marker sets. The asymmetry
+   verdict must be interpreted against this floor, not in isolation.
+2. **n=5 bootstrap is weak.** The asymmetry CI is over 5 seed-level values. The
+   script reports it but makes the **>=3/5 per-seed sign-agreement** count the
+   primary criterion, and states the caveat in output. Add a label-permutation
+   null (shuffle submodule labels within seed) for a calibrated p-value.
+3. **Winner-take-all hides co-membership.** Forcing each feature to one submodule
+   is conservative for a "distribution" claim but masks features enriched for two
+   erythroid submodules. Add a soft/multi-membership robustness pass.
+4. **TOP_K sensitivity.** Assignments use top-30 decoder genes. V4's K sweep
+   (10/20/30/50) should be run to show the asymmetry verdict is not K-specific.
+5. **Granulocyte label precision.** See A9.
+6. **Perturbation still circular / buggy.** V14 (OOD self-distance=0), V15
+   (decoder/classifier scale), V0d (non-circular marker scoring) remain unaddressed.
+   Code is not in the repo. These do not affect V0b but block the perturbation arm.
+
+---
+
+## D. Per V-item rigor status (what "highest rigor" needs)
+
+- **V0a** DONE. Optional: complete the 10-root sensitivity sweep (V7).
+- **V0b** Canonical v2 script delivered + logic-tested. OPEN: run on real data, freeze SHA-256, decide the asymmetry verdict honestly.
+- **V0c** bimodality (Hartigan dip + BH-FDR) NOT BUILT. Replace the heuristic 49-feature count.
+- **V0d / V14 / V15** perturbation NOT BUILT/UNFIXED. See C6.
+- **V3** training reproducibility incomplete (A7): pin exact Phase-1 config.
+- **V4** marker recovery K-sweep PENDING (C4).
+- **V5** cross-seed feature stability NOT DONE (distinct from V0b).
+- **V9** logistic trajectory fits NOT DONE: replace the provisional 0.37 crossover.
+- **V11/V12** participation ratio + NMF modularity PARTIAL: resolves A1, A2.
+- **V13** human concordance PARTIAL: rerun v2-style asymmetry on the 3 human seeds.
+
+---
+
+## E. Reproducibility gaps and what this commit closes
+
+Closed here:
+- Canonical, version-controlled V0b code (`v0b_module_definitions.py`).
+- Pinned environment (`requirements.txt`, validated by the test run).
+- Input manifest with the expression-matrix MD5 and Drive locations (`data/README.md`).
+- Logic regression tests (`tests/test_v0b_logic.py`).
+- `.gitignore` that still allows committing the small frozen pre-registration artifacts.
+
+Still open:
+- Pin CELLxGENE Census version/date (A8).
+- Pin exact Phase-1 SAE training config (A7).
+- After running V0b: commit `module_assignments_v0b.csv`, `modularity_metrics_per_seed.csv`, `v0b_provenance.json` (the SHA-256 freeze).
+- Verify citations A3, A4.
+
+---
+
+## F. Honest bottom line
+
+The headline ("asymmetric modularity") has not survived its own gene-content test,
+because that test was never run to a frozen result, and the notebook most likely
+to be run is the superseded v1. Until `v0b_module_definitions.py` runs on the real
+data and the verdict is recorded, every Phase-2 claim that depends on it is
+provisional. The script is built to report a null honestly if the asymmetry does
+not hold.
+
+---
+
+## G. V0b first run + diagnostic (2026-06-30)
+
+Ran `v0b_module_definitions.py` on the real data. MD5 verified; cell-group counts
+(committed_granulocyte 897, committed_erythroid 751, uncommitted 697,
+intermediate 385) match the handoff's v2 predictions; all v2 markers fully present
+in the HVG set. Verdict: **asymmetric modularity NOT SUPPORTED**, but the result is
+confounded and the metric was uninformative (erythroid 0-1 features assigned per
+seed). module_assignments_v0b.csv SHA-256 `f18b088a95e8e4f3248561d72a711f2bd6d1302127afd60b753a4e9d211d96b5`. **NOT frozen as pre-registration** (inconclusive run).
+
+Per-submodule enrichment diagnostic (640 tests = 5 seeds x 128 features each):
+
+| submodule | max overlap | n(overlap>=2) | n(sig, q<.05) | min q |
+|-----------|-------------|---------------|---------------|-------|
+| Ery_TF | 2 | 7 | 0 | 0.304 |
+| Ery_Heme | 3 | 9 | **2** | 0.006 |
+| Ery_Membrane | 2 | 6 | 0 | 0.188 |
+| Gran_TF | 2 | 2 | 0 | 0.053 |
+| Gran_Primary | 4 | 43 | **29** | 0.000 |
+| Progenitor | 2 | 1 | 0 | 0.096 |
+| Cycling | 4 | 40 | 3 | 0.006 |
+
+Findings:
+1. The asymmetry signal is essentially one submodule, **Gran_Primary** (Mpo/Elane/Prtn3/Ctsg). "Granulocyte unified" reduces to "the primary-granule effector co-occurs."
+2. **Both** TF programs are undetected (Gran_TF and Ery_TF: 0 significant). The granulocyte TF program is as invisible as the erythroid one, so the lineage asymmetry as stated is absent.
+3. Real biological axis is **effector-concentration vs TF-dilution** (Gran_Primary + Ery_Heme concentrate; all TF/membrane sets dilute), orthogonal to granulocyte-vs-erythroid.
+4. The test is partly underpowered: Ery_TF/Ery_Membrane/Gran_TF have real overlap-2 co-occurrence killed by BH across ~896 mostly-null tests. Gran_TF min_q=0.053 just misses; dropping controls from the FDR family or per-lineage FDR may change it.
+5. The defensible remaining finding is smaller: primary-granule and heme-synthesis effector modules are recovered as concentrated SAE features.
+
+Required redesign (V0b v3): replace thresholded winner-take-all with a continuous
+per-feature submodule loading score (e.g., summed |decoder weight| on present
+markers, or a rank-enrichment score), measure distribution on the continuous
+scores with no significance gate, run the TOP_K sweep (10/20/30/50) and per-lineage
+FDR as sensitivity checks, and reframe the hypothesis around effector-vs-TF
+concentration. Treat the v1 "supported" result as not replicated under rigorous
+markers.
+
+---
+
+## H. V0b v3 run (continuous loading) + why "SUPPORTED" is not trustworthy (2026-06-30)
+
+`v0b_v3_loading.py` removes the BH gate (continuous decoder-loading enrichment).
+The lineage-axis decision returns **SUPPORTED** (5/5 seeds, both bootstrap CIs
+exclude 0). That contradicts the v2 result and the prior prediction. On scrutiny
+the SUPPORTED verdict is an artifact, not a finding.
+
+Per-submodule mean strength (1.0 = null), with permutation p:
+
+| submodule | strength | perm_p | vs Progenitor control (2.05) |
+|-----------|----------|--------|------------------------------|
+| Gran_Primary | 4.68 | 0.001 | strong, real |
+| Gran_TF | 2.63 | 0.005 | above control |
+| Ery_Heme | 2.43 | 0.002 | modestly above control |
+| Progenitor (control) | 2.05 | 0.17 | reference |
+| Ery_Membrane | 1.93 | 0.027 | BELOW control |
+| Cycling (control) | 1.86 | 0.001 | should be null; is "significant" |
+| Ery_TF | 1.78 | 0.044 | BELOW control |
+
+Three reasons the verdict fails scrutiny:
+1. **`largest_fraction` count bias.** Its floor is 1/n (0.50 for granulocyte's 2
+   submodules, 0.33 for erythroid's 3). ~0.17 of the 0.244 largest-fraction gap is
+   pure bin-count artifact: erythroid is mechanically forced to look distributed.
+2. **The count-fair criterion is marginal.** Normalized entropy (corrects for n)
+   shows a gap of only 0.048. The headline number lives in the biased criterion.
+3. **Permutation null mis-calibrated.** Cycling (a control) is "significant"
+   (p=0.001). Random gene sets include dead/low-variance HVGs, so any real marker
+   set beats them; "significant" reflects "expressed genes attract decoder mass,"
+   not a coherent feature program.
+
+Decisive observation: **Ery_TF (1.78) and Ery_Membrane (1.93) load below the
+Progenitor control (2.05).** Erythroid is not three real sub-programs; it is one
+modest program (Ery_Heme) plus two noise-floor submodules the metric miscounts as
+"distribution."
+
+Verdict across versions: v2 NOT SUPPORTED (gate kills diluted signal), v3
+SUPPORTED (count bias + noise-floor submodules + liberal null). **The claim is
+metric-dependent, therefore not robustly supported.** Defensible real structure:
+the primary-granule effector (Mpo/Elane/Prtn3/Ctsg) is a strong concentrated SAE
+feature; heme-synthesis is a weaker one; the rest sit at/below control.
+
+Required fix (v3.1) before any asymmetry claim is made:
+- Subtract a control/noise baseline (Progenitor and/or abundance-matched random)
+  from each submodule strength before measuring distribution; drop submodules at
+  or below control.
+- Count-normalize the concentration criterion: `(frac - 1/n)/(1 - 1/n)` so uniform
+  maps to 0 and the metric is comparable across 2- vs 3-submodule lineages.
+- Abundance/expression-matched permutation null (or permute feature identities) so
+  controls come out null.
+- Require an effect-size floor on absolute strength, not just a p-value.
+- Pre-register ONE metric. Two metrics giving opposite answers cannot both headline.
+
+---
+
+## I. Marker-aware + overcomplete run + v3.1 (2026-06-30)
+
+Ran the upgraded track (log1p marker-aware preprocessing, 512-latent SAEs, 5 seeds)
+and built the control-referenced v3.1 decision.
+
+Wins:
+- log1p FIXED the permutation-null calibration: controls are now non-significant
+  (Progenitor p=0.53, Cycling p=0.54), where original-v3 had Cycling "significant".
+  So the granulocyte findings are now trustworthy.
+- Granulocyte has TWO strong, significant, above-control effector programs:
+  Gran_Primary (2.94, p=0.001) and Gran_Secondary (3.45, p=0.002).
+
+Problems the run exposed:
+- Globin rescue mostly failed: Ery_Effector 1/6 present. Five globin symbols
+  (Hba-a1, Hbb-bs/bt/y/bh1) are not in Paul15 under those names. Erythroid effector
+  still unmeasurable -> the "erythroid handicap" is confounded by missing genes,
+  not resolved. Check Paul15's actual globin symbols (may be Hbb-b1/b2) or accept
+  that Paul15's panel cannot test erythroid effector (use human data).
+- SAEs not sparse: L0 ~213 of 512 (QC band 20-50). lambda=0.1 too weak for 512
+  latents; retrain with higher --l1 until L0 in band. Current v3 numbers are on
+  under-regularized models.
+
+Result: every erythroid submodule (Heme 1.63, TF 1.62, Membrane 1.59) is at/below
+the Progenitor control (2.25) and non-significant. v3's lineage verdict is again
+SUPPORTED but on negligible effects (norm-entropy diff 0.006). Under v3.1
+(control-referenced): erythroid n_real = 0 above-control programs, granulocyte = 2,
+so asymmetric modularity is NOT SUPPORTED, and the plain finding is: SAEs recover
+granulocyte effector programs (primary + secondary granule); erythroid programs are
+not recovered in Paul15. Whether that is biology or the globin-absence + sparsity
+confounds is not yet separable; both are fixable next.
+
+---
+
+## J. Corrected-marker run: the asymmetry is REAL but REVERSED (2026-06-30)
+
+The globin diagnostic showed the prior erythroid null was a MARKER-CURATION
+ARTIFACT (mine): Paul15 uses Hba-a2 / Hbb-b1 (not Hba-a1/Hbb-bs/bt), and Alas2 /
+Ermap were omitted. After correcting the markers and force-including them
+(matrix 2730x2005, L0 ~63 at lambda=0.5, marginally over the 20-50 band):
+
+Submodule strength (1.0 = null):
+
+| submodule | strength | perm_p | vs Progenitor control (2.20) |
+|-----------|----------|--------|------------------------------|
+| Ery_Effector (globins) | 5.07 | 0.001 | STRONGEST feature in the dataset |
+| Gran_Primary | 4.02 | 0.001 | strong |
+| Gran_Secondary | 3.51 | 0.001 | strong |
+| Gran_TF | 3.00 | 0.004 | strong |
+| Progenitor (control) | 2.20 | 0.67 | null (good) |
+| Ery_Heme | 2.10 | 0.02 | at control |
+| Ery_Membrane | 1.82 | 0.81 | null |
+| Ery_TF | 1.79 | 0.72 | null |
+
+Control-referenced (v3.1): above-control programs = erythroid 1, granulocyte 3.
+v3 lineage metric now runs NEGATIVE (mean norm-entropy diff -0.075, 0/5 seeds in
+the original direction).
+
+**Finding: the asymmetry is real but the REVERSE of the original claim.**
+- Erythroid = UNIFIED: one dominant program (hemoglobin); the rest at/below control.
+- Granulocyte = DISTRIBUTED: three real programs (primary granule, secondary
+  granule, TF).
+The v1 headline was "granulocyte unified, erythroid distributed." Corrected data
+says the opposite, and it is biologically coherent (neutrophil granules come in
+distinct primary/secondary waves = multiple modules; terminal erythropoiesis is
+overwhelmingly hemoglobin = one module).
+
+Caveats before this becomes a headline:
+- L0 ~63 is marginally above the sparse band; retrain at lambda ~0.6-0.7.
+- Cycling (a control) is still "significant" (p=0.001), but cell cycle IS a real
+  program, so it is a poor null; use Progenitor-only or an abundance-matched null.
+  Ery_Heme sits AT the control, so erythroid's real count is 1 (globins), robustly.
+- n=5 seed bootstrap is weak; the direction is now consistent 5/5 with larger
+  effect sizes than any prior run.
+- Paul15 mouse only; replicate on the human data (which has full globins).
+- Pre-register ONE metric (v3.1 control-referenced) before freezing.
+
+Net status: the headline is not dead, it is inverted and now defensible. Prior
+"erythroid undetected" conclusions (Audit F, G, H, I) were confounded by the
+marker bug fixed here and should be read as superseded by J.
+
+## K. DEFINITIVE Gate-0 execution: sparsity-corrected 10-seed run (2026-07-02)
+
+J's caveats are now closed. The full Gate-0 chain was EXECUTED in-container on real
+Paul15 (obtained via git-LFS mirror; direct download proxy-blocked). Details and
+all numbers in COMPONENT0_RESULTS.md; summary:
+
+- **Sparsity fixed properly.** New lesson: L0 depends on TRAINING LENGTH, not just
+  L1. l1=3.0 gave L0 34.6 at 150 epochs but ~17 at the real 300 epochs. Retuned at
+  300 epochs: l1=0.8 -> L0 band-center. Final 10-seed run L0 mean **35.75**, all 10
+  in the 20-50 band (J's L0~63 concern is resolved).
+- **v3.1 (frozen metric, Progenitor-only baseline, abundance-matched null):**
+  original claim **NOT SUPPORTED (0/10 seeds)**. gran_n_real=3 in 10/10 seeds;
+  ery_n_real median 1.5. Ery_Effector strongest (5.07). Progenitor control perm_q
+  **0.085** (non-significant) - J's mis-calibrated-null concern is resolved by the
+  abundance-matched null.
+- **Baselines (NEW, decisive):** the verdict is METHOD-DEPENDENT. PR SAE 195.9 vs
+  PCA 14.0 vs NMF 5.2; PCA finds ery=1/gran=1, NMF finds ery-distributed
+  ("supported"), SAE finds gran-distributed. Three methods, three answers. The
+  reversed SAE direction is therefore SAE-specific, not decomposition-invariant
+  biology. This is the artifact-vs-signal centerpiece and it downgrades ALL prior
+  single-method modularity claims (v1 headline included) to method-contingent.
+- **Marker sensitivity (NEW):** 0/34 leave-one-out drops flip the verdict.
+- **Human replication:** Setty 2019 CD34+ marrow obtained + preprocessed; SAE
+  training underway (see COMPONENT0_RESULTS.md section 6).
+- **Freeze:** v3.1 decision bundle sha256 172861417a923a... (a negative + method-
+  dependence result from a clean run, not a frozen artifact of a broken one).
+
+Bottom line change vs J: "inverted and now defensible" becomes "inverted for the
+SAE specifically, but NOT method-invariant - so the honest Gate-0 output is a
+calibrated negative that motivates the causal test, not a new headline."

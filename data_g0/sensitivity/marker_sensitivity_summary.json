@@ -1,0 +1,7 @@
+{
+  "baseline_supported": false,
+  "baseline_finding": "Granulocyte has more real programs (median 3) than erythroid (2); erythroid is unified/undetected. NOT the original claim.",
+  "n_markers_tested": 34,
+  "n_markers_that_flip_verdict": 0,
+  "verdict_robust_to_single_marker": true
+}
