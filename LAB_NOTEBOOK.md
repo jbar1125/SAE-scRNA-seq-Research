@@ -244,4 +244,17 @@ DB cross-reference and note it as an external-resource limit rather than fake it
 SCENIC: if cisTarget DBs are unreachable, run a GRNBoost2-only co-expression baseline
 labeled honestly as such (NOT full SCENIC), or defer. No fabricated regulons.
 
-Next: R2 (retrain at L0 spanning the 20-50 band) then R3 (20 seeds), R4 (HVG count).
+**R2 L0-band sensitivity — DONE.** Retrained mouse (5 seeds/point) at L1 spanning the
+QC band: l1=1.0 -> L0 27.7 (gran3/ery2), l1=0.7 -> L0 42.2 (gran3/ery2), l1=0.6 ->
+L0 52.0 (just outside band, gran3/ery1). **NOT SUPPORTED at every point and
+granulocyte >= erythroid throughout** -> the verdict is not specific to L0=37, it
+holds across the whole band and at the boundary. Artifact:
+`data_g0/robustness/r2_l0_band_summary.json` (retrain dirs gitignored).
+
+**Event: PR #1 MERGED** (main = commit 9a05f53). Per repo protocol, restarted the
+designated branch from merged main (clean; e30ab93 is an ancestor of main, no force
+needed) and continue robustness work as a NEW PR. All Gate-0 + reorg + R1 work is now
+in main.
+
+Next: R3 (20 seeds, stability of n=10) then R4 (HVG-count sensitivity, uses the raw
+Paul15 h5 on disk).
