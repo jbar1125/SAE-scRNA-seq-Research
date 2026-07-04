@@ -210,3 +210,20 @@ accessible, prior versions preserved, nothing lost, and a real dated lab noteboo
 - Component 2 (centerpiece): Replogle CRISPRi causal head-to-head vs the 6.2%
   embedding-space null. Needs a GPU environment (Remote Control on own hardware, or
   Colab) for the larger models/atlases.
+
+### Gate-0 hardening: robustness battery (human-gated autonomous pipeline)
+
+Operating mode agreed: I self-drive the mechanical work and stop-and-ask only at
+real forks; phone push on finish/decision. Queue (all CPU-tractable; Component 2
+waits for GPU): R1 decision-parameter sensitivity, R2 L0-band sensitivity, R3 more
+seeds, R4 HVG-count sensitivity. Then gated: SCENIC 5th baseline, TRRUST/ChIP-Atlas
+cross-ref, second human dataset.
+
+**R1 decision-parameter sensitivity — DONE (`src/robustness_sweeps.py`).** Sweeps the
+two "arbitrary" knobs of the frozen metric (EXCESS_FLOOR in {0.05,0.10,0.15,0.20} x
+PERM_Q in {0.01,0.05,0.10}, 12 configs) on the existing 10-seed checkpoints; the
+expensive permutation null is computed once and the grid evaluated on top. Result:
+in BOTH species, **0/12 configs support the original claim and granulocyte >=
+erythroid real-program count at every point** -> the NOT-SUPPORTED verdict is not a
+knob-tuning artifact. Artifacts: `data_g0{,_human}/robustness/`. Next: R2 (retrain
+at L0 spanning the 20-50 band) and R3 (20 seeds).

@@ -1,0 +1,13 @@
+excess_floor,perm_q,median_ery_n_real,median_gran_n_real,gran_ge_ery,n_seeds_supported_pattern,asymmetric_modularity_supported
+0.05,0.01,0.0,1.0,True,0,False
+0.05,0.05,1.0,2.0,True,0,False
+0.05,0.1,1.0,2.0,True,0,False
+0.1,0.01,0.0,1.0,True,0,False
+0.1,0.05,1.0,2.0,True,0,False
+0.1,0.1,1.0,2.0,True,0,False
+0.15,0.01,0.0,1.0,True,0,False
+0.15,0.05,1.0,2.0,True,0,False
+0.15,0.1,1.0,2.0,True,0,False
+0.2,0.01,0.0,1.0,True,0,False
+0.2,0.05,1.0,2.0,True,0,False
+0.2,0.1,1.0,2.0,True,0,False
