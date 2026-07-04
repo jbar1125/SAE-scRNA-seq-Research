@@ -306,4 +306,11 @@ built-ins on a networked box, then reuse `preprocess_human_marrow.py`.
 **R3 (efficient) — running.** After finding the 20-seed retrain re-trained the 10
 frozen seeds needlessly and was too long for the restart cadence, added `--seed-start`
 to train_sae and launched only the NEW seeds 10-19 (combined with the frozen 0-9 for
-a 20-seed v3.1). Result appended on completion.
+a 20-seed v3.1).
+
+**R3 seed stability — DONE.** 20 seeds (10 frozen + 10 new; all L0 in-band 35-37.5).
+20-seed v3.1 reproduces the 10-seed verdict EXACTLY: **gran_n_real = 3 in 20/20
+seeds; ery_n_real = 1 in ten seeds and 2 in ten (median 1.5); granulocyte > erythroid
+in 20/20; 0/20 support the original pattern; NOT SUPPORTED.** Doubling the seed count
+changes nothing -> n=10 was sufficient and the granulocyte-more-distributed direction
+is highly stable. Artifact: `data_g0/robustness/r3_20seed_summary.json`.

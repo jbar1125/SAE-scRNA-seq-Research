@@ -1,0 +1,18 @@
+{
+  "unit": "R3 seed stability (20 seeds = 10 frozen + 10 new via --seed-start)",
+  "n_seeds": 20,
+  "gran_n_real_distribution": {
+    "3": 20
+  },
+  "ery_n_real_distribution": {
+    "1": 10,
+    "2": 10
+  },
+  "median_gran_n_real": 3.0,
+  "median_ery_n_real": 1.5,
+  "gran_gt_ery_seed_fraction": 1.0,
+  "gran_ge_ery_seed_fraction": 1.0,
+  "supported_pattern_seed_count": 0,
+  "verdict": "NOT SUPPORTED",
+  "note": "20-seed run reproduces the frozen 10-seed verdict exactly; n=10 was sufficient."
+}
