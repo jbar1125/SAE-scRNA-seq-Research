@@ -2,7 +2,9 @@
 
 Operating manual for this repo. Read top to bottom before doing anything.
 
-**Read [`PROJECT_HANDOFF.md`](./PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results — section J is the current finding), **then [`STRATEGY_AND_POSITIONING.md`](./STRATEGY_AND_POSITIONING.md)** (field situating, novelty audit vs Kendiukhov et al., the reframe), **[`PREREGISTRATION.md`](./PREREGISTRATION.md)** (the frozen analysis spec), and **[`COMPONENT0_STATUS.md`](./COMPONENT0_STATUS.md)** (Gate-0 state + the runner). Where they conflict, the audit wins on facts and the strategy doc wins on framing.
+**Read [`README.md`](./README.md) for the repo map**, then **[`LAB_NOTEBOOK.md`](./LAB_NOTEBOOK.md)** for the dated day-to-day log (what was done, when, and why). Then the reference docs in [`docs/`](./docs/): **[`PROJECT_HANDOFF.md`](./docs/PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./docs/PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results — sections J/K are the current findings), **then [`STRATEGY_AND_POSITIONING.md`](./docs/STRATEGY_AND_POSITIONING.md)** (field situating, novelty audit vs Kendiukhov et al., the reframe), **[`PREREGISTRATION.md`](./docs/PREREGISTRATION.md)** (the frozen analysis spec), **[`COMPONENT0_STATUS.md`](./docs/COMPONENT0_STATUS.md)** (Gate-0 state + the runner), and **[`COMPONENT0_RESULTS.md`](./docs/COMPONENT0_RESULTS.md)** (the EXECUTED Gate-0 numbers + frozen SHAs). Where they conflict, the audit wins on facts and the strategy doc wins on framing.
+
+**Repo layout:** `src/` = code, `tests/` = logic tests, `docs/` = narrative/reference docs, `config/` = frozen specs + marker panels (`preregistration_spec.*`, `human_markers.json`), `data/` = raw-input manifest (Drive/large, gitignored), `data_g0/` + `data_g0_human/` = the EXECUTED mouse/human run dirs (large binaries gitignored; small result artifacts committed). Run scripts as `python3 src/<script>.py`; run tests as `python3 tests/<test>.py` (they add `src/` to the path).
 
 ---
 
@@ -51,18 +53,20 @@ When code reaches the user's environment (Colab), give a paste that is self-veri
 
 ## 4. PROJECT DEBUG GOTCHAS (learned the hard way)
 
-- **NEVER run the Drive notebooks.** `v0b_module_definitions.ipynb`/`_1`/`_2` — the canonically-named, latest one is v1 with every bug v2 fixed. Use `v0b_module_definitions.py` in the repo.
+- **NEVER run the Drive notebooks.** `v0b_module_definitions.ipynb`/`_1`/`_2` — the canonically-named, latest one is v1 with every bug v2 fixed. Use `src/v0b_module_definitions.py` in the repo.
 - `torch` is imported lazily inside `load_checkpoints`/`submodule_dynamics`. Do not add a top-level `torch` call; the core logic must run without torch (tests rely on this).
 - Inputs live in **My Drive / SAE_scRNA** (consolidated 2026-06-30): `expression_matrix.npy`, `gene_names.csv`, `cell_metadata_palantir.csv`, `sae_seed0-4.pt`. See `data/README.md`.
 - The `expression_matrix.npy` is too large to pull through the Drive MCP (base64-into-context). Run where the data already is (Colab), or have the user link-share files for `curl`.
 
 ## 5. IMMEDIATE STATUS
 
-- Current finding (PROJECT_AUDIT.md J): with corrected Paul15 markers (Hba-a2/Hbb-b1 globins + Alas2 + Ermap), overcomplete 512-latent SAEs, and log-scaled data, the erythroid hemoglobin program is the STRONGEST feature; control-referenced counts give erythroid 1 above-control program (unified), granulocyte 3 (distributed). So "asymmetric modularity" is real but the **REVERSE** of the v1 headline. Not yet locked: L0~63 (retune L1), n=5, mouse-only, one metric not yet pre-registered.
+- **Gate 0 (Component 0) is EXECUTED end to end and FROZEN** (2026-07-02; see `docs/COMPONENT0_RESULTS.md` for every number and `LAB_NOTEBOOK.md` for the session log). It was run in-container on CPU (SAEs are ~2M params on 2-4k cells; no GPU needed). Both arms done:
+  - Mouse (Paul15, 2730x2012): 10-seed 512-latent SAE, l1=0.8, L0 mean 35.75 (in 20-50 band). Original asymmetric-modularity claim **NOT SUPPORTED** (0/10 seeds); the data show the REVERSE (granulocyte 3 real programs, erythroid 1 dominant hemoglobin program) and it is seed-robust. Frozen bundle sha256 `172861...`.
+  - Human (Setty 2019 CD34+ marrow, 4142x2032): 10-seed SAE, L0 mean 32.5. Claim NOT SUPPORTED (0/10); granulocyte-more-distributed direction replicates; human globin program not significant vs the abundance-matched null (CD34+ progenitor selection). Frozen bundle sha256 `cc8159c8...`.
+  - **The key finding is method-dependence:** PCA/NMF/SAE give different modularity answers on the identical matrix; the original claim survives in exactly 1 of 6 method x species combinations (mouse NMF). Marker leave-one-out: 0/34 (mouse), 0/36 (human) flips. Null calibrated (Progenitor non-significant both species).
 - The prior "erythroid undetected" runs (Audit F-I) were a marker-curation artifact (wrong globin symbols, missing Alas2), fixed. Do not cite them as the finding.
 - Reframe (STRATEGY_AND_POSITIONING.md): the novel contribution is the artifact-vs-signal framework + the causal CRISPRi test, NOT "SAEs on single-cell" (now published: Kendiukhov 2026 arXiv 2603.02952 and the 2025-2026 wave). Lead with the framework and the causal spine.
-- Component 0 (Gate 0) is CODE-COMPLETE and pushed: pre-registered metric `v0b_v3_1_decision.py` + freeze (`PREREGISTRATION.md`, spec SHA `fc342829`), PCA/NMF baselines (`baselines_nmf_pca.py`), marker leave-one-out (`marker_sensitivity.py`), overcomplete + marker-aware training, seed auto-detection, 60%-majority rule. All logic tests pass. See `COMPONENT0_STATUS.md` for the single Colab runner that executes Gate 0 (sparsity sweep -> >=10-seed retrain -> v3.1 -> baselines -> sensitivity -> human replication -> freeze output SHA).
-- Do NOT freeze the module-assignment output table until the sparsity-corrected (L0 20-50), >=10-seed, human-replicated run. Reframe/plan in `STRATEGY_AND_POSITIONING.md` and `phase2_research_plan_v6.md`; the causal head-to-head vs the 6.2% null is the centerpiece.
+- **Next: Component 2** (Replogle CRISPRi causal head-to-head vs the 6.2% embedding-space null) is the centerpiece; optional cheap hardening first (SCENIC as a 5th baseline, TRRUST/ChIP-Atlas cross-reference). Plan in `docs/STRATEGY_AND_POSITIONING.md` and `docs/phase2_research_plan_v6.md`. Do NOT re-freeze the frozen Gate-0 bundles; new work is new components.
 
 ## 6. WORKING STYLE
 

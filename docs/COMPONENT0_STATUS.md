@@ -48,10 +48,11 @@ Step A — sparsity sweep (fast, 1 seed each; pick the L1 whose L0 is in 20-50):
 import os
 if not os.path.isdir('/content/drive/MyDrive'): 
     from google.colab import drive; drive.mount('/content/drive')
-!pip -q install scanpy statsmodels scikit-learn
-SHA="15d00e4"
+!pip -q install scanpy statsmodels scikit-learn anndata h5py
+SHA="1b8495a"   # use the latest branch/main commit SHA; code now lives under src/
 for f in ["v0b_module_definitions","v0b_v3_loading","v0b_v3_1_decision","train_sae","preprocess_paul15","baselines_nmf_pca","marker_sensitivity"]:
-    !rm -f {f}.py*; !wget -qO {f}.py https://raw.githubusercontent.com/jbar1125/SAE-scRNA-seq-Research/{SHA}/{f}.py
+    !rm -f {f}.py*; !wget -qO {f}.py https://raw.githubusercontent.com/jbar1125/SAE-scRNA-seq-Research/{SHA}/src/{f}.py
+# human arm also needs the ortholog panel: wget config/human_markers.json and pass --markers
 !python preprocess_paul15.py --n-hvg 2000 --out-dir /content/drive/MyDrive/data_g0
 for l1 in [0.4, 0.6, 0.8, 1.0]:
     !python train_sae.py --matrix /content/drive/MyDrive/data_g0/expression_matrix.npy --latent-dim 512 --l1 {l1} --seeds 1 --out-dir /tmp/sweep_{l1}

@@ -6,7 +6,8 @@ from pathlib import Path
 
 import numpy as np
 
-sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1] / "src"))
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))  # repo root for `tests.` cross-import
 import v0b_module_definitions as v0b
 import v0b_v3_loading as v3
 import v0b_v3_1_decision as v31

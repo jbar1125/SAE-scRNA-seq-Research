@@ -44,7 +44,7 @@ import pandas as pd
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--h5ad", default="data_g0_human/marrow_sample_scseq_counts.h5ad")
-    ap.add_argument("--markers", default="human_markers.json")
+    ap.add_argument("--markers", default="config/human_markers.json")
     ap.add_argument("--n-hvg", type=int, default=2000)
     ap.add_argument("--target-sum", type=float, default=1e4)
     ap.add_argument("--out-dir", default="./data_g0_human")
