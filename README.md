@@ -62,6 +62,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
 | `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
 | `COMPUTE.md` | What runs on CPU vs GPU and why (incl. why the AMD 5700 XT isn't practical). |
+| `COMPONENT2_PLAN.md` | Executable design for the causal CRISPRi head-to-head vs the 6.2% null (GPU-blocked; specified, not run). |
 
 ## How to run (from repo root)
 
