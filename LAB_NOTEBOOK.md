@@ -258,3 +258,23 @@ in main.
 
 Next: R3 (20 seeds, stability of n=10) then R4 (HVG-count sensitivity, uses the raw
 Paul15 h5 on disk).
+
+**Decision (auto) — TRRUST ground-truth cross-reference (gated unit, resolved).**
+Direct host grnpedia.org is blocked, but the canonical TRRUST v2 human file is
+mirrored across many GitHub repos (same sha a701172d); fetched
+`config/trrust/trrust_rawdata.human.tsv` (795 TFs; all lineage TFs GATA1/KLF1/TAL1/
+CEBPA/CEBPE/RUNX1 present). Mouse TRRUST mirrors 404'd; decision: use human TRRUST
+and uppercase mouse symbols (edges ~conserved), and report the mouse cross-ref only
+as an underpowered cross-species check, not a finding.
+
+**TRRUST cross-ref — DONE (`src/trrust_crossref.py`).** Pre-specified test: for each
+lineage, pick the single SAE feature most enriched for that lineage's TF submodule,
+then hypergeometric-test whether the lineage TFs' TRRUST targets are over-represented
+in that feature's top-30 genes. **Human: erythroid TF targets enriched in the
+erythroid-TF feature in 100% of seeds (median p=6.4e-5); granulocyte in 50% (median
+p=0.13).** So SAE features recover real regulatory structure, and, consistently with
+the main finding, the UNIFIED erythroid program captures its regulon tightly while
+the DISTRIBUTED granulocyte program does so less from any single feature. Mouse
+cross-ref (uppercased vs human TRRUST) is null (0-10%), reported as an underpowered
+cross-species artifact (small HVG panel x human DB), not evidence. Artifacts:
+`data_g0{,_human}/trrust/trrust_crossref.json`.
