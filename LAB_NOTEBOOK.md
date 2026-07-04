@@ -278,3 +278,16 @@ the DISTRIBUTED granulocyte program does so less from any single feature. Mouse
 cross-ref (uppercased vs human TRRUST) is null (0-10%), reported as an underpowered
 cross-species artifact (small HVG panel x human DB), not evidence. Artifacts:
 `data_g0{,_human}/trrust/trrust_crossref.json`.
+
+**Decision (auto) — SCENIC 5th baseline: DEFERRED (external-resource limit).** Probed:
+pySCENIC/arboreto/ctxcore install from PyPI and the aertslab TF list is on GitHub,
+but the cisTarget motif-ranking databases (resources.aertslab.org, ~GB .feather
+files) are proxy-BLOCKED (000). Full SCENIC (motif pruning + AUCell) is therefore
+infeasible in-container. Rejected a GRNBoost2-only surrogate because it yields a
+TF x target adjacency, not a cell x component decomposition, so it does not slot into
+the PCA/NMF/SAE modularity comparison and would over-claim the "SCENIC" label. The
+TRRUST cross-reference already provides the curated-regulatory-database validation
+SCENIC would contribute, so deferring loses little. To run when unblocked (Colab):
+`pip install pyscenic; pyscenic grn`, then `pyscenic ctx` with the hg38 mc9nr feather
+DBs, then `pyscenic aucell`, then run v3.1 modularity on the AUCell cell x regulon
+matrix as a 5th decomposition.
