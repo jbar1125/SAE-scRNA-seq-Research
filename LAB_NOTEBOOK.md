@@ -322,7 +322,21 @@ the band at 1000 genes (~90, too dense) and 3000 genes (~18, too sparse) because
 depends on gene count; a per-count l1 retune would recenter L0, but the verdict is
 stable without it. Artifact: `data_g0/robustness/r4_hvg_summary.json`.
 
-**Hardening battery COMPLETE.** R1-R4 + TRRUST all confirm the frozen Gate-0 verdict.
+**GRN baseline — DONE (`src/grn_baseline.py`), replacing the deferred SCENIC.** Full
+SCENIC stays infeasible (cisTarget DBs blocked), but rather than only deferring, built
+an executable co-expression GRN as a 4th decomposition family: for each aertslab TF in
+the panel, regulon-loading = |Pearson corr| with each gene -> a genes x TF matrix run
+through the IDENTICAL v3.1 modularity pipeline (labeled honestly as a correlation
+regulon, NOT motif-pruned SCENIC). Result: **mouse ery=2/gran=2 (a TIE) - a fourth,
+distinct answer** vs PCA (1/1), NMF (2.5/2 "supported"), SAE (1.5/3); human ery=1/gran=2
+(agrees with SAE). So FOUR decomposition families give FOUR different mouse modularity
+answers - the method-dependence thesis is now demonstrated across 4 method families,
+not 3. Artifacts: `data_g0{,_human}/grn/grn_baseline.json`; TF lists in
+`config/tf_lists/`.
+
+**Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN all confirm the frozen Gate-0
+verdict (no method resurrects the original claim) and extend the method-dependence
+result.
 Summary written to `docs/COMPONENT0_HARDENING.md`. Terminal state for the CPU
 container: SCENIC + second human dataset deferred (documented), Component 2 specified
 (`docs/COMPONENT2_PLAN.md`, GPU-blocked). PR #3 carries all of it.

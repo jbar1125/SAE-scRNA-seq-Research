@@ -20,6 +20,21 @@ granulocyte-more-distributed direction holds throughout.
 | **R3** seed stability | 10 seeds -> 20 seeds (via `--seed-start`) | gran_n_real = 3 in **20/20** seeds; granulocyte > erythroid in 20/20; 0/20 support the claim. n=10 was sufficient. |
 | **R4** HVG-count sensitivity | 1000 / 2000 / 3000 highly-variable genes | NOT SUPPORTED at all three; granulocyte 3 / erythroid 1-2. (Caveat: at fixed l1=0.8, L0 leaves the band at 1000 and 3000 genes since L0 depends on gene count; verdict stable regardless.) |
 | **TRRUST** ground-truth cross-reference | curated TF->target regulon (TRRUST v2) | Human: erythroid TF targets enriched in the erythroid-TF feature in **100% of seeds** (median p=6.4e-5); granulocyte 50%. SAE features recover real regulatory structure, and the unified erythroid program captures its regulon more tightly than the distributed granulocyte one. Mouse cross-ref underpowered (human DB, small panel) and not used as evidence. |
+| **GRN** 4th decomposition family | co-expression regulons (|Pearson|; NOT motif-pruned SCENIC) run through the same v3.1 modularity | Adds a 4th answer: mouse ery=2/gran=2 (tie); human ery=1/gran=2. Still NOT SUPPORTED. |
+
+### Method-dependence, now across 4 decomposition families (mouse)
+
+| method | ery_n_real | gran_n_real | original claim? |
+|--------|-----------:|------------:|-----------------|
+| PCA (linear) | 1 | 1 | no (resolves nothing) |
+| NMF (parts-based) | 2.5 | 2 | **yes** (only method+species that does) |
+| SAE (sparse) | 1.5 | 3 | no (reverse) |
+| GRN (co-expression) | 2 | 2 | no (tie) |
+
+Four decomposition families give four different mouse modularity answers on the
+identical matrix. This is the artifact-vs-signal thesis, now demonstrated across four
+method families rather than three: "gene-program modularity" is co-determined by the
+chosen decomposition, so no single-method modularity claim is biological ground truth.
 
 ## Interpretation
 
