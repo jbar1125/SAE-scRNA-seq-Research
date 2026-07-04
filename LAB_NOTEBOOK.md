@@ -291,3 +291,19 @@ SCENIC would contribute, so deferring loses little. To run when unblocked (Colab
 `pip install pyscenic; pyscenic grn`, then `pyscenic ctx` with the hg38 mc9nr feather
 DBs, then `pyscenic aucell`, then run v3.1 modularity on the AUCell cell x regulon
 matrix as a 5th decomposition.
+
+**Decision (auto) — second human dataset: DEFERRED (documented next step).** Purpose
+would be to test whether the human globin program's non-significance is a CD34-
+selection artifact, by adding a non-CD34-selected marrow (total BMMC incl. mature
+erythroblasts). Deferred because it needs both a reachable non-CD34 h5ad (uncertain
+via the proxy; GEO/figshare are blocked) and a full CPU train cycle (fragile given
+the container's ~10-15 min restart cadence). The mechanism is already stated in
+COMPONENT0_RESULTS and the cross-species DIRECTION already replicated on the one human
+set, so this is a hardening add, not a gap in the core result. Acquisition approach
+when possible: a GitHub-LFS-mirrored BMMC h5ad (like the Setty acquisition) or scanpy
+built-ins on a networked box, then reuse `preprocess_human_marrow.py`.
+
+**R3 (efficient) — running.** After finding the 20-seed retrain re-trained the 10
+frozen seeds needlessly and was too long for the restart cadence, added `--seed-start`
+to train_sae and launched only the NEW seeds 10-19 (combined with the frozen 0-9 for
+a 20-seed v3.1). Result appended on completion.
