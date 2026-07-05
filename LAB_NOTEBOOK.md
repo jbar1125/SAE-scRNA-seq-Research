@@ -377,6 +377,22 @@ Fig 2 the mouse robustness verdict stable across every stress test. CVD-safe div
 palette, sign encoded by position + color, direct value labels. PNG+SVG under
 `docs/figures/`, referenced from `COMPONENT0_HARDENING.md`.
 
+**Reproducibility pass + a real self-correction — DONE.** Ran an end-to-end verification
+(compile, all 4 logic tests, frozen-bundle SHAs, figure determinism) and wrote
+`docs/REPRODUCIBILITY.md` with the verification table.
+- **Bug caught: pre-registration hash mismatch.** `config/preregistration_spec.sha256`
+  and every doc record `fc342829...`, but `sha256sum config/preregistration_spec.json`
+  returned `6398c5ed...`. Diagnosed: `fc342829` is the hash of the canonical
+  `json.dumps(spec, indent=2)`; the committed file had a trailing newline, so its
+  raw-byte hash differed and the documented verification FAILED. This has been true
+  since the freeze commit `35173e4`. Fixed by normalizing the file to the exact
+  canonical bytes; spec CONTENT is byte-identical to the freeze (verified `json.load`
+  equality), so nothing frozen changed, only the trailing byte. `sha256sum` now prints
+  `fc342829...`. PREREGISTRATION.md verification block corrected (was a placeholder).
+- **Figures made deterministic** (`svg.hashsalt` + drop embedded Date): two runs now
+  produce byte-identical PNG/SVG.
+- Frozen decision bundles re-verified: mouse `172861...`, human `cc8159c8...` still match.
+
 **Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN + ICA all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence
 result.

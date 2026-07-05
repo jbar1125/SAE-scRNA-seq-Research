@@ -16,7 +16,10 @@ from pathlib import Path
 
 import matplotlib
 matplotlib.use("Agg")
+matplotlib.rcParams["svg.hashsalt"] = "gate0"      # deterministic SVG element ids
 import matplotlib.pyplot as plt
+
+_META = {"Date": None}                              # drop the embedded timestamp -> byte-stable
 
 OUT = Path("docs/figures"); OUT.mkdir(parents=True, exist_ok=True)
 
@@ -88,7 +91,7 @@ def fig_method_dependence():
              ha="left", fontsize=8.8, color=MUT, linespacing=1.35)
     fig.subplots_adjust(left=0.09, right=0.985, top=0.72, bottom=0.14, wspace=0.28)
     for ext in ("png", "svg"):
-        fig.savefig(OUT / f"fig_method_dependence.{ext}", dpi=200)
+        fig.savefig(OUT / f"fig_method_dependence.{ext}", dpi=200, metadata=_META)
     plt.close(fig)
     print("wrote docs/figures/fig_method_dependence.{png,svg}")
 
@@ -126,7 +129,7 @@ def fig_robustness():
     ax.set_xlabel("granulocyte − erythroid real-program count", fontsize=9.5, color=MUT)
     fig.subplots_adjust(left=0.18, right=0.97, top=0.80, bottom=0.12)
     for ext in ("png", "svg"):
-        fig.savefig(OUT / f"fig_robustness.{ext}", dpi=200)
+        fig.savefig(OUT / f"fig_robustness.{ext}", dpi=200, metadata=_META)
     plt.close(fig)
     print("wrote docs/figures/fig_robustness.{png,svg}")
 
