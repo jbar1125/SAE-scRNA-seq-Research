@@ -1,0 +1,199 @@
+<title>SAE gene programs in hematopoiesis — result brief</title>
+<style>
+  :root{
+    --ground:#F6F7F9; --surface:#FFFFFF; --ink:#141A21; --muted:#5A6472;
+    --hair:#E4E8EE; --cool:#1668D6; --cool-soft:#dbe8fb; --warm:#DD5F12; --warm-soft:#f8e4d5;
+    --serif:'Iowan Old Style','Palatino Linotype',Palatino,Georgia,'Times New Roman',serif;
+    --sans:system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+    --mono:ui-monospace,'SF Mono','Cascadia Code',Menlo,Consolas,monospace;
+  }
+  @media (prefers-color-scheme:dark){
+    :root{--ground:#0D1117;--surface:#151B23;--ink:#E7ECF3;--muted:#94A0AF;
+      --hair:#242C36;--cool:#4E97FF;--cool-soft:#12233b;--warm:#F1863E;--warm-soft:#33210f;}
+  }
+  :root[data-theme="dark"]{--ground:#0D1117;--surface:#151B23;--ink:#E7ECF3;--muted:#94A0AF;
+    --hair:#242C36;--cool:#4E97FF;--cool-soft:#12233b;--warm:#F1863E;--warm-soft:#33210f;}
+  :root[data-theme="light"]{--ground:#F6F7F9;--surface:#FFFFFF;--ink:#141A21;--muted:#5A6472;
+    --hair:#E4E8EE;--cool:#1668D6;--cool-soft:#dbe8fb;--warm:#DD5F12;--warm-soft:#f8e4d5;}
+
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--ground);color:var(--ink);font-family:var(--sans);
+    line-height:1.6;-webkit-font-smoothing:antialiased;font-size:16.5px}
+  .wrap{max-width:770px;margin:0 auto;padding:clamp(28px,5vw,72px) clamp(20px,5vw,40px)}
+  .eyebrow{font-family:var(--mono);font-size:11.5px;letter-spacing:.16em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 18px}
+  h1{font-family:var(--serif);font-weight:600;font-size:clamp(30px,5.5vw,46px);line-height:1.12;
+    letter-spacing:-.01em;text-wrap:balance;margin:0 0 20px}
+  h1 .cool{color:var(--cool)} h1 .warm{color:var(--warm)}
+  .lede{font-size:19px;color:var(--muted);max-width:60ch;margin:0 0 8px;text-wrap:pretty}
+  h2{font-family:var(--serif);font-weight:600;font-size:24px;letter-spacing:-.005em;
+    margin:56px 0 6px}
+  .sub{color:var(--muted);margin:0 0 22px;max-width:62ch}
+  p{max-width:64ch}
+  hr{border:none;border-top:1px solid var(--hair);margin:0}
+
+  .stats{display:grid;grid-template-columns:repeat(auto-fit,minmax(150px,1fr));gap:14px;margin:30px 0 6px}
+  .stat{background:var(--surface);border:1px solid var(--hair);border-radius:12px;padding:18px 18px 16px}
+  .stat .n{font-family:var(--serif);font-size:34px;font-weight:600;line-height:1;
+    font-variant-numeric:tabular-nums;letter-spacing:-.01em}
+  .stat .n.cool{color:var(--cool)} .stat .n.warm{color:var(--warm)}
+  .stat .k{margin-top:9px;font-size:13px;color:var(--muted);line-height:1.4}
+
+  /* diverging chart */
+  .chart{background:var(--surface);border:1px solid var(--hair);border-radius:14px;
+    padding:22px clamp(16px,3vw,26px) 18px;margin-top:22px}
+  .panels{display:grid;grid-template-columns:1fr 1fr;gap:clamp(18px,4vw,40px)}
+  @media(max-width:560px){.panels{grid-template-columns:1fr;gap:26px}}
+  .ptitle{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 12px}
+  .row{display:grid;grid-template-columns:34px 1fr;align-items:center;gap:8px;margin:9px 0}
+  .rlab{font-family:var(--mono);font-size:12px;color:var(--muted);text-align:right}
+  .track{position:relative;height:19px}
+  .track::before{content:"";position:absolute;left:50%;top:-3px;bottom:-3px;width:1.5px;background:var(--ink);opacity:.5}
+  .bar{position:absolute;top:2px;height:15px;border-radius:3px}
+  .bar.cool{background:var(--cool)} .bar.warm{background:var(--warm)}
+  .val{position:absolute;top:-1px;font-size:11.5px;font-variant-numeric:tabular-nums;color:var(--ink)}
+  .axis{display:flex;justify-content:space-between;font-size:10.5px;color:var(--muted);
+    margin-top:12px;padding-top:9px;border-top:1px solid var(--hair);font-family:var(--mono)}
+  .legend{display:flex;flex-wrap:wrap;gap:16px;margin-top:16px;font-size:12.5px;color:var(--muted)}
+  .legend span{display:inline-flex;align-items:center;gap:7px}
+  .sw{width:11px;height:11px;border-radius:3px;display:inline-block}
+  .sw.cool{background:var(--cool)} .sw.warm{background:var(--warm)}
+
+  .chips{display:flex;flex-wrap:wrap;gap:9px;margin:18px 0 4px}
+  .chip{font-size:12.5px;background:var(--surface);border:1px solid var(--hair);
+    border-radius:999px;padding:6px 13px;color:var(--ink)}
+  .chip b{font-weight:600}
+
+  .strip{display:grid;grid-template-columns:repeat(auto-fit,minmax(118px,1fr));gap:10px;margin-top:20px}
+  .cell{background:var(--surface);border:1px solid var(--hair);border-radius:11px;padding:13px 14px}
+  .cell .t{font-family:var(--mono);font-size:11px;color:var(--muted);letter-spacing:.04em}
+  .cell .v{margin-top:6px;font-size:14px}
+  .cell .v b{color:var(--cool)}
+
+  .limits{margin-top:22px;padding-left:0;list-style:none}
+  .limits li{position:relative;padding:9px 0 9px 24px;border-bottom:1px solid var(--hair);
+    color:var(--ink);max-width:64ch}
+  .limits li::before{content:"";position:absolute;left:2px;top:16px;width:7px;height:7px;
+    border-radius:2px;background:var(--warm)}
+  .limits li:last-child{border-bottom:none}
+
+  .next{background:var(--cool-soft);border:1px solid transparent;border-radius:14px;
+    padding:22px 24px;margin-top:26px}
+  .next h2{margin-top:0}
+  .next .q{font-family:var(--serif);font-size:20px;color:var(--ink);margin:0 0 6px;text-wrap:pretty}
+
+  footer{margin-top:56px;padding-top:20px;border-top:1px solid var(--hair);
+    font-family:var(--mono);font-size:11.5px;color:var(--muted);line-height:1.9;word-break:break-all}
+  .foot-k{color:var(--ink)}
+</style>
+
+<div class="wrap">
+  <p class="eyebrow">Computational biology · sparse autoencoders · pre-registered</p>
+  <h1>Gene-program modularity in blood-cell development is
+    <span class="cool">an artifact of the method</span>, not a property of the data.</h1>
+  <p class="lede">A pre-registered, cross-species stress test of sparse-autoencoder "gene programs"
+    in hematopoiesis. The headline claim it set out to test does not survive — and the reason it
+    doesn't is the actual finding.</p>
+
+  <div class="stats">
+    <div class="stat"><div class="n">0 / 10</div><div class="k">seeds support the original "asymmetric modularity" claim — in mouse <em>and</em> human</div></div>
+    <div class="stat"><div class="n warm">1 / 10</div><div class="k">method × species combinations where the claim survives (mouse NMF alone)</div></div>
+    <div class="stat"><div class="n cool">5</div><div class="k">decomposition families compared under one frozen metric</div></div>
+    <div class="stat"><div class="n">0 / 70</div><div class="k">single-marker drops that flip the verdict (34 mouse + 36 human)</div></div>
+  </div>
+
+  <h2>The question</h2>
+  <p class="sub">Sparse autoencoders (SAEs) are used to pull "gene programs" out of single-cell RNA-seq.
+    A popular claim in hematopoiesis is <em>asymmetric modularity</em>: granulocyte commitment as one
+    unified program, erythroid commitment as many. But is any such structure biology, or an artifact
+    of the decomposition you happened to run?</p>
+
+  <h2>The result</h2>
+  <p class="sub">Run the identical pre-registered modularity test on five decompositions of the same
+    matrix. The original claim needs erythroid to split into <em>more</em> real programs than
+    granulocyte (a bar pointing right, in warm). It happens in exactly one of ten cells.</p>
+
+  <div class="chart">
+    <div class="panels">
+      <div>
+        <p class="ptitle">Mouse · Paul15</p>
+        <div id="mouse"></div>
+      </div>
+      <div>
+        <p class="ptitle">Human · Setty CD34+</p>
+        <div id="human"></div>
+      </div>
+    </div>
+    <div class="legend">
+      <span><i class="sw cool"></i> granulocyte more distributed (rejects claim)</span>
+      <span><i class="sw warm"></i> erythroid more distributed (supports claim)</span>
+    </div>
+    <p class="sub" style="margin:14px 0 0;font-size:13px">Bars show erythroid − granulocyte
+      real-program count; labels are the raw counts (erythroid / granulocyte). PCA, ICA, and the SAE
+      point one way or resolve nothing; only mouse NMF — the most artifact-prone, parts-based method —
+      points the other. No decomposition is ground truth.</p>
+  </div>
+
+  <h2>Why you can trust the negative</h2>
+  <p class="sub">The verdict was frozen before the runs (SHA-256 pre-registration) and then attacked
+    from every angle. It did not move.</p>
+  <div class="chips">
+    <span class="chip"><b>Pre-registered</b> metric, frozen SHA</span>
+    <span class="chip"><b>Abundance-matched</b> permutation null · BH-FDR</span>
+    <span class="chip"><b>Progenitor control</b> non-significant (calibrated)</span>
+    <span class="chip"><b>10 → 20 seeds</b>, verdict identical</span>
+    <span class="chip"><b>Effective dim</b> SAE 196 · PCA 14 · NMF 5</span>
+    <span class="chip"><b>TRRUST</b> regulon recovered (p=6.4e-5)</span>
+  </div>
+  <div class="strip">
+    <div class="cell"><div class="t">thresholds</div><div class="v"><b>0/12</b> configs flip</div></div>
+    <div class="cell"><div class="t">L0 band</div><div class="v"><b>stable</b> 21–52</div></div>
+    <div class="cell"><div class="t">seeds</div><div class="v"><b>20/20</b> agree</div></div>
+    <div class="cell"><div class="t">HVG count</div><div class="v"><b>1k–3k</b> stable</div></div>
+    <div class="cell"><div class="t">species</div><div class="v"><b>mouse+human</b></div></div>
+  </div>
+
+  <h2>Honest limitations</h2>
+  <ul class="limits">
+    <li>The measure is <em>structural</em> (decoder-mass concentration), not causal — it shows programs are statistically concentrated, not that perturbing them behaves as a unit.</li>
+    <li>Ten seeds, one dataset per species; the human erythroid globin program is under-represented because the human sample is CD34+ progenitor-selected.</li>
+    <li>ICA is reported at rank 50 (its convergent regime); at the SAE-matched rank 512 it does not converge, and a non-converged run had to be rejected.</li>
+  </ul>
+
+  <div class="next">
+    <p class="eyebrow" style="margin-bottom:10px">The centerpiece, next</p>
+    <p class="q">Are expression-space SAE programs <span class="cool">causally</span> real more often than the 6.2% reported for foundation-model SAEs?</p>
+    <p style="margin:0;color:var(--muted)">A head-to-head using Replogle CRISPRi perturbation data — the true arbiter that structural
+      concentration alone cannot settle. Specified and ready to run on a GPU.</p>
+  </div>
+
+  <footer>
+    Fully computational · Paul15 mouse (2730×2012) + Setty 2019 human CD34+ (4142×2032), hash-verified<br>
+    frozen decision bundles — mouse <span class="foot-k">172861…b84396</span> · human <span class="foot-k">cc8159c8…f729d3</span> · pre-registration <span class="foot-k">fc342829…4f6011a</span><br>
+    every number traces to a committed artifact; verification is scripted and passes end to end.
+  </footer>
+</div>
+
+<script>
+  const DATA={
+    mouse:[["PCA",1,1],["ICA",1,3],["NMF",2.5,2],["SAE",1.5,3],["GRN",2,2]],
+    human:[["PCA",1,3],["ICA",2,3],["NMF",0,0],["SAE",1,2],["GRN",1,2]]
+  };
+  const HALF=104, MAX=2; // px per side, max |diff|
+  function render(id,rows){
+    const el=document.getElementById(id);
+    el.innerHTML=rows.map(([m,e,g])=>{
+      const d=e-g, w=Math.min(Math.abs(d)/MAX,1)*HALF;
+      const cls=d>0?"warm":"cool";
+      const bar=d===0
+        ? `<span class="val" style="left:calc(50% + 6px)">${e.toFixed(1)}/${g.toFixed(1)}</span>`
+        : d>0
+          ? `<span class="bar ${cls}" style="left:50%;width:${w}px"></span><span class="val" style="left:calc(50% + ${w+6}px)">${e.toFixed(1)}/${g.toFixed(1)}</span>`
+          : `<span class="bar ${cls}" style="right:50%;width:${w}px"></span><span class="val" style="right:calc(50% + ${w+6}px);text-align:right">${e.toFixed(1)}/${g.toFixed(1)}</span>`;
+      return `<div class="row"><div class="rlab">${m}</div><div class="track">${bar}</div></div>`;
+    }).join("")+
+    `<div class="axis"><span>← granulocyte</span><span>erythroid →</span></div>`;
+  }
+  render("mouse",DATA.mouse); render("human",DATA.human);
+</script>
