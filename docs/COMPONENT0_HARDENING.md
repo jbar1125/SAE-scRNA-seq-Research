@@ -21,20 +21,34 @@ granulocyte-more-distributed direction holds throughout.
 | **R4** HVG-count sensitivity | 1000 / 2000 / 3000 highly-variable genes | BOTH species NOT SUPPORTED at all three counts; granulocyte >= erythroid throughout. (Caveat: at fixed l1=0.8, L0 leaves the band at the gene-count extremes since L0 depends on gene count; at human 1000-genes both lineages collapse to 1 (a tie, still not the claim). Verdict/direction stable regardless.) |
 | **TRRUST** ground-truth cross-reference | curated TF->target regulon (TRRUST v2) | Human: erythroid TF targets enriched in the erythroid-TF feature in **100% of seeds** (median p=6.4e-5); granulocyte 50%. SAE features recover real regulatory structure, and the unified erythroid program captures its regulon more tightly than the distributed granulocyte one. Mouse cross-ref underpowered (human DB, small panel) and not used as evidence. |
 | **GRN** 4th decomposition family | co-expression regulons (|Pearson|; NOT motif-pruned SCENIC) run through the same v3.1 modularity | Adds a 4th answer: mouse ery=2/gran=2 (tie); human ery=1/gran=2. Still NOT SUPPORTED. |
+| **ICA** 5th decomposition family | FastICA independent components (rank 50, converged 3/3; rank 512 is non-convergent) through the same v3.1 modularity | mouse ery=1/gran=3, human ery=2/gran=3. NOT SUPPORTED; agrees with the SAE granulocyte direction in both species. |
 
-### Method-dependence, now across 4 decomposition families (mouse)
+### Method-dependence, across 5 decomposition families (both species)
 
-| method | ery_n_real | gran_n_real | original claim? |
-|--------|-----------:|------------:|-----------------|
-| PCA (linear) | 1 | 1 | no (resolves nothing) |
-| NMF (parts-based) | 2.5 | 2 | **yes** (only method+species that does) |
-| SAE (sparse) | 1.5 | 3 | no (reverse) |
-| GRN (co-expression) | 2 | 2 | no (tie) |
+ery_n_real / gran_n_real per method; the original claim needs erythroid > granulocyte.
 
-Four decomposition families give four different mouse modularity answers on the
-identical matrix. This is the artifact-vs-signal thesis, now demonstrated across four
-method families rather than three: "gene-program modularity" is co-determined by the
-chosen decomposition, so no single-method modularity claim is biological ground truth.
+| method | mouse (ery/gran) | human (ery/gran) | supports original claim? |
+|--------|:---------------:|:----------------:|--------------------------|
+| PCA (linear) | 1 / 1 | 1 / 3 | no (mouse resolves nothing; human granulocyte) |
+| ICA (independent, rank 50*) | 1 / 3 | 2 / 3 | no (granulocyte, both) |
+| NMF (parts-based) | 2.5 / 2 | 0 / 0 | mouse **yes** (the lone outlier); human nothing |
+| SAE (sparse) | 1.5 / 3 | 1 / 2 | no (granulocyte, both) |
+| GRN (co-expression) | 2 / 2 | 1 / 2 | no (mouse tie; human granulocyte) |
+
+*ICA is run at rank 50 (its convergent regime): FastICA at rank 512 does not converge
+(0-1/3 seeds), and non-converged components are unreliable; at rank 50 it converges
+3/3 in both species. The rank differs from the other families (512), stated openly.
+The non-converged rank-512 run had falsely flipped human ICA to "supported" - a
+convergence artifact, corrected here (see LAB_NOTEBOOK.md).
+
+Five decomposition families give divergent modularity answers on the identical matrix.
+The original claim (erythroid more distributed) survives in exactly **1 of 10
+method x species combinations** (mouse NMF, the most parts-based/artifact-prone); every
+other combination rejects it, and the SAE's granulocyte-more-distributed direction is
+echoed by ICA (both species) and human PCA/GRN. This is the artifact-vs-signal thesis,
+now demonstrated across five method families and two species: "gene-program modularity"
+is co-determined by the chosen decomposition, so no single-method modularity claim is
+biological ground truth.
 
 ## Interpretation
 

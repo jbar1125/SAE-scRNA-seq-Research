@@ -358,7 +358,19 @@ lineages collapse to 1 real program (L0 ~98, far out of band) - a tie, still not
 claim. Summaries in `data_g0_human/robustness/`; hardening doc R2-R4 rows now report
 both species. The robustness battery is now symmetric across mouse and human.
 
-**Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN all confirm the frozen Gate-0
+**ICA 5th decomposition family — DONE, with an honesty save.** Added `src/ica_baseline.py`
+(FastICA components -> same v3.1 modularity). First run at rank 512 (SAE-matched) did
+NOT converge (mouse 0/3, human 1/3 seeds) and the non-converged human run FALSELY read
+"SUPPORTED" (ery=3/gran=2). Caught it: non-converged ICA components are unreliable, so I
+would not present them as a result. Diagnosed 512-component ICA as ill-posed; ICA
+converges 3/3 at rank 50. Re-ran at rank 50 (converged): **mouse ery=1/gran=3, human
+ery=2/gran=3, both NOT SUPPORTED**, agreeing with the SAE granulocyte direction. The
+rank differs from the other families (512), stated openly. Method-dependence now spans
+5 families x 2 species; the original claim survives in exactly 1 of 10 combos (mouse
+NMF). This is the honesty rule working as intended: a convergence artifact nearly
+entered the record and was rejected.
+
+**Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN + ICA all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence
 result.
 Summary written to `docs/COMPONENT0_HARDENING.md`. Terminal state for the CPU
