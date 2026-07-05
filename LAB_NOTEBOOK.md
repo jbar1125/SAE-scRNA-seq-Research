@@ -334,6 +334,27 @@ answers - the method-dependence thesis is now demonstrated across 4 method famil
 not 3. Artifacts: `data_g0{,_human}/grn/grn_baseline.json`; TF lists in
 `config/tf_lists/`.
 
+**Autonomy continuation (later same day).** Pipeline pushed further per `/goal`.
+
+**Decision (auto) — genuine resource blocks, re-probed and documented (not skipped).**
+- Second human dataset: api.github.com is gated to the one in-scope repo ("access not
+  enabled"); the Palantir repo exposes only `marrow_sample_scseq_counts.h5ad` (all other
+  candidate filenames 404). No reachable non-CD34 human marrow set. BLOCKED until the
+  user enables another data repo or link-shares a file. Not faked.
+- Mouse TRRUST: re-probed 3 GitHub mirrors for `trrust_rawdata.mouse.tsv`; all 404
+  (consistent with the earlier probe). Mouse curated-regulon cross-ref stays deferred.
+- Full SCENIC (motif-pruned): cisTarget DBs remain blocked; the co-expression GRN
+  (`src/grn_baseline.py`, committed a04d1ec) is the honest tractable substitute and is
+  the 4th decomposition family in the method-dependence table.
+
+**PR #3 check-in (cron 2fb86799).** State open/draft, mergeable_state clean, no CI
+configured, no review comments. No action; cron stays armed until merge/close.
+
+**Human-arm robustness (R2h/R3h/R4h) — IN PROGRESS.** The R2-R4 battery + TRRUST were
+mouse-only; extending L0-band, 20-seed stability, and HVG-count robustness to the human
+Setty arm (CPU-tractable, no new data/GPU). Chained background job; summaries land in
+`data_g0_human/robustness/`. This closes the mouse-only asymmetry in the battery.
+
 **Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence
 result.
