@@ -17,6 +17,29 @@ manual, read it first.
 
 ---
 
+## Status at a glance
+
+| Item | State | Where |
+|------|-------|-------|
+| Gate 0 executed + frozen (mouse + human) | ✅ done, in `main` | `docs/COMPONENT0_RESULTS.md` |
+| Robustness battery R1–R4 (both species) | ✅ done | `docs/COMPONENT0_HARDENING.md` |
+| 5 decomposition families × 2 species | ✅ done | `docs/COMPONENT0_HARDENING.md` |
+| TRRUST regulon cross-reference | ✅ done | `data_g0*/trrust/` |
+| Result figures (deterministic) | ✅ done | `docs/figures/`, `src/make_figures.py` |
+| Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
+| Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
+| **Component 2 — causal CRISPRi test** | ⛔ **needs a GPU** (specified, not run) | `docs/COMPONENT2_PLAN.md` |
+| Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |
+
+**Headline finding:** the original "asymmetric modularity" claim is NOT SUPPORTED in
+either species; the modularity verdict is method-dependent (survives in 1 of 10
+method × species cells); every stress test confirms it. Structural, not yet causal —
+that is Component 2's job.
+
+Follow-up hardening lives on PR #3 (draft); Gate 0 is already merged to `main`.
+
+---
+
 ## Repository map
 
 ```
