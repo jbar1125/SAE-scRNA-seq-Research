@@ -11,6 +11,21 @@ JSON summaries under `data_g0*/robustness/` and `data_g0*/trrust/`.
 level, HVG count, or decision-threshold choice resurrects the original claim, and the
 granulocyte-more-distributed direction holds throughout.
 
+## Figures
+
+Regenerate with `python3 src/make_figures.py` (reads only the committed JSON artifacts).
+
+![Method-dependence across 5 families x 2 species](figures/fig_method_dependence.png)
+
+*Fig 1. Median real-program counts (erythroid/granulocyte) per decomposition. The
+original claim needs erythroid > granulocyte (a bar pointing right, warm); it appears
+in exactly one of ten method x species cells (mouse NMF).*
+
+![Mouse verdict stable across every stress test](figures/fig_robustness.png)
+
+*Fig 2. Granulocyte minus erythroid real-program count across every robustness
+condition; > 0 everywhere means the verdict never flips toward the original claim.*
+
 ## Battery
 
 | Unit | What it varies | Result |
