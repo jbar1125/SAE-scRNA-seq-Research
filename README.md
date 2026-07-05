@@ -86,6 +86,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `ABSTRACT.md` | One-page competition/mentor summary (draft), traced to committed numbers. |
 | `REPRODUCIBILITY.md` | Scripted end-to-end verification + expected hashes/outputs. |
 | `ELEVATION_PLAN.md` | **The pivot**: how to turn the null into a positive, causal, benchmark-beating result. |
+| `RUNPOD_EXECUTION.md` | Turnkey GPU steps for the expression-vs-embedding causal head-to-head. |
 | `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
 | `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
 | `COMPUTE.md` | What runs on CPU vs GPU and why (incl. why the AMD 5700 XT isn't practical). |

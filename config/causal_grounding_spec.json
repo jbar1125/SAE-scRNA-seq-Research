@@ -1,0 +1,20 @@
+{
+  "name": "causal_grounding_v1",
+  "purpose": "Fraction of genetic perturbations for which a control-trained SAE is causally grounded on Perturb-seq, comparing expression-space vs foundation-model-embedding SAEs.",
+  "trained_on": "control (non-targeting) cells only; SAE never sees a perturbation",
+  "feature_program": "gene-association profile = Pearson corr of feature activation with each gene over control cells (identical for expression- and embedding-space SAEs)",
+  "matching_rule": "perturbation p (KD of gene t) is matched to argmax over features of cosine(program_normalized, -DE_signature); the KD gene t is EXCLUDED from both the program and the DE signature (program-level, non-trivial)",
+  "grounding_rule": {
+    "effect_floor_standardized_activation_drop": 0.25,
+    "specificity": "matched feature's activation drop under p is a robust-z (median/MAD) lower-tail outlier vs how all OTHER perturbations move that feature",
+    "match_confidence": "matched program alignment is a robust-z (median/MAD) upper-tail outlier vs alignment to all OTHER features (excludes diffuse/global perturbations)",
+    "combine": "raw_p = max(specificity_p, match_confidence_p)",
+    "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations",
+    "fdr": 0.05,
+    "grounded_iff": "passes_floor AND BH-q < fdr",
+    "min_cells_per_group": 3
+  },
+  "primary_comparison": "expression-space causal_grounding_rate vs embedding-space rate; positive result iff expression >> embedding (target: a multiple of the published 6.2-10% embedding ceiling), robust across >=5 seeds",
+  "control_label": "control",
+  "frozen_before": "any run on real Replogle data"
+}

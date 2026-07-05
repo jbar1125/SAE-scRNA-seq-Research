@@ -393,6 +393,51 @@ palette, sign encoded by position + color, direct value labels. PNG+SVG under
   produce byte-identical PNG/SVG.
 - Frozen decision bundles re-verified: mouse `172861...`, human `cc8159c8...` still match.
 
+## 2026-07-05 — THE PIVOT: from a rigorous null to a positive causal head-to-head
+
+User's honest call: "It is not a strong result as of now and will not win anything...
+make this a million times better... with a stronger result." Correct. Ran an
+autonomous literature + reasoning pass and rebuilt the project's centerpiece.
+
+**Diagnosis (docs/ELEVATION_PLAN.md).** The current result is a negative + "methods
+disagree" — hygiene, not a discovery; no causal/biological payload; defensive framing;
+crowded substrate. It is a foundation, not a result.
+
+**The reframe, grounded in the literature.** The key fact: SAEs on single-cell
+FOUNDATION MODELS (Geneformer/scGPT) encode organized knowledge but "minimal
+regulatory logic" - only 3/48 TFs (6.2%, ->10.4% multi-tissue) are causally grounded
+vs Replogle CRISPRi (arXiv 2603.02952). Nobody has asked: is that a limit of SAEs or of
+EMBEDDINGS? New central question + falsifiable hypothesis: SAEs trained directly on
+EXPRESSION recover causal regulatory logic that foundation models discard, beating the
+6-10% ceiling. Novelty confirmed by search (only tangential prior work). K562 (Replogle)
+keeps the myeloid framing and gives real causal ground truth.
+
+**Triviality trap identified + defeated (ELEVATION_PLAN 3b).** "Expression sees the
+genes, so of course it wins" - defeated by: train on control only; match by program
+with the KD gene EXCLUDED (program-level, not target self-drop); require perturbation-
+specific suppression AND a confident single-target-program match. The residual
+expression advantage then IS the scientific claim (causal logic is legible in
+expression, compressed away in embeddings).
+
+**Built + validated in-container (CPU, no GPU):**
+- `src/causal_grounding.py` - the metric. Unit-tested (`tests/test_causal_grounding.py`):
+  6/6 planted regulators grounded, null + global(non-specific) + background rejected,
+  0 false positives under no causal structure. Two real design bugs caught and fixed by
+  testing (response-based matching was circular; column-specificity alone couldn't
+  reject a global stressor -> added program-match confidence).
+- `src/causal_pipeline.py` - the RunPod head-to-head (TopK SAE on control cells ->
+  encode -> grounding; --rep expression vs --rep embedding). `--synthetic` self-test
+  trains a real SAE at realistic scale and recovers 6-7/8 regulators with ~1/250 false
+  positives -> full pipeline (learning + grounding) validated end to end.
+- Pre-registered the causal metric: `config/causal_grounding_spec.json` (+ .sha256
+  `b7d28fae`), frozen BEFORE any real run.
+- `docs/RUNPOD_EXECUTION.md` - turnkey steps for the GPU run (data via pertpy, both
+  arms, compare, budget). Honest about what is CPU-verified vs what runs on RunPod.
+
+**Next (needs RunPod GPU):** run Arm B (expression) + Arm A (scGPT embedding) on
+Replogle; the head-to-head number; if positive, build the causally-grounded atlas /
+causally-supervised SAE and reformat the writeup around the causal result.
+
 **Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN + ICA all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence
 result.
