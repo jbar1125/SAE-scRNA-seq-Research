@@ -5,10 +5,13 @@ autoencoders (SAEs) can discover **real** gene programs in blood-cell developmen
 and building a rigorous framework to tell a genuine biological program from a
 decomposition artifact.
 
-**One line:** the original "asymmetric modularity" headline is not supported; what
-replaces it is a pre-registered, cross-species, cross-method demonstration that
-gene-program modularity is method-dependent, motivating a causal test as the real
-arbiter.
+**One line:** two acts. (1) A rigor foundation — a pre-registered, cross-species,
+cross-method demonstration that SAE gene-program modularity is method-dependent, so no
+single-method structural claim is trustworthy. (2) The centerpiece it motivates — a
+causal head-to-head asking whether SAEs trained on gene EXPRESSION recover the
+regulatory logic that single-cell foundation models discard (only ~6% causally
+grounded), tested on Replogle CRISPRi. The metric + pipeline for (2) are built and
+CPU-verified; the GPU run is the open step. See `docs/ELEVATION_PLAN.md`.
 
 Start here → **[`LAB_NOTEBOOK.md`](./LAB_NOTEBOOK.md)** (dated day-to-day log) and
 **[`docs/COMPONENT0_RESULTS.md`](./docs/COMPONENT0_RESULTS.md)** (the executed
@@ -28,13 +31,20 @@ manual, read it first.
 | Result figures (deterministic) | ✅ done | `docs/figures/`, `src/make_figures.py` |
 | Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
 | Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
-| **Component 2 — causal CRISPRi test** | ⛔ **needs a GPU** (specified, not run) | `docs/COMPONENT2_PLAN.md` |
+| **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
+| Causal metric pre-registered (frozen spec) | ✅ done | `config/causal_grounding_spec.json` (SHA `b7d28fae`) |
+| **Causal head-to-head — GPU run on Replogle** | 🟡 **ready, needs RunPod** | `docs/RUNPOD_EXECUTION.md` |
+| Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
 | Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |
 
-**Headline finding:** the original "asymmetric modularity" claim is NOT SUPPORTED in
-either species; the modularity verdict is method-dependent (survives in 1 of 10
-method × species cells); every stress test confirms it. Structural, not yet causal —
-that is Component 2's job.
+**Act 1 finding (done):** the original "asymmetric modularity" claim is NOT SUPPORTED
+in either species; the modularity verdict is method-dependent (survives in 1 of 10
+method × species cells); every stress test confirms it. Structural, not yet causal.
+
+**Act 2 (the winnable result, built and ready):** does an expression-space SAE beat the
+~6-10% causal-grounding ceiling of foundation-model SAEs on Replogle CRISPRi? Metric and
+pipeline are built and verified on synthetic (recovers planted regulators, FDR-calibrated,
+defeats the triviality trap); the GPU run is the open step.
 
 Follow-up hardening lives on PR #3 (draft); Gate 0 is already merged to `main`.
 
