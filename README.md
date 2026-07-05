@@ -59,7 +59,8 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `PREREGISTRATION.md` | The frozen analysis spec (what was locked before running). |
 | `COMPONENT0_STATUS.md` | Gate-0 state + the Colab/GPU reproduction runner. |
 | `COMPONENT0_RESULTS.md` | The EXECUTED Gate-0 numbers (mouse + human) + frozen SHAs. |
-| `COMPONENT0_HARDENING.md` | Robustness battery (R1-R4 + TRRUST) stress-testing the frozen verdict. |
+| `COMPONENT0_HARDENING.md` | Robustness battery (R1-R4 + TRRUST + GRN + ICA) stress-testing the frozen verdict. |
+| `ABSTRACT.md` | One-page competition/mentor summary (draft), traced to committed numbers. |
 | `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
 | `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
 | `COMPUTE.md` | What runs on CPU vs GPU and why (incl. why the AMD 5700 XT isn't practical). |
