@@ -93,9 +93,10 @@ prior favors a positive result, but the design is internally fair either way).
 
 - Pre-register the exact metric config before the final runs (freeze a spec SHA, as in
   Gate 0). A draft spec lives in `config/causal_grounding_spec.json`.
-- If positive: build the causally-grounded gene-program atlas and/or the
-  causally-supervised SAE (ELEVATION_PLAN sections 4), then reformat the writeup and
-  figures around the causal result.
+- If positive: build the causally-grounded gene-program atlas (a low-risk formatting of
+  the grounded programs + their perturbation certificates; ELEVATION_PLAN section 4),
+  then reformat the writeup and figures around the causal result. (The
+  causally-supervised SAE was prototyped and did NOT validate on synthetic — shelved.)
 
 ## Compute budget (rough)
 
