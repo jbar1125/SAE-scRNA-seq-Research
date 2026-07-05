@@ -122,15 +122,41 @@ def _synthetic(n_prog=8, prog_size=15, n_bg=250, rng=None):
     return X, genes, np.array(labels), tested
 
 
-def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out):
+def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed):
+    """Permute perturbation labels among perturbed cells (controls fixed) and re-run
+    grounding, n_shuffle times. If the real grounding is causal signal, the shuffled
+    grounding rate collapses toward 0. Returns the null rates + an empirical p."""
+    labels = np.asarray(labels)
+    is_pert = labels != cg.CONTROL_LABEL
+    rng = np.random.default_rng(seed)
+    null = []
+    for _ in range(n_shuffle):
+        lab = labels.copy()
+        lab[is_pert] = rng.permutation(lab[is_pert])
+        null.append(cg.causal_grounding(acts, expression, lab, genes, tested)["causal_grounding_rate"])
+    return [float(x) for x in null]
+
+
+def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0):
     encode, info = train_topk_sae(rep_matrix, latent, k, seed=seed)
     acts = encode(rep_matrix)
     res = cg.causal_grounding(acts, expression, labels, genes, tested)
     res["sae"] = info
+    if n_shuffle:
+        null = shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed)
+        real = res["causal_grounding_rate"]
+        res["shuffle_control"] = {
+            "n_shuffle": n_shuffle, "null_rates_mean": float(np.mean(null)),
+            "null_rates_max": float(np.max(null)),
+            "empirical_p": float((1 + sum(x >= real for x in null)) / (1 + n_shuffle))}
     Path(out).parent.mkdir(parents=True, exist_ok=True)
     json.dump(res, open(out, "w"), indent=2)
-    print(f"[{out}] grounded {res['n_grounded']}/{res['n_tested']} "
-          f"= {res['causal_grounding_rate']:.3f}  (SAE {info})")
+    msg = (f"[{out}] grounded {res['n_grounded']}/{res['n_tested']} "
+           f"= {res['causal_grounding_rate']:.3f}")
+    if n_shuffle:
+        sc = res["shuffle_control"]
+        msg += f"  | shuffled null mean {sc['null_rates_mean']:.3f} p={sc['empirical_p']:.3f}"
+    print(msg + f"  (SAE {info})")
     return res
 
 
@@ -145,19 +171,23 @@ def main():
     ap.add_argument("--k", type=int, default=32)
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default="causal_out/grounding.json")
+    ap.add_argument("--n-shuffle", type=int, default=0, help="permutation control replicates")
     args = ap.parse_args()
 
     if args.synthetic:
         X, genes, labels, tested = _synthetic()
         n_prog = sum(1 for t in tested if not t.startswith("bg"))
-        res = run(X, X, genes, labels, tested, latent=128, k=8, seed=args.seed, out=args.out)
+        res = run(X, X, genes, labels, tested, latent=128, k=8, seed=args.seed,
+                  out=args.out, n_shuffle=20)
         pp = res["per_perturbation"]
         true_g = sum(pp[i]["grounded"] for i in range(n_prog))
         false_g = res["n_grounded"] - true_g
+        sc = res["shuffle_control"]
         print(f"  self-test: {true_g}/{n_prog} true regulators grounded, "
-              f"{false_g} false positives")
+              f"{false_g} false positives; shuffled null mean {sc['null_rates_mean']:.3f}")
         assert true_g >= n_prog - 2, f"pipeline should recover most regulators, got {true_g}/{n_prog}"
         assert false_g <= max(3, int(0.05 * (len(tested) - n_prog))), f"too many false positives: {false_g}"
+        assert sc["null_rates_max"] < res["causal_grounding_rate"], "shuffle control must collapse below the real rate"
         print("  PIPELINE SELF-TEST PASSED")
         return
 
@@ -168,7 +198,7 @@ def main():
     else:
         rep = np.load(args.embedding).astype(np.float32)
         assert rep.shape[0] == X.shape[0], "embedding rows must match cells"
-    run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out)
+    run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle)
 
 
 if __name__ == "__main__":

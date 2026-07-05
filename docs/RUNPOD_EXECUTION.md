@@ -43,7 +43,7 @@ Note the exact perturbation-column name and the control label; pass them below.
 ```bash
 python3 src/causal_pipeline.py \
   --adata replogle_k562_essential.h5ad --pert-col gene --control-value non-targeting \
-  --rep expression --latent 2048 --k 32 --seed 0 \
+  --rep expression --latent 2048 --k 32 --seed 0 --n-shuffle 50 \
   --out causal_out/expression_grounding.json
 ```
 Multi-seed: repeat with `--seed 1..4` and average the grounding rate (rigor).
