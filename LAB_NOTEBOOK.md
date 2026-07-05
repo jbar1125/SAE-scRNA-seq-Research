@@ -434,9 +434,18 @@ expression, compressed away in embeddings).
 - `docs/RUNPOD_EXECUTION.md` - turnkey steps for the GPU run (data via pertpy, both
   arms, compare, budget). Honest about what is CPU-verified vs what runs on RunPod.
 
+**Negative result, reported plainly.** Prototyped a causally-supervised SAE (add a
+decoder-side reconstruction of held-out perturbation DE signatures to the objective).
+It did NOT improve held-out causal grounding on synthetic - it hurt (plain 4/4 vs
+causal 0/4 on separable programs; ~tie-to-worse on entangled). Removed the unvalidated
+code (`src/causal_sae.py`) rather than ship a broken "method"; shelved pending a better
+formulation. The head-to-head does not depend on it. This is the honesty rule working:
+I tried to make it "more," it did not validate, so I say so.
+
 **Next (needs RunPod GPU):** run Arm B (expression) + Arm A (scGPT embedding) on
-Replogle; the head-to-head number; if positive, build the causally-grounded atlas /
-causally-supervised SAE and reformat the writeup around the causal result.
+Replogle; the head-to-head number; if positive, build the causally-grounded ATLAS (a
+low-risk formatting of the grounded programs + their perturbation certificates) and
+reformat the writeup around the causal result.
 
 **Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN + ICA all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence

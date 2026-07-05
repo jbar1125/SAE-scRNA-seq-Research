@@ -115,6 +115,17 @@ If Arm B beats the baseline, go beyond measurement to a **built artifact**:
 Either extension turns a comparison into a method/resource — the kind of thing that
 wins.
 
+**Honesty update (2026-07-05): the causally-supervised SAE was PROTOTYPED and it did
+NOT work.** A first design (add a decoder-side reconstruction of held-out perturbation
+DE signatures to the SAE objective) failed its own synthetic self-test — it did not
+improve, and sometimes hurt, held-out causal grounding, on both cleanly-separable and
+entangled synthetic programs. It is shelved pending a better formulation and is NOT
+claimed as a result. This does not touch the centerpiece: the expression-vs-embedding
+HEAD-TO-HEAD (sections 2-3) stands entirely on its own and is the winnable result.
+The causal ATLAS extension (emit the grounded programs with their perturbation
+certificates) remains viable and is low-risk, since it is just a formatting of the
+head-to-head output.
+
 ## 5. What we KEEP from the current work (it becomes the credibility spine)
 
 Nothing is wasted; it is repositioned:
