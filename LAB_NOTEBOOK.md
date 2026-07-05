@@ -350,10 +350,13 @@ not 3. Artifacts: `data_g0{,_human}/grn/grn_baseline.json`; TF lists in
 **PR #3 check-in (cron 2fb86799).** State open/draft, mergeable_state clean, no CI
 configured, no review comments. No action; cron stays armed until merge/close.
 
-**Human-arm robustness (R2h/R3h/R4h) — IN PROGRESS.** The R2-R4 battery + TRRUST were
-mouse-only; extending L0-band, 20-seed stability, and HVG-count robustness to the human
-Setty arm (CPU-tractable, no new data/GPU). Chained background job; summaries land in
-`data_g0_human/robustness/`. This closes the mouse-only asymmetry in the battery.
+**Human-arm robustness (R2h/R3h/R4h) — DONE.** Extended L0-band, 20-seed stability, and
+HVG-count robustness to the human Setty arm. All confirm the human verdict: NOT
+SUPPORTED and granulocyte >= erythroid across the L0 band (21.4/32.5/41.5), across 20
+seeds, and across HVG counts (1000/2000/3000). Human R4 note: at 1000 genes both
+lineages collapse to 1 real program (L0 ~98, far out of band) - a tie, still not the
+claim. Summaries in `data_g0_human/robustness/`; hardening doc R2-R4 rows now report
+both species. The robustness battery is now symmetric across mouse and human.
 
 **Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence

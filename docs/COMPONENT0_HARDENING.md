@@ -16,9 +16,9 @@ granulocyte-more-distributed direction holds throughout.
 | Unit | What it varies | Result |
 |------|----------------|--------|
 | **R1** decision-parameter sensitivity | effect-size floor x significance threshold (12 configs) | **0/12 support the original claim; granulocyte >= erythroid at every point, BOTH species.** Not a knob-tuning artifact. |
-| **R2** L0-band sensitivity | L1 -> mean L0 across (and just past) the 20-50 band | NOT SUPPORTED at L0 27.7 / 42.2 / 52.0; granulocyte >= erythroid throughout. Not specific to L0=37. |
-| **R3** seed stability | 10 seeds -> 20 seeds (via `--seed-start`) | gran_n_real = 3 in **20/20** seeds; granulocyte > erythroid in 20/20; 0/20 support the claim. n=10 was sufficient. |
-| **R4** HVG-count sensitivity | 1000 / 2000 / 3000 highly-variable genes | NOT SUPPORTED at all three; granulocyte 3 / erythroid 1-2. (Caveat: at fixed l1=0.8, L0 leaves the band at 1000 and 3000 genes since L0 depends on gene count; verdict stable regardless.) |
+| **R2** L0-band sensitivity | L1 -> mean L0 across (and just past) the 20-50 band | BOTH species. Mouse: NOT SUPPORTED at L0 27.7 / 42.2 / 52.0 (gran >= ery throughout). Human: NOT SUPPORTED at L0 21.4 / 32.5 / 41.5 (gran 2 / ery 1 throughout). Not specific to the frozen L0. |
+| **R3** seed stability | 10 seeds -> 20 seeds (via `--seed-start`) | BOTH species. Mouse: gran_n_real = 3 in **20/20** seeds, 0/20 support the claim. Human: gran 2 / ery 1 stable over 20 seeds, 0/20 support. n=10 was sufficient in both. |
+| **R4** HVG-count sensitivity | 1000 / 2000 / 3000 highly-variable genes | BOTH species NOT SUPPORTED at all three counts; granulocyte >= erythroid throughout. (Caveat: at fixed l1=0.8, L0 leaves the band at the gene-count extremes since L0 depends on gene count; at human 1000-genes both lineages collapse to 1 (a tie, still not the claim). Verdict/direction stable regardless.) |
 | **TRRUST** ground-truth cross-reference | curated TF->target regulon (TRRUST v2) | Human: erythroid TF targets enriched in the erythroid-TF feature in **100% of seeds** (median p=6.4e-5); granulocyte 50%. SAE features recover real regulatory structure, and the unified erythroid program captures its regulon more tightly than the distributed granulocyte one. Mouse cross-ref underpowered (human DB, small panel) and not used as evidence. |
 | **GRN** 4th decomposition family | co-expression regulons (|Pearson|; NOT motif-pruned SCENIC) run through the same v3.1 modularity | Adds a 4th answer: mouse ery=2/gran=2 (tie); human ery=1/gran=2. Still NOT SUPPORTED. |
 

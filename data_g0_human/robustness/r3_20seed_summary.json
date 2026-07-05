@@ -1,0 +1,16 @@
+{
+  "unit": "R3h seed stability (human, 20 seeds)",
+  "n_seeds": 20,
+  "gran_n_real_distribution": {
+    "2": 20
+  },
+  "ery_n_real_distribution": {
+    "0": 1,
+    "1": 19
+  },
+  "median_gran_n_real": 2.0,
+  "median_ery_n_real": 1.0,
+  "gran_ge_ery_seed_fraction": 1.0,
+  "verdict": "NOT SUPPORTED",
+  "note": "20-seed human run reproduces the 10-seed human verdict."
+}
