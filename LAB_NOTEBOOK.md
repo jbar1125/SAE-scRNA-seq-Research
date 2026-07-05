@@ -370,6 +370,13 @@ rank differs from the other families (512), stated openly. Method-dependence now
 NMF). This is the honesty rule working as intended: a convergence artifact nearly
 entered the record and was rejected.
 
+**Result figures — DONE (`src/make_figures.py`).** Two publication-quality figures
+generated from the committed JSON artifacts (regenerable, no retraining): Fig 1 the
+5-family x 2-species method-dependence (diverging bars; the lone warm bar = mouse NMF);
+Fig 2 the mouse robustness verdict stable across every stress test. CVD-safe diverging
+palette, sign encoded by position + color, direct value labels. PNG+SVG under
+`docs/figures/`, referenced from `COMPONENT0_HARDENING.md`.
+
 **Hardening battery COMPLETE.** R1-R4 + TRRUST + GRN + ICA all confirm the frozen Gate-0
 verdict (no method resurrects the original claim) and extend the method-dependence
 result.
