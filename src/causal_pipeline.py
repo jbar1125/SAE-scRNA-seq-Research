@@ -76,21 +76,36 @@ def train_topk_sae(rep, latent_dim, k, epochs=200, batch=1024, lr=4e-4, seed=0, 
 # --------------------------------------------------------------------------- #
 # Perturb-seq loading
 # --------------------------------------------------------------------------- #
-def load_perturbseq(h5ad, pert_col, control_value, min_cells=30):
-    """Return (expression log-norm (n,g), gene_names, pert_labels, tested_perts)."""
+def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0):
+    """Return (expression log-norm (n,g), gene_names, pert_labels, tested_perts).
+
+    n_hvg>0 keeps the top-n_hvg highly-variable genes UNION every tested-perturbation
+    target gene (so no testable perturbation is lost), and subsets BEFORE densifying, to
+    bound memory. A full genome-scale Perturb-seq densified is tens of GB; with n_hvg a
+    few thousand it is a few GB. This is also standard practice for SAEs on Perturb-seq."""
     import anndata as ad
     import scanpy as sc
+    from collections import Counter
     A = ad.read_h5ad(h5ad)
     sc.pp.normalize_total(A, target_sum=1e4); sc.pp.log1p(A)
-    X = np.asarray(A.X.todense() if hasattr(A.X, "todense") else A.X, dtype=np.float32)
-    genes = list(map(str, A.var_names))
+    genes_all = list(map(str, A.var_names))
     raw = A.obs[pert_col].astype(str).values
     labels = np.where(raw == control_value, cg.CONTROL_LABEL, raw)
-    present = set(genes)
-    from collections import Counter
     counts = Counter(labels)
+    present = set(genes_all)
     tested = sorted({p for p in labels if p != cg.CONTROL_LABEL
                      and p in present and counts[p] >= min_cells})
+    if n_hvg and n_hvg < A.shape[1]:
+        sc.pp.highly_variable_genes(A, n_top_genes=n_hvg)
+        keep = A.var["highly_variable"].values.copy()
+        g2i = {g: i for i, g in enumerate(genes_all)}
+        for p in tested:                                   # never drop a testable target
+            keep[g2i[p]] = True
+        A = A[:, keep].copy()                              # subset while still sparse
+        genes = list(map(str, A.var_names))
+    else:
+        genes = genes_all
+    X = np.asarray(A.X.todense() if hasattr(A.X, "todense") else A.X, dtype=np.float32)
     return X, genes, labels, tested
 
 
@@ -172,6 +187,7 @@ def main():
     ap.add_argument("--seed", type=int, default=0)
     ap.add_argument("--out", default="causal_out/grounding.json")
     ap.add_argument("--n-shuffle", type=int, default=0, help="permutation control replicates")
+    ap.add_argument("--n-hvg", type=int, default=0, help="keep top-N HVGs + all perturbed genes (bounds memory)")
     args = ap.parse_args()
 
     if args.synthetic:
@@ -191,7 +207,7 @@ def main():
         print("  PIPELINE SELF-TEST PASSED")
         return
 
-    X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value)
+    X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value, n_hvg=args.n_hvg)
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} testable perturbations")
     if args.rep == "expression":
         rep = X
