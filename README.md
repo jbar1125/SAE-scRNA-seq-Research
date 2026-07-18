@@ -32,8 +32,8 @@ manual, read it first.
 | Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
 | Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
 | **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
-| Causal metric pre-registered (frozen spec) | ✅ done (v4 + column specificity, 2026-07-18) | `config/causal_grounding_spec.json` (SHA `029ab066`) |
-| Causal head-to-head — Arm B (expression) run | 🟡 **preliminary** (single seed-set, essential-gene-confounded) | `docs/COMPONENT2_RESULTS.md` |
+| Causal metric pre-registered (frozen spec) | ✅ v5 (column specificity rolled back to OFF) | `config/causal_grounding_spec.json` (SHA `98104b2f`) |
+| Causal head-to-head — Arm B (expression) run | 🔴 **honest negative** (grounds housekeeping/effect-size, NOT lineage regulators; no master TF robust) | `docs/COMPONENT2_RESULTS.md` |
 | Causal head-to-head — Arm A (embedding) + specificity fixes | 🟡 next | `docs/UPGRADE_BACKLOG.md` (S.1-S.3, Tier 1.1) |
 | Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
 | Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |

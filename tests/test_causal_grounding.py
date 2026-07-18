@@ -81,7 +81,11 @@ def test_column_specificity():
     stressors = [f"s{j}" for j in range(5)]
     tested = true_regs + stressors
 
-    on = {r["pert"]: r for r in cg.causal_grounding(A, X, labels, GENES, tested)["per_perturbation"]}
+    # NB: column specificity is DEFAULT OFF (v5 rollback) because on real Replogle it
+    # removed a genuine regulator (GATA1); it is enabled here explicitly to test that it
+    # still does what it was designed to do on the shared-feature confound it targets.
+    on = {r["pert"]: r for r in cg.causal_grounding(A, X, labels, GENES, tested,
+                                                    colspec_alpha=0.10)["per_perturbation"]}
     off = {r["pert"]: r for r in cg.causal_grounding(A, X, labels, GENES, tested,
                                                      colspec_alpha=1.0)["per_perturbation"]}
     # without the gate, the stressors pass match+floor+FDR -> they falsely ground (the bug)

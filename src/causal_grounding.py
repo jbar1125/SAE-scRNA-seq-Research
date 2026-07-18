@@ -66,7 +66,10 @@ CONTROL_LABEL = "control"
 AUC_FLOOR = 0.45            # matched feature's KD-vs-ctrl AUC must be <= this (suppressed)
 FDR = 0.05
 MATCH_ALPHA = 0.10          # match-confidence gate: matched alignment is a clear outlier
-COLSPEC_ALPHA = 0.10        # column-specificity gate: p suppresses f more than other perts do
+COLSPEC_ALPHA = 1.0         # column-specificity gate DEFAULT OFF (v5 rollback): on real
+                            # Replogle it removed GATA1 (the one lineage TF) without removing
+                            # the housekeeping hits, because distinct essential KDs hit
+                            # distinct features. Set to e.g. 0.10 to enable. See spec v5.
 MIN_CELLS = 20             # min cells per perturbation group to score at all
 MIN_ACTIVE_CELLS = 50       # a feature must fire in >= this many control cells to be matchable
 

@@ -120,6 +120,37 @@ they cannot be retrofitted:
 
 If P1 and P2 both hold on the v4 re-run, the confound diagnosis is confirmed end to end.
 
+## UPDATE 2026-07-18 (later): the column-specificity fix FAILED; two corrections
+
+Ran the v4 (column-specificity) metric on real Replogle, single-seed then 5-seed. Honest
+outcome, leading with the bad news:
+
+- **The fix did not work and made things worse.** v4 grounded 20-34/162 (mean ~0.157),
+  the SAME housekeeping/machinery set. The 5-seed-stable set (22) is entirely housekeeping;
+  **GATA1 dropped from >=3/5 (v3) to 2/5 (v4)** -- column specificity removed the one
+  lineage regulator -- and every other master TF (SPI1, TAL1, RUNX1, KLF1, CEBPA, GFI1,
+  GATA2, MYB) is 0/5. Root cause: distinct essential KDs hit DISTINCT stress features (each
+  is its own top suppressor, so the gate passes them), while GATA1's erythroid program in
+  K562 has multiple regulators (so GATA1 looks non-specific and gets cut). Rolled back to
+  default OFF (spec v5).
+- **Correction to the "~10x essential enrichment" stat.** That used the wrong background
+  (all 1839 TFs). The v4 tag-breakdown gives the right one directly: essential 6/51 =
+  11.8%, non-essential 14/111 = 12.6% -- **about EQUAL, no essential preference.** The
+  tested pool is ~31% essential because this is the Replogle ESSENTIAL library (essential
+  knockdowns by construction); the grounded set is housekeeping-heavy because the POOL is.
+
+**Honest bottom line for the causal centerpiece as currently designed:** on this dataset,
+expression-space SAE grounding tracks perturbation **effect-detectability** (the biggest,
+cleanest transcriptional collapses = housekeeping/essential genes), NOT lineage-regulatory
+specificity. No master hematopoietic regulator is robustly grounded. This is a real,
+honest negative for the "expression recovers regulatory logic" hypothesis on Replogle-K562-
+essential; it is not the benchmark-beating headline that was hoped for.
+
+**What is NOT yet ruled out:** (a) the head-to-head -- does the EMBEDDING arm do even worse?
+The comparison, not the absolute rate, is the deliverable and it is unrun; (b) a dataset
+that actually perturbs lineage TFs (genome-wide Replogle / RPE1 / a hematopoietic
+Perturb-seq) -- the essential library barely contains regulators like SPI1/CEBPA/GATA2.
+
 ## Not done (the real next steps)
 
 - **Arm A** (scGPT / Geneformer embedding-space SAE) at MATCHED hyperparameters — the

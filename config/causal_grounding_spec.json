@@ -1,5 +1,5 @@
 {
-  "name": "causal_grounding_v4_crossfit_mannwhitney_colspec",
+  "name": "causal_grounding_v5_crossfit_mannwhitney_colspec_optional",
   "purpose": "Fraction of genetic perturbations for which a control-trained SAE is causally grounded on Perturb-seq, comparing expression-space vs foundation-model-embedding SAEs.",
   "trained_on": "control (non-targeting) cells only; SAE never sees a perturbation",
   "feature_program": "gene-association profile = Pearson corr of feature activation with each gene over control cells (identical for expression- and embedding-space SAEs)",
@@ -12,10 +12,10 @@
     "column_specificity": "p suppresses the matched feature MORE than other perturbations do: p's mean split-B activation of the feature is a robust-z (median/MAD) LOWER-tail outlier vs the mean activation of that feature across all OTHER tested perturbations; colspec_p < colspec_alpha. Rejects non-specific stressors (e.g. essential-gene knockdowns) that drop a shared feature many knockdowns also drop.",
     "effect_floor_auc": 0.45,
     "match_alpha": 0.10,
-    "colspec_alpha": 0.10,
+    "colspec_alpha": "DEFAULT 1.0 = OFF (v5 rollback; set 0.10 to enable). Column specificity removed a genuine regulator (GATA1) on real Replogle without removing the housekeeping hits.",
     "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations on the Mann-Whitney p-values",
     "fdr": 0.05,
-    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND passes_colspec (colspec_p < colspec_alpha) AND BH-q(mw_p) < fdr",
+    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND BH-q(mw_p) < fdr  [column specificity optional, default off]",
     "min_cells_per_group": 20,
     "min_active_cells": 50
   },
@@ -45,6 +45,16 @@
       ],
       "why": "The v3 (single-seed) Replogle run grounded a set ~10x enriched for Hart CEGv2 core-essential genes (8/26 seed-stable hits vs 3.0% base rate, hypergeometric p~4e-7; docs/COMPONENT2_RESULTS.md). Diagnosis: v3 tested suppression only vs CONTROL, so an essential-gene knockdown that collapses transcription globally drops a shared 'cell-health' feature that many knockdowns also drop, and each such knockdown passed independently. The label-shuffle null controls the global RATE but not per-perturbation specificity. Column specificity restores the per-perturbation specificity the v3 cross-fit rewrite had dropped (it was in the original v1 design intent). Validated on synthetic (tests/test_causal_grounding.py::test_column_specificity): with the gate OFF, 5 shared non-specific stressors falsely ground; with it ON, all 5 are rejected while the true sole-regulators survive. The existing oracle + pipeline self-tests still pass unchanged.",
       "honesty_note": "The v3 single-seed run was logged as PRELIMINARY and explicitly NOT frozen (docs/COMPONENT2_RESULTS.md). This v4 amendment is dated and made before any frozen/reported real result, per the no-frozen-artifact-from-a-confounded-run rule. Column specificity is deliberately conservative: it also rejects genuinely redundant regulators (a program with several real regulators), which is an accepted trade for killing the essential-gene confound; that limitation is documented."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v4 (column specificity ON)",
+      "what_changed": [
+        "Column specificity DEFAULT OFF (colspec_alpha 0.10 -> 1.0). Still available via --colspec-alpha.",
+        "grounded_iff reverts to match AND floor AND FDR (three gates)."
+      ],
+      "why": "The v4 column-specificity gate FAILED on real Replogle. Multi-seed run: it removed GATA1 (the one lineage regulator, from >=3/5 seeds down to 2/5) while leaving the entire housekeeping/machinery set intact. Root cause: the synthetic confound modelled MANY perturbations suppressing ONE shared feature (which the gate catches), but the real structure is each essential-gene KD suppressing its OWN distinct stress feature where it genuinely is the top suppressor (which the gate passes) -- and, separately, a program with multiple real regulators (like GATA1's erythroid program in K562) makes GATA1 look non-specific and gets it wrongly cut. So the gate removed real signal without removing the confound. Rolled back to avoid actively suppressing genuine regulators.",
+      "honesty_note": "Also correcting an earlier overstatement: the '~10x essential-gene enrichment (p~4e-7)' in an earlier note used the WRONG background (all 1839 TFs, ~3% essential). Against the correct background (the 162 tested TFs, ~31% essential -- the Replogle ESSENTIAL library is essential-gene-dominated by construction), essential and non-essential perturbations ground about EQUALLY (11.8% vs 12.6%). There is no essential-gene PREFERENCE; the grounded set is housekeeping-heavy because the tested pool is. The real finding is that grounding tracks perturbation EFFECT-DETECTABILITY, not regulatory specificity, on this dataset. See docs/COMPONENT2_RESULTS.md."
     }
   ]
 }

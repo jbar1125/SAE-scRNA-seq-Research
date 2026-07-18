@@ -570,3 +570,24 @@ head-to-head and is a separate, hands-on setup (not an unattended job).
   the matched-hyperparameter head-to-head is.
 - Logged PRELIMINARY, NOT frozen (Arm A missing, essential-gene-confounded, one cell line).
   GPU box then destroyed; raw JSONs regenerable from pinned seeds+code.
+
+
+### Even later 2026-07-18 — the causal fix FAILED on real data (honest negative)
+
+Ran v4 (column specificity) on real Replogle, 5 seeds. It did NOT work and actively hurt:
+seed-stable set (22) is entirely housekeeping/machinery, GATA1 fell from >=3/5 (v3) to 2/5
+(v4 removed the one lineage regulator), all other master TFs (SPI1/TAL1/RUNX1/KLF1/CEBPA/
+GFI1/GATA2/MYB) 0/5. Root cause: distinct essential KDs hit distinct stress features (gate
+passes each), and GATA1's K562 erythroid program has multiple regulators (gate cuts GATA1
+as "non-specific"). Rolled back to default OFF (spec v5, SHA 98104b2f).
+
+Also corrected my own stat: the "~10x essential enrichment (p~4e-7)" used the wrong
+background. The tag-breakdown shows essential 11.8% vs non-essential 12.6% grounding -- no
+preference. The pool is ~31% essential because Replogle-essential IS an essential-gene
+library. Grounded set is housekeeping-heavy because the POOL is.
+
+Honest bottom line: on this dataset the metric tracks effect-DETECTABILITY, not regulatory
+specificity; no master hematopoietic regulator robustly grounds. Real negative for the
+"expression recovers regulatory logic" hypothesis here. Not ruled out: the head-to-head
+(does embedding do worse?) and a dataset that actually perturbs lineage TFs. Third
+self-correction of the day; recorded, not buried.
