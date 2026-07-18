@@ -101,6 +101,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `REPRODUCIBILITY.md` | Scripted end-to-end verification + expected hashes/outputs. |
 | `ELEVATION_PLAN.md` | **The pivot**: how to turn the null into a positive, causal, benchmark-beating result. |
 | `UPGRADE_BACKLOG.md` | Exhaustive, prioritized backlog of upgrades + redirections (tiers 0-6 + big reframes). |
+| `IMPACT_STRATEGY.md` | How to make the project impressive/influential AFTER the causal negative: the auditor reframe, the effect-size-residual metric, the benchmark, the 3 project shapes. |
 | `RUNPOD_EXECUTION.md` | Turnkey GPU steps for the expression-vs-embedding causal head-to-head. |
 | `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
 | `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
