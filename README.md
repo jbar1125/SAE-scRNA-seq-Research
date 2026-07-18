@@ -94,6 +94,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `COMPONENT0_STATUS.md` | Gate-0 state + the Colab/GPU reproduction runner. |
 | `COMPONENT0_RESULTS.md` | The EXECUTED Gate-0 numbers (mouse + human) + frozen SHAs. |
 | `COMPONENT2_RESULTS.md` | Causal Arm-B (expression) preliminary run: seed table, sensitivity sweep, the essential-gene confound (NOT frozen). |
+| `COMPONENT2_NEXT_DIRECTIONS.md` | Results-driven execution map: the v4 re-run, the head-to-head grid redesign, and the exhaustive prioritized direction tree. |
 | `COMPONENT0_HARDENING.md` | Robustness battery (R1-R4 + TRRUST + GRN + ICA) stress-testing the frozen verdict. |
 | `ABSTRACT.md` | One-page competition/mentor summary (draft), traced to committed numbers. |
 | `REPRODUCIBILITY.md` | Scripted end-to-end verification + expected hashes/outputs. |
