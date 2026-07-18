@@ -1,5 +1,5 @@
 {
-  "name": "causal_grounding_v5_crossfit_mannwhitney_colspec_optional",
+  "name": "causal_grounding_v6_crossfit_mannwhitney_effectsize_controlled",
   "purpose": "Fraction of genetic perturbations for which a control-trained SAE is causally grounded on Perturb-seq, comparing expression-space vs foundation-model-embedding SAEs.",
   "trained_on": "control (non-targeting) cells only; SAE never sees a perturbation",
   "feature_program": "gene-association profile = Pearson corr of feature activation with each gene over control cells (identical for expression- and embedding-space SAEs)",
@@ -10,12 +10,15 @@
     "match_confidence": "matched program alignment is a robust-z (median/MAD) upper-tail outlier vs alignment to all OTHER matchable features; match_confidence_p < match_alpha (excludes diffuse/global perturbations)",
     "suppression": "one-sided Mann-Whitney U of the matched feature's activation in p's split-B knockdown cells vs all control cells (alternative='less'); AUC = U / (n_kd_B * n_ctrl); AUC < 0.5 = suppressed",
     "column_specificity": "p suppresses the matched feature MORE than other perturbations do: p's mean split-B activation of the feature is a robust-z (median/MAD) LOWER-tail outlier vs the mean activation of that feature across all OTHER tested perturbations; colspec_p < colspec_alpha. Rejects non-specific stressors (e.g. essential-gene knockdowns) that drop a shared feature many knockdowns also drop.",
+    "effect_size_control": "M1 (DEFAULT ON): a perturbation's matched-feature suppression (0.5 - AUC) must be a robust-z (median/MAD) UPPER-tail outlier vs its k nearest neighbours in TOTAL transcriptional effect size (||mean_expr(p) - mean_ctrl||, KD gene excluded); effsize_p < effsize_alpha. Controls the confound that grounding tracks perturbation effect magnitude (a big-effect knockdown always drops SOME feature). No-op below min_perts_effsize scored perturbations (effect-matching needs a population).",
     "effect_floor_auc": 0.45,
     "match_alpha": 0.10,
     "colspec_alpha": "DEFAULT 1.0 = OFF (v5 rollback; set 0.10 to enable). Column specificity removed a genuine regulator (GATA1) on real Replogle without removing the housekeeping hits.",
+    "effsize_alpha": 0.10,
+    "min_perts_effsize": 30,
     "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations on the Mann-Whitney p-values",
     "fdr": 0.05,
-    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND BH-q(mw_p) < fdr  [column specificity optional, default off]",
+    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND passes_effsize (effsize_p < effsize_alpha) AND BH-q(mw_p) < fdr  [column specificity optional, default off]",
     "min_cells_per_group": 20,
     "min_active_cells": 50
   },
@@ -55,6 +58,17 @@
       ],
       "why": "The v4 column-specificity gate FAILED on real Replogle. Multi-seed run: it removed GATA1 (the one lineage regulator, from >=3/5 seeds down to 2/5) while leaving the entire housekeeping/machinery set intact. Root cause: the synthetic confound modelled MANY perturbations suppressing ONE shared feature (which the gate catches), but the real structure is each essential-gene KD suppressing its OWN distinct stress feature where it genuinely is the top suppressor (which the gate passes) -- and, separately, a program with multiple real regulators (like GATA1's erythroid program in K562) makes GATA1 look non-specific and gets it wrongly cut. So the gate removed real signal without removing the confound. Rolled back to avoid actively suppressing genuine regulators.",
       "honesty_note": "Also correcting an earlier overstatement: the '~10x essential-gene enrichment (p~4e-7)' in an earlier note used the WRONG background (all 1839 TFs, ~3% essential). Against the correct background (the 162 tested TFs, ~31% essential -- the Replogle ESSENTIAL library is essential-gene-dominated by construction), essential and non-essential perturbations ground about EQUALLY (11.8% vs 12.6%). There is no essential-gene PREFERENCE; the grounded set is housekeeping-heavy because the tested pool is. The real finding is that grounding tracks perturbation EFFECT-DETECTABILITY, not regulatory specificity, on this dataset. See docs/COMPONENT2_RESULTS.md."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v5 (three gates: match, floor, FDR)",
+      "what_changed": [
+        "Added gate EFFECT-SIZE CONTROL (M1), DEFAULT ON (effsize_alpha=0.10): matched-feature suppression must be an upper-tail outlier vs perturbations of comparable total effect size (KNN in effect size, robust-z). No-op below min_perts_effsize=30.",
+        "Added per-perturbation effect_size to the output and an effect-size-vs-suppression diagnostic (Spearman rho, mean effect grounded vs not).",
+        "grounded_iff now also requires passes_effsize."
+      ],
+      "why": "The v5 metric was confounded: on real Replogle, grounding tracked perturbation EFFECT MAGNITUDE -- a big-effect knockdown always drops SOME feature, so raw grounding rewarded high-effect (housekeeping/essential) knockdowns and buried modest-effect specific regulators (GATA1). The effect-size control asks whether a perturbation suppresses its feature MORE than its total effect size predicts, so a modest-effect specific regulator stands out and a big-effect knockdown whose suppression is expected-for-its-size does not.",
+      "honesty_note": "Validated on synthetic (tests/test_causal_grounding.py::test_effect_size_control): the decisive crux is that two perturbations with IDENTICAL suppression (0.39) get OPPOSITE calls -- the modest-effect one is flagged (p~0.00), the high-effect one is not (p~0.35) -- with a ~1% false-flag rate on effect-explained nulls. The oracle (small sample) is unaffected (gate is a no-op below 30 perts) and the pipeline self-test still recovers 8/8 planted regulators. This is a DIAGNOSED-confound fix, not a headline result: whether it RESCUES a positive on real data (does GATA1 survive as an effect-size outlier?) is the open empirical question for the next run, pre-registered here BEFORE that run."
     }
   ]
 }

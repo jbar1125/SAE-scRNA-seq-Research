@@ -104,8 +104,26 @@ comparison is a PAIRED GRID, identical (latent, k) for both arms.
 Every direction worth pursuing, grouped by the QUESTION it answers, re-prioritized by
 tonight's results. Priority: [P0]=critical path, [P1]=high, [P2]=valuable, [P3]=optional.
 
+### M1 (BUILT 2026-07-18) — effect-size-controlled metric + diagnostic
+`causal_grounding.py` now has an effect-size-control gate (spec v6, SHA `81b44e04`, default
+on, `--effsize-alpha 1.0` disables) + an effect-size-vs-suppression diagnostic. Synthetic-
+validated (crux: identical suppression at low vs high effect gets opposite calls). The open
+empirical question for the next GPU run: does a modest-effect specific regulator like GATA1
+survive as an effect-size OUTLIER where the raw metric buried it? Run raw vs controlled and
+compare the grounded sets + the diagnostic rho:
+```bash
+for a in 1.0 0.10; do   # 1.0 = raw, 0.10 = effect-size-controlled
+  python3 src/causal_pipeline.py --adata replogle.h5ad --pert-col gene \
+    --control-value non-targeting --rep expression --latent 2048 --k 32 --seed 0 \
+    --n-hvg 2000 --tf-list config/tf_lists/hs_hgnc_tfs.txt --effsize-alpha $a \
+    --n-shuffle 50 --out causal_out/m1_effsize_$a.json
+done
+```
+Watch the `effect-size diag:` line (rho, mean effect grounded vs not) and whether GATA1 /
+other lineage TFs move into the grounded set under the controlled metric.
+
 ### Q-A. Is there real (non-confound) regulatory grounding?  [P0]
-- A1 [P0] The Part-2 re-run (v4 + essential split). The gate to everything else.
+- A1 [P0] The Part-2 re-run (v6 effect-size-controlled + essential split). The gate to everything else.
 - A2 [P1] Program-coherence filter (S.2b): require the matched feature's decoder-top genes
   to be a concentrated, GO-enriched module, not a diffuse global axis. A second, orthogonal
   defense against the confound if column specificity is insufficient.

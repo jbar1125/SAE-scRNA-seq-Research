@@ -70,6 +70,10 @@ COLSPEC_ALPHA = 1.0         # column-specificity gate DEFAULT OFF (v5 rollback):
                             # Replogle it removed GATA1 (the one lineage TF) without removing
                             # the housekeeping hits, because distinct essential KDs hit
                             # distinct features. Set to e.g. 0.10 to enable. See spec v5.
+EFFSIZE_ALPHA = 0.10        # effect-size-control gate (v6, M1): matched-feature suppression
+                            # must exceed what perturbations of comparable TOTAL effect size
+                            # achieve. Set to 1.0 to disable (raw metric). See spec v6.
+MIN_PERTS_EFFSIZE = 30      # effect-matching needs a population; below this the gate is a no-op
 MIN_CELLS = 20             # min cells per perturbation group to score at all
 MIN_ACTIVE_CELLS = 50       # a feature must fire in >= this many control cells to be matchable
 
@@ -104,9 +108,32 @@ def _robust_tail_p(x, pool, side="lower"):
     return float(norm.cdf(z) if side == "lower" else norm.sf(z))
 
 
+def _effect_matched_pvalue(supp, eff, k):
+    """Effect-size CONTROL (M1). For each perturbation, robust upper-tail p of its matched-
+    feature suppression vs its k nearest neighbours in TOTAL EFFECT SIZE. Small p = it
+    suppresses its feature MORE than perturbations of comparable overall transcriptional
+    effect -- i.e. the suppression is NOT merely explained by having a big effect. This
+    controls the confound found on real Replogle (grounding tracks perturbation effect
+    magnitude: a big-effect essential-gene knockdown always drops SOME feature). A modest-
+    effect specific regulator stands out against its effect-matched peers; a big-effect
+    knockdown whose suppression is typical-for-its-size does not. Returns an array of p."""
+    supp = np.asarray(supp, float); eff = np.asarray(eff, float)
+    n = supp.size
+    out = np.ones(n)
+    if n < 3:
+        return out
+    k = int(min(max(k, 3), n - 1))
+    for i in range(n):
+        d = np.abs(eff - eff[i]); d[i] = np.inf
+        nb = np.argsort(d)[:k]
+        out[i] = _robust_tail_p(supp[i], supp[nb], side="upper")
+    return out
+
+
 def causal_grounding(activations, expression, pert_labels, gene_names, tested_perts,
                      auc_floor=AUC_FLOOR, fdr=FDR, match_alpha=MATCH_ALPHA,
-                     colspec_alpha=COLSPEC_ALPHA, min_active_cells=MIN_ACTIVE_CELLS):
+                     colspec_alpha=COLSPEC_ALPHA, effsize_alpha=EFFSIZE_ALPHA,
+                     min_active_cells=MIN_ACTIVE_CELLS):
     """A perturbation p (KD of gene t) is GROUNDED iff:
       (1) MATCH: the feature f* whose program best aligns with p's downstream signature
           (t excluded) is a confident single-target match (align outlier, p_match <
@@ -122,7 +149,15 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
           shared 'cell-health' feature that MANY knockdowns also drop). Suppression vs
           control alone (2) cannot tell these apart; column specificity can. See
           docs/COMPONENT2_RESULTS.md (the essential-gene confound); AND
-      (4) the Mann-Whitney p survives BH-FDR across tested perturbations.
+      (4) EFFECT-SIZE CONTROL (v6, M1, DEFAULT ON): p's matched-feature suppression is an
+          upper-tail outlier vs perturbations of comparable TOTAL transcriptional effect
+          size (effsize_p < effsize_alpha). On real Replogle, grounding tracked effect
+          magnitude -- a big-effect knockdown always drops SOME feature -- so raw grounding
+          rewarded high-effect (housekeeping) knockdowns. This gate keeps only perturbations
+          that suppress their feature MORE than their effect size predicts. No-op below
+          MIN_PERTS_EFFSIZE perturbations (effect-matching needs a population); AND
+      (5) the Mann-Whitney p survives BH-FDR across tested perturbations.
+    Column specificity (3) is DEFAULT OFF (v5); effect-size control (4) is DEFAULT ON (v6).
     Global rate-vs-chance is still established by the pipeline's label-shuffle control."""
     pert_labels = np.asarray(pert_labels)
     is_ctrl = pert_labels == CONTROL_LABEL
@@ -173,26 +208,46 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
         # COLUMN SPECIFICITY: is p a low outlier for f vs how OTHER perts move f?
         col_bg = np.delete(pmean[:, f], pi)
         p_colspec = _robust_tail_p(float(np.mean(kd)), col_bg, side="lower")
+        # EFFECT SIZE: magnitude of p's downstream transcriptional shift (KD gene excluded)
+        full_de = expression[idx].mean(0) - mu_x_c
+        if t is not None:
+            full_de[t] = 0.0
+        effect_size = float(np.linalg.norm(full_de))
         mw_p[pi] = mwp
         rows.append({"pert": p, "matched_feature": f, "auc": float(auc),
                      "match_confidence_p": float(p_match), "mw_p": float(mwp),
-                     "colspec_p": float(p_colspec),
+                     "colspec_p": float(p_colspec), "effect_size": effect_size,
                      "passes_match": bool(p_match < match_alpha),
                      "passes_floor": bool(auc <= auc_floor),
                      "passes_colspec": bool(p_colspec < colspec_alpha)})
+    # EFFECT-SIZE CONTROL (M1): among scored perturbations, is each one's matched-feature
+    # suppression an outlier vs perturbations of comparable total effect size?
+    scored = [pi for pi, r in enumerate(rows) if r.get("matched_feature", -1) >= 0]
+    if effsize_alpha < 1.0 and len(scored) >= MIN_PERTS_EFFSIZE:
+        supp = np.array([max(0.0, 0.5 - rows[pi]["auc"]) for pi in scored])
+        eff = np.array([rows[pi]["effect_size"] for pi in scored])
+        ep = _effect_matched_pvalue(supp, eff, k=max(8, len(scored) // 4))
+        for j, pi in enumerate(scored):
+            rows[pi]["effsize_p"] = float(ep[j])
+            rows[pi]["passes_effsize"] = bool(ep[j] < effsize_alpha)
+    else:                                                    # gate off / too few perts to match
+        for pi in scored:
+            rows[pi]["effsize_p"] = float("nan")
+            rows[pi]["passes_effsize"] = True
     q = multipletests(mw_p, method="fdr_bh")[1]
     grounded = np.zeros(len(tested_perts), dtype=bool)
     for pi, r in enumerate(rows):
         r["mw_q"] = float(q[pi])
         r["grounded"] = bool(r.get("passes_match", False) and r.get("passes_floor", False)
-                             and r.get("passes_colspec", False) and q[pi] < fdr)
+                             and r.get("passes_colspec", False) and r.get("passes_effsize", False)
+                             and q[pi] < fdr)
         grounded[pi] = r["grounded"]
     return {
         "n_tested": int(len(tested_perts)),
         "n_grounded": int(grounded.sum()),
         "causal_grounding_rate": float(grounded.mean()) if len(tested_perts) else float("nan"),
         "auc_floor": auc_floor, "fdr": fdr, "match_alpha": match_alpha,
-        "colspec_alpha": colspec_alpha,
+        "colspec_alpha": colspec_alpha, "effsize_alpha": effsize_alpha,
         "min_active_cells": min_active_cells, "n_reliable_features": int(reliable.sum()),
         "per_perturbation": rows,
     }

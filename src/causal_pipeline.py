@@ -176,7 +176,7 @@ def _synthetic(n_prog=8, prog_size=15, n_bg=250, rng=None):
 
 
 def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed,
-                    colspec_alpha=cg.COLSPEC_ALPHA):
+                    colspec_alpha=cg.COLSPEC_ALPHA, effsize_alpha=cg.EFFSIZE_ALPHA):
     """Permute perturbation labels among perturbed cells (controls fixed) and re-run
     grounding, n_shuffle times. If the real grounding is causal signal, the shuffled
     grounding rate collapses toward 0. Returns the null rates + an empirical p."""
@@ -188,7 +188,8 @@ def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed,
         lab = labels.copy()
         lab[is_pert] = rng.permutation(lab[is_pert])
         null.append(cg.causal_grounding(acts, expression, lab, genes, tested,
-                                        colspec_alpha=colspec_alpha)["causal_grounding_rate"])
+                                        colspec_alpha=colspec_alpha,
+                                        effsize_alpha=effsize_alpha)["causal_grounding_rate"])
     return [float(x) for x in null]
 
 
@@ -210,17 +211,45 @@ def _tag_breakdown(res, tag_set, tag_name):
     return bd
 
 
+def _effect_size_diagnostic(res):
+    """M1 Part A: quantify how much grounding is a readout of perturbation EFFECT SIZE.
+    Reports the Spearman corr between each scored perturbation's total transcriptional
+    effect size and its matched-feature suppression (0.5 - AUC), and the mean effect size
+    of grounded vs non-grounded perturbations. A strong positive corr / much-larger grounded
+    effect size = grounding tracks effect magnitude (the confound the effect-size gate
+    controls)."""
+    pp = [r for r in res["per_perturbation"]
+          if r.get("matched_feature", -1) >= 0 and "effect_size" in r]
+    if len(pp) < 5:
+        return
+    eff = np.array([r["effect_size"] for r in pp])
+    supp = np.array([0.5 - r.get("auc", 0.5) for r in pp])
+    from scipy.stats import spearmanr
+    rho = float(spearmanr(eff, supp).correlation)
+    g = np.array([bool(r.get("grounded")) for r in pp])
+    mean_eff_g = float(eff[g].mean()) if g.any() else float("nan")
+    mean_eff_ng = float(eff[~g].mean()) if (~g).any() else float("nan")
+    n_pass_eff = int(sum(bool(r.get("passes_effsize", True)) for r in pp))
+    res["effect_size_diagnostic"] = {
+        "spearman_effect_vs_suppression": rho, "mean_effect_grounded": mean_eff_g,
+        "mean_effect_not_grounded": mean_eff_ng, "n_pass_effsize": n_pass_eff}
+    print(f"  effect-size diag: rho(effect,suppression)={rho:+.2f} | mean effect grounded "
+          f"{mean_eff_g:.2f} vs not {mean_eff_ng:.2f} | pass effsize gate {n_pass_eff}/{len(pp)}")
+
+
 def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0,
         auc_floor=cg.AUC_FLOOR, min_active_cells=cg.MIN_ACTIVE_CELLS,
-        colspec_alpha=cg.COLSPEC_ALPHA, tag_set=None, tag_name="tagged"):
+        colspec_alpha=cg.COLSPEC_ALPHA, effsize_alpha=cg.EFFSIZE_ALPHA,
+        tag_set=None, tag_name="tagged"):
     encode, info = train_topk_sae(rep_matrix, latent, k, seed=seed)
     acts = encode(rep_matrix)
     res = cg.causal_grounding(acts, expression, labels, genes, tested,
                               auc_floor=auc_floor, min_active_cells=min_active_cells,
-                              colspec_alpha=colspec_alpha)
+                              colspec_alpha=colspec_alpha, effsize_alpha=effsize_alpha)
     res["sae"] = info
     if tag_set is not None:
         _tag_breakdown(res, tag_set, tag_name)
+    _effect_size_diagnostic(res)
     # diagnostic: where in the pipeline do perturbations pass/fail?
     pp = [r for r in res["per_perturbation"] if r.get("matched_feature", -1) >= 0]
     if pp:
@@ -238,7 +267,7 @@ def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_s
               f"| mw_q<0.05: {diag['n_mw_q_below_0.05']}")
     if n_shuffle:
         null = shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed,
-                               colspec_alpha=colspec_alpha)
+                               colspec_alpha=colspec_alpha, effsize_alpha=effsize_alpha)
         real = res["causal_grounding_rate"]
         res["shuffle_control"] = {
             "n_shuffle": n_shuffle, "null_rates_mean": float(np.mean(null)),
@@ -275,7 +304,8 @@ def main():
     ap.add_argument("--exclude-list", default=None, help="drop genes in this file from scored perturbations (e.g. core-essential genes)")
     ap.add_argument("--tag-list", default=None, help="report grounding rate split by membership in this file (e.g. essential vs not), without excluding")
     ap.add_argument("--auc-floor", type=float, default=cg.AUC_FLOOR, help="matched feature KD-vs-ctrl AUC must be <= this")
-    ap.add_argument("--colspec-alpha", type=float, default=cg.COLSPEC_ALPHA, help="column-specificity gate alpha (1.0 disables it)")
+    ap.add_argument("--colspec-alpha", type=float, default=cg.COLSPEC_ALPHA, help="column-specificity gate alpha (1.0 disables it; default off)")
+    ap.add_argument("--effsize-alpha", type=float, default=cg.EFFSIZE_ALPHA, help="effect-size-control gate alpha (1.0 disables it = raw metric; default on)")
     ap.add_argument("--min-active-cells", type=int, default=cg.MIN_ACTIVE_CELLS, help="min control cells a feature must fire in to be matchable")
     args = ap.parse_args()
 
@@ -308,6 +338,7 @@ def main():
     rep = build_representation(args.rep, X, embedding=args.embedding, rep_dim=args.rep_dim, seed=args.seed)
     run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle,
         auc_floor=args.auc_floor, min_active_cells=args.min_active_cells, colspec_alpha=args.colspec_alpha,
+        effsize_alpha=args.effsize_alpha,
         tag_set=tag_set, tag_name=(Path(args.tag_list).stem if args.tag_list else "tagged"))
 
 
