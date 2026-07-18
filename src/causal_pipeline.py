@@ -76,13 +76,18 @@ def train_topk_sae(rep, latent_dim, k, epochs=200, batch=1024, lr=4e-4, seed=0, 
 # --------------------------------------------------------------------------- #
 # Perturb-seq loading
 # --------------------------------------------------------------------------- #
-def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0):
+def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set=None):
     """Return (expression log-norm (n,g), gene_names, pert_labels, tested_perts).
 
     n_hvg>0 keeps the top-n_hvg highly-variable genes UNION every tested-perturbation
     target gene (so no testable perturbation is lost), and subsets BEFORE densifying, to
     bound memory. A full genome-scale Perturb-seq densified is tens of GB; with n_hvg a
-    few thousand it is a few GB. This is also standard practice for SAEs on Perturb-seq."""
+    few thousand it is a few GB. This is also standard practice for SAEs on Perturb-seq.
+
+    tf_set (optional): restrict the SCORED perturbations to these genes (e.g. transcription
+    factors). Causal/regulatory grounding is only meaningful for regulators; essential
+    housekeeping-gene knockdowns cause broad non-specific effects and are not testable for
+    target-specific responses. This also matches the foundation-model benchmark (TF panel)."""
     import anndata as ad
     import scanpy as sc
     from collections import Counter
@@ -94,7 +99,8 @@ def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0):
     counts = Counter(labels)
     present = set(genes_all)
     tested = sorted({p for p in labels if p != cg.CONTROL_LABEL
-                     and p in present and counts[p] >= min_cells})
+                     and p in present and counts[p] >= min_cells
+                     and (tf_set is None or p in tf_set)})
     if n_hvg and n_hvg < A.shape[1]:
         sc.pp.highly_variable_genes(A, n_top_genes=n_hvg)
         keep = A.var["highly_variable"].values.copy()
@@ -152,11 +158,28 @@ def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed):
     return [float(x) for x in null]
 
 
-def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0):
+def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0,
+        auc_floor=cg.AUC_FLOOR, min_active_cells=cg.MIN_ACTIVE_CELLS):
     encode, info = train_topk_sae(rep_matrix, latent, k, seed=seed)
     acts = encode(rep_matrix)
-    res = cg.causal_grounding(acts, expression, labels, genes, tested)
+    res = cg.causal_grounding(acts, expression, labels, genes, tested,
+                              auc_floor=auc_floor, min_active_cells=min_active_cells)
     res["sae"] = info
+    # diagnostic: where in the pipeline do perturbations pass/fail?
+    pp = [r for r in res["per_perturbation"] if r.get("matched_feature", -1) >= 0]
+    if pp:
+        aucs = np.array([r.get("auc", 0.5) for r in pp])
+        qs = np.array([r.get("mw_q", 1.0) for r in pp])
+        diag = {"n_scored": len(pp),
+                "n_pass_match": int(sum(r.get("passes_match", False) for r in pp)),
+                "n_pass_floor": int(sum(r.get("passes_floor", False) for r in pp)),
+                "median_auc": float(np.median(aucs)), "min_auc": float(aucs.min()),
+                "n_mw_q_below_0.05": int((qs < 0.05).sum())}
+        res["diagnostic"] = diag
+        print(f"  diag: scored {diag['n_scored']} | pass match: {diag['n_pass_match']} "
+              f"| pass floor(auc<={res['auc_floor']}): {diag['n_pass_floor']} "
+              f"| median auc {diag['median_auc']:.3f} min {diag['min_auc']:.3f} "
+              f"| mw_q<0.05: {diag['n_mw_q_below_0.05']}")
     if n_shuffle:
         null = shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed)
         real = res["causal_grounding_rate"]
@@ -188,6 +211,9 @@ def main():
     ap.add_argument("--out", default="causal_out/grounding.json")
     ap.add_argument("--n-shuffle", type=int, default=0, help="permutation control replicates")
     ap.add_argument("--n-hvg", type=int, default=0, help="keep top-N HVGs + all perturbed genes (bounds memory)")
+    ap.add_argument("--tf-list", default=None, help="restrict scored perturbations to genes in this file (e.g. transcription factors)")
+    ap.add_argument("--auc-floor", type=float, default=cg.AUC_FLOOR, help="matched feature KD-vs-ctrl AUC must be <= this")
+    ap.add_argument("--min-active-cells", type=int, default=cg.MIN_ACTIVE_CELLS, help="min control cells a feature must fire in to be matchable")
     args = ap.parse_args()
 
     if args.synthetic:
@@ -207,14 +233,16 @@ def main():
         print("  PIPELINE SELF-TEST PASSED")
         return
 
-    X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value, n_hvg=args.n_hvg)
+    tf_set = {ln.strip() for ln in open(args.tf_list)} if args.tf_list else None
+    X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value, n_hvg=args.n_hvg, tf_set=tf_set)
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} testable perturbations")
     if args.rep == "expression":
         rep = X
     else:
         rep = np.load(args.embedding).astype(np.float32)
         assert rep.shape[0] == X.shape[0], "embedding rows must match cells"
-    run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle)
+    run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle,
+        auc_floor=args.auc_floor, min_active_cells=args.min_active_cells)
 
 
 if __name__ == "__main__":

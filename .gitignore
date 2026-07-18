@@ -35,3 +35,4 @@ data_g0_human/*_log.txt
 # a single committed summary under data_g0*/robustness/ is the evidence, not these.
 data_g0/r2_l1_*/
 data_g0_human/r2_l1_*/
+causal_out/

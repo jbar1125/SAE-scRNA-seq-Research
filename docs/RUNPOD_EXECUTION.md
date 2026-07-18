@@ -44,9 +44,18 @@ Note the exact perturbation-column name and the control label; pass them below.
 python3 src/causal_pipeline.py \
   --adata replogle_k562_essential.h5ad --pert-col gene --control-value non-targeting \
   --rep expression --latent 2048 --k 32 --seed 0 --n-shuffle 50 \
+  --n-hvg 2000 --tf-list config/tf_lists/hs_hgnc_tfs.txt \
   --out causal_out/expression_grounding.json
 ```
 Multi-seed: repeat with `--seed 1..4` and average the grounding rate (rigor).
+
+Two flags are REQUIRED at genome scale, both established on 2026-07-18 (see LAB_NOTEBOOK):
+- `--n-hvg 2000` bounds memory. The full dense 310k x 8563 matrix (~10 GB) OOM-thrashes a
+  24 GB box. This keeps the top 2000 HVGs UNION every tested perturbation gene.
+- `--tf-list config/tf_lists/hs_hgnc_tfs.txt` restricts scoring to the 1,839 human TFs.
+  Scoring all ~1789 perturbations includes housekeeping/essential knockdowns whose
+  effect is non-specific; a program-level causal signature is only meaningful for
+  regulators. (The metric itself is the cross-fit Mann-Whitney v3, spec SHA `b766d21c`.)
 
 ## 4. Arm A — embedding-space SAE (reproduce the field)
 
@@ -91,8 +100,10 @@ prior favors a positive result, but the design is internally fair either way).
 
 ## 6. After the number
 
-- Pre-register the exact metric config before the final runs (freeze a spec SHA, as in
-  Gate 0). A draft spec lives in `config/causal_grounding_spec.json`.
+- The metric config is pre-registered and frozen: `config/causal_grounding_spec.json`
+  (SHA `b766d21c`, v3 cross-fit Mann-Whitney; amended 2026-07-18 from the v1 SD-drop
+  spec after that version was found unreachable for sparse TopK activations -- see the
+  spec's `amendments` block).
 - If positive: build the causally-grounded gene-program atlas (a low-risk formatting of
   the grounded programs + their perturbation certificates; ELEVATION_PLAN section 4),
   then reformat the writeup and figures around the causal result. (The

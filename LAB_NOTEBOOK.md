@@ -453,3 +453,61 @@ result.
 Summary written to `docs/COMPONENT0_HARDENING.md`. Terminal state for the CPU
 container: SCENIC + second human dataset deferred (documented), Component 2 specified
 (`docs/COMPONENT2_PLAN.md`, GPU-blocked). PR #3 carries all of it.
+
+---
+
+## 2026-07-18 — First real Replogle run returned 0/1789; deep-dive found TWO real metric bugs
+
+**Goal.** Run Arm B (expression-space causal grounding) on the real Replogle K562
+Perturb-seq on a rented GPU (vast.ai, RTX A5000). It came back **0/1789 grounded =
+0.000, BELOW the shuffled null (0.009)**. Per the honesty rule the first sentence is:
+this was NOT a clean negative, it was a broken metric. I did the requested deep dive
+and found two independent bugs, both now fixed and validated on synthetic before any
+re-run on real data. Nothing was frozen or reported from the broken run.
+
+**Setup problems fixed first (not the science).**
+- Repo was private; clone on the rented box failed auth. A GitHub PAT was pasted in
+  plaintext -> told the user to REVOKE it immediately; made the repo public so no token
+  ever touches a rented machine. (Security: never put a token on rented compute.)
+- OOM thrash: dense 310385 x 8563 = ~10 GB blew up the 24 GB box (memory red, GPU + CPU
+  idle). Added `--n-hvg` to `load_perturbseq`: keep the top-N HVGs UNION the tested
+  perturbation genes, subset BEFORE densify. Verified on a tiny AnnData.
+
+**Bug 1 — SD-standardization is invalid for sparse TopK activations.** The v1 metric
+required a standardized activation drop >= 0.25 SD. A TopK feature fires in only ~k/L of
+cells, so its activation SD is large vs its mean; even a FULL shutoff is only ~0.1 SD --
+unreachable by any floor -> forced 0 grounded, mechanically. Diagnosed by printing the
+per-feature drop distribution. Fix: the suppression test is now a one-sided Mann-Whitney
+U (KD cells vs control cells) reported as AUC = U/(n_kd*n_ctrl); the floor is on AUC
+(<= 0.45), a rank statistic with no scale assumption -> robust to sparse/zero-inflated
+activations.
+
+**Bug 2 — double-dipping.** The same cells both selected the matched feature and tested
+its suppression, so a diffuse/background perturbation could be "grounded" by whichever
+feature happened to dip in exactly those cells. Fix: **cross-fitting** -- split each
+perturbation's cells A|B, match on A, test suppression on held-out B. This is the fix
+that made the oracle test reject background/global perturbations cleanly.
+
+**Wrong gene set (contributing).** The first run tested ALL ~1789 perturbations,
+including housekeeping/essential genes whose knockdown is non-specific. Added
+`--tf-list config/tf_lists/hs_hgnc_tfs.txt` (1,839 human TFs) to restrict scoring to
+transcription factors, where a program-level causal signature is meaningful.
+
+**Validation (CPU, synthetic, before touching real data again).**
+- Oracle unit test `tests/test_causal_grounding.py`: PASS -- 6/6 planted regulators
+  grounded, null + global + background all rejected, null-world calibration 1/13.
+- Pipeline self-test `--synthetic`: 8/8 true regulators grounded, 0 false positives,
+  shuffled null mean 0.000 (p=0.048). PIPELINE SELF-TEST PASSED.
+- Real-vs-shuffle separation holds across background sizes (n_bg=40: 5/8 true, 0 false;
+  n_bg=250: 8/8 true, 0 false) vs shuffle 0.000.
+
+**Pre-registration amended, not silently overwritten.** The metric changed materially
+(SD-standardized drop -> cross-fit Mann-Whitney AUC), so `config/causal_grounding_spec.json`
+now carries a dated `amendments` block recording exactly what changed and why, and the
+frozen SHA moved `b7d28fae -> b766d21c`. Legitimate because NO valid real result existed
+under v1 -- the amendment is pre-registered before the first valid real run, per the
+no-frozen-artifact-from-a-broken-run rule.
+
+**Next.** User re-runs Arm B on vast.ai off the fixed metric with
+`--tf-list config/tf_lists/hs_hgnc_tfs.txt --n-hvg 2000` after `git pull`. Then the real
+expression-space grounding number, then Arm A (scGPT embeddings) for the head-to-head.

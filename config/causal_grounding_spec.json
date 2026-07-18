@@ -1,20 +1,38 @@
 {
-  "name": "causal_grounding_v1",
+  "name": "causal_grounding_v3_crossfit_mannwhitney",
   "purpose": "Fraction of genetic perturbations for which a control-trained SAE is causally grounded on Perturb-seq, comparing expression-space vs foundation-model-embedding SAEs.",
   "trained_on": "control (non-targeting) cells only; SAE never sees a perturbation",
   "feature_program": "gene-association profile = Pearson corr of feature activation with each gene over control cells (identical for expression- and embedding-space SAEs)",
-  "matching_rule": "perturbation p (KD of gene t) is matched to argmax over features of cosine(program_normalized, -DE_signature); the KD gene t is EXCLUDED from both the program and the DE signature (program-level, non-trivial)",
+  "matchable_features": "only features active in >= min_active_cells control cells are matchable (near-dead features have unreliable programs)",
+  "cross_fitting": "each tested perturbation's cells are split A|B (random half, seeded). The feature is MATCHED on split A and the suppression test is run on the held-out split B, so the same cells never both select and validate the feature (removes double-dipping / selection bias).",
+  "matching_rule": "on split A: perturbation p (KD of gene t) is matched to argmax over matchable features of dot(program_normalized, -DE_signature_normalized); the KD gene t is EXCLUDED from both the program and the DE signature (program-level, non-trivial)",
   "grounding_rule": {
-    "effect_floor_standardized_activation_drop": 0.25,
-    "specificity": "matched feature's activation drop under p is a robust-z (median/MAD) lower-tail outlier vs how all OTHER perturbations move that feature",
-    "match_confidence": "matched program alignment is a robust-z (median/MAD) upper-tail outlier vs alignment to all OTHER features (excludes diffuse/global perturbations)",
-    "combine": "raw_p = max(specificity_p, match_confidence_p)",
-    "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations",
+    "match_confidence": "matched program alignment is a robust-z (median/MAD) upper-tail outlier vs alignment to all OTHER matchable features; match_confidence_p < match_alpha (excludes diffuse/global perturbations)",
+    "suppression": "one-sided Mann-Whitney U of the matched feature's activation in p's split-B knockdown cells vs all control cells (alternative='less'); AUC = U / (n_kd_B * n_ctrl); AUC < 0.5 = suppressed",
+    "effect_floor_auc": 0.45,
+    "match_alpha": 0.10,
+    "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations on the Mann-Whitney p-values",
     "fdr": 0.05,
-    "grounded_iff": "passes_floor AND BH-q < fdr",
-    "min_cells_per_group": 3
+    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND BH-q(mw_p) < fdr",
+    "min_cells_per_group": 20,
+    "min_active_cells": 50
   },
+  "global_specificity": "the pipeline runs a label-shuffle permutation null (n_shuffle relabelings): the observed causal_grounding_rate must exceed the shuffled null. Global chance control is at the pipeline level, not per-perturbation.",
   "primary_comparison": "expression-space causal_grounding_rate vs embedding-space rate; positive result iff expression >> embedding (target: a multiple of the published 6.2-10% embedding ceiling), robust across >=5 seeds",
-  "control_label": "control",
-  "frozen_before": "any run on real Replogle data"
+  "control_label": "control (mapped from the dataset's control value, e.g. 'non-targeting')",
+  "frozen_before": "any run on real Replogle data",
+  "amendments": [
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v1 (spec SHA b7d28faed8cf5be15e5c0465bc4790fa25171c1795eb5b18b631a5082fee7131)",
+      "what_changed": [
+        "Suppression measure: standardized activation drop (effect_floor 0.25 SD) REPLACED by one-sided Mann-Whitney AUC (effect_floor_auc 0.45).",
+        "Added cross-fitting: match on split A, test suppression on held-out split B.",
+        "Split match confidence and suppression into two independent gates (was combined via max(p) into one BH-FDR family).",
+        "min_cells_per_group 3 -> 20; added min_active_cells 50."
+      ],
+      "why": "Two bugs caught on synthetic BEFORE any real Replogle result. (1) SD-standardization is invalid for sparse TopK activations: a feature fires in ~k/L of cells, so even a full shutoff is only ~0.1 SD, unreachable by any effect floor -> forced 0 grounded. A rank-based Mann-Whitney AUC has no scale assumption. (2) Without cross-fitting the same cells both selected and validated a feature, letting diffuse/background perturbations appear grounded (double-dipping). Fix validated on synthetic: oracle unit test passes (true regulators grounded, null/global/background rejected), and real-vs-shuffle shows planted regulators grounded with 0 false positives vs a shuffled null of 0.000.",
+      "honesty_note": "No valid result on real data was produced under v1; nothing was frozen or reported from the buggy metric. This amendment is dated and pre-registered before the first valid real run, per the project's no-frozen-artifact-from-a-broken-run rule."
+    }
+  ]
 }

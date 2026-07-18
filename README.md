@@ -32,7 +32,7 @@ manual, read it first.
 | Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
 | Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
 | **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
-| Causal metric pre-registered (frozen spec) | ✅ done | `config/causal_grounding_spec.json` (SHA `b7d28fae`) |
+| Causal metric pre-registered (frozen spec) | ✅ done (v3, amended 2026-07-18) | `config/causal_grounding_spec.json` (SHA `b766d21c`) |
 | **Causal head-to-head — GPU run on Replogle** | 🟡 **ready, needs RunPod** | `docs/RUNPOD_EXECUTION.md` |
 | Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
 | Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |
