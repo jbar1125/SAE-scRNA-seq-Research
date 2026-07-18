@@ -12,8 +12,22 @@ for, on Perturb-seq (CRISPRi) data, defeating the triviality trap
 - A perturbation p (knockdown of gene t) is MATCHED to the feature whose program aligns
   with p's downstream signature (the genes p moves), with t EXCLUDED so we match on the
   regulated module, not the target's self-drop. Matching is by program, not by response.
-- p is GROUNDED iff its matched feature is (a) a CONFIDENT single-target match and (b)
-  SPECIFICALLY suppressed in p's knockdown cells vs control, at BH-FDR.
+- p is GROUNDED iff its matched feature is (a) a CONFIDENT single-target match, (b)
+  SPECIFICALLY suppressed in p's knockdown cells vs control, and (c) suppressed by p MORE
+  than by other perturbations (column specificity), at BH-FDR.
+
+COLUMN SPECIFICITY (v4, 2026-07-18 amendment). Gate (3) below is added because the v3
+metric tested suppression only vs CONTROL, so an essential-gene knockdown that collapses
+transcription globally -- dropping a shared 'cell-health' feature that MANY knockdowns
+also drop -- passed independently for every such knockdown. The first real Replogle run
+was ~10x enriched for core-essential genes as a result (docs/COMPONENT2_RESULTS.md). The
+gate requires p to be a robust-z LOWER-tail outlier in its activation of the matched
+feature vs how every OTHER tested perturbation moves that feature -- so a shared,
+non-specific stressor (suppressed by many perturbations) is rejected, while a genuine
+regulator (the sole/dominant suppressor of its own program) is kept. Validated on
+synthetic (tests/test_causal_grounding.py::test_column_specificity): with the gate off, 5
+shared stressors falsely ground; with it on, all 5 are rejected and the true regulators
+survive.
 
 CROSS-FIT + RANK TEST (v3, 2026-07-18 amendment; supersedes the v2 relative-change note).
 Two changes fix two real bugs caught before any valid Replogle result:
@@ -52,6 +66,7 @@ CONTROL_LABEL = "control"
 AUC_FLOOR = 0.45            # matched feature's KD-vs-ctrl AUC must be <= this (suppressed)
 FDR = 0.05
 MATCH_ALPHA = 0.10          # match-confidence gate: matched alignment is a clear outlier
+COLSPEC_ALPHA = 0.10        # column-specificity gate: p suppresses f more than other perts do
 MIN_CELLS = 20             # min cells per perturbation group to score at all
 MIN_ACTIVE_CELLS = 50       # a feature must fire in >= this many control cells to be matchable
 
@@ -88,7 +103,7 @@ def _robust_tail_p(x, pool, side="lower"):
 
 def causal_grounding(activations, expression, pert_labels, gene_names, tested_perts,
                      auc_floor=AUC_FLOOR, fdr=FDR, match_alpha=MATCH_ALPHA,
-                     min_active_cells=MIN_ACTIVE_CELLS):
+                     colspec_alpha=COLSPEC_ALPHA, min_active_cells=MIN_ACTIVE_CELLS):
     """A perturbation p (KD of gene t) is GROUNDED iff:
       (1) MATCH: the feature f* whose program best aligns with p's downstream signature
           (t excluded) is a confident single-target match (align outlier, p_match <
@@ -96,9 +111,16 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
       (2) SUPPRESSION: f*'s activation is stochastically LOWER in p's KD cells than in
           control (one-sided Mann-Whitney; rank-based, so robust to sparse/zero-inflated
           TopK activations), with AUC <= auc_floor (a real-sized effect); AND
-      (3) the Mann-Whitney p survives BH-FDR across tested perturbations.
-    Global specificity ("is the rate above chance") is established by the pipeline's
-    label-shuffle control, not per-perturbation, which keeps this test simple and robust."""
+      (3) COLUMN SPECIFICITY: p suppresses f* MORE than other perturbations do -- p's mean
+          activation of f* is a robust-z LOWER-tail outlier vs how every other tested
+          perturbation moves f* (p_colspec < colspec_alpha). This is what distinguishes a
+          genuine regulator (suppresses its OWN program) from a non-specific stressor (e.g.
+          an essential-gene knockdown that collapses transcription globally and drops a
+          shared 'cell-health' feature that MANY knockdowns also drop). Suppression vs
+          control alone (2) cannot tell these apart; column specificity can. See
+          docs/COMPONENT2_RESULTS.md (the essential-gene confound); AND
+      (4) the Mann-Whitney p survives BH-FDR across tested perturbations.
+    Global rate-vs-chance is still established by the pipeline's label-shuffle control."""
     pert_labels = np.asarray(pert_labels)
     is_ctrl = pert_labels == CONTROL_LABEL
     g2i = {g: i for i, g in enumerate(gene_names)}
@@ -108,6 +130,13 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
     ctrl_act = activations[is_ctrl]
     reliable = (ctrl_act > 0).sum(0) >= min_active_cells
     mu_x_c = expression[is_ctrl].mean(0)
+
+    # per-perturbation mean activation of every feature (background for column specificity)
+    pmean = np.full((len(tested_perts), activations.shape[1]), np.nan)
+    for qi, q in enumerate(tested_perts):
+        qidx = np.where(pert_labels == q)[0]
+        if qidx.size:
+            pmean[qi] = activations[qidx].mean(0)
 
     rng = np.random.default_rng(0)
     rows, mw_p = [], np.ones(len(tested_perts))
@@ -138,23 +167,29 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
             auc = float(u) / (len(kd) * len(ct))             # <0.5 = suppressed
         except ValueError:
             mwp, auc = 1.0, 0.5
+        # COLUMN SPECIFICITY: is p a low outlier for f vs how OTHER perts move f?
+        col_bg = np.delete(pmean[:, f], pi)
+        p_colspec = _robust_tail_p(float(np.mean(kd)), col_bg, side="lower")
         mw_p[pi] = mwp
         rows.append({"pert": p, "matched_feature": f, "auc": float(auc),
                      "match_confidence_p": float(p_match), "mw_p": float(mwp),
+                     "colspec_p": float(p_colspec),
                      "passes_match": bool(p_match < match_alpha),
-                     "passes_floor": bool(auc <= auc_floor)})
+                     "passes_floor": bool(auc <= auc_floor),
+                     "passes_colspec": bool(p_colspec < colspec_alpha)})
     q = multipletests(mw_p, method="fdr_bh")[1]
     grounded = np.zeros(len(tested_perts), dtype=bool)
     for pi, r in enumerate(rows):
         r["mw_q"] = float(q[pi])
         r["grounded"] = bool(r.get("passes_match", False) and r.get("passes_floor", False)
-                             and q[pi] < fdr)
+                             and r.get("passes_colspec", False) and q[pi] < fdr)
         grounded[pi] = r["grounded"]
     return {
         "n_tested": int(len(tested_perts)),
         "n_grounded": int(grounded.sum()),
         "causal_grounding_rate": float(grounded.mean()) if len(tested_perts) else float("nan"),
         "auc_floor": auc_floor, "fdr": fdr, "match_alpha": match_alpha,
+        "colspec_alpha": colspec_alpha,
         "min_active_cells": min_active_cells, "n_reliable_features": int(reliable.sum()),
         "per_perturbation": rows,
     }

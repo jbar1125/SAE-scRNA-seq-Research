@@ -150,7 +150,8 @@ def _synthetic(n_prog=8, prog_size=15, n_bg=250, rng=None):
     return X, genes, np.array(labels), tested
 
 
-def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed):
+def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed,
+                    colspec_alpha=cg.COLSPEC_ALPHA):
     """Permute perturbation labels among perturbed cells (controls fixed) and re-run
     grounding, n_shuffle times. If the real grounding is causal signal, the shuffled
     grounding rate collapses toward 0. Returns the null rates + an empirical p."""
@@ -161,7 +162,8 @@ def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed):
     for _ in range(n_shuffle):
         lab = labels.copy()
         lab[is_pert] = rng.permutation(lab[is_pert])
-        null.append(cg.causal_grounding(acts, expression, lab, genes, tested)["causal_grounding_rate"])
+        null.append(cg.causal_grounding(acts, expression, lab, genes, tested,
+                                        colspec_alpha=colspec_alpha)["causal_grounding_rate"])
     return [float(x) for x in null]
 
 
@@ -185,11 +187,12 @@ def _tag_breakdown(res, tag_set, tag_name):
 
 def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0,
         auc_floor=cg.AUC_FLOOR, min_active_cells=cg.MIN_ACTIVE_CELLS,
-        tag_set=None, tag_name="tagged"):
+        colspec_alpha=cg.COLSPEC_ALPHA, tag_set=None, tag_name="tagged"):
     encode, info = train_topk_sae(rep_matrix, latent, k, seed=seed)
     acts = encode(rep_matrix)
     res = cg.causal_grounding(acts, expression, labels, genes, tested,
-                              auc_floor=auc_floor, min_active_cells=min_active_cells)
+                              auc_floor=auc_floor, min_active_cells=min_active_cells,
+                              colspec_alpha=colspec_alpha)
     res["sae"] = info
     if tag_set is not None:
         _tag_breakdown(res, tag_set, tag_name)
@@ -209,7 +212,8 @@ def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_s
               f"| median auc {diag['median_auc']:.3f} min {diag['min_auc']:.3f} "
               f"| mw_q<0.05: {diag['n_mw_q_below_0.05']}")
     if n_shuffle:
-        null = shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed)
+        null = shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed,
+                               colspec_alpha=colspec_alpha)
         real = res["causal_grounding_rate"]
         res["shuffle_control"] = {
             "n_shuffle": n_shuffle, "null_rates_mean": float(np.mean(null)),
@@ -243,6 +247,7 @@ def main():
     ap.add_argument("--exclude-list", default=None, help="drop genes in this file from scored perturbations (e.g. core-essential genes)")
     ap.add_argument("--tag-list", default=None, help="report grounding rate split by membership in this file (e.g. essential vs not), without excluding")
     ap.add_argument("--auc-floor", type=float, default=cg.AUC_FLOOR, help="matched feature KD-vs-ctrl AUC must be <= this")
+    ap.add_argument("--colspec-alpha", type=float, default=cg.COLSPEC_ALPHA, help="column-specificity gate alpha (1.0 disables it)")
     ap.add_argument("--min-active-cells", type=int, default=cg.MIN_ACTIVE_CELLS, help="min control cells a feature must fire in to be matchable")
     args = ap.parse_args()
 
@@ -278,7 +283,7 @@ def main():
         rep = np.load(args.embedding).astype(np.float32)
         assert rep.shape[0] == X.shape[0], "embedding rows must match cells"
     run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle,
-        auc_floor=args.auc_floor, min_active_cells=args.min_active_cells,
+        auc_floor=args.auc_floor, min_active_cells=args.min_active_cells, colspec_alpha=args.colspec_alpha,
         tag_set=tag_set, tag_name=(Path(args.tag_list).stem if args.tag_list else "tagged"))
 
 

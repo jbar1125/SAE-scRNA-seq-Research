@@ -1,5 +1,5 @@
 {
-  "name": "causal_grounding_v3_crossfit_mannwhitney",
+  "name": "causal_grounding_v4_crossfit_mannwhitney_colspec",
   "purpose": "Fraction of genetic perturbations for which a control-trained SAE is causally grounded on Perturb-seq, comparing expression-space vs foundation-model-embedding SAEs.",
   "trained_on": "control (non-targeting) cells only; SAE never sees a perturbation",
   "feature_program": "gene-association profile = Pearson corr of feature activation with each gene over control cells (identical for expression- and embedding-space SAEs)",
@@ -9,11 +9,13 @@
   "grounding_rule": {
     "match_confidence": "matched program alignment is a robust-z (median/MAD) upper-tail outlier vs alignment to all OTHER matchable features; match_confidence_p < match_alpha (excludes diffuse/global perturbations)",
     "suppression": "one-sided Mann-Whitney U of the matched feature's activation in p's split-B knockdown cells vs all control cells (alternative='less'); AUC = U / (n_kd_B * n_ctrl); AUC < 0.5 = suppressed",
+    "column_specificity": "p suppresses the matched feature MORE than other perturbations do: p's mean split-B activation of the feature is a robust-z (median/MAD) LOWER-tail outlier vs the mean activation of that feature across all OTHER tested perturbations; colspec_p < colspec_alpha. Rejects non-specific stressors (e.g. essential-gene knockdowns) that drop a shared feature many knockdowns also drop.",
     "effect_floor_auc": 0.45,
     "match_alpha": 0.10,
+    "colspec_alpha": 0.10,
     "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations on the Mann-Whitney p-values",
     "fdr": 0.05,
-    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND BH-q(mw_p) < fdr",
+    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND passes_colspec (colspec_p < colspec_alpha) AND BH-q(mw_p) < fdr",
     "min_cells_per_group": 20,
     "min_active_cells": 50
   },
@@ -33,6 +35,16 @@
       ],
       "why": "Two bugs caught on synthetic BEFORE any real Replogle result. (1) SD-standardization is invalid for sparse TopK activations: a feature fires in ~k/L of cells, so even a full shutoff is only ~0.1 SD, unreachable by any effect floor -> forced 0 grounded. A rank-based Mann-Whitney AUC has no scale assumption. (2) Without cross-fitting the same cells both selected and validated a feature, letting diffuse/background perturbations appear grounded (double-dipping). Fix validated on synthetic: oracle unit test passes (true regulators grounded, null/global/background rejected), and real-vs-shuffle shows planted regulators grounded with 0 false positives vs a shuffled null of 0.000.",
       "honesty_note": "No valid result on real data was produced under v1; nothing was frozen or reported from the buggy metric. This amendment is dated and pre-registered before the first valid real run, per the project's no-frozen-artifact-from-a-broken-run rule."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v3_crossfit_mannwhitney (spec SHA b766d21c69feb0f91b6d83feaa4e84ea44584f7477b668f457007bbbb9e34b6b)",
+      "what_changed": [
+        "Added gate (3) COLUMN SPECIFICITY: p must suppress the matched feature more than other perturbations do (colspec_p < colspec_alpha=0.10), a robust-z lower-tail outlier test on per-perturbation mean feature activation.",
+        "grounded_iff now also requires passes_colspec."
+      ],
+      "why": "The v3 (single-seed) Replogle run grounded a set ~10x enriched for Hart CEGv2 core-essential genes (8/26 seed-stable hits vs 3.0% base rate, hypergeometric p~4e-7; docs/COMPONENT2_RESULTS.md). Diagnosis: v3 tested suppression only vs CONTROL, so an essential-gene knockdown that collapses transcription globally drops a shared 'cell-health' feature that many knockdowns also drop, and each such knockdown passed independently. The label-shuffle null controls the global RATE but not per-perturbation specificity. Column specificity restores the per-perturbation specificity the v3 cross-fit rewrite had dropped (it was in the original v1 design intent). Validated on synthetic (tests/test_causal_grounding.py::test_column_specificity): with the gate OFF, 5 shared non-specific stressors falsely ground; with it ON, all 5 are rejected while the true sole-regulators survive. The existing oracle + pipeline self-tests still pass unchanged.",
+      "honesty_note": "The v3 single-seed run was logged as PRELIMINARY and explicitly NOT frozen (docs/COMPONENT2_RESULTS.md). This v4 amendment is dated and made before any frozen/reported real result, per the no-frozen-artifact-from-a-confounded-run rule. Column specificity is deliberately conservative: it also rejects genuinely redundant regulators (a program with several real regulators), which is an accepted trade for killing the essential-gene confound; that limitation is documented."
     }
   ]
 }

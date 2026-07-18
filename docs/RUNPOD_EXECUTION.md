@@ -55,7 +55,8 @@ Two flags are REQUIRED at genome scale, both established on 2026-07-18 (see LAB_
 - `--tf-list config/tf_lists/hs_hgnc_tfs.txt` restricts scoring to the 1,839 human TFs.
   Scoring all ~1789 perturbations includes housekeeping/essential knockdowns whose
   effect is non-specific; a program-level causal signature is only meaningful for
-  regulators. (The metric itself is the cross-fit Mann-Whitney v3, spec SHA `b766d21c`.)
+  regulators. (The metric itself is the cross-fit Mann-Whitney + column-specificity v4,
+  spec SHA `029ab066`.)
 
 ## 4. Arm A — embedding-space SAE (reproduce the field)
 
@@ -101,7 +102,7 @@ prior favors a positive result, but the design is internally fair either way).
 ## 6. After the number
 
 - The metric config is pre-registered and frozen: `config/causal_grounding_spec.json`
-  (SHA `b766d21c`, v3 cross-fit Mann-Whitney; amended 2026-07-18 from the v1 SD-drop
+  (SHA `029ab066`, v4 cross-fit Mann-Whitney + column specificity; amended 2026-07-18 from the v1 SD-drop
   spec after that version was found unreachable for sparse TopK activations -- see the
   spec's `amendments` block).
 - If positive: build the causally-grounded gene-program atlas (a low-risk formatting of
