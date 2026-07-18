@@ -76,7 +76,8 @@ def train_topk_sae(rep, latent_dim, k, epochs=200, batch=1024, lr=4e-4, seed=0, 
 # --------------------------------------------------------------------------- #
 # Perturb-seq loading
 # --------------------------------------------------------------------------- #
-def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set=None):
+def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set=None,
+                    exclude_set=None):
     """Return (expression log-norm (n,g), gene_names, pert_labels, tested_perts).
 
     n_hvg>0 keeps the top-n_hvg highly-variable genes UNION every tested-perturbation
@@ -87,7 +88,12 @@ def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set
     tf_set (optional): restrict the SCORED perturbations to these genes (e.g. transcription
     factors). Causal/regulatory grounding is only meaningful for regulators; essential
     housekeeping-gene knockdowns cause broad non-specific effects and are not testable for
-    target-specific responses. This also matches the foundation-model benchmark (TF panel)."""
+    target-specific responses. This also matches the foundation-model benchmark (TF panel).
+
+    exclude_set (optional): drop these genes from the scored perturbations (e.g. Hart CEGv2
+    core-essential genes -- knocking down a core-essential gene collapses transcription
+    globally, which grounds a broad 'cell-health' feature non-specifically; the first real
+    run was ~10x enriched for such genes, see docs/COMPONENT2_RESULTS.md)."""
     import anndata as ad
     import scanpy as sc
     from collections import Counter
@@ -100,7 +106,8 @@ def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set
     present = set(genes_all)
     tested = sorted({p for p in labels if p != cg.CONTROL_LABEL
                      and p in present and counts[p] >= min_cells
-                     and (tf_set is None or p in tf_set)})
+                     and (tf_set is None or p in tf_set)
+                     and (exclude_set is None or p not in exclude_set)})
     if n_hvg and n_hvg < A.shape[1]:
         sc.pp.highly_variable_genes(A, n_top_genes=n_hvg)
         keep = A.var["highly_variable"].values.copy()
@@ -158,13 +165,34 @@ def shuffle_control(acts, expression, labels, genes, tested, n_shuffle, seed):
     return [float(x) for x in null]
 
 
+def _tag_breakdown(res, tag_set, tag_name):
+    """Split the grounding rate by whether each tested perturbation is in tag_set (e.g.
+    core-essential vs not). Establishes whether grounding is driven by the tagged class --
+    the essential-gene confound test -- in a single run, without excluding anything."""
+    rows = res["per_perturbation"]
+    inn = [r for r in rows if r["pert"] in tag_set]
+    out = [r for r in rows if r["pert"] not in tag_set]
+    def rate(rs):
+        g = sum(bool(r.get("grounded")) for r in rs)
+        return {"n": len(rs), "grounded": g, "rate": (g / len(rs) if rs else float("nan"))}
+    bd = {"tag": tag_name, "in_tag": rate(inn), "not_in_tag": rate(out)}
+    res.setdefault("breakdowns", []).append(bd)
+    print(f"  breakdown[{tag_name}]: in-tag {bd['in_tag']['grounded']}/{bd['in_tag']['n']} "
+          f"= {bd['in_tag']['rate']:.3f} | not-in-tag {bd['not_in_tag']['grounded']}/"
+          f"{bd['not_in_tag']['n']} = {bd['not_in_tag']['rate']:.3f}")
+    return bd
+
+
 def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0,
-        auc_floor=cg.AUC_FLOOR, min_active_cells=cg.MIN_ACTIVE_CELLS):
+        auc_floor=cg.AUC_FLOOR, min_active_cells=cg.MIN_ACTIVE_CELLS,
+        tag_set=None, tag_name="tagged"):
     encode, info = train_topk_sae(rep_matrix, latent, k, seed=seed)
     acts = encode(rep_matrix)
     res = cg.causal_grounding(acts, expression, labels, genes, tested,
                               auc_floor=auc_floor, min_active_cells=min_active_cells)
     res["sae"] = info
+    if tag_set is not None:
+        _tag_breakdown(res, tag_set, tag_name)
     # diagnostic: where in the pipeline do perturbations pass/fail?
     pp = [r for r in res["per_perturbation"] if r.get("matched_feature", -1) >= 0]
     if pp:
@@ -212,6 +240,8 @@ def main():
     ap.add_argument("--n-shuffle", type=int, default=0, help="permutation control replicates")
     ap.add_argument("--n-hvg", type=int, default=0, help="keep top-N HVGs + all perturbed genes (bounds memory)")
     ap.add_argument("--tf-list", default=None, help="restrict scored perturbations to genes in this file (e.g. transcription factors)")
+    ap.add_argument("--exclude-list", default=None, help="drop genes in this file from scored perturbations (e.g. core-essential genes)")
+    ap.add_argument("--tag-list", default=None, help="report grounding rate split by membership in this file (e.g. essential vs not), without excluding")
     ap.add_argument("--auc-floor", type=float, default=cg.AUC_FLOOR, help="matched feature KD-vs-ctrl AUC must be <= this")
     ap.add_argument("--min-active-cells", type=int, default=cg.MIN_ACTIVE_CELLS, help="min control cells a feature must fire in to be matchable")
     args = ap.parse_args()
@@ -233,16 +263,23 @@ def main():
         print("  PIPELINE SELF-TEST PASSED")
         return
 
-    tf_set = {ln.strip() for ln in open(args.tf_list)} if args.tf_list else None
-    X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value, n_hvg=args.n_hvg, tf_set=tf_set)
-    print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} testable perturbations")
+    def _load_set(path):
+        return {ln.strip() for ln in open(path) if ln.strip()} if path else None
+    tf_set = _load_set(args.tf_list)
+    exclude_set = _load_set(args.exclude_list)
+    tag_set = _load_set(args.tag_list)
+    X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value,
+                                               n_hvg=args.n_hvg, tf_set=tf_set, exclude_set=exclude_set)
+    print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} testable perturbations"
+          + (f" (excluded {len(exclude_set)}-gene list)" if exclude_set else ""))
     if args.rep == "expression":
         rep = X
     else:
         rep = np.load(args.embedding).astype(np.float32)
         assert rep.shape[0] == X.shape[0], "embedding rows must match cells"
     run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle,
-        auc_floor=args.auc_floor, min_active_cells=args.min_active_cells)
+        auc_floor=args.auc_floor, min_active_cells=args.min_active_cells,
+        tag_set=tag_set, tag_name=(Path(args.tag_list).stem if args.tag_list else "tagged"))
 
 
 if __name__ == "__main__":
