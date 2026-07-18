@@ -122,6 +122,31 @@ def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set
     return X, genes, labels, tested
 
 
+def build_representation(kind, X, embedding=None, rep_dim=128, seed=0):
+    """The SAE INPUT SPACE for a grounding run -- the axis of the representation-ladder
+    experiment (does causal legibility decay as representations abstract away from
+    expression?). 'expression' = the log-norm gene matrix; 'embedding' = a precomputed
+    foundation-model embedding (.npy, aligned to cells); 'pca'/'nmf' = a rep_dim
+    factorization of expression. All return an (n_cells, d) float32 matrix the SAE trains
+    on; the grounding metric always uses gene EXPRESSION for programs/DE, so every rung of
+    the ladder is scored apples-to-apples."""
+    if kind == "expression":
+        return X
+    if kind == "embedding":
+        rep = np.load(embedding).astype(np.float32)
+        assert rep.shape[0] == X.shape[0], "embedding rows must match cells"
+        return rep
+    d = min(rep_dim, X.shape[1])
+    if kind == "pca":
+        from sklearn.decomposition import PCA
+        return PCA(n_components=d, random_state=seed).fit_transform(X).astype(np.float32)
+    if kind == "nmf":
+        from sklearn.decomposition import NMF
+        return NMF(n_components=d, init="nndsvda", random_state=seed,
+                   max_iter=400).fit_transform(np.maximum(X, 0.0)).astype(np.float32)
+    raise ValueError(f"unknown rep {kind!r}")
+
+
 # --------------------------------------------------------------------------- #
 # Synthetic wiring check (CPU, no data)
 # --------------------------------------------------------------------------- #
@@ -235,8 +260,11 @@ def main():
     ap.add_argument("--synthetic", action="store_true", help="CPU wiring check, no data")
     ap.add_argument("--adata"); ap.add_argument("--pert-col", default="gene")
     ap.add_argument("--control-value", default="non-targeting")
-    ap.add_argument("--rep", choices=["expression", "embedding"], default="expression")
+    ap.add_argument("--rep", choices=["expression", "embedding", "pca", "nmf"], default="expression",
+                    help="SAE input space. expression=log-norm genes; embedding=--embedding .npy "
+                         "(scGPT/Geneformer); pca/nmf=that factorization of expression (the ladder)")
     ap.add_argument("--embedding", help="path to .npy (n_cells, d) foundation-model embedding")
+    ap.add_argument("--rep-dim", type=int, default=128, help="components for --rep pca/nmf")
     ap.add_argument("--latent", type=int, default=1024)
     ap.add_argument("--k", type=int, default=32)
     ap.add_argument("--seed", type=int, default=0)
@@ -277,11 +305,7 @@ def main():
                                                n_hvg=args.n_hvg, tf_set=tf_set, exclude_set=exclude_set)
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} testable perturbations"
           + (f" (excluded {len(exclude_set)}-gene list)" if exclude_set else ""))
-    if args.rep == "expression":
-        rep = X
-    else:
-        rep = np.load(args.embedding).astype(np.float32)
-        assert rep.shape[0] == X.shape[0], "embedding rows must match cells"
+    rep = build_representation(args.rep, X, embedding=args.embedding, rep_dim=args.rep_dim, seed=args.seed)
     run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle,
         auc_floor=args.auc_floor, min_active_cells=args.min_active_cells, colspec_alpha=args.colspec_alpha,
         tag_set=tag_set, tag_name=(Path(args.tag_list).stem if args.tag_list else "tagged"))

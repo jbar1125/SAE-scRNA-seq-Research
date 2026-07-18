@@ -123,11 +123,24 @@ tonight's results. Priority: [P0]=critical path, [P1]=high, [P2]=valuable, [P3]=
 - B3 [P1] Paired bootstrap CI on the grid-wise difference; >=3/5 seeds each.
 
 ### Q-C. Where does causal legibility LIVE? (the flagship reframe)  [P1]
-- C1 [P1] The representation-ladder curve: raw -> HVG -> PCA -> NMF -> VAE -> scGPT ->
+- C1 [P1] The representation-ladder curve: expression -> PCA -> NMF -> (VAE) -> scGPT ->
   Geneformer, grounding rate along it. If monotone-decaying, the headline becomes a LAW,
   and any monotone outcome is a result (de-risks a weak expression-vs-embedding gap).
+  **The PCA/NMF rungs are BUILT: `--rep pca` / `--rep nmf` (+ `--rep-dim`) in the pipeline,
+  synthetic-tested.** Run the expression + pca + nmf rungs now; add scGPT/Geneformer with
+  Arm A:
+  ```bash
+  for r in expression pca nmf; do
+    python3 src/causal_pipeline.py --adata replogle.h5ad --pert-col gene \
+      --control-value non-targeting --rep $r --rep-dim 128 --latent 2048 --k 32 --seed 0 \
+      --n-hvg 2000 --tf-list config/tf_lists/hs_hgnc_tfs.txt \
+      --exclude-list config/gene_sets/hart_cegv2_core_essential.txt \
+      --n-shuffle 50 --out causal_out/ladder_$r.json
+  done
+  ```
 - C2 [P2] SAE-vs-PCA/NMF at matched dimensionality within expression space: does the SAE
-  add over plain matrix factorization? (The first ML-reviewer question.)
+  add over plain matrix factorization? (The first ML-reviewer question.) Same `--rep`
+  machinery answers it.
 
 ### Q-D. Is the grounding biologically real?  [P1]
 - D1 [P1] GATA1 deep-dive: is its matched feature the erythroid/heme module (HBB, HBA,
