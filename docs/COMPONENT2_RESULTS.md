@@ -80,6 +80,42 @@ Honest categorization:
 3. Smaller dictionaries grounding more reinforces conclusion 2: the rate is inflated by
    broad, global-state features.
 
+## Addendum: quantified confound analysis + falsifiable predictions (2026-07-18)
+
+Cross-referencing the 26 seed-stable hits against Hart CEGv2 (core-essential) and NEGv1
+(reference-nonessential):
+
+- **Two-sided essentiality bias.** Grounded genes are ENRICHED for core-essential
+  (8/26 = 31% vs a 3.0% pool base rate, ~10x, hypergeometric p~4e-7) AND DEPLETED of
+  reference-nonessential (0/26 = 0% vs a 5.3% pool rate). Both directions point the same
+  way: grounding tracks essentiality, not regulatory role.
+- **CEGv2 undercounts the confound.** By curated function, 20/26 are housekeeping/machinery
+  (replication POLD2/RFC2/RFC3/TIMELESS, basal TBP/GTF2A2, RNA-proc SFPQ/NCBP2/THOC2/ILF2/
+  ZMAT2, proteasome PSMD12, kinase CSNK2B, SRP9, chromatin CXXC1/DMAP1, ...); only 6/26 are
+  sequence-specific regulators (GATA1, MAX, HSF1, E4F1, TFDP1, ZNF335), and only GATA1 is
+  lineage-specific. So the true housekeeping fraction (~77%) exceeds the strict CEGv2 31%.
+- **Honest background caveat.** The correct enrichment denominator is the 162 TESTED TFs
+  (which are HVGs in K562 and thus already essential-enriched), not all 1839 pySCENIC TFs;
+  so the ~10x magnitude is an upper bound and the true enrichment is smaller. The
+  nonessential DEPLETION (0/26) is background-robust evidence regardless.
+
+**Two falsifiable predictions for the v4 (column-specificity) re-run** -- recorded now so
+they cannot be retrofitted:
+
+- **P1 (mechanism of the sweep).** The v3 rate's inverse dependence on dictionary size
+  (512->0.395 ... 2048->0.136) is hypothesized to be DRIVEN by the confound: smaller
+  dictionaries learn broader, more polysemantic features -> more global 'cell-health' axes
+  -> more essential-KD collapse registers as grounding. PREDICTION: under v4, the
+  dictionary-size dependence FLATTENS substantially. If it does, the confound explains the
+  sweep. If it persists, there is an additional (capacity) cause worth investigating.
+- **P2 (seed churn).** The v3 grounded set churns (seed rates 22/31/42/31/32; only 26 of a
+  larger union are >=3/5-stable), consistent with threshold-borderline confound hits.
+  PREDICTION: under v4 the surviving set is MORE seed-stable (a higher fraction of grounded
+  perturbations are >=3/5), because real regulators are reproducible and confound hits are
+  not.
+
+If P1 and P2 both hold on the v4 re-run, the confound diagnosis is confirmed end to end.
+
 ## Not done (the real next steps)
 
 - **Arm A** (scGPT / Geneformer embedding-space SAE) at MATCHED hyperparameters — the
