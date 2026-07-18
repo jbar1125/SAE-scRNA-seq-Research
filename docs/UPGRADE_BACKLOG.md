@@ -18,6 +18,29 @@ unassailable, more general, or more clearly a built thing rather than a number.
 
 ---
 
+## SURFACED FROM THE FIRST REAL RUN (2026-07-18) — do these before any specificity claim
+
+The first real Arm-B run grounded 22/162 = 13.6% (survives the shuffle null), BUT the
+grounded set is dominated by essential / general-transcription-machinery / non-TF
+knockdowns (TBP, TAF7, GTF2A2, POLD2, RFC2, SRP9, CSNK2B, PTPMT1, ...) with NO lineage
+regulators (GATA1/SPI1/TAL1/RUNX1). That is essential-gene stress collapse, not regulatory
+specificity (LAB_NOTEBOOK 2026-07-18). These three fixes are now REQUIRED, not optional:
+
+S.1 **Stricter TF list.** Replace `config/tf_lists/hs_hgnc_tfs.txt` (contains basal
+machinery) with the Lambert et al. 2018 sequence-specific-DBD human TF list (~1600). Commit
+it to `config/tf_lists/lambert2018_hs_tfs.txt` and re-run. Expected to drop most artifacts.
+
+S.2 **A specificity filter that actually bites.** In `causal_grounding.py`: add a
+program-coherence requirement (matched feature's top decoder genes form a GO-enriched /
+non-diffuse module) and tighten the match gate — right now it passes 162/162, so it does no
+filtering. The essential-gene "global lowness" features should be filtered here.
+
+S.3 **Essential-gene control arm.** Score grounding separately for essential vs
+non-essential genes using the DepMap common-essential list (commit it to `config/`). If the
+rate is high only among essentials, report THAT (a different, still-honest finding).
+
+---
+
 ## TIER 0 — cheap, critical, do before the next writeup (mostly no GPU)
 
 0.1 **Differentiation table vs Kendiukhov et al.** (V-A, flagged CRITICAL, still not

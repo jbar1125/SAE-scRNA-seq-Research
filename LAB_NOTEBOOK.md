@@ -511,3 +511,46 @@ no-frozen-artifact-from-a-broken-run rule.
 **Next.** User re-runs Arm B on vast.ai off the fixed metric with
 `--tf-list config/tf_lists/hs_hgnc_tfs.txt --n-hvg 2000` after `git pull`. Then the real
 expression-space grounding number, then Arm A (scGPT embeddings) for the head-to-head.
+
+### Later 2026-07-18 — first real Component 2 number (single seed) + an essential-gene confound
+
+**Result (PRELIMINARY, single seed, NOT frozen).** Arm B ran on real Replogle K562 (GPU,
+cuda): loaded 310385 cells x 2136 genes (top-2000 HVG UNION perturbed TF genes), 162
+testable TFs. **grounded 22/162 = 0.136**, shuffled null mean 0.001, p=0.048 (p is at the
+20-shuffle resolution floor 1/21; 0/20 shuffles reached the observed value -> clean
+separation, not weak signal). SAE latent 2048, k 32. diag: pass floor(auc<=0.45) 35,
+mw_q<0.05 24, pass match 162/162.
+
+**Honest read (result vs artifact).** The 13.6% is REAL (survives label shuffle) but the
+grounded SET is the wrong flavor. The 22 are dominated by essential / general-transcription
+machinery, replication/repair, RNA-processing, and even non-TFs: TBP, TAF7, GTF2A2 (basal
+apparatus), TFDP1, NELFB, HINFP, CXXC1, E4F1, POLD2, RFC2, SMUG1, DMAP1, TIMELESS, SFPQ,
+THOC2, NCBP2, ILF2, SRP9 (SRP, not a TF), CSNK2B (kinase), PTPMT1 (phosphatase); only ~2
+(HSF1, MAX) are clean sequence-specific TFs with a defined program. NO lineage regulators
+(GATA1, SPI1, TAL1, RUNX1, KLF1, CEBPA) grounded. Interpretation: knocking down an
+essential gene collapses transcription broadly, a "global cell health" feature drops
+specifically in those cells -> causal in a trivial sense, NOT regulatory-specific. The
+triviality trap in a new coat (KD gene's own mRNA is excluded, but "the KD makes the cell
+sick" is not). The match gate passing 162/162 confirms it is not enforcing program
+specificity. So the honest headline is "13.6% perturbation-specific grounding, but
+essential-gene-dominated; regulatory specificity NOT yet shown," NOT "beat the 6.2%
+benchmark."
+
+**Three fixes queued (implement next session; do NOT ship a specificity claim without
+them):**
+1. **Stricter TF list.** `hs_hgnc_tfs.txt` includes basal machinery (TBP, TAFs, GTFs). Swap
+   to the Lambert et al. 2018 "The Human Transcription Factors" sequence-specific-DBD list
+   (~1600 regulators) and re-measure. Needs the curated Lambert list committed to
+   `config/tf_lists/`.
+2. **A specificity filter that bites.** Require the matched feature's program to be a
+   coherent, GO-enriched module (not a diffuse global-lowness feature), and tighten the
+   match gate so it actually filters (currently 162/162 pass -> non-binding). Add a
+   program-coherence score to `causal_grounding.py`.
+3. **Essential-gene control.** Score grounding separately for essential vs non-essential
+   (DepMap common-essential list). If the rate is high only for essentials, THAT is the
+   finding (and a different one). Needs the DepMap essential list committed.
+
+**Running overnight (2026-07-18):** multi-seed (seeds 0-4, n-shuffle 50) for seed-stability
++ the >=3/5 rule; then a latent x k sensitivity sweep (512/1024/2048 x 16/32/64, n-shuffle 0)
+to show 13.6% is not a knob-tuning artifact. Arm A (scGPT embeddings) is the real
+head-to-head and is a separate, hands-on setup (not an unattended job).
