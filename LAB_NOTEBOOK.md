@@ -554,3 +554,19 @@ them):**
 + the >=3/5 rule; then a latent x k sensitivity sweep (512/1024/2048 x 16/32/64, n-shuffle 0)
 to show 13.6% is not a knob-tuning artifact. Arm A (scGPT embeddings) is the real
 head-to-head and is a separate, hands-on setup (not an unattended job).
+
+### Overnight results in (2026-07-18) -> `docs/COMPONENT2_RESULTS.md`
+
+- **Seeds (2048/32):** mean 0.195, sd 0.039, range 0.136-0.259 across seeds 0-4. All >>
+  the ~0 shuffle null -> grounding is SEED-ROBUST; the exact rate is noisy (~20% CV).
+- **Seed-stable set (>=3/5): 26 perturbations.** Still ~24/26 essential/machinery/non-TF,
+  BUT **GATA1 grounds robustly** (master erythroid TF, in an erythroleukemia line) -> the
+  metric DOES catch a real lineage regulator; regulatory signal is buried, not absent.
+  Positive-control (Tier 0.4) partially satisfied.
+- **Sensitivity sweep (seed 0):** rate spans **0.136-0.395 from hyperparameters alone**.
+  Dictionary size is INVERSELY related (512->0.395, 1024->0.284, 2048->0.136): smaller/
+  broader dictionaries ground MORE, consistent with the essential-gene/global-state
+  confound. Higher rate != better. -> the absolute rate is not quotable standalone; only
+  the matched-hyperparameter head-to-head is.
+- Logged PRELIMINARY, NOT frozen (Arm A missing, essential-gene-confounded, one cell line).
+  GPU box then destroyed; raw JSONs regenerable from pinned seeds+code.

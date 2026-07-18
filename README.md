@@ -33,7 +33,8 @@ manual, read it first.
 | Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
 | **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
 | Causal metric pre-registered (frozen spec) | ✅ done (v3, amended 2026-07-18) | `config/causal_grounding_spec.json` (SHA `b766d21c`) |
-| **Causal head-to-head — GPU run on Replogle** | 🟡 **ready, needs RunPod** | `docs/RUNPOD_EXECUTION.md` |
+| Causal head-to-head — Arm B (expression) run | 🟡 **preliminary** (single seed-set, essential-gene-confounded) | `docs/COMPONENT2_RESULTS.md` |
+| Causal head-to-head — Arm A (embedding) + specificity fixes | 🟡 next | `docs/UPGRADE_BACKLOG.md` (S.1-S.3, Tier 1.1) |
 | Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
 | Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |
 
@@ -92,6 +93,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `PREREGISTRATION.md` | The frozen analysis spec (what was locked before running). |
 | `COMPONENT0_STATUS.md` | Gate-0 state + the Colab/GPU reproduction runner. |
 | `COMPONENT0_RESULTS.md` | The EXECUTED Gate-0 numbers (mouse + human) + frozen SHAs. |
+| `COMPONENT2_RESULTS.md` | Causal Arm-B (expression) preliminary run: seed table, sensitivity sweep, the essential-gene confound (NOT frozen). |
 | `COMPONENT0_HARDENING.md` | Robustness battery (R1-R4 + TRRUST + GRN + ICA) stress-testing the frozen verdict. |
 | `ABSTRACT.md` | One-page competition/mentor summary (draft), traced to committed numbers. |
 | `REPRODUCIBILITY.md` | Scripted end-to-end verification + expected hashes/outputs. |
