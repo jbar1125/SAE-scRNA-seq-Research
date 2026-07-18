@@ -90,6 +90,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `PROJECT_HANDOFF.md` | Phase-1-closeout snapshot (historical record). |
 | `PROJECT_AUDIT.md` | Authoritative corrections + rigor log; sections J/K are current findings. |
 | `STRATEGY_AND_POSITIONING.md` | Field situating, novelty audit vs Kendiukhov et al., the reframe. |
+| `DIFFERENTIATION.md` | Verified competitor landscape + differentiation table + rehearsed novelty answer (all competitors are embedding-space; this is expression-space). |
 | `PREREGISTRATION.md` | The frozen analysis spec (what was locked before running). |
 | `COMPONENT0_STATUS.md` | Gate-0 state + the Colab/GPU reproduction runner. |
 | `COMPONENT0_RESULTS.md` | The EXECUTED Gate-0 numbers (mouse + human) + frozen SHAs. |

@@ -47,17 +47,17 @@ committed Hart CEGv2/NEGv1 reference sets in `config/gene_sets/`. Run per
 
 ## TIER 0 — cheap, critical, do before the next writeup (mostly no GPU)
 
-0.1 **Differentiation table vs Kendiukhov et al.** (V-A, flagged CRITICAL, still not
-built). A one-screen table: rows = this project vs Kendiukhov 2026 vs the 2025-26
-SAE-single-cell wave; columns = dataset, representation space (expression vs
-foundation-model embedding), trajectory-resolved?, causal test?, rigor devices. A
-judge who knows the paper WILL ask "how is this not their atlas?" You need this
-rehearsed and on paper. Effort: hours.
+0.1 **Differentiation table vs Kendiukhov et al.** [DONE 2026-07-18 -> `DIFFERENTIATION.md`]
+Built with a verified competitor table + the rehearsed one-paragraph novelty answer.
+Key verified fact: the entire competitor cluster (Kendiukhov 2603.02952 / 2603.01752 /
+2603.11940; scGPT-manifold 2603.10261) is embedding-space; none does expression-space
+SAEs. Re-read the arXiv PDFs directly before submission (fetch was 403 here).
 
-0.2 **Verify the two adjacent hematology+SAE papers.** CytoSAE (arXiv 2507.12464)
-and "Hematopoietic Manifold in scGPT" (arXiv 2603.10261). The strategy doc flags
-both as UNVERIFIED potential collisions. If either already does expression-space +
-causal grounding, you must know before you write. Effort: an afternoon of reading.
+0.2 **Verify the two adjacent hematology+SAE papers.** [DONE 2026-07-18] CytoSAE
+(2507.12464) = microscopy IMAGES (MICCAI 2025), NOT a collision. scGPT hematopoietic
+manifold (2603.10261) = extraction from scGPT internals, ADJACENT not a collision. Also
+surfaced a SECOND Kendiukhov causal paper (2603.01752, circuit tracing, 56.4% directional
+CRISPRi) -- still embedding-space. Details in `DIFFERENTIATION.md`.
 
 0.3 **Threshold sensitivity sweep on the causal metric.** Report grounding rate as a
 function of `auc_floor` (0.45), `match_alpha` (0.10), `min_active_cells` (50),
