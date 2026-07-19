@@ -151,6 +151,37 @@ The comparison, not the absolute rate, is the deliverable and it is unrun; (b) a
 that actually perturbs lineage TFs (genome-wide Replogle / RPE1 / a hematopoietic
 Perturb-seq) -- the essential library barely contains regulators like SPI1/CEBPA/GATA2.
 
+## UPDATE 2026-07-18 (M1 result): effect-size is NOT the confound; grounding is genuine but housekeeping
+
+Ran the raw vs effect-size-controlled metric on real Replogle (seed 0). Result:
+
+- **The effect-size control changed nothing:** raw 22/162 and controlled 22/162 are the
+  IDENTICAL set (0 dropped, 0 "rescued"). Note: the gate is an AND-filter, so it can only
+  remove, never add -- "rescue" was a mis-framing on our part.
+- **The dropped-zero is the finding:** all 22 grounded perturbations PASS the effect-size
+  control -- they suppress their matched feature MORE than effect-matched peers do. So they
+  are NOT effect-size artifacts. The diagnostic confirms a WEAK effect-size relationship
+  (Spearman rho(effect, suppression) = 0.28; mean effect grounded 3.81 vs not-grounded
+  3.07). This REFUTES the earlier "grounding just tracks effect-detectability" worry -- that
+  claim was overstated.
+- **GATA1 still does not ground, and not because of a confound:** its effsize_p = 0.435 (not
+  even an effect-relative suppression outlier). The lineage signal is simply not present/
+  suppressed in this dataset; K562 is a fixed leukemic state and the essential library does
+  not perturb lineage TFs. (MYC is an effect-relative outlier, effsize_p 0.018, but still
+  fails the absolute suppression floor.)
+
+**Honest reinterpretation (supersedes the "all confound" read above):** the expression-space
+SAE genuinely recovers causally-grounded, effect-size-controlled gene programs (22/162,
+above null) -- but they are PROLIFERATION/HOUSEKEEPING programs, the biology that is variable
+and perturbed in K562-essential, not hematopoietic lineage programs. The method works; the
+dataset does not contain the lineage biology the project set out to test. The two real next
+steps are therefore (1) the head-to-head (do embeddings ground these same programs, or
+fewer?) and (2) a dataset that perturbs lineage regulators.
+
+M1 status: the effect-size control stays in the metric (default on) as a validated
+robustness CHECK -- on this data it is a no-op, but it defends the grounded set against the
+effect-size critique and would filter the confound in datasets where it is present.
+
 ## Not done (the real next steps)
 
 - **Arm A** (scGPT / Geneformer embedding-space SAE) at MATCHED hyperparameters — the

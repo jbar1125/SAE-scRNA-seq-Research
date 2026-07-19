@@ -591,3 +591,17 @@ specificity; no master hematopoietic regulator robustly grounds. Real negative f
 "expression recovers regulatory logic" hypothesis here. Not ruled out: the head-to-head
 (does embedding do worse?) and a dataset that actually perturbs lineage TFs. Third
 self-correction of the day; recorded, not buried.
+
+### 2026-07-18 (M1 result) — effect-size is NOT the confound; grounding is real but housekeeping
+
+Ran raw vs effect-size-controlled (M1) on real Replogle. The control changed NOTHING: raw
+22/162 == controlled 22/162, 0 dropped, 0 rescued. (Own error: framed M1 as a "rescue" -- but
+an AND-filter can only remove, never add.) The dropped-zero IS the finding: all 22 hits pass
+the effect-size control (they suppress more than effect-matched peers), so they are NOT
+effect-size artifacts. Diagnostic weak: rho(effect,suppression)=0.28, mean effect grounded
+3.81 vs 3.07. This refutes my earlier "grounding just tracks effect-detectability" claim --
+overstated. GATA1 effsize_p=0.435 (not even effect-relative-specific) -> the lineage signal
+isn't in this dataset, not hidden by a confound. Honest reframe: expression-space SAE
+genuinely grounds ~22 causally-real, effect-controlled programs, but they're proliferation/
+housekeeping (the biology present in K562-essential), not lineage. Method works; dataset lacks
+the lineage biology. Next: (1) head-to-head vs embeddings, (2) a lineage-perturbation dataset.
