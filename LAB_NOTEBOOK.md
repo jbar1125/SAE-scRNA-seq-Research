@@ -618,3 +618,16 @@ method-dependence: the causal-grounding SET is representation-dependent while th
 ~13% near-constant. Kills "expression SAEs are special"; refines the claim to "expression
 SPACE grounds ~13% robust to decomposition -- does that beat the embedding ~6%?" -> the
 embedding head-to-head is now the pivotal remaining experiment.
+
+### 2026-07-18 (RPE1 replication) — ladder-flat replicates; rate cell-line-dependent; still housekeeping
+
+Ran RPE1 (second cell line) expression seeds 0-2 + pca/nmf seed0. (1) Ladder FLAT again:
+expression 0.076 ~ pca 0.070 ~ nmf 0.076 -> "SAE not special vs matrix factorization"
+replicates in a second cell line (robust). (2) Rate is LOWER than K562 (7.6% vs 13%) ->
+the grounding rate is cell-line-dependent, not a universal constant. (3) Grounded set again
+housekeeping/chromatin/ribosomal (RPL35, HMGB1, HMGA1, SMARCC1, GABPB1, THAP11, ZNF720),
+with ZERO overlap with K562's housekeeping set and NO lineage TFs (all 0/3). Consistent
+meta-finding: the metric grounds whichever essential/proliferation programs dominate a given
+dataset -- real but dataset-specific, not-special, never hematopoietic. Expression side now
+thoroughly characterized (2 cell lines x 3 representations x effect-controlled). Diminishing
+returns on more expression runs; the pivotal unrun experiment is the embedding arm.
