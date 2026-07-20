@@ -605,3 +605,16 @@ isn't in this dataset, not hidden by a confound. Honest reframe: expression-spac
 genuinely grounds ~22 causally-real, effect-controlled programs, but they're proliferation/
 housekeeping (the biology present in K562-essential), not lineage. Method works; dataset lacks
 the lineage biology. Next: (1) head-to-head vs embeddings, (2) a lineage-perturbation dataset.
+
+### 2026-07-18 (representation ladder) — SAE not special; grounding rate flat across expression decompositions
+
+Ran the metric with the SAE trained on expression vs PCA-128 vs NMF-128 of the same Replogle
+data. Rate is FLAT: expression 0.121, PCA 0.130, NMF 0.111 -- statistically the same (PCA even
+marginally higher). So the SAE recovers no more causal grounding than plain matrix
+factorization; it is not special for this metric. The grounded SETS are representation-
+dependent though: seed0 expression∩PCA overlap = 6/22 (~2x chance), expression∩NMF = 2 -- a
+weak reproducible core + a large method-dependent tail. Convergent with Gate 0's structural
+method-dependence: the causal-grounding SET is representation-dependent while the RATE is a
+~13% near-constant. Kills "expression SAEs are special"; refines the claim to "expression
+SPACE grounds ~13% robust to decomposition -- does that beat the embedding ~6%?" -> the
+embedding head-to-head is now the pivotal remaining experiment.

@@ -182,6 +182,33 @@ M1 status: the effect-size control stays in the metric (default on) as a validat
 robustness CHECK -- on this data it is a no-op, but it defends the grounded set against the
 effect-size critique and would filter the confound in datasets where it is present.
 
+## UPDATE 2026-07-18 (representation ladder): the SAE is NOT special; the rate is flat across expression decompositions
+
+Ran the causal metric with the SAE trained on expression vs PCA-128 vs NMF-128 of the same
+data (`--rep`). Result:
+
+- **Grounding rate is FLAT across representations:** expression 0.121 (seeds 0.136/0.093/
+  0.136), PCA 0.130 (0.130/0.111/0.148), NMF 0.111 (seed0). Statistically indistinguishable;
+  PCA is even marginally higher. So **the sparse autoencoder recovers no more causal grounding
+  than plain matrix factorization** of the same expression -- the SAE is not doing something
+  PCA/NMF cannot for this metric.
+- **The grounded SETS are representation-dependent:** seed-0 grounded expression=22, PCA=21,
+  NMF=18, but expression∩PCA = 6 (vs ~2.85 expected by chance -> ~2x, a weak shared core) and
+  expression∩NMF = 2. So each representation grounds a mostly-different ~13%: a small
+  reproducible core (the strongest housekeeping programs) plus a large method-dependent tail.
+
+**Interpretation (convergent with Gate 0).** Just as Gate 0 found structural modularity is
+METHOD-dependent, the causal-grounding SET is REPRESENTATION-dependent while the RATE is a
+near-constant of the data/metric (~13%). Two consequences:
+- The "expression-space SAEs specifically recover causal logic" claim is dead -- the SAE is
+  not special vs PCA/NMF.
+- But the claim REFINES rather than dies: if ~13% for any expression decomposition beats the
+  ~6% foundation-model-embedding ceiling, then causal legibility is a property of staying in
+  EXPRESSION SPACE, not of the specific decomposition -- a cleaner, more robust claim. That
+  hinges entirely on the still-unrun EMBEDDING arm (Kendiukhov's 6.2%): embedding ~6% -> real
+  gap; embedding ~13% -> a full null (no representation grounds better). The embedding
+  head-to-head is now THE pivotal remaining experiment.
+
 ## Not done (the real next steps)
 
 - **Arm A** (scGPT / Geneformer embedding-space SAE) at MATCHED hyperparameters — the
