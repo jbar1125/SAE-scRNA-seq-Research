@@ -133,6 +133,40 @@ def test_effect_size_control():
           f"high-effect p={p[hi_effect]:.3f} not; null false-flag {frac_null_flagged:.0%}")
 
 
+def _oe_world():
+    """Overexpression world (the TF-Atlas pivot): each TF, when OVEREXPRESSED, ACTIVATES its
+    own program -- the feature's activation RISES (opposite of knockdown). Tests direction='up'."""
+    acts, exprs, labels = [], [], []
+
+    def base(n):
+        return RNG.uniform(0.8, 1.2, size=(n, N_PROG))
+
+    A, X = _cells(base(400)); acts.append(A); exprs.append(X); labels += ["control"] * 400
+    for f in range(N_PROG):                                  # 6 TFs whose OE activates program f
+        act = base(60); act[:, f] = RNG.uniform(1.8, 2.2, size=60)   # ELEVATED, not suppressed
+        A, X = _cells(act); acts.append(A); exprs.append(X); labels += [f"g{f * PROG_SIZE}"] * 60
+    for j in range(5):                                       # background: no effect
+        A, X = _cells(base(40)); acts.append(A); exprs.append(X); labels += [f"bg{j}"] * 40
+    return np.vstack(acts), np.vstack(exprs), np.array(labels)
+
+
+def test_overexpression_direction():
+    """direction='up' must ground overexpressed TFs (feature ACTIVATED); direction='down'
+    (the wrong sign) must NOT -- proving the direction generalization is real, not trivial."""
+    A, X, labels = _oe_world()
+    tfs = [f"g{f * PROG_SIZE}" for f in range(N_PROG)]
+    tested = tfs + [f"bg{j}" for j in range(5)]
+    up = {r["pert"]: r for r in cg.causal_grounding(A, X, labels, GENES, tested, direction="up")["per_perturbation"]}
+    down = {r["pert"]: r for r in cg.causal_grounding(A, X, labels, GENES, tested, direction="down")["per_perturbation"]}
+    n_up = sum(up[t]["grounded"] for t in tfs)
+    n_down = sum(down[t]["grounded"] for t in tfs)
+    assert n_up == N_PROG, f"direction=up must ground all {N_PROG} overexpressed TFs, got {n_up}"
+    assert all(not up[f"bg{j}"]["grounded"] for j in range(5)), "background must not ground (up)"
+    assert n_down == 0, f"direction=down (wrong sign) must NOT ground activated TFs, got {n_down}"
+    print(f"overexpression: direction=up grounds {n_up}/{N_PROG} activated TFs, 0 background; "
+          f"wrong-sign direction=down grounds {n_down}/{N_PROG}")
+
+
 def main():
     A, X, labels = _world()
     true_regs = [f"g{f * PROG_SIZE}" for f in range(N_PROG)]
@@ -166,6 +200,7 @@ def main():
 
     test_column_specificity()
     test_effect_size_control()
+    test_overexpression_direction()
     print("ALL CAUSAL-GROUNDING TESTS PASSED")
 
 

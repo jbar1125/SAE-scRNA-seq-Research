@@ -133,8 +133,20 @@ def _effect_matched_pvalue(supp, eff, k):
 def causal_grounding(activations, expression, pert_labels, gene_names, tested_perts,
                      auc_floor=AUC_FLOOR, fdr=FDR, match_alpha=MATCH_ALPHA,
                      colspec_alpha=COLSPEC_ALPHA, effsize_alpha=EFFSIZE_ALPHA,
-                     min_active_cells=MIN_ACTIVE_CELLS):
-    """A perturbation p (KD of gene t) is GROUNDED iff:
+                     min_active_cells=MIN_ACTIVE_CELLS, direction="down"):
+    """DIRECTION (2026-07-18, TF-atlas pivot). direction='down' = knockdown/CRISPRi: a
+    regulator's program is SUPPRESSED (feature activation drops); this is the original
+    metric, unchanged. direction='up' = OVEREXPRESSION (e.g. the Joung TF Atlas, GSE216481):
+    a TF's program is ACTIVATED (feature activation rises). For 'up' the matching target is
+    the +DE signature (genes the perturbation drives UP), the Mann-Whitney is one-sided
+    'greater' (feature higher in perturbed cells), the floor is auc >= 1 - auc_floor, column
+    specificity uses the UPPER tail, and the effect-size control uses the activation
+    magnitude. The perturbed gene t is excluded either way (its own transcript moving is
+    trivial). Overexpression is a cleaner, more specific causal test than knockdown and
+    sidesteps the essential-gene / global-collapse confound entirely (see the methodology
+    addendum docs/METHODOLOGY_ADDENDUM_OE.md).
+
+    A perturbation p (KD of gene t) is GROUNDED iff:
       (1) MATCH: the feature f* whose program best aligns with p's downstream signature
           (t excluded) is a confident single-target match (align outlier, p_match <
           match_alpha) -- excludes diffuse/global perturbations; AND
@@ -176,20 +188,24 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
         if qidx.size:
             pmean[qi] = activations[qidx].mean(0)
 
+    up = (direction == "up")                                 # overexpression/activation mode
+    alt = "greater" if up else "less"
+    col_side = "upper" if up else "lower"
     rng = np.random.default_rng(0)
     rows, mw_p = [], np.ones(len(tested_perts))
     for pi, p in enumerate(tested_perts):
         idx = np.where(pert_labels == p)[0]
         if idx.size < MIN_CELLS or is_ctrl.sum() < MIN_CELLS or not reliable.any():
             rows.append({"pert": p, "matched_feature": -1, "grounded": False}); continue
-        # CROSS-FIT: split A (match the feature) | B (test suppression) -> no double-dipping
+        # CROSS-FIT: split A (match the feature) | B (test the effect) -> no double-dipping
         perm = rng.permutation(idx); half = idx.size // 2
         A, B = perm[:half], perm[half:]
         de = expression[A].mean(0) - mu_x_c
         t = g2i.get(p)
         if t is not None:
             de[t] = 0.0
-        target = -de / (np.linalg.norm(de) + 1e-12)
+        # match the SUPPRESSED program (down) or the ACTIVATED program (up)
+        target = (de if up else -de) / (np.linalg.norm(de) + 1e-12)
         pm = prog_n.copy()
         if t is not None:
             pm[:, t] = 0.0
@@ -201,30 +217,33 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
                                  else al_rel, side="upper")
         kd = activations[B, f]; ct = ctrl_act[:, f]          # tested on held-out split B
         try:
-            u, mwp = mannwhitneyu(kd, ct, alternative="less")
-            auc = float(u) / (len(kd) * len(ct))             # <0.5 = suppressed
+            u, mwp = mannwhitneyu(kd, ct, alternative=alt)
+            auc = float(u) / (len(kd) * len(ct))             # = P(perturbed > control)
         except ValueError:
             mwp, auc = 1.0, 0.5
-        # COLUMN SPECIFICITY: is p a low outlier for f vs how OTHER perts move f?
+        # directional effect magnitude + floor: down wants auc low (suppressed), up wants auc high
+        move = (auc - 0.5) if up else (0.5 - auc)
+        passes_floor = (auc >= 1.0 - auc_floor) if up else (auc <= auc_floor)
+        # COLUMN SPECIFICITY: is p a directional outlier for f vs how OTHER perts move f?
         col_bg = np.delete(pmean[:, f], pi)
-        p_colspec = _robust_tail_p(float(np.mean(kd)), col_bg, side="lower")
-        # EFFECT SIZE: magnitude of p's downstream transcriptional shift (KD gene excluded)
+        p_colspec = _robust_tail_p(float(np.mean(kd)), col_bg, side=col_side)
+        # EFFECT SIZE: magnitude of p's downstream transcriptional shift (perturbed gene excluded)
         full_de = expression[idx].mean(0) - mu_x_c
         if t is not None:
             full_de[t] = 0.0
         effect_size = float(np.linalg.norm(full_de))
         mw_p[pi] = mwp
-        rows.append({"pert": p, "matched_feature": f, "auc": float(auc),
+        rows.append({"pert": p, "matched_feature": f, "auc": float(auc), "move": float(move),
                      "match_confidence_p": float(p_match), "mw_p": float(mwp),
                      "colspec_p": float(p_colspec), "effect_size": effect_size,
                      "passes_match": bool(p_match < match_alpha),
-                     "passes_floor": bool(auc <= auc_floor),
+                     "passes_floor": bool(passes_floor),
                      "passes_colspec": bool(p_colspec < colspec_alpha)})
     # EFFECT-SIZE CONTROL (M1): among scored perturbations, is each one's matched-feature
     # suppression an outlier vs perturbations of comparable total effect size?
     scored = [pi for pi, r in enumerate(rows) if r.get("matched_feature", -1) >= 0]
     if effsize_alpha < 1.0 and len(scored) >= MIN_PERTS_EFFSIZE:
-        supp = np.array([max(0.0, 0.5 - rows[pi]["auc"]) for pi in scored])
+        supp = np.array([max(0.0, rows[pi]["move"]) for pi in scored])   # directional magnitude
         eff = np.array([rows[pi]["effect_size"] for pi in scored])
         ep = _effect_matched_pvalue(supp, eff, k=max(8, len(scored) // 4))
         for j, pi in enumerate(scored):
@@ -248,6 +267,7 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
         "causal_grounding_rate": float(grounded.mean()) if len(tested_perts) else float("nan"),
         "auc_floor": auc_floor, "fdr": fdr, "match_alpha": match_alpha,
         "colspec_alpha": colspec_alpha, "effsize_alpha": effsize_alpha,
+        "direction": direction,
         "min_active_cells": min_active_cells, "n_reliable_features": int(reliable.sum()),
         "per_perturbation": rows,
     }

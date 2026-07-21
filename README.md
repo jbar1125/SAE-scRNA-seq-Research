@@ -32,7 +32,7 @@ manual, read it first.
 | Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
 | Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
 | **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
-| Causal metric pre-registered (frozen spec) | ✅ v6 (effect-size-controlled; M1) | `config/causal_grounding_spec.json` (SHA `81b44e04`) |
+| Causal metric pre-registered (frozen spec) | ✅ v7 (directional: knockdown + overexpression) | `config/causal_grounding_spec.json` (SHA `ee5dacb7`) |
 | Causal head-to-head — Arm B (expression) run | 🔴 **honest negative** (grounds housekeeping/effect-size, NOT lineage regulators; no master TF robust) | `docs/COMPONENT2_RESULTS.md` |
 | Causal head-to-head — Arm A (embedding) + specificity fixes | 🟡 next | `docs/UPGRADE_BACKLOG.md` (S.1-S.3, Tier 1.1) |
 | Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
@@ -102,6 +102,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `ELEVATION_PLAN.md` | **The pivot**: how to turn the null into a positive, causal, benchmark-beating result. |
 | `UPGRADE_BACKLOG.md` | Exhaustive, prioritized backlog of upgrades + redirections (tiers 0-6 + big reframes). |
 | `IMPACT_STRATEGY.md` | How to make the project impressive/influential AFTER the causal negative: the auditor reframe, the effect-size-residual metric, the benchmark, the 3 project shapes. |
+| `METHODOLOGY_ADDENDUM_OE.md` | The overexpression pivot: causal grounding on the Joung TF Atlas (GSE216481) via `direction=up`; the metric generalization, TopK-competition subtlety, pre-registration, and data-access plan. |
 | `RUNPOD_EXECUTION.md` | Turnkey GPU steps for the expression-vs-embedding causal head-to-head. |
 | `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
 | `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
