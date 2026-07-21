@@ -130,16 +130,23 @@ expression** -- a gene list per TF. Our contribution is different and complement
 
 ## 7. Data-access plan (the tractability step)
 
-GSE216481 is a GEO deposit (count matrix + guide-barcode -> TF assignment), not a pertpy
-one-liner. Steps (to be scripted next):
-1. Obtain the processed atlas (GEO supplementary h5ad / a cellxgene or Figshare mirror if
-   available; else raw matrix + barcode map).
-2. Build `obs['TF']` = overexpressed TF per cell from the guide-barcode assignment; set the
-   control label to the chosen baseline (Section 6).
-3. Feed to `load_perturbseq` (normalize_total + log1p, HVG-union of TF-target genes, memory
-   bound with `--n-hvg`) and run with `--direction up`.
-This is the one hands-on step; it is deliberately separated from the metric work (which is
-built and tested) so a data hiccup cannot corrupt the analysis.
+GSE216481 is a GEO deposit (count matrix + guide-barcode -> TF assignment), also available as
+a processed h5ad on **CZ CELLxGENE Discover**. It is not a pertpy one-liner, so the schema
+must be read before running. Steps:
+1. Obtain the processed atlas h5ad (CELLxGENE download, or GEO supplementary; Figshare mirror
+   if present).
+2. **Inspect the schema:** `python3 src/inspect_perturb_h5ad.py --adata atlas.h5ad`. This
+   prints the obs columns, flags the perturbation column (the TF label) and the control label
+   (GFP/mCherry/EB baseline), and emits the exact `--pert-col/--control-value/--direction`
+   config. Built + tested (identifies the perturbation column and control label on a
+   TF-atlas-schema h5ad). Do this BEFORE grounding -- the deposit's control handling is
+   non-trivial (Jain & Sharma used embryoid-body cells as an external baseline).
+3. Run `src/causal_pipeline.py` with the discovered `--pert-col`, `--control-value`, and
+   `--direction up` (+ `--n-hvg` to bound memory). load_perturbseq handles normalize_total +
+   log1p + HVG-union of perturbed-gene targets.
+This data step is deliberately separated from the metric work (built + tested) so a data
+hiccup cannot corrupt the analysis -- and the inspection step means the first run is
+configured from the real schema, not a guess.
 
 ## 8. Honest limitations
 
