@@ -253,7 +253,7 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
         for pi in scored:
             rows[pi]["effsize_p"] = float("nan")
             rows[pi]["passes_effsize"] = True
-    q = multipletests(mw_p, method="fdr_bh")[1]
+    q = multipletests(mw_p, method="fdr_bh")[1] if len(mw_p) else np.array([])
     grounded = np.zeros(len(tested_perts), dtype=bool)
     for pi, r in enumerate(rows):
         r["mw_q"] = float(q[pi])

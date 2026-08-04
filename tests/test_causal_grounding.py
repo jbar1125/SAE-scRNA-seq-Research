@@ -167,6 +167,15 @@ def test_overexpression_direction():
           f"wrong-sign direction=down grounds {n_down}/{N_PROG}")
 
 
+def test_empty_tested():
+    """0 testable perturbations (e.g. a gene-name namespace mismatch: perturbation symbols
+    vs Ensembl-ID var_names) must return cleanly, not crash on multipletests([])."""
+    A, X, labels = _world()
+    res = cg.causal_grounding(A, X, labels, GENES, [])
+    assert res["n_tested"] == 0 and res["n_grounded"] == 0, res
+    print("empty-tested: handled cleanly (no ZeroDivisionError)")
+
+
 def main():
     A, X, labels = _world()
     true_regs = [f"g{f * PROG_SIZE}" for f in range(N_PROG)]
@@ -201,6 +210,7 @@ def main():
     test_column_specificity()
     test_effect_size_control()
     test_overexpression_direction()
+    test_empty_tested()
     print("ALL CAUSAL-GROUNDING TESTS PASSED")
 
 
