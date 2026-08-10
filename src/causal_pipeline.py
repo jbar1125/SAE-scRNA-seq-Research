@@ -76,8 +76,26 @@ def train_topk_sae(rep, latent_dim, k, epochs=200, batch=1024, lr=4e-4, seed=0, 
 # --------------------------------------------------------------------------- #
 # Perturb-seq loading
 # --------------------------------------------------------------------------- #
+def hvg_keep_mask(highly_variable, genes_all, tested, keep_genes=None):
+    """HVG mask, force-keeping every tested-perturbation target gene and `keep_genes`.
+
+    Pure/testable: the HVG call itself is scanpy's, but WHICH genes survive is decided here.
+    keep_genes exists for ground-truth metrics (e.g. regulon recovery) whose target genes are
+    often not highly variable -- truncating them silently destroys the test's power, which is
+    exactly what zeroed the first Norman regulon run (LAB_NOTEBOOK 2026-08-10)."""
+    keep = np.asarray(highly_variable).copy().astype(bool)
+    g2i = {g: i for i, g in enumerate(genes_all)}
+    for p in tested:                                       # never drop a testable target
+        if p in g2i:
+            keep[g2i[p]] = True
+    for g in (keep_genes or ()):                           # never drop a ground-truth target
+        if g in g2i:
+            keep[g2i[g]] = True
+    return keep
+
+
 def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set=None,
-                    exclude_set=None):
+                    exclude_set=None, keep_genes=None):
     """Return (expression log-norm (n,g), gene_names, pert_labels, tested_perts).
 
     n_hvg>0 keeps the top-n_hvg highly-variable genes UNION every tested-perturbation
@@ -110,10 +128,7 @@ def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set
                      and (exclude_set is None or p not in exclude_set)})
     if n_hvg and n_hvg < A.shape[1]:
         sc.pp.highly_variable_genes(A, n_top_genes=n_hvg)
-        keep = A.var["highly_variable"].values.copy()
-        g2i = {g: i for i, g in enumerate(genes_all)}
-        for p in tested:                                   # never drop a testable target
-            keep[g2i[p]] = True
+        keep = hvg_keep_mask(A.var["highly_variable"].values, genes_all, tested, keep_genes)
         A = A[:, keep].copy()                              # subset while still sparse
         genes = list(map(str, A.var_names))
     else:

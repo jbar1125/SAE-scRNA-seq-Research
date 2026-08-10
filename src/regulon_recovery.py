@@ -46,6 +46,26 @@ MIN_TARGETS = 5       # min TRRUST targets present in panel to test a TF
 AUC_FLOOR = 0.55      # activation floor: feature must be up in OE vs control (up-direction)
 ALPHA = 0.05          # BH-FDR threshold, both families
 MIN_CELLS = 20        # min OE cells to test a TF
+MAX_TFS_PER_TARGET = 10  # v2: drop TRRUST hub targets shared by more TFs than this
+
+
+def filter_promiscuous(regulons, max_tfs=MAX_TFS_PER_TARGET):
+    """Drop hub targets regulated by > max_tfs TFs, making each regulon TF-SPECIFIC.
+
+    Why (v2 amendment, LAB_NOTEBOOK 2026-08-10): TRRUST hub genes are shared by huge numbers of
+    regulons (CDKN1A is a target of 115 TFs, MYC of 74). With them in, "the feature most enriched
+    for TF X's targets" resolves to the same generic stress/p53 feature for nearly every TF --
+    the v1 run selected such a feature for 10/10 TFs (all at auc~0.50), so the causal question
+    was never actually asked. Trimming targets shared by >10 TFs removes ~5% of targets (133 of
+    2492) and is a standard specificity control, applied identically to every TF and BEFORE any
+    causal testing."""
+    from collections import Counter
+    n_tf = Counter()
+    for tgts in regulons.values():
+        for t in tgts:
+            n_tf[t] += 1
+    hubs = {t for t, n in n_tf.items() if n > max_tfs}
+    return {tf: (set(tgts) - hubs) for tf, tgts in regulons.items()}, hubs
 
 
 def _mw_auc_greater(a, b):
@@ -189,14 +209,23 @@ def main():
     ap.add_argument("--n-shuffle", type=int, default=50)
     ap.add_argument("--top-k", type=int, default=TOP_K)
     ap.add_argument("--min-targets", type=int, default=MIN_TARGETS)
+    ap.add_argument("--max-tfs-per-target", type=int, default=MAX_TFS_PER_TARGET,
+                    help="drop TRRUST hub targets shared by more TFs than this (v2 specificity control; 0 disables)")
+    ap.add_argument("--no-keep-regulon-genes", action="store_true",
+                    help="do NOT force-keep regulon target genes in the HVG panel (v1 behaviour)")
     ap.add_argument("--out", default="causal_out/regulon_recovery.json")
     args = ap.parse_args()
 
     from trrust_crossref import load_trrust
     from causal_pipeline import load_perturbseq, train_topk_sae
     regulons = load_trrust(args.trrust)
+    if args.max_tfs_per_target:
+        regulons, hubs = filter_promiscuous(regulons, args.max_tfs_per_target)
+        print(f"v2 specificity control: dropped {len(hubs)} hub targets shared by >"
+              f"{args.max_tfs_per_target} TFs (e.g. {sorted(hubs)[:5]})")
+    keep_genes = None if args.no_keep_regulon_genes else {g for t in regulons.values() for g in t}
     X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value,
-                                               n_hvg=args.n_hvg)
+                                               n_hvg=args.n_hvg, keep_genes=keep_genes)
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} single-gene perts; "
           f"{len(regulons)} TRRUST regulons")
     if args.activations:

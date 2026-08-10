@@ -114,8 +114,35 @@ def test_low_power_flagged():
     print("low-power: TINY (2 targets) flagged low_power, excluded from tested pool")
 
 
+def test_filter_promiscuous():
+    """v2: hub targets shared by > max_tfs TFs are dropped; TF-specific targets survive."""
+    reg = {f"TF{i}": {"HUB", f"spec{i}"} for i in range(15)}
+    out, hubs = rr.filter_promiscuous(reg, max_tfs=10)
+    assert hubs == {"HUB"}, hubs
+    assert out["TF0"] == {"spec0"}, out["TF0"]
+    # a target shared by exactly max_tfs is KEPT (strict >)
+    reg2 = {f"TF{i}": {"EDGE"} for i in range(10)}
+    _, hubs2 = rr.filter_promiscuous(reg2, max_tfs=10)
+    assert hubs2 == set(), hubs2
+    print("filter_promiscuous: hub dropped, specific kept, boundary (==max_tfs) kept")
+
+
+def test_hvg_keep_mask():
+    """v2: HVG panel force-keeps tested targets AND ground-truth regulon genes."""
+    from causal_pipeline import hvg_keep_mask
+    genes = [f"g{i}" for i in range(10)]
+    hv = np.array([True] * 3 + [False] * 7)
+    m = hvg_keep_mask(hv, genes, tested=["g5"], keep_genes={"g8", "g9", "ABSENT"})
+    assert m[:3].all() and m[5] and m[8] and m[9]
+    assert not m[4] and not m[6] and not m[7]
+    assert len(m) == 10
+    print("hvg_keep_mask: HVGs + tested target + regulon genes kept; absent gene ignored")
+
+
 if __name__ == "__main__":
     test_oracle_recovers_causal_only()
     test_shuffle_null_collapses()
     test_low_power_flagged()
+    test_filter_promiscuous()
+    test_hvg_keep_mask()
     print("ALL REGULON-RECOVERY TESTS PASSED")

@@ -1,6 +1,6 @@
 {
   "name": "regulon_recovery",
-  "version": "v1",
+  "version": "v2",
   "frozen_utc": "2026-08-10",
   "motivation": "The binary causal-grounding RATE does not beat a label-shuffle null on Norman CRISPRa (LAB_NOTEBOOK 2026-08-10): K562 variance is dominated by ~2 axes (erythroid, stress), so the data-driven matcher grounds ~any labeling. This metric selects each TF's feature from EXTERNAL ground truth (TRRUST regulons), removing that failure mode, then asks one causal question per TF.",
   "ground_truth": {
@@ -9,14 +9,29 @@
     "self_gene_excluded": true
   },
   "dataset": "Norman 2019 CRISPRa (K562), single-gene overexpressions, prepped by src/prep_norman.py (raw counts, gene-symbol var_names, control label 'control').",
-  "representation": {"space": "expression (log-norm)", "sae": "TopK", "latent": 2048, "k": 32, "n_hvg": 4000},
+  "representation": {
+    "space": "expression (log-norm)",
+    "sae": "TopK",
+    "latent": 2048,
+    "k": 32,
+    "n_hvg": 4000
+  },
   "test": {
     "step1_feature_selection": "For each TF with >= MIN_TARGETS TRRUST targets present in the panel, select the SAE feature whose top-TOP_K gene-association genes (Pearson feature-vs-gene over CONTROL cells) are most enriched for the TF's targets (min hypergeometric p, Bonferroni-corrected over all features). Label-free; invariant under the shuffle.",
     "step2_causal_activation": "Mann-Whitney one-sided greater: is the selected feature's activation higher in TF-OE cells than control cells? AUC = P(act_OE > act_ctrl).",
-    "recovers_iff": "enrichment BH-q < ALPHA (over tested TFs) AND activation BH-q < ALPHA (over tested TFs) AND AUC >= AUC_FLOOR."
+    "recovers_iff": "enrichment BH-q < ALPHA (over tested TFs) AND activation BH-q < ALPHA (over tested TFs) AND AUC >= AUC_FLOOR.",
+    "step0_regulon_preprocessing": "v2: drop hub targets regulated by > MAX_TFS_PER_TARGET TFs (TF-specificity control), and force-keep all remaining target genes in the HVG panel."
   },
   "headline": "n_recovered (real) vs its LABEL-SHUFFLE null (permute OE labels among non-control cells; feature selection fixed, only the causal activation re-tested). empirical_p = (1 + #{null >= real}) / (1 + n_shuffle). POSITIVE result = n_recovered above the null (empirical_p < 0.05).",
-  "constants": {"TOP_K": 50, "MIN_TARGETS": 5, "AUC_FLOOR": 0.55, "ALPHA": 0.05, "MIN_CELLS": 20, "N_SHUFFLE": 50},
+  "constants": {
+    "TOP_K": 50,
+    "MIN_TARGETS": 5,
+    "AUC_FLOOR": 0.55,
+    "ALPHA": 0.05,
+    "MIN_CELLS": 20,
+    "N_SHUFFLE": 50,
+    "MAX_TFS_PER_TARGET": 10
+  },
   "seeds": "run seeds 0,1,2; a TF counts as robustly recovered if it recovers in >= 2/3 seeds.",
   "interpretation_rules": {
     "low_power_not_negative": "TFs with < MIN_TARGETS panel targets (e.g. KLF1 has 2 TRRUST targets) are reported low_power and EXCLUDED from the tested pool; they are not counted as negatives.",
@@ -24,5 +39,18 @@
     "no_freezing_inconclusive": "Do not SHA-freeze any recovered-TF table from an inconclusive or failed run; freeze only this SPEC (design), never results out of a broken run."
   },
   "code": "src/regulon_recovery.py (analysis core pure numpy/scipy); tests/test_regulon_recovery.py (synthetic oracle: recovers exactly the causal TFs, rejects regulon-but-not-activated and no-regulon TFs, shuffle null collapses, low-power flagged).",
-  "run": "python3 src/regulon_recovery.py --adata norman_pert.h5ad --pert-col perturbation --control-value control --latent 2048 --k 32 --n-hvg 4000 --n-shuffle 50 --seed {0,1,2} --out causal_out/regulon_recovery_seed{S}.json"
+  "run": "python3 src/regulon_recovery.py --adata norman_pert.h5ad --pert-col perturbation --control-value control --latent 2048 --k 32 --n-hvg 4000 --n-shuffle 50 --seed {0,1,2} --out causal_out/regulon_recovery_seed{S}.json",
+  "amendments": [
+    {
+      "version": "v2",
+      "date": "2026-08-10",
+      "trigger": "The v1 run on Norman returned 0/10 recovered with a shuffle null of 0.00 (p=1.000) in all 3 seeds: real AND null both zero, i.e. UNINFORMATIVE, not a negative. src/inspect_regulon_json.py attributed it to the ENRICHMENT (feature-selection) gate, 0/10 in every seed, with every selected feature at auc~0.50.",
+      "defect_1": "PANEL TRUNCATION. --n-hvg 4000 dropped most TRRUST targets, so 21 of 31 TFs fell below MIN_TARGETS and were untestable -- including nearly every hematopoietic TF (KLF1, CBFA2T3, LYL1, MEIS1, CEBPE). The test discarded the biology of interest.",
+      "fix_1": "causal_pipeline.hvg_keep_mask(): force-keep all curated regulon target genes in the HVG panel, mirroring the existing force-keep of perturbed genes. CLI --no-keep-regulon-genes restores v1 behaviour.",
+      "defect_2": "HUB-TARGET HIJACKING. TRRUST regulons share promiscuous hub targets (CDKN1A is a target of 115 TFs, MYC 74), so 'the feature most enriched for TF X targets' resolved to the SAME generic stress/p53 feature for 10/10 TFs -- the dominant-axis trap this metric was built to avoid.",
+      "fix_2": "regulon_recovery.filter_promiscuous(): drop targets regulated by > MAX_TFS_PER_TARGET (10) TFs before any testing. Removes 133 of 2492 targets (~5%); regulons stay substantial (SPI1 62->54, GATA1 57->51). Applied identically to every TF, before the causal step, so it cannot favour a hypothesis.",
+      "unchanged": "Both gates, the AUC floor, BH-FDR, the label-shuffle null, and the recovery rule are IDENTICAL to v1. No threshold was loosened; the amendment restores power and specificity to the SELECTION step only.",
+      "honesty": "If v2 again returns an uninformative or negative headline, report it as such and stop; do not keep amending toward a wanted answer."
+    }
+  ]
 }
