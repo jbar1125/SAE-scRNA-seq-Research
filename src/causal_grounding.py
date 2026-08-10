@@ -261,6 +261,13 @@ def causal_grounding(activations, expression, pert_labels, gene_names, tested_pe
                              and r.get("passes_colspec", False) and r.get("passes_effsize", False)
                              and q[pi] < fdr)
         grounded[pi] = r["grounded"]
+        # for grounded perturbations, record the matched feature's top program genes -- this
+        # is the interpretable payoff: e.g. does KLF1's grounded feature = the erythroid/
+        # hemoglobin program? (top gene-association weights of the matched feature)
+        f = r.get("matched_feature", -1)
+        if r["grounded"] and f >= 0:
+            top = np.argsort(prog[f])[::-1][:10]
+            r["top_program_genes"] = [gene_names[int(i)] for i in top]
     return {
         "n_tested": int(len(tested_perts)),
         "n_grounded": int(grounded.sum()),
