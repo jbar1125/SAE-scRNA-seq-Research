@@ -1,0 +1,28 @@
+{
+  "name": "regulon_recovery",
+  "version": "v1",
+  "frozen_utc": "2026-08-10",
+  "motivation": "The binary causal-grounding RATE does not beat a label-shuffle null on Norman CRISPRa (LAB_NOTEBOOK 2026-08-10): K562 variance is dominated by ~2 axes (erythroid, stress), so the data-driven matcher grounds ~any labeling. This metric selects each TF's feature from EXTERNAL ground truth (TRRUST regulons), removing that failure mode, then asks one causal question per TF.",
+  "ground_truth": {
+    "source": "TRRUST v2 human curated TF->target edges",
+    "file": "config/trrust/trrust_rawdata.human.tsv",
+    "self_gene_excluded": true
+  },
+  "dataset": "Norman 2019 CRISPRa (K562), single-gene overexpressions, prepped by src/prep_norman.py (raw counts, gene-symbol var_names, control label 'control').",
+  "representation": {"space": "expression (log-norm)", "sae": "TopK", "latent": 2048, "k": 32, "n_hvg": 4000},
+  "test": {
+    "step1_feature_selection": "For each TF with >= MIN_TARGETS TRRUST targets present in the panel, select the SAE feature whose top-TOP_K gene-association genes (Pearson feature-vs-gene over CONTROL cells) are most enriched for the TF's targets (min hypergeometric p, Bonferroni-corrected over all features). Label-free; invariant under the shuffle.",
+    "step2_causal_activation": "Mann-Whitney one-sided greater: is the selected feature's activation higher in TF-OE cells than control cells? AUC = P(act_OE > act_ctrl).",
+    "recovers_iff": "enrichment BH-q < ALPHA (over tested TFs) AND activation BH-q < ALPHA (over tested TFs) AND AUC >= AUC_FLOOR."
+  },
+  "headline": "n_recovered (real) vs its LABEL-SHUFFLE null (permute OE labels among non-control cells; feature selection fixed, only the causal activation re-tested). empirical_p = (1 + #{null >= real}) / (1 + n_shuffle). POSITIVE result = n_recovered above the null (empirical_p < 0.05).",
+  "constants": {"TOP_K": 50, "MIN_TARGETS": 5, "AUC_FLOOR": 0.55, "ALPHA": 0.05, "MIN_CELLS": 20, "N_SHUFFLE": 50},
+  "seeds": "run seeds 0,1,2; a TF counts as robustly recovered if it recovers in >= 2/3 seeds.",
+  "interpretation_rules": {
+    "low_power_not_negative": "TFs with < MIN_TARGETS panel targets (e.g. KLF1 has 2 TRRUST targets) are reported low_power and EXCLUDED from the tested pool; they are not counted as negatives.",
+    "negative_is_real": "A non-significant headline is a genuine negative, NOT a blind-method artifact: feature selection uses external truth, so it is not structurally blind (unlike the V0b per-feature test).",
+    "no_freezing_inconclusive": "Do not SHA-freeze any recovered-TF table from an inconclusive or failed run; freeze only this SPEC (design), never results out of a broken run."
+  },
+  "code": "src/regulon_recovery.py (analysis core pure numpy/scipy); tests/test_regulon_recovery.py (synthetic oracle: recovers exactly the causal TFs, rejects regulon-but-not-activated and no-regulon TFs, shuffle null collapses, low-power flagged).",
+  "run": "python3 src/regulon_recovery.py --adata norman_pert.h5ad --pert-col perturbation --control-value control --latent 2048 --k 32 --n-hvg 4000 --n-shuffle 50 --seed {0,1,2} --out causal_out/regulon_recovery_seed{S}.json"
+}
