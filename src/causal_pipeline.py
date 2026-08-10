@@ -284,6 +284,17 @@ def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_s
         sc = res["shuffle_control"]
         msg += f"  | shuffled null mean {sc['null_rates_mean']:.3f} p={sc['empirical_p']:.3f}"
     print(msg + f"  (SAE {info})")
+    # surface the biology inline: grounded perturbations + their matched feature's top program
+    # genes, so the interpretable payoff (e.g. does KLF1's feature = erythroid/hemoglobin?) is
+    # visible without opening the JSON. Sorted by BH-q (most confident first).
+    grounded_rows = [r for r in res["per_perturbation"] if r.get("grounded")]
+    if grounded_rows:
+        print(f"  grounded ({len(grounded_rows)}), sorted by q:")
+        for r in sorted(grounded_rows, key=lambda r: r.get("mw_q", 1.0)):
+            top = ", ".join(r.get("top_program_genes", [])[:8])
+            print(f"    {str(r.get('pert')):<12} feat {r.get('matched_feature')} "
+                  f"auc {r.get('auc', float('nan')):.3f} q {r.get('mw_q', float('nan')):.2g} "
+                  f"| top: {top}")
     return res
 
 
