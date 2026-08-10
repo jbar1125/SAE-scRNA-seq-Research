@@ -668,3 +668,42 @@ WHAT IS NOT YET ESTABLISHED (do not overclaim, do not freeze):
 Next run: Norman `--direction up --n-shuffle 50` reusing the cached h5ad, reading out
 top_program_genes for KLF1/ETS2. If the null collapses below 0.121 AND KLF1's feature is
 hemoglobin, this is the project's first real positive discovery.
+
+### 2026-08-10 (Norman null IS IN) — CORRECTION: up-rate does NOT beat shuffle (p=0.90). Negative.
+
+The shuffle null from the prior entry is now run (--n-shuffle 50, direction up, latent2048/k32,
+n_hvg 4000, 102 testable perturbations, on GPU). It came back NEGATIVE and I am correcting the
+provisional-positive framing of the previous entry:
+- seed 0: grounded 15/102 = 0.147 | shuffle null mean 0.175 | empirical p = 0.902. The real
+  up-rate is BELOW the label-shuffle null. Seeds 1/2 (no null): 0.127, 0.196 -- all inside the
+  null band. On the pre-registered "rate above chance" test, Norman CRISPRa FAILS, same verdict
+  as Replogle CRISPRi (different mechanism).
+
+Distinguish result from artifact (both are present, per CLAUDE.md):
+- REAL (null-independent): the SAE recovers a pristine, SEED-STABLE erythroid/hemoglobin feature
+  -- top genes HBZ, ALAS2, HBG1/HBG2, HBA1, SLC25A37 (mitoferrin), GYPB, BLVRB, FTH1 -- identical
+  program across all 3 seeds (feat 537/630/1982). Genuine, hand-verifiable biology. The SAE
+  decomposition is finding true structure.
+- ARTIFACT (why the null is not beaten): grounding is PROMISCUOUS. The hemoglobin feature is
+  grounded by CBL/PTPN12/UBASH3B/ZBTB25 (ubiquitin ligases / phosphatases -- signaling brakes),
+  NOT by GATA1 (doesn't ground) or KLF1 (grounds a separate, self-dominated KLF1+HBZ feature). A
+  second cluster (MAP2K3/MAP2K6/CSRNP1) grounds one stress/proteostasis feature
+  (PRDX1/LDHB/PSMA4/UBB/HSP90AA1) -- the same housekeeping grounding as Replogle.
+
+Mechanism of the null (itself the finding): K562 has ~2 dominant transcriptional axes (erythroid,
+stress); the SAE isolates them cleanly; the matching step then grounds almost ANY grouping --
+real or shuffled -- to one of those dominant features. So the metric's per-dataset false-positive
+rate is ~17%, swamping the ~15% real rate. The binary "grounded rate vs shuffle" is the wrong
+instrument once a couple of axes dominate the variance.
+
+Honest bottom line: TWO nulls now -- CRISPRi (wrong substrate: essential screens, no lineage TFs)
+and CRISPRa (right substrate, but dominant-axis promiscuity). The broad claim "expression-space
+SAE grounding beats chance" is NOT supported in either. NOT a positive discovery. Do not freeze.
+
+Interesting honest lead (NOT yet tested, must pre-register before running): the brake genes that
+DO ground the erythroid feature (CBL/UBASH3B/PTPN12) are negative regulators of KIT/EPOR signaling
+whose overexpression is known to push K562 toward erythroid differentiation -- so their activation
+of the erythroid feature may be REAL directed biology, not noise. A DIRECTED, pre-registered test
+-- "do erythroid-promoting perturbations activate the erythroid SAE feature above a matched null,
+while non-erythroid ones do not" -- is the one remaining honest shot at a positive, on the ONE
+feature we can name. It may also come back null; register it first, report it as exploratory.
