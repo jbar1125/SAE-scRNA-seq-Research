@@ -631,3 +631,40 @@ meta-finding: the metric grounds whichever essential/proliferation programs domi
 dataset -- real but dataset-specific, not-special, never hematopoietic. Expression side now
 thoroughly characterized (2 cell lines x 3 representations x effect-controlled). Diminishing
 returns on more expression runs; the pivotal unrun experiment is the embedding arm.
+
+### 2026-08-10 (Norman CRISPRa) — first lineage-relevant grounding; PROVISIONAL, null still missing
+
+Pivoted off the Replogle CRISPRi screens (essential-gene libraries that do not perturb lineage
+TFs -- a wrong-substrate negative, see 07-18 entries) to Norman 2019 CRISPRa (K562, ~111k
+cells, dual-guide overexpression via pertpy). This is the RIGHT substrate: it actually
+overexpresses hematopoietic master TFs (KLF1, CEBPA, SPI1, ETS2, ...). Ran the metric with
+`--direction up` (activation: match +DE program, MW "greater", floor auc>=0.55). Data prep:
+parse `guide_identity` -> perturbation label (drop NegCtrl tokens; single/dual guides), map
+Ensembl var_names to gene symbols so perturbations are testable (the earlier ZeroDivisionError
+was 0 testable perts from the Ensembl/symbol namespace mismatch; fixed).
+
+FIRST genuinely encouraging signal, and it is biologically coherent -- but READ THE CAVEATS:
+- UP-direction grounding rate mean ~0.121 across seeds. KLF1 (erythroid master) grounded 2/3
+  seeds; ETS2 grounded 3/3. Seed-stable grounded set = KLF1, SLC4A1, ETS2, RUNX1T1, CBFA2T3 --
+  erythroid / hematopoietic, NOT the housekeeping/ribosomal set that dominated every Replogle
+  run. That qualitative shift (lineage TFs instead of machinery) is the actual news.
+- DOWN-direction on the same data gave ~0.363 -- this is the documented TopK feature-competition
+  artifact (overexpression pushes competitor features out of top-k so they look "suppressed");
+  `down` is the WRONG sign for OE and must not be reported as the result.
+- Myeloid TFs (SPI1/CEBPA) did NOT ground consistently -- consistent with K562's erythroid/
+  megakaryocytic bias (they are not strongly myeloid).
+
+WHAT IS NOT YET ESTABLISHED (do not overclaim, do not freeze):
+- NO shuffle null yet (this run used --n-shuffle 0). The rate ~0.121 is the same MAGNITUDE as
+  Replogle's ~13%; without a label-shuffle null on this dataset we cannot yet say the up-rate is
+  above chance. The claim rests on the SET being lineage-relevant, not on the rate.
+- Have NOT yet confirmed that KLF1's grounded feature IS the erythroid/hemoglobin program. Added
+  a `top_program_genes` readout (commits 4b335e6, 566c334) to surface the matched feature's top
+  gene weights inline; the re-run must show KLF1 -> HBB/HBA/GYPA/ALAS2/SLC4A1 for this to be a
+  clean, hand-verifiable positive rather than a coincidental match.
+- Single dataset, single cell line. Not frozen. Provisional pending: (1) --n-shuffle 50 null,
+  (2) top_program_genes confirmation, (3) replication.
+
+Next run: Norman `--direction up --n-shuffle 50` reusing the cached h5ad, reading out
+top_program_genes for KLF1/ETS2. If the null collapses below 0.121 AND KLF1's feature is
+hemoglobin, this is the project's first real positive discovery.
