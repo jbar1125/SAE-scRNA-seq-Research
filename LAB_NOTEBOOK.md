@@ -707,3 +707,57 @@ of the erythroid feature may be REAL directed biology, not noise. A DIRECTED, pr
 -- "do erythroid-promoting perturbations activate the erythroid SAE feature above a matched null,
 while non-erythroid ones do not" -- is the one remaining honest shot at a positive, on the ONE
 feature we can name. It may also come back null; register it first, report it as exploratory.
+
+### 2026-08-10 (regulon recovery v2) — STOP. Real negative: SAE features do not match curated regulons
+
+v2 (spec sha c653f6d1) fixed both defects the v1 diagnostic found. Both fixes worked
+MECHANICALLY: 133 hub targets dropped, panel 4047 -> 5791 genes, tested pool 10 -> 14 TFs.
+The result got WORSE: 0/14 recovered, shuffle null 0.00, p=1.000, all 3 seeds, and every
+enrichQ = 1.0 (v1 at least reached 0.086). Reason is visible in the numbers: force-keeping
+targets made regulons BIGGER (JUN 57->102, SPI1 32->54, CEBPA 22->35) while hits stayed 2-4,
+and a bigger regulon needs proportionally more hits to clear the hypergeometric bar.
+
+Per the v2 spec's own pre-commitment ("if v2 again returns an uninformative or negative
+headline, report it as such and stop"), this line of inquiry is CLOSED. No v3.
+
+But v2 is NOT merely uninformative -- it upgrades to a REAL, QUANTIFIED negative. Simulating
+the actual selection procedure (best of 2048 random top-50 gene sets, 5791-gene panel,
+src/regulon_chance_baseline.py) gives the chance expectation, and the observed overlaps sit AT
+OR BELOW it for every regulon size:
+
+  regulon targets:   13    18    32    35    40    54   102
+  observed overlap:   2     2     2     3     3     4     4
+  chance best-of-2048: 2.28  2.67  3.20  3.29  3.58  4.12  5.34
+
+FINDING: SAE features do not concentrate curated single-TF regulons any better than the best of
+2048 random gene sets of the same size. The causal question was unanswerable with this ground
+truth because the feature/regulon alignment does not exist at single-TF resolution.
+
+Scope it correctly (do NOT overstate):
+- This is about SINGLE-TF CURATED-REGULON alignment, not about whether SAE features are
+  biologically meaningful. The same SAEs recover a textbook-clean erythroid/hemoglobin program
+  (HBZ, ALAS2, HBG1/2, HBA1, SLC25A37, GYPB, BLVRB), seed-stable across all runs.
+- It does NOT contradict Gate 0's TRRUST positive (human erythroid targets enriched, 100% of
+  seeds, p=6.4e-5). That test was at LINEAGE granularity (union of a lineage's TF targets,
+  512 features, marrow data). Precise synthesis: regulon alignment is detectable at coarse
+  lineage level and ABSENT at single-TF resolution with per-feature multiple-testing control.
+- Likely cause (unverified, stated as hypothesis): TRRUST edges are curated across many cell
+  types/conditions, while SAE features are co-expression modules in one cell line. Co-expression
+  modules need not equal curated direct-target sets. This is a known gap in the field, not a bug.
+
+TALLY of the Component-2 causal program, all executed, all honest:
+  1. Replogle CRISPRi (K562-essential, RPE1): grounds ~13%/7.6%, but housekeeping only, no
+     lineage TFs. WRONG SUBSTRATE (essential-gene libraries do not perturb lineage TFs).
+  2. Norman CRISPRa rate test: up-rate 0.147 vs shuffle null 0.175, p=0.902. NOT above chance;
+     dominant-axis promiscuity (K562 has ~2 axes; ~any labeling grounds).
+  3. Norman regulon recovery v1: uninformative (test never fired; panel truncation + hub hijack).
+  4. Norman regulon recovery v2: REAL NEGATIVE, quantified above.
+The broad hypothesis "expression-space SAE features are causally grounded, single-perturbation
+resolution" is NOT SUPPORTED across 2 screens, 2 cell lines, 2 metric families. That is the
+honest state of the project. Do not freeze any result table from these runs.
+
+WHAT SURVIVES (the asset worth consolidating): a seed-stable, hand-verifiable erythroid program
+recovered unsupervised, reproducible across seeds AND representations, which a specific
+non-obvious set of perturbations (CBL, UBASH3B, PTPN12 -- all negative regulators of KIT/EPOR
+signaling) causally activates. Plus a rigorous negative-result methodology with a diagnostic
+that distinguishes "no signal" from "test never fired" -- which is exactly what caught v1.
