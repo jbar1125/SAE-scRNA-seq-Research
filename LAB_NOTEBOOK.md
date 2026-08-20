@@ -761,3 +761,27 @@ recovered unsupervised, reproducible across seeds AND representations, which a s
 non-obvious set of perturbations (CBL, UBASH3B, PTPN12 -- all negative regulators of KIT/EPOR
 signaling) causally activates. Plus a rigorous negative-result methodology with a diagnostic
 that distinguishes "no signal" from "test never fired" -- which is exactly what caught v1.
+
+### 2026-08-10 (self-correction) — the shuffle null in causal_pipeline is CONSERVATIVE, not neutral
+
+Building the program-modulation oracle surfaced a null-design issue that also applies to
+`shuffle_control` in src/causal_pipeline.py, so it is recorded here rather than buried.
+
+Both permute labels among PERTURBED cells only, controls fixed. That destroys perturbation
+IDENTITY but PRESERVES the perturbed-vs-control contrast. In the program-modulation oracle this
+inflated the null badly: null mean 14.4 modulators vs 5 real, p=1.000, on a synthetic world where
+the ground truth is 4 real modulators. Mechanism: spreading strongly-activating cells across every
+shuffled group lifts every group above the fixed control.
+
+Consequence for the reported Norman rate result (up-rate 0.147 vs null 0.175, p=0.902): that null
+retains generic perturbation-vs-control signal, so it is a STRINGENT null, not a neutral one. What
+that p actually establishes: the real rate does not exceed a null that itself contains generic
+perturbation response. It does NOT establish that grounding is at or below true chance. The
+earlier entry's headline ("NOT above chance") should be read with that caveat. I am NOT retracting
+the negative -- the regulon-recovery chance-level finding is independent of any shuffle and stands
+on its own -- but the p=0.902 is weaker evidence than it was presented as, and that is my error.
+
+Fix going forward: program_modulation defaults to shuffle_mode="full" (permute ALL labels incl.
+control, so group membership is independent of biology), with mode="perturbed" retained to ask the
+different, stricter question. Oracle-verified: full-mode gives p=0.032 on the specific world where
+perturbed-mode gave p=1.000.
