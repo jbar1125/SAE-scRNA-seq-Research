@@ -99,6 +99,10 @@ def main():
     ap.add_argument("--out-dir", default="./checkpoints")
     ap.add_argument("--latent-dim", type=int, default=128)
     ap.add_argument("--seeds", type=int, default=5)
+    ap.add_argument("--seed-start", type=int, default=0,
+                    help="first seed index (default 0). Add NEW seeds to an existing "
+                         "run without retraining: --seed-start 10 --seeds 10 trains "
+                         "sae_seed10..sae_seed19.")
     ap.add_argument("--epochs", type=int, default=300)
     ap.add_argument("--batch", type=int, default=256)
     ap.add_argument("--lr", type=float, default=5e-4)
@@ -112,7 +116,7 @@ def main():
 
     report = {"latent_dim": args.latent_dim, "input_dim": X.shape[1],
               "n_cells": X.shape[0], "epochs": args.epochs, "seeds": {}}
-    for seed in range(args.seeds):
+    for seed in range(args.seed_start, args.seed_start + args.seeds):
         model, stats = train_one(X, args.latent_dim, seed, args.epochs,
                                  args.batch, args.lr, args.l1, device)
         torch.save(model.state_dict(), out / f"sae_seed{seed}.pt")
@@ -122,7 +126,8 @@ def main():
               f"L0 {stats['mean_active_l0']:.1f} [{flag}]")
     with open(out / "training_report.json", "w") as f:
         json.dump(report, f, indent=2)
-    print(f"Saved {args.seeds} checkpoints to {out}")
+    print(f"Saved {args.seeds} checkpoints (seeds {args.seed_start}.."
+          f"{args.seed_start + args.seeds - 1}) to {out}")
 
 
 if __name__ == "__main__":

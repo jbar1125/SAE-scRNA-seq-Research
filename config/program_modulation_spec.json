@@ -1,0 +1,27 @@
+{
+  "name": "program_modulation",
+  "version": "v1",
+  "frozen_utc": "2026-08-10",
+  "question": "Is a NAMED, externally-defined gene program causally modulable by a SPECIFIC subset of perturbations? Program-level resolution, after single-perturbation resolution was shown dead.",
+  "why_this_after_four_nulls": "Component 2 established that single-perturbation resolution fails (grounding rate p=0.902 vs shuffle; SAE features do not concentrate curated single-TF regulons above chance). Gate 0 DID find TRRUST enrichment at LINEAGE granularity (p=6.4e-5). Those bracket the method's resolution limit and predict this test.",
+  "non_circularity": {
+    "program_definition": "config/human_markers.json marker_sets, curated for Gate 0 BEFORE any Norman/CRISPRa work -- external to everything measured here.",
+    "feature_selection": "Over CONTROL cells only (gene_association), so perturbation labels never touch selection. Verified by a shuffle-invariance unit test.",
+    "modulators_are_output": "WHICH perturbations pass is a RESULT. No perturbation is named in advance. The previously-noticed CBL/UBASH3B/PTPN12 are NOT inputs; re-testing them directly would be circular and is not done."
+  },
+  "test": {
+    "step1": "For each named program with >= 3 markers in the panel, select the eligible feature whose top-TOP_K control-cell gene-associations are most marker-enriched (hypergeometric).",
+    "step2": "For every perturbation with >= MIN_CELLS cells: Mann-Whitney one-sided greater vs control on that feature; BH-FDR over PERTURBATIONS (not features); modulates iff q < ALPHA and AUC >= AUC_FLOOR.",
+    "step3": "n_modulators = count of modulating perturbations."
+  },
+  "nulls": {
+    "label_shuffle": "mode 'full': permute ALL labels including control (group membership independent of biology), recount, n_shuffle replicates. empirical_p = (1 + #{null >= real}) / (1 + n_shuffle). The legacy mode 'perturbed' (controls fixed) INFLATES this metric and is not the headline.",
+    "feature_background": "Run the identical per-perturbation test on N_RANDOM_FEATURES other eligible features. Report the program's percentile. This directly answers the dominant-axis/promiscuity objection: if every feature has as many modulators, a large count means nothing."
+  },
+  "positive_requires_all_three": "empirical_p < 0.05 AND a high feature-background percentile (>= 90) AND a biologically coherent modulator list on inspection.",
+  "prestated_likely_negative": "If the erythroid program simply IS K562's dominant axis, many perturbations will nudge it and the background percentile will be unremarkable. That is a REAL NEGATIVE and must be reported as one, never spun as 'many modulators found'.",
+  "constants": {"TOP_K": 50, "AUC_FLOOR": 0.55, "ALPHA": 0.05, "MIN_CELLS": 20, "MIN_ACTIVE_CELLS": 50, "N_RANDOM_FEATURES": 100, "N_SHUFFLE": 50},
+  "seeds": "0,1,2; a modulator counts as stable if it appears in >= 2/3 seeds.",
+  "code": "src/program_modulation.py; tests/test_program_modulation.py (oracle: specific world detected with shuffle p<0.05 and background pct>=90; DOMINANT-AXIS world correctly NOT flagged as a discovery; low-power programs flagged; feature selection verified label-free).",
+  "run": "python3 src/program_modulation.py --adata norman_pert.h5ad --pert-col perturbation --control-value control --latent 2048 --k 32 --n-hvg 4000 --n-shuffle 50 --seed {0,1,2} --out causal_out/progmod_seed{S}.json"
+}

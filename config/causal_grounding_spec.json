@@ -1,0 +1,86 @@
+{
+  "name": "causal_grounding_v7_crossfit_mannwhitney_effectsize_directional",
+  "purpose": "Fraction of genetic perturbations for which a control-trained SAE is causally grounded on Perturb-seq, comparing expression-space vs foundation-model-embedding SAEs. Supports both knockdown (direction=down) and overexpression (direction=up) screens.",
+  "direction": "down = knockdown/CRISPRi, program SUPPRESSED (feature down; match -DE; MW 'less'; floor auc<=auc_floor; column-spec lower tail). up = OVEREXPRESSION (e.g. Joung TF Atlas GSE216481), program ACTIVATED (feature up; match +DE; MW 'greater'; floor auc>=1-auc_floor; column-spec upper tail). The perturbed gene is excluded either way. All cross-fit / effect-size-control / FDR / shuffle-null machinery is identical across directions. See docs/METHODOLOGY_ADDENDUM_OE.md.",
+  "trained_on": "control (non-targeting) cells only; SAE never sees a perturbation",
+  "feature_program": "gene-association profile = Pearson corr of feature activation with each gene over control cells (identical for expression- and embedding-space SAEs)",
+  "matchable_features": "only features active in >= min_active_cells control cells are matchable (near-dead features have unreliable programs)",
+  "cross_fitting": "each tested perturbation's cells are split A|B (random half, seeded). The feature is MATCHED on split A and the suppression test is run on the held-out split B, so the same cells never both select and validate the feature (removes double-dipping / selection bias).",
+  "matching_rule": "on split A: perturbation p (KD of gene t) is matched to argmax over matchable features of dot(program_normalized, -DE_signature_normalized); the KD gene t is EXCLUDED from both the program and the DE signature (program-level, non-trivial)",
+  "grounding_rule": {
+    "match_confidence": "matched program alignment is a robust-z (median/MAD) upper-tail outlier vs alignment to all OTHER matchable features; match_confidence_p < match_alpha (excludes diffuse/global perturbations)",
+    "suppression": "one-sided Mann-Whitney U of the matched feature's activation in p's split-B knockdown cells vs all control cells (alternative='less'); AUC = U / (n_kd_B * n_ctrl); AUC < 0.5 = suppressed",
+    "column_specificity": "p suppresses the matched feature MORE than other perturbations do: p's mean split-B activation of the feature is a robust-z (median/MAD) LOWER-tail outlier vs the mean activation of that feature across all OTHER tested perturbations; colspec_p < colspec_alpha. Rejects non-specific stressors (e.g. essential-gene knockdowns) that drop a shared feature many knockdowns also drop.",
+    "effect_size_control": "M1 (DEFAULT ON): a perturbation's matched-feature suppression (0.5 - AUC) must be a robust-z (median/MAD) UPPER-tail outlier vs its k nearest neighbours in TOTAL transcriptional effect size (||mean_expr(p) - mean_ctrl||, KD gene excluded); effsize_p < effsize_alpha. Controls the confound that grounding tracks perturbation effect magnitude (a big-effect knockdown always drops SOME feature). No-op below min_perts_effsize scored perturbations (effect-matching needs a population).",
+    "effect_floor_auc": 0.45,
+    "match_alpha": 0.10,
+    "colspec_alpha": "DEFAULT 1.0 = OFF (v5 rollback; set 0.10 to enable). Column specificity removed a genuine regulator (GATA1) on real Replogle without removing the housekeeping hits.",
+    "effsize_alpha": 0.10,
+    "min_perts_effsize": 30,
+    "multiple_testing": "Benjamini-Hochberg FDR across tested perturbations on the Mann-Whitney p-values",
+    "fdr": 0.05,
+    "grounded_iff": "passes_match (match_confidence_p < match_alpha) AND passes_floor (auc <= effect_floor_auc) AND passes_effsize (effsize_p < effsize_alpha) AND BH-q(mw_p) < fdr  [column specificity optional, default off]",
+    "min_cells_per_group": 20,
+    "min_active_cells": 50
+  },
+  "global_specificity": "the pipeline runs a label-shuffle permutation null (n_shuffle relabelings): the observed causal_grounding_rate must exceed the shuffled null. Global chance control is at the pipeline level, not per-perturbation.",
+  "primary_comparison": "expression-space causal_grounding_rate vs embedding-space rate; positive result iff expression >> embedding (target: a multiple of the published 6.2-10% embedding ceiling), robust across >=5 seeds",
+  "control_label": "control (mapped from the dataset's control value, e.g. 'non-targeting')",
+  "frozen_before": "any run on real Replogle data",
+  "amendments": [
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v1 (spec SHA b7d28faed8cf5be15e5c0465bc4790fa25171c1795eb5b18b631a5082fee7131)",
+      "what_changed": [
+        "Suppression measure: standardized activation drop (effect_floor 0.25 SD) REPLACED by one-sided Mann-Whitney AUC (effect_floor_auc 0.45).",
+        "Added cross-fitting: match on split A, test suppression on held-out split B.",
+        "Split match confidence and suppression into two independent gates (was combined via max(p) into one BH-FDR family).",
+        "min_cells_per_group 3 -> 20; added min_active_cells 50."
+      ],
+      "why": "Two bugs caught on synthetic BEFORE any real Replogle result. (1) SD-standardization is invalid for sparse TopK activations: a feature fires in ~k/L of cells, so even a full shutoff is only ~0.1 SD, unreachable by any effect floor -> forced 0 grounded. A rank-based Mann-Whitney AUC has no scale assumption. (2) Without cross-fitting the same cells both selected and validated a feature, letting diffuse/background perturbations appear grounded (double-dipping). Fix validated on synthetic: oracle unit test passes (true regulators grounded, null/global/background rejected), and real-vs-shuffle shows planted regulators grounded with 0 false positives vs a shuffled null of 0.000.",
+      "honesty_note": "No valid result on real data was produced under v1; nothing was frozen or reported from the buggy metric. This amendment is dated and pre-registered before the first valid real run, per the project's no-frozen-artifact-from-a-broken-run rule."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v3_crossfit_mannwhitney (spec SHA b766d21c69feb0f91b6d83feaa4e84ea44584f7477b668f457007bbbb9e34b6b)",
+      "what_changed": [
+        "Added gate (3) COLUMN SPECIFICITY: p must suppress the matched feature more than other perturbations do (colspec_p < colspec_alpha=0.10), a robust-z lower-tail outlier test on per-perturbation mean feature activation.",
+        "grounded_iff now also requires passes_colspec."
+      ],
+      "why": "The v3 (single-seed) Replogle run grounded a set ~10x enriched for Hart CEGv2 core-essential genes (8/26 seed-stable hits vs 3.0% base rate, hypergeometric p~4e-7; docs/COMPONENT2_RESULTS.md). Diagnosis: v3 tested suppression only vs CONTROL, so an essential-gene knockdown that collapses transcription globally drops a shared 'cell-health' feature that many knockdowns also drop, and each such knockdown passed independently. The label-shuffle null controls the global RATE but not per-perturbation specificity. Column specificity restores the per-perturbation specificity the v3 cross-fit rewrite had dropped (it was in the original v1 design intent). Validated on synthetic (tests/test_causal_grounding.py::test_column_specificity): with the gate OFF, 5 shared non-specific stressors falsely ground; with it ON, all 5 are rejected while the true sole-regulators survive. The existing oracle + pipeline self-tests still pass unchanged.",
+      "honesty_note": "The v3 single-seed run was logged as PRELIMINARY and explicitly NOT frozen (docs/COMPONENT2_RESULTS.md). This v4 amendment is dated and made before any frozen/reported real result, per the no-frozen-artifact-from-a-confounded-run rule. Column specificity is deliberately conservative: it also rejects genuinely redundant regulators (a program with several real regulators), which is an accepted trade for killing the essential-gene confound; that limitation is documented."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v4 (column specificity ON)",
+      "what_changed": [
+        "Column specificity DEFAULT OFF (colspec_alpha 0.10 -> 1.0). Still available via --colspec-alpha.",
+        "grounded_iff reverts to match AND floor AND FDR (three gates)."
+      ],
+      "why": "The v4 column-specificity gate FAILED on real Replogle. Multi-seed run: it removed GATA1 (the one lineage regulator, from >=3/5 seeds down to 2/5) while leaving the entire housekeeping/machinery set intact. Root cause: the synthetic confound modelled MANY perturbations suppressing ONE shared feature (which the gate catches), but the real structure is each essential-gene KD suppressing its OWN distinct stress feature where it genuinely is the top suppressor (which the gate passes) -- and, separately, a program with multiple real regulators (like GATA1's erythroid program in K562) makes GATA1 look non-specific and gets it wrongly cut. So the gate removed real signal without removing the confound. Rolled back to avoid actively suppressing genuine regulators.",
+      "honesty_note": "Also correcting an earlier overstatement: the '~10x essential-gene enrichment (p~4e-7)' in an earlier note used the WRONG background (all 1839 TFs, ~3% essential). Against the correct background (the 162 tested TFs, ~31% essential -- the Replogle ESSENTIAL library is essential-gene-dominated by construction), essential and non-essential perturbations ground about EQUALLY (11.8% vs 12.6%). There is no essential-gene PREFERENCE; the grounded set is housekeeping-heavy because the tested pool is. The real finding is that grounding tracks perturbation EFFECT-DETECTABILITY, not regulatory specificity, on this dataset. See docs/COMPONENT2_RESULTS.md."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v5 (three gates: match, floor, FDR)",
+      "what_changed": [
+        "Added gate EFFECT-SIZE CONTROL (M1), DEFAULT ON (effsize_alpha=0.10): matched-feature suppression must be an upper-tail outlier vs perturbations of comparable total effect size (KNN in effect size, robust-z). No-op below min_perts_effsize=30.",
+        "Added per-perturbation effect_size to the output and an effect-size-vs-suppression diagnostic (Spearman rho, mean effect grounded vs not).",
+        "grounded_iff now also requires passes_effsize."
+      ],
+      "why": "The v5 metric was confounded: on real Replogle, grounding tracked perturbation EFFECT MAGNITUDE -- a big-effect knockdown always drops SOME feature, so raw grounding rewarded high-effect (housekeeping/essential) knockdowns and buried modest-effect specific regulators (GATA1). The effect-size control asks whether a perturbation suppresses its feature MORE than its total effect size predicts, so a modest-effect specific regulator stands out and a big-effect knockdown whose suppression is expected-for-its-size does not.",
+      "honesty_note": "Validated on synthetic (tests/test_causal_grounding.py::test_effect_size_control): the decisive crux is that two perturbations with IDENTICAL suppression (0.39) get OPPOSITE calls -- the modest-effect one is flagged (p~0.00), the high-effect one is not (p~0.35) -- with a ~1% false-flag rate on effect-explained nulls. The oracle (small sample) is unaffected (gate is a no-op below 30 perts) and the pipeline self-test still recovers 8/8 planted regulators. This is a DIAGNOSED-confound fix, not a headline result: whether it RESCUES a positive on real data (does GATA1 survive as an effect-size outlier?) is the open empirical question for the next run, pre-registered here BEFORE that run."
+    },
+    {
+      "date": "2026-07-18",
+      "from": "causal_grounding_v6 (knockdown/suppression only)",
+      "what_changed": [
+        "Added direction parameter: down (knockdown, unchanged default) and up (overexpression).",
+        "For up: match +DE, Mann-Whitney alternative=greater, floor auc>=1-auc_floor, column-specificity upper tail, effect-size control on the activation magnitude.",
+        "Enables the pivot from Replogle CRISPRi (knockdown) to the Joung TF Atlas GSE216481 (overexpression), where lineage TFs ARE perturbed and TF-specific signal is documented (Jain & Sharma arXiv 2604.02511: 59/61 recoverable)."
+      ],
+      "why": "The Replogle CRISPRi runs showed expression-space SAEs recover housekeeping/proliferation programs, not lineage regulators -- a WRONG-SUBSTRATE null (essential-gene screens do not perturb GATA1/SPI1/etc.). Overexpression of TFs (TF ON -> program ON) is a cleaner, more specific causal test that also sidesteps the essential-gene/global-collapse confound, on data where the lineage TFs are the perturbations. See docs/METHODOLOGY_ADDENDUM_OE.md.",
+      "honesty_note": "Validated on synthetic (tests/test_causal_grounding.py::test_overexpression_direction): on PLANTED activations, direction=up grounds 6/6 overexpressed TFs and 0 background, while wrong-sign direction=down grounds 0/6. On a TRAINED TopK SAE, down grounds competition-suppressed competitor features (a top-k artifact) -- so up is the correct direction for overexpression data; this competition property is documented in the addendum. No atlas result is claimed yet; this amendment pre-registers the method BEFORE the first atlas run."
+    }
+  ]
+}

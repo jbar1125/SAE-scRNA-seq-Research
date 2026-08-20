@@ -1,0 +1,47 @@
+{
+  "method": "FastICA (independent components)",
+  "rank": 50,
+  "seeds": 3,
+  "n_genes": 2012,
+  "converged_per_seed": {
+    "0": 1,
+    "1": 1,
+    "2": 1
+  },
+  "participation_ratio": {
+    "data": 14.025420561751176
+  },
+  "modularity": {
+    "decision": {
+      "control_baseline": "Progenitor",
+      "median_ery_n_real": 1.0,
+      "median_gran_n_real": 3.0,
+      "n_seeds_supported_pattern": 0,
+      "support_threshold_60pct": 2,
+      "asymmetric_modularity_supported": false,
+      "plain_finding": "Granulocyte has more real programs (median 3) than erythroid (1); erythroid is unified/undetected. NOT the original claim."
+    },
+    "mean_strength": {
+      "Cycling": 1.6116076453025572,
+      "Ery_Effector": 6.267234990065198,
+      "Ery_Heme": 1.8406457682226105,
+      "Ery_Membrane": 1.4522955904685546,
+      "Ery_TF": 1.625000233860062,
+      "Gran_Primary": 2.8687999460768423,
+      "Gran_Secondary": 4.096622464913842,
+      "Gran_TF": 3.2650670414138396,
+      "Progenitor": 2.5251808610786584
+    },
+    "perm_q": {
+      "Ery_TF": 0.1798201798201798,
+      "Ery_Heme": 0.03853289567575282,
+      "Ery_Membrane": 0.1798201798201798,
+      "Ery_Effector": 0.005994005994005994,
+      "Gran_TF": 0.032967032967032975,
+      "Gran_Primary": 0.005994005994005994,
+      "Gran_Secondary": 0.005994005994005994,
+      "Progenitor": 0.032967032967032975,
+      "Cycling": 0.032967032967032975
+    }
+  }
+}

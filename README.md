@@ -5,15 +5,49 @@ autoencoders (SAEs) can discover **real** gene programs in blood-cell developmen
 and building a rigorous framework to tell a genuine biological program from a
 decomposition artifact.
 
-**One line:** the original "asymmetric modularity" headline is not supported; what
-replaces it is a pre-registered, cross-species, cross-method demonstration that
-gene-program modularity is method-dependent, motivating a causal test as the real
-arbiter.
+**One line:** two acts. (1) A rigor foundation — a pre-registered, cross-species,
+cross-method demonstration that SAE gene-program modularity is method-dependent, so no
+single-method structural claim is trustworthy. (2) The centerpiece it motivates — a
+causal head-to-head asking whether SAEs trained on gene EXPRESSION recover the
+regulatory logic that single-cell foundation models discard (only ~6% causally
+grounded), tested on Replogle CRISPRi. The metric + pipeline for (2) are built and
+CPU-verified; the GPU run is the open step. See `docs/ELEVATION_PLAN.md`.
 
 Start here → **[`LAB_NOTEBOOK.md`](./LAB_NOTEBOOK.md)** (dated day-to-day log) and
 **[`docs/COMPONENT0_RESULTS.md`](./docs/COMPONENT0_RESULTS.md)** (the executed
 results + frozen SHAs). For agents: **[`CLAUDE.md`](./CLAUDE.md)** is the operating
 manual, read it first.
+
+---
+
+## Status at a glance
+
+| Item | State | Where |
+|------|-------|-------|
+| Gate 0 executed + frozen (mouse + human) | ✅ done, in `main` | `docs/COMPONENT0_RESULTS.md` |
+| Robustness battery R1–R4 (both species) | ✅ done | `docs/COMPONENT0_HARDENING.md` |
+| 5 decomposition families × 2 species | ✅ done | `docs/COMPONENT0_HARDENING.md` |
+| TRRUST regulon cross-reference | ✅ done | `data_g0*/trrust/` |
+| Result figures (deterministic) | ✅ done | `docs/figures/`, `src/make_figures.py` |
+| Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
+| Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
+| **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
+| Causal metric pre-registered (frozen spec) | ✅ v7 (directional: knockdown + overexpression) | `config/causal_grounding_spec.json` (SHA `ee5dacb7`) |
+| Causal head-to-head — Arm B (expression) run | 🔴 **honest negative** (grounds housekeeping/effect-size, NOT lineage regulators; no master TF robust) | `docs/COMPONENT2_RESULTS.md` |
+| Causal head-to-head — Arm A (embedding) + specificity fixes | 🟡 next | `docs/UPGRADE_BACKLOG.md` (S.1-S.3, Tier 1.1) |
+| Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
+| Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |
+
+**Act 1 finding (done):** the original "asymmetric modularity" claim is NOT SUPPORTED
+in either species; the modularity verdict is method-dependent (survives in 1 of 10
+method × species cells); every stress test confirms it. Structural, not yet causal.
+
+**Act 2 (the winnable result, built and ready):** does an expression-space SAE beat the
+~6-10% causal-grounding ceiling of foundation-model SAEs on Replogle CRISPRi? Metric and
+pipeline are built and verified on synthetic (recovers planted regulators, FDR-calibrated,
+defeats the triviality trap); the GPU run is the open step.
+
+Follow-up hardening lives on PR #3 (draft); Gate 0 is already merged to `main`.
 
 ---
 
@@ -56,12 +90,24 @@ data_g0_human/       <- EXECUTED human run (same convention)
 | `PROJECT_HANDOFF.md` | Phase-1-closeout snapshot (historical record). |
 | `PROJECT_AUDIT.md` | Authoritative corrections + rigor log; sections J/K are current findings. |
 | `STRATEGY_AND_POSITIONING.md` | Field situating, novelty audit vs Kendiukhov et al., the reframe. |
+| `DIFFERENTIATION.md` | Verified competitor landscape + differentiation table + rehearsed novelty answer (all competitors are embedding-space; this is expression-space). |
 | `PREREGISTRATION.md` | The frozen analysis spec (what was locked before running). |
 | `COMPONENT0_STATUS.md` | Gate-0 state + the Colab/GPU reproduction runner. |
 | `COMPONENT0_RESULTS.md` | The EXECUTED Gate-0 numbers (mouse + human) + frozen SHAs. |
+| `COMPONENT2_RESULTS.md` | Causal Arm-B (expression) preliminary run: seed table, sensitivity sweep, the essential-gene confound (NOT frozen). |
+| `COMPONENT2_NEXT_DIRECTIONS.md` | Results-driven execution map: the v4 re-run, the head-to-head grid redesign, and the exhaustive prioritized direction tree. |
+| `COMPONENT0_HARDENING.md` | Robustness battery (R1-R4 + TRRUST + GRN + ICA) stress-testing the frozen verdict. |
+| `ABSTRACT.md` | One-page competition/mentor summary (draft), traced to committed numbers. |
+| `REPRODUCIBILITY.md` | Scripted end-to-end verification + expected hashes/outputs. |
+| `ELEVATION_PLAN.md` | **The pivot**: how to turn the null into a positive, causal, benchmark-beating result. |
+| `UPGRADE_BACKLOG.md` | Exhaustive, prioritized backlog of upgrades + redirections (tiers 0-6 + big reframes). |
+| `IMPACT_STRATEGY.md` | How to make the project impressive/influential AFTER the causal negative: the auditor reframe, the effect-size-residual metric, the benchmark, the 3 project shapes. |
+| `METHODOLOGY_ADDENDUM_OE.md` | The overexpression pivot: causal grounding on the Joung TF Atlas (GSE216481) via `direction=up`; the metric generalization, TopK-competition subtlety, pre-registration, and data-access plan. |
+| `RUNPOD_EXECUTION.md` | Turnkey GPU steps for the expression-vs-embedding causal head-to-head. |
 | `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
 | `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
 | `COMPUTE.md` | What runs on CPU vs GPU and why (incl. why the AMD 5700 XT isn't practical). |
+| `COMPONENT2_PLAN.md` | Executable design for the causal CRISPRi head-to-head vs the 6.2% null (GPU-blocked; specified, not run). |
 
 ## How to run (from repo root)
 

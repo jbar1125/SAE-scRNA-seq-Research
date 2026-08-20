@@ -1,0 +1,42 @@
+{
+  "method": "co-expression GRN (|Pearson| regulons; NOT motif-pruned SCENIC)",
+  "n_tfs_used": 176,
+  "n_genes": 2012,
+  "participation_ratio": {
+    "data": 14.025420561751176,
+    "grn_tf_activity": 13.005248286837974
+  },
+  "modularity": {
+    "decision": {
+      "control_baseline": "Progenitor",
+      "median_ery_n_real": 2.0,
+      "median_gran_n_real": 2.0,
+      "n_seeds_supported_pattern": 0,
+      "support_threshold_60pct": 1,
+      "asymmetric_modularity_supported": false,
+      "plain_finding": "Erythroid distributed across 2 real programs vs granulocyte 2."
+    },
+    "mean_strength": {
+      "Cycling": 1.2773721062284062,
+      "Ery_Effector": 1.6713588215405162,
+      "Ery_Heme": 2.091069939226449,
+      "Ery_Membrane": 3.001370325780813,
+      "Ery_TF": 2.251065397400152,
+      "Gran_Primary": 6.5979095460970285,
+      "Gran_Secondary": 1.398441555497082,
+      "Gran_TF": 6.628174574886654,
+      "Progenitor": 2.015513750593477
+    },
+    "perm_q": {
+      "Ery_TF": 0.004491017964071856,
+      "Ery_Heme": 0.05748502994011975,
+      "Ery_Membrane": 0.004491017964071856,
+      "Ery_Effector": 0.6871257485029941,
+      "Gran_TF": 0.004491017964071856,
+      "Gran_Primary": 0.004491017964071856,
+      "Gran_Secondary": 0.9960079840319361,
+      "Progenitor": 0.3203592814371258,
+      "Cycling": 0.6871257485029941
+    }
+  }
+}
