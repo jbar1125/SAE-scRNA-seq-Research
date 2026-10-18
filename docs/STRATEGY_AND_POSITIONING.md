@@ -1,5 +1,24 @@
 # STRATEGY & POSITIONING: publication / STS / ISEF deep review
 
+> **CURRENT STATUS, 2026-10-18:** this is a historical strategy review. Its staged
+> gates, competition predictions and unexecuted components are proposals, not a
+> record of completion. Gate 0 is complete and frozen on Paul15 mouse and Setty 2019
+> human CD34+ marrow (4,142 cells), with five method families. Its durable finding
+> is method-dependence; the reversed lineage direction is not invariant or causally
+> validated. Replogle K562/RPE1, Norman and regulon analyses ran later without
+> establishing the intended lineage-regulatory claim. The causal ladder used
+> PCA/NMF **as inputs to an SAE**, not direct factor baselines. Foundation-model
+> embeddings, AML and tumor translation never ran.
+>
+> Every historical causal SAE fit used all cells, despite control-only design
+> language; causal raw JSONs from rented compute are missing. Recover/regenerate
+> these before publication claims depend on their exact reported numbers. The
+> wrong-background essential enrichment and failed specificity gate are not solved
+> confounds, and M1 did not support the effect-size explanation. Current evidence
+> and priorities: `PROJECT_MASTER_SUMMARY.md` sections 8-10 and 18,
+> `IMPACT_STRATEGY.md`, and `DIFFERENTIATION.md`. The remaining historical plan below
+> does not establish pre-registration of later unexecuted analyses.
+
 Brutally honest external-reviewer analysis of where this project stands in the
 field, what will win and what will sink it, and the concrete reframe + revised
 plan. No sugarcoating (per CLAUDE.md). Read with PROJECT_AUDIT.md.
@@ -14,7 +33,7 @@ state for STS/ISEF. It can be made genuinely top-tier. Below is how.
 
 ---
 
-## 1. Where the field actually is (Jan 2026)
+## 1. Field review recorded in 2026 (historical)
 
 SAEs on single-cell data is an active, published area, not white space:
 
@@ -37,13 +56,13 @@ SAEs on single-cell data is an active, published area, not white space:
 
 Implication: "apply SAEs to single-cell data to find interpretable features" is
 established (2024-2026). But — CORRECTION to an earlier overstatement in this doc:
-verifying the actual papers shows ALL of the prior SAE-single-cell work is on
-FOUNDATION-MODEL EMBEDDING/activation space at the atlas level. Kendiukhov trains
+the reviewed Kendiukhov cluster is on FOUNDATION-MODEL EMBEDDING/activation space
+at the atlas level. Kendiukhov trains
 SAEs on Geneformer/scGPT residual streams (~82k / ~24k features), not on raw
-expression, and its 6.2% is the causal rate OF FOUNDATION-MODEL features. None of
-the prior work does expression-space SAEs along a developmental trajectory + causal
-validation of those features + clinical/tumor translation as an integrated program.
-So the base technique is not novel; the integrated program is open. The earlier
+expression, and its 6.2% is the reported rate OF FOUNDATION-MODEL features under its
+own metric and panel. This project has not executed the proposed integrated
+expression-space, developmental, matched-causal and clinical program, nor established
+that the entire literature lacks it. The base technique is not novel. The earlier
 "the project is done" framing was too strong and is retracted.
 
 Two adjacent papers to personally verify (I could not fully read them):
@@ -60,8 +79,7 @@ DEAD as novelty (do not claim these):
   Kendiukhov's atlas. Frame Component 4 as a controlled comparison/replication, not
   a novel contribution.
 
-SURVIVES as genuine differentiation (rank order of strength) — and the key point:
-NO prior paper does the integrated expression-space + causal + clinical program:
+Historical candidate differentiators (current completion/scope is stated above):
 1. **The artifact-vs-signal framework.** The v1->v2->v3->v3.1 saga is not
    embarrassing history; it is the contribution. You have a documented, executed,
    pre-registered method for deciding whether an SAE "program" is real or a metric
@@ -73,18 +91,18 @@ NO prior paper does the integrated expression-space + causal + clinical program:
    showed FOUNDATION-MODEL SAE features have minimal causal logic (6.2% of TFs).
    The open, unpublished question: do EXPRESSION-SPACE SAE features, annotated along
    a developmental trajectory, have BETTER causal grounding when tested against the
-   same Replogle CRISPRi data? This is a direct, pre-registered head-to-head against
-   a published null, and nobody has run it. Make it the centerpiece. Either outcome
-   is publishable: if expression-space beats 6.2%, that is a real finding about where
-   causal structure lives; if it matches, that corroborates Kendiukhov from a new
-   angle. Frame the whole project around THIS question.
+   same Replogle CRISPRi data? This was a proposed controlled head-to-head against
+   a literature reference. A valid comparison requires a within-study embedding run
+   under the same metric, panel and settings; exceeding a percentage from another
+   paper would not by itself locate causal structure. This head-to-head remains a
+   proposal.
 3. **Expression-space + developmental trajectory.** Most of the field does
    embedding-space, atlas-level "what features exist." You do direct expression
    SAEs along a commitment trajectory (pseudotime + branch probabilities +
    submodule structure). More mechanistic, less crowded.
-4. **A concrete, corrected biological finding** (erythroid unified around
-   hemoglobin; granulocyte distributed across granule programs), IF it replicates
-   in human. Modest but real.
+4. **A decomposition-dependent structural observation:** the SAE gives fewer
+   erythroid than granulocyte programs in both executed species. The five-method
+   comparison does not establish an invariant biological modularity direction.
 5. **Expression<->embedding concordance** (does a program found in raw expression
    survive re-derivation in scGPT space?). This is a real cross-representation
    question the atlas papers do not answer.
@@ -115,9 +133,9 @@ Where this project currently stands against that bar:
   pre-register, audit their own artifacts, and run causal tests). Strength.
 - Novelty of method: BELOW (the method is now published). Must pivot the novelty
   to the framework + causal test, not the SAE application.
-- Finished result: NOT YET THERE. The finding flip-flopped, is mouse-only, n=5,
-  and the causal arm (the differentiator) is unbuilt. This is the gap between
-  "interesting" and "winning."
+- Status at this review's drafting: mouse-only, n=5, causal arm unbuilt. Update:
+  Gate 0 subsequently ran 10 seeds in both species and causal expression analyses
+  ran. Their limitations are stated in the current-status notice above.
 - Communicability: currently a tangle of v-numbers. Needs a single clean narrative.
 
 ## 4. Vulnerabilities (the full gap list, ranked by how badly a judge/reviewer hits it)
@@ -130,8 +148,8 @@ CRITICAL (fix or the project is beatable on contact):
   Unmanaged, this looks like p-hacking. Managed (one pre-registered metric, the
   whole point being that naive metrics disagree and here is the principled one), it
   is a strength. You MUST pre-register v3.1 and freeze before Phase 2.
-- V-C. The causal arm (Replogle CRISPRi) — your single best differentiator — is not
-  built. Without it you are a (late) replication of published SAE-single-cell work.
+- V-C. The causal arm was unbuilt at drafting. It subsequently ran in expression
+  space; the matched foundation-model comparison remains unexecuted.
 - V-D. Marker-set dependence. The globin bug proved the entire conclusion can hinge
   on marker curation. Reviewers will suspect cherry-picking. Needs: pre-registered,
   literature-cited, non-overlapping marker sets; a leave-one-marker-out sensitivity
@@ -147,9 +165,10 @@ HIGH:
 - V-G. Baseline comparison (NMF/PCA) incomplete. "Does the SAE structure beat matrix
   factorization?" is the first question any ML reviewer asks. V11/V12 must be
   finished and the SAE must be shown to add something PCA/NMF do not.
-- V-H. Compressive vs overcomplete framing. Classic interpretability SAEs are
-  overcomplete; Phase 1 used 128<2000 (compressive). Now fixed (overcomplete
-  supported), but the manuscript must justify the dictionary size with a sweep.
+- V-H. Compressive vs overcomplete framing. Phase 1 used 128<2000; executed Gate 0
+  used 512<2012 (mouse) and 512<2032 (human). These are undercomplete relative to
+  input genes. Code supporting larger dictionaries does not make those runs
+  overcomplete. Justify the actual dictionary and report declared sweeps.
 
 MEDIUM:
 - V-I. Provenance/reproducibility gaps: the MD5-locked matrix's true preprocessing
@@ -174,13 +193,14 @@ New thesis (defensible, novel, winning-shaped):
 > "Interpretability methods are being applied to single-cell data faster than they
 > are being validated. I build an adversarial framework that decides whether an
 > SAE-derived gene program is a real biological module or a measurement artifact —
-> using control-referenced effect sizes, calibrated nulls, and a pre-registered
-> causal test against CRISPRi perturbation — and apply it to hematopoietic lineage
+> using control-referenced effect sizes, calibrated nulls, and perturbation tests
+> whose evolving design and execution boundaries are documented — and apply it to hematopoietic lineage
 > commitment. The framework overturns my own initial finding (showing it was a
-> marker-curation and metric artifact), recovers a corrected, causally-tested
-> result (erythroid commitment is captured as a single dominant hemoglobin module;
-> granulocyte commitment is distributed across granule programs), and quantifies
-> how much of SAE 'interpretability' in single-cell data survives rigorous testing."
+> marker-curation and metric artifact), shows that lineage modularity depends on
+> the decomposition, and tests the separate hypothesis that annotated expression
+> features identify perturbation-specific regulatory programs. The causal tests
+> have not validated the structural reversal or established the intended
+> lineage-regulatory claim."
 
 Why this wins a multidisciplinary panel:
 - The hook is understandable to any judge: "everyone's using AI interpretability on
@@ -188,7 +208,7 @@ Why this wins a multidisciplinary panel:
 - It turns your biggest weakness (the flip-flopping finding) into the evidence for
   your contribution (naive metrics disagree; here is the principled one).
 - It has a causal spine (CRISPRi) that most interpretability work lacks.
-- It ends on a concrete, biologically-sensible, causally-tested result.
+- It ends on bounded structural evidence and explicitly reported causal-test limits.
 - The self-correction (you falsified your own headline) reads as scientific
   maturity, which top judges reward.
 
@@ -201,10 +221,11 @@ Narrative arc for the manuscript / presentation:
    choice and marker curation (show v1->v2->v3). This is the problem.
 4. The framework: control-referenced strength, count-fair concentration, calibrated
    permutation null, marker-curation audit, pre-registration. (The contribution.)
-5. The corrected finding: erythroid unified (hemoglobin) vs granulocyte distributed;
-   replicated in human; beats PCA/NMF baselines.
-6. Causal test: Replogle CRISPRi vs the 6.2% null. Do the annotated features move
-   when their TF is knocked down?
+5. Structural result: modularity answers differ across five decomposition families
+   in mouse and human. Do not claim the SAE beats PCA/NMF at biological truth.
+6. Causal tests: report Replogle/Norman and regulon outcomes with the actual metric,
+   training mode and archive limitations. The 6.2% literature rate is context;
+   an internally matched embedding comparator remains future work.
 7. Honest scope: what survives, what does not, what the method says about the
    broader SAE-single-cell literature.
 
@@ -222,8 +243,8 @@ GATE 0 — Lock the foundation (weeks 0-2). Non-negotiable before anything else.
   log-transform provenance, fix citations.
 
 GATE 1 — Lock the finding (weeks 2-5).
-- Human replication: run the full corrected pipeline on the 25k human SAEs. The
-  finding only counts if the direction holds mouse AND human.
+- Human replication was subsequently executed on Setty 2019 CD34+ marrow, 4,142
+  cells, not the older 25k CELLxGENE SAEs. The direction remains method-dependent.
 - Robustness: dictionary-size sweep (256/512/1024/2048), TOP_K sweep, seed
   stability of the verdict. Report the verdict's sensitivity, not one number.
 - Freeze the module assignment table (SHA) as the causal pre-registration.

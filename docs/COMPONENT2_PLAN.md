@@ -1,4 +1,18 @@
-# COMPONENT 2 PLAN — the causal head-to-head (GPU-blocked; specified here)
+# COMPONENT 2 PLAN: superseded cosine-based proposal
+
+> **CURRENT STATUS, 2026-10-18:** this is the historical proposal, not the
+> implemented analysis or an executable frozen protocol. The putative-driver/cosine
+> metric and feature-level denominator below were superseded by cross-fit matching
+> and Mann-Whitney tests per perturbation in `src/causal_grounding.py` and
+> `src/causal_pipeline.py`. Current spec: `config/causal_grounding_spec.json`, v7
+> plus training-mode erratum, SHA prefix `aae1a9d9`.
+>
+> Replogle K562/RPE1 and Norman expression-space analyses were run; their historical
+> raw JSON archive is missing. Prior causal SAEs trained on **all cells**, not only
+> controls, and did not reuse the Gate-0 architecture. Arm A embeddings never ran.
+> The literature's 6.2% is context from a different panel/metric, not a shared
+> statistical null. See `PROJECT_MASTER_SUMMARY.md` sections 8-10 and 18 for results
+> and current priorities. Everything below is retained as the original design intent.
 
 Component 2 is the centerpiece and the project's genuine novelty: test whether
 **expression-space** SAE programs are causally grounded, and compare the grounding
@@ -6,10 +20,9 @@ rate head-to-head against Kendiukhov 2026's **embedding-space** SAE null of **6.
 Gate 0 established that structural modularity is method-dependent; Component 2 asks
 the question structure cannot answer: **are these programs causally real?**
 
-This unit is NOT runnable in the current CPU container (needs GPU + the large
-perturbation atlas). This document is the frozen, executable design so it can be run
-unchanged on Colab/GPU. Nothing here is executed yet; every number is a target, not
-a result. Do not cite anything in this file as a finding.
+At drafting, the intended large-data experiment was GPU-blocked. This proposal was
+not executed as written. Every number below is a historical target, not a result;
+do not use these steps to reproduce the implemented causal analysis.
 
 ## Objective
 

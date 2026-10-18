@@ -35,6 +35,13 @@ metric and marker development. Causal metrics underwent outcome-informed amendme
 report those analyses as exploratory and disclose the amendment chain. A SHA-256
 records file integrity, not independent registration or biological validation.
 
+The [continuation audit](docs/PROGRAM_MODULATION_AUDIT.md) found that the historical
+quantitative modulation gates pass a uniform-response counterexample in 20/20
+simulations. A separate conditional identity-heterogeneity test and a prospective
+[real-data validation plan](config/program_modulation_validation_plan.json) now
+distinguish that question from generic perturbation response. Full simulated
+outputs and calibration records are [archived](data_program_modulation_audit/README.md).
+
 **Training correction:** every historical causal SAE was fit on all cells, including
 perturbed cells, without perturbation labels. Feature-gene associations used control
 cells. Cross-fitting separated perturbation matching from testing; it did not hold
@@ -76,7 +83,7 @@ separate run directory; do not overwrite `data_g0/` or `data_g0_human/`.
 | `tests/` | Standalone logic, synthetic, preprocessing, and actual-training checks. |
 | `config/` | Versioned analysis specifications, marker panels, TF lists, reference gene sets. |
 | `data_g0/`, `data_g0_human/` | Committed Gate-0 summaries and frozen decision bundles; large matrices/checkpoints are excluded. |
-| `docs/figures/` | Structural figures and a historical causal diagnostic; the original causal enrichment panel used a wrong background and must not be cited. |
+| `docs/figures/` | Structural figures and a corrected, explicitly historical causal diagnostic; its aggregate sources are not archived causal reruns. |
 | `LAB_NOTEBOOK.md` | Dated research history, including retractions and corrections. |
 
 ## Reading and publication
@@ -88,10 +95,12 @@ separate run directory; do not overwrite `data_g0/` or `data_g0_human/`.
 - [Causal results](docs/COMPONENT2_RESULTS.md): current interpretation plus a labeled
   historical record; missing raw evidence is explicit.
 - [Abstract draft](docs/ABSTRACT.md): evidence-limited manuscript framing.
+- [Manuscript draft](docs/MANUSCRIPT_DRAFT.md): preserved structural evidence, methods audit, and explicit submission gaps.
 - [Reproducibility](docs/REPRODUCIBILITY.md): artifact verification and regeneration gaps.
 - [Research audit](docs/PROJECT_AUDIT.md): earlier methodological corrections.
 
 Older strategy documents and research plans describe proposed work and superseded
 interpretations. Use the dated evidence, executable implementation, and corrections
-before quoting them. Publication still requires an archived causal rerun, uncertainty
-estimates, audited citations, and validation of any claimed biological novelty.
+before quoting them. Including historical causal numerical claims requires archived
+reruns. Submission also needs audited citations, confirmed authorship and disclosures,
+and validation of any claimed biological novelty.

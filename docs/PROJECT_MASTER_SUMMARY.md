@@ -1,5 +1,17 @@
 # PROJECT MASTER SUMMARY
 
+> **Continuation audit, 2026-10-18:** the record below predates additional same-day
+> checks. Read [PROGRAM_MODULATION_AUDIT.md](PROGRAM_MODULATION_AUDIT.md) and
+> [MANUSCRIPT_DRAFT.md](MANUSCRIPT_DRAFT.md) for the continuation. The old two
+> quantitative modulation gates pass a generic-response counterexample in 20/20
+> simulations. A no-marker match silently selected feature -1; this is now guarded.
+> A separate controls-fixed identity-heterogeneity test is implemented and calibrated
+> on synthetic nulls. No new real-data biological discovery has been established.
+> The causal PCA/NMF ladder trained an SAE on each reduced input; it did not compare
+> against direct PCA/NMF features. Historical original causal JSONs remain missing.
+> Current entrypoints and strategy docs have been corrected, and the false 10-fold
+> enrichment panel has been replaced. Preserve the frozen specs and bundles.
+
 The complete record of the SAE / scRNA-seq hematopoiesis project, start to finish, as of
 **2026-10-18**. Compiled by reading every tracked file (the 21 reference docs in `docs/`,
 `README.md`, `CLAUDE.md`, `LAB_NOTEBOOK.md`, 22 scripts, 9 test suites, the frozen specs and result

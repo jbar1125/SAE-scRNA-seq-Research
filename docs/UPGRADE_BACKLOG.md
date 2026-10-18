@@ -1,5 +1,21 @@
 # UPGRADE BACKLOG — exhaustive list of ways to elevate this project
 
+> **CURRENT STATUS, 2026-10-18:** this is a historical hypothesis menu, not an
+> executed research plan. S.2 failed on real data and was rolled back; S.3 supplies
+> tags/exclusions, not proof that an essential-gene confound was fixed. The ~10x
+> enrichment used the wrong background. M1 removed 0/22 reported Replogle hits and
+> did not support effect-size confounding. RPE1 and the PCA/NMF input ladder ran
+> later, but embeddings and clinical translation never ran. PCA/NMF inputs were
+> followed by SAE training, so direct-factor causal baselines remain unimplemented.
+> Prior causal fits used all cells. GATA1 is absent from Norman and is not a robust
+> cross-dataset positive control. Historical causal raw JSONs are missing.
+>
+> Current priorities are recoverable evidence, the declared program-modulation test
+> and bounded publication writing; see `PROJECT_MASTER_SUMMARY.md` sections 8-10
+> and 18. Effort estimates and priority labels below record July proposals, not
+> measured costs or commitments. No hypothetical result is established by its
+> appearance in this backlog.
+
 Purpose: a single, prioritized, brutally-honest backlog of every upgrade and
 redirection worth considering, big or small. Written 2026-07-18 against the real
 state of the repo (Gate 0 frozen; the causal head-to-head metric just fixed and
@@ -23,25 +39,32 @@ unassailable, more general, or more clearly a built thing rather than a number.
 The first real Arm-B run grounded 22/162 = 13.6% (survives the shuffle null), BUT the
 grounded set is dominated by essential / general-transcription-machinery / non-TF
 knockdowns (TBP, TAF7, GTF2A2, POLD2, RFC2, SRP9, CSNK2B, PTPMT1, ...) with NO lineage
-regulators (GATA1/SPI1/TAL1/RUNX1). That is essential-gene stress collapse, not regulatory
-specificity (LAB_NOTEBOOK 2026-07-18). These three fixes are now REQUIRED, not optional:
+regulators (GATA1/SPI1/TAL1/RUNX1) in that seed. Stress collapse was the initial
+hypothesis, not a mechanism established by those annotations. Later tests did not
+support essential-tag enrichment or the effect-size explanation. These were the
+three proposed responses, with outcomes corrected below:
 
 S.1 **Stricter TF list.** [STILL TODO] Replace `config/tf_lists/hs_hgnc_tfs.txt` (contains
 basal machinery) with the Lambert et al. 2018 sequence-specific-DBD human TF list (~1639).
 Commit as `config/tf_lists/lambert2018_hs_seqspecific_tfs.txt` and re-run. Host was
 egress-blocked on 2026-07-18; fetch `TF_names_v_1.01.txt` from humantfs.ccbr.utoronto.ca.
 
-S.2 **A specificity filter that actually bites.** [DONE 2026-07-18, metric v4, spec
+S.2 **Column-specificity filter.** [BUILT, FAILED ON REAL DATA, ROLLED BACK; metric v4, spec
 `029ab066`] Added COLUMN SPECIFICITY: a perturbation grounds a feature only if it
 suppresses it MORE than other perturbations do (robust-z lower-tail outlier). Synthetic-
 validated: gate-off grounds 5/5 shared stressors, gate-on rejects all 5, keeps true
-regulators. A further program-coherence filter (S.2b) is a P1 backup if column specificity
-proves insufficient on real data (see `COMPONENT2_NEXT_DIRECTIONS.md` Q-A2).
+regulators in the synthetic fixture. On real Replogle data it retained housekeeping
+hits while reducing GATA1 from >=3/5 to 2/5 seeds; default OFF since v5. It did not
+fix the proposed confound. Additional filters below remain hypotheses, not a reason
+to keep changing the metric until the preferred regulators appear.
 
 S.3 **Essential-gene control.** [DONE 2026-07-18] `--exclude-list` (drop core-essential
 perts) + `--tag-list` (report grounding split by essential membership in one run), plus the
-committed Hart CEGv2/NEGv1 reference sets in `config/gene_sets/`. Run per
-`COMPONENT2_NEXT_DIRECTIONS.md` Part 2.
+committed Hart CEGv2/NEGv1 reference sets in `config/gene_sets/`. The reported v4
+split was 6/51 CEGv2-tagged TFs versus 14/111 other tested TFs: no observed tag
+preference. The second group is not the NEGv1 nonessential reference panel. The
+former ~10x enrichment used all 1,839 TFs instead of the 162 tested and is invalid.
+The old Part-2 rerun instructions are superseded.
 
 ---
 
@@ -66,9 +89,10 @@ causal arm MUST too, or "you tuned 0.45 to get the answer" is a fair hit. Pre-re
 the primary values, report the surface. Effort: a sweep script + a heatmap.
 
 0.4 **Positive + negative control perturbations on REAL data (not just synthetic).**
-Positive: pick TFs with textbook K562 targets (GATA1 -> globin/heme; this ties K562
-back to your erythroid story) and confirm the KD suppresses the hemoglobin-program
-feature by hand. Negative: confirm non-targeting / safe-harbor / intergenic guides do
+Proposed positive: a covered regulator with independently established targets and
+a correctly signed perturbation effect. GATA1 was a Replogle v3 hit but lost v4
+seed-majority support and is absent from Norman; do not assume it passes. Negative:
+confirm available non-targeting / safe-harbor / intergenic guides do
 NOT get grounded. A metric that self-evidently passes known positives and rejects
 known negatives ON REAL DATA is far more convincing than a synthetic oracle alone.
 Effort: low once the run exists.
@@ -96,13 +120,17 @@ it beats one and not the other, that split is itself an interesting finding. Eff
 +1 embedding run.
 
 1.3 **SAE-vs-PCA-vs-NMF-vs-raw causal control (V-G, the first ML-reviewer question).**
-Run the grounding test on PCA components and NMF factors of the SAME expression, and
+This direct-factor comparison remains unimplemented. The executed `--rep pca/nmf`
+ladder trained an SAE on each factorization. It does not answer the question below.
+Proposed test: run the grounding test on PCA components and NMF factors of the SAME expression, and
 on raw HVG expression. Answers: is the causal legibility about the SAE, or just about
 staying in expression space? If expression-SAE >> expression-PCA, the SAE earns its
 place. If PCA ties it, the honest story becomes "expression space, not the SAE" — still
 publishable, but you must KNOW. Effort: moderate (reuse baselines_nmf_pca.py).
 
-1.4 **RPE1 as a second cell line.** Replogle is genome-scale in K562 AND RPE1. Re-run
+1.4 **RPE1 as a second cell line.** [SUBSEQUENTLY RUN; raw archive missing]
+Reported results were again housekeeping/chromatin, not lineage-regulatory recovery.
+Original proposal: Replogle is genome-scale in K562 AND RPE1. Re-run
 the whole head-to-head on RPE1. Cross-cell-line replication is the causal analogue of
 the mouse+human replication you already did in Gate 0 — a robustness win that costs
 only compute. Effort: repeat the pipeline on a second h5ad.
@@ -134,9 +162,11 @@ dose-response is a strong causal signature that rules out coincidence. Effort: m
 binary expression-vs-embedding into a LADDER: raw expression -> HVG -> PCA -> NMF -> VAE
 latent -> scGPT -> Geneformer. Plot causal-grounding rate along the ladder. If it decays
 monotonically as representations abstract away from expression, the headline stops being
-"we beat 6.2%" and becomes a LAW: "causal regulatory legibility decays as learned
-representations abstract away from gene expression." That is a figure a judge remembers
-and a genuinely novel scientific statement, and it makes ANY monotone outcome a result
+"we beat 6.2%" and tests the hypothesis that measured grounding declines with these
+particular input transformations. It would not establish a general law. The
+foundation-model rungs remain unrun and the executed input ladder is not a
+comparison with direct PCA/NMF factors. A monotone outcome requires matched design,
+uncertainty and validation, rather than being guaranteed publishable
 (de-risks the "what if expression isn't much higher" fear). Highest-upside single idea
 in this document. Effort: it is mostly Tier-1 arms plus 1-2 more representations, framed
 as a curve.
@@ -189,9 +219,10 @@ causal certificate (the perturbation that validates it), and activity along pseu
 This is the "built resource" that wins (ELEVATION_PLAN §4), and it is low-risk formatting
 once the head-to-head output exists. Effort: moderate, mostly front-end.
 
-4.2 **Program cards (named, human-readable).** "Program 17 = heme biosynthesis, grounded
-by GATA1 knockdown (AUC 0.31, q 1e-4), active at erythroid commitment." A judge can read
-these; a rate table they cannot. Effort: low.
+4.2 **Program cards (named, human-readable).** Proposed format: program name, genes,
+actual matched perturbation, measured AUC/q, seed support and provenance. The former
+"Program 17/GATA1, AUC 0.31, q 1e-4" example was illustrative, not an observed result;
+do not quote it as evidence. Effort: low once auditable real outputs exist.
 
 4.3 **Druggability / actionability overlay.** Map grounded programs' regulators to DGIdb.
 "Causally-validated, druggable gene programs in myeloid cells" adds a translational hook.
@@ -262,11 +293,11 @@ Memorized, crisp. Effort: trivial once 0.1 exists.
 ## REDIRECTIONS — the big reframes (choose one to organize around)
 
 R1 **"The causal legibility of learned representations" as the unifying thesis.** Fold
-Gate 0 (structure is method-dependent) and Component 2 (causal legibility decays with
-abstraction, per the ladder 2.1) into ONE arc: naive structural claims are method-
-dependent AND causal legibility is highest in expression and lost under abstraction —
-therefore validate causally, in expression space. This is a stronger, more general thesis
-than the current two-act framing and it makes Gate 0 setup rather than a detour.
+Gate 0 (structure is method-dependent) and Component 2 into one validation question.
+The claim that causal legibility decays with abstraction was a hypothesis, not an
+observed result: the reported expression/PCA/NMF-to-SAE ladder was approximately
+flat and embeddings never ran. Do not assert a preferred representation before the
+matched experiment exists.
 
 R2 **Dual deliverable: atlas (resource) + CausalGround (tool).** Reframe the output from
 "a number" to two built things — the causally-grounded myeloid program atlas (4.1) and the

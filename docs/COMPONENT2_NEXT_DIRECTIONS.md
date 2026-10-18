@@ -1,5 +1,23 @@
 # COMPONENT 2 — NEXT DIRECTIONS (post-first-run analysis + execution map)
 
+> **CURRENT STATUS, 2026-10-18:** the July execution map below is historical and
+> superseded. The v4 re-run happened: column specificity retained housekeeping hits,
+> reduced GATA1 to 2/5 seeds and was rolled back. The claimed ~10x enrichment used
+> all 1,839 TFs rather than the 162 tested; the reported v4 rates were 6/51
+> core-essential-tagged versus 14/111 other tested TFs, not a validated nonessential
+> panel. M1 retained all 22 seed-0 hits, so the effect-size explanation was not
+> supported. Replogle RPE1 and the PCA/NMF input ladder were subsequently run;
+> foundation-model embeddings never ran. All causal SAE fits used **all cells**.
+>
+> PCA/NMF ladder rungs feed the factorization into an SAE, so they cannot establish
+> SAE superiority or equivalence to direct PCA/NMF causal baselines. GATA1 was a
+> Replogle hit under earlier settings, not a validated general positive control;
+> it is absent from Norman. Historical causal raw JSONs are missing. Current next
+> steps are archive recovery/regeneration, the program-modulation test with declared
+> nulls and sensitivities, and bounded publication writing. See
+> `PROJECT_MASTER_SUMMARY.md` sections 8-10 and 18. Historical commands below do not
+> reconstruct v4 simply by naming the output file v4; current defaults differ.
+
 Written 2026-07-18 after the first real Arm-B run + the overnight multi-seed/sweep +
 the metric-hardening session. This is the RESULTS-DRIVEN plan: what the numbers dictate,
 in sequence, with decision branches. For the full unprioritized menu see
@@ -15,33 +33,31 @@ in sequence, with decision branches. For the full unprioritized menu see
    -> 0.395, 2048 -> 0.136 at fixed k), and *smaller dictionaries ground more*. The
    absolute rate is therefore NOT a quotable quantity. Consequence: the head-to-head must
    be a matched (latent, k) GRID, never a single number.
-2. **The grounded set is an essential-gene artifact, quantified.** 8/26 seed-stable hits
-   are Hart CEGv2 core-essential (~10x enrichment over a 3.0% base rate, hypergeometric
-   p~4e-7), and CEGv2 is the STRICT 684-gene core -- the true housekeeping fraction is
-   higher. Mechanism: essential-KD collapses transcription globally, dropping a shared
-   'cell-health' feature that many knockdowns drop; suppression-vs-control alone cannot
-   tell that from real regulation.
-3. **The metric CAN find a real regulator.** GATA1 -- the master erythroid TF -- grounds
-   in >=3/5 seeds in an erythroleukemia line, and sits in the NON-essential bucket. So the
-   regulatory signal is present but buried, not absent.
+2. **Housekeeping-heavy hits motivated a confound hypothesis.** The later tested-pool
+   comparison did not support the claimed essential enrichment. Global-collapse
+   explanations were hypotheses, not conclusions established by the invalid ~10x
+   calculation or by the hit list's functional annotations.
+3. **GATA1 was a v3 Replogle hit in >=3/5 seeds.** It fell to 2/5 under v4 and did
+   not establish broad lineage-regulatory recovery. Being outside CEGv2 does not
+   identify a perturbation as a validated nonessential control.
 4. **Two fixes are now built + synthetic-validated (this session):**
    - S.2 column specificity (metric v4, spec `029ab066`): reject features suppressed by
      MANY perturbations; synthetic proves it kills 5/5 shared stressors while keeping true
-     regulators.
+     regulators in that synthetic test. It later failed on real data and was disabled.
    - S.3 essential handling (`--exclude-list`, `--tag-list`): score non-essential TFs
      only, or split the rate by essential membership in one run.
-   Neither has been run on real data yet -- that is step 1 below.
+   At drafting these were synthetic-only. Their real-data outcomes are corrected above.
 
-**The one-sentence state:** we have a real but confounded signal, a metric now hardened
-against the confound, and a clean positive control (GATA1) -- but no valid head-to-head
-number yet.
+**Current interpretation:** reported perturbation response did not establish the
+intended lineage-regulatory claim or a matched expression-vs-embedding comparison.
 
 ---
 
-## PART 2 — The immediate re-run (do FIRST next GPU session)
+## PART 2 — Archived v4 re-run proposal (completed and superseded)
 
-Goal: does grounding survive the v4 column-specificity gate + essential removal, and does
-GATA1 survive? This tells us whether there is ANY real regulatory grounding to compare.
+Historical question: would v4 remove housekeeping responses while retaining GATA1?
+It did not. The command block and decision branches below record the proposal, not
+the current next action or a supported interpretation of its failure.
 
 ```bash
 git pull origin claude/code-handoff-doc-2v3jt3   # get metric v4 + gene sets
@@ -104,13 +120,13 @@ comparison is a PAIRED GRID, identical (latent, k) for both arms.
 Every direction worth pursuing, grouped by the QUESTION it answers, re-prioritized by
 tonight's results. Priority: [P0]=critical path, [P1]=high, [P2]=valuable, [P3]=optional.
 
-### M1 (BUILT 2026-07-18) — effect-size-controlled metric + diagnostic
+### M1 (built 2026-07-18; subsequently tested with no hits removed)
 `causal_grounding.py` now has an effect-size-control gate (spec v6, SHA `81b44e04`, default
 on, `--effsize-alpha 1.0` disables) + an effect-size-vs-suppression diagnostic. Synthetic-
 validated (crux: identical suppression at low vs high effect gets opposite calls). The open
-empirical question for the next GPU run: does a modest-effect specific regulator like GATA1
-survive as an effect-size OUTLIER where the raw metric buried it? Run raw vs controlled and
-compare the grounded sets + the diagnostic rho:
+empirical question was whether effect-matched comparison removed the reported hits.
+It removed 0/22; rho = 0.28. The AND-filter cannot add or rescue a hit. The archived
+commands below record that comparison, not a pending rescue experiment:
 ```bash
 for a in 1.0 0.10; do   # 1.0 = raw, 0.10 = effect-size-controlled
   python3 src/causal_pipeline.py --adata replogle.h5ad --pert-col gene \
@@ -119,11 +135,11 @@ for a in 1.0 0.10; do   # 1.0 = raw, 0.10 = effect-size-controlled
     --n-shuffle 50 --out causal_out/m1_effsize_$a.json
 done
 ```
-Watch the `effect-size diag:` line (rho, mean effect grounded vs not) and whether GATA1 /
-other lineage TFs move into the grounded set under the controlled metric.
+The result did not support the proposed effect-size explanation. Do not represent
+the historical expectation as a finding.
 
 ### Q-A. Is there real (non-confound) regulatory grounding?  [P0]
-- A1 [P0] The Part-2 re-run (v6 effect-size-controlled + essential split). The gate to everything else.
+- A1 [completed/superseded] Part-2 rerun and M1. Do not iterate gates until a desired regulator appears.
 - A2 [P1] Program-coherence filter (S.2b): require the matched feature's decoder-top genes
   to be a concentrated, GO-enriched module, not a diffuse global axis. A second, orthogonal
   defense against the confound if column specificity is insufficient.
@@ -142,8 +158,8 @@ other lineage TFs move into the grounded set under the controlled metric.
 
 ### Q-C. Where does causal legibility LIVE? (the flagship reframe)  [P1]
 - C1 [P1] The representation-ladder curve: expression -> PCA -> NMF -> (VAE) -> scGPT ->
-  Geneformer, grounding rate along it. If monotone-decaying, the headline becomes a LAW,
-  and any monotone outcome is a result (de-risks a weak expression-vs-embedding gap).
+  Geneformer, grounding rate along it. A decay was a hypothesis; a monotone curve
+  from a selected grid would not by itself establish a general law.
   **The PCA/NMF rungs are BUILT: `--rep pca` / `--rep nmf` (+ `--rep-dim`) in the pipeline,
   synthetic-tested.** Run the expression + pca + nmf rungs now; add scGPT/Geneformer with
   Arm A:
@@ -156,13 +172,13 @@ other lineage TFs move into the grounded set under the controlled metric.
       --n-shuffle 50 --out causal_out/ladder_$r.json
   done
   ```
-- C2 [P2] SAE-vs-PCA/NMF at matched dimensionality within expression space: does the SAE
-  add over plain matrix factorization? (The first ML-reviewer question.) Same `--rep`
-  machinery answers it.
+- C2 [P2, unimplemented] Direct SAE-vs-PCA/NMF causal baseline: does SAE training
+  add over scoring factors directly? Existing `--rep pca/nmf` trains another SAE
+  and does not answer this question.
 
 ### Q-D. Is the grounding biologically real?  [P1]
-- D1 [P1] GATA1 deep-dive: is its matched feature the erythroid/heme module (HBB, HBA,
-  ALAS2, GYPA, KLF1)? A hand-verifiable positive control anchors the whole result.
+- D1 [historical hypothesis] Inspect the Replogle GATA1 feature and genes. This was
+  not established as a robust positive control; Norman contains no GATA1 perturbation.
 - D2 [P1] Blinded GO/pathway enrichment on every grounded feature's program.
 - D3 [P2] Cross-reference grounded TF->program pairs against TRRUST/SCENIC regulons
   (code already exists from Gate 0) -- orthogonal validation.
@@ -171,7 +187,8 @@ other lineage TFs move into the grounded set under the controlled metric.
 
 ### Q-E. Is it robust?  [P1]
 - E1 [P1] The (latent, k) grid at v4 (also feeds Part 3).
-- E2 [P1] RPE1 second cell line -- causal analogue of the mouse+human Gate-0 replication.
+- E2 [subsequently run] RPE1 second cell line: reported housekeeping/chromatin hits,
+  not lineage-regulatory recovery. The complete historical raw outputs need archiving.
 - E3 [P2] Matching-rule robustness: program-DE alignment vs decoder-top-gene cosine vs MI;
   result should not hinge on the operationalization.
 - E4 [P2] Cross-fit K-repeat (average over K A|B splits) so nothing rides on one split.
@@ -193,7 +210,7 @@ other lineage TFs move into the grounded set under the controlled metric.
   representation of any Perturb-seq dataset.
 
 ### Q-I. Is it positioned to win?  [P1]
-- I1 [P1] Kendiukhov differentiation table (still not built; a judge WILL ask).
+- I1 [built, corrected 2026-10-18] Kendiukhov differentiation table in `DIFFERENTIATION.md`.
 - I2 [P1] Verify CytoSAE (2507.12464) + scGPT-hematopoietic-manifold (2603.10261) for
   expression+causal collision.
 - I3 [P2] Preprint (bioRxiv / MLCB / LMRL) before STS/ISEF.
@@ -202,20 +219,14 @@ other lineage TFs move into the grounded set under the controlled metric.
 
 ---
 
-## PART 5 — Recommended sequence (what to actually do, in order)
+## PART 5 — Current sequence (2026-10-18)
 
-1. [P0] Part-2 re-run (v4 + essential split + GATA1 check). One GPU session. Decides the
-   story.
-2. [P0/P1] If real grounding survives: Arm A scGPT at the matched grid (Part 3) -> the
-   head-to-head number. Add Geneformer.
-3. [P1] Biology anchor (GATA1 deep-dive + blinded GO) + the differentiation table +
-   competitor verification (can be done off-GPU, in parallel).
-4. [P1] The representation-ladder curve (C1) -- turns the head-to-head into the flagship
-   'where causal legibility lives' result.
-5. [P1] RPE1 replication + the (latent,k) grid CI.
-6. [P2+] Atlas, prediction test, preprint; [P3] supervised-SAE take 2 only as upside.
-
-**Fastest path to a defensible headline:** steps 1-4. If step-1 grounding survives and
-step-2 shows expression > embedding on the matched grid with GATA1-anchored biology, that
-is the winnable result the whole project has been driving toward -- reported honestly,
-including the essential-gene confound we found and fixed, which is itself a rigor story.
+1. Recover or regenerate the missing causal raw outputs with data/code/spec hashes,
+   training metadata, seeds and complete null results.
+2. Run the declared program-modulation experiment and report every seed, background
+   null, specificity control and training-mode sensitivity, regardless of outcome.
+3. Write the structural audit and causal limitations in parallel. Verify citations
+   from full texts before asserting novelty or repeating competitor percentages.
+4. Treat matched embeddings, direct-factor causal baselines, independent replication
+   and held-out training as separately designed future experiments. Do not relabel
+   the existing input ladder as any of those results.

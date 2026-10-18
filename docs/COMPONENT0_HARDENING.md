@@ -1,15 +1,22 @@
 # COMPONENT 0 HARDENING — stress-testing the frozen Gate-0 verdict
 
+**CURRENT STATUS, 2026-10-18.** The structural checks below concern Gate 0 and its
+SAE analysis, not a causal validation of lineage organization. The executed human
+arm is Setty 2019 CD34+ marrow (4,142 cells). Replogle/Norman causal work ran later;
+it did not establish the intended lineage-regulatory claim, and the embedding arm
+remains unrun. See `PROJECT_MASTER_SUMMARY.md` sections 5 and 8-10.
+
 Follow-up to the frozen Gate 0 (`COMPONENT0_RESULTS.md`). Gate 0 concluded: the
 original "asymmetric modularity" claim is NOT SUPPORTED in mouse and human; the data
-show granulocyte MORE distributed than erythroid; and the modularity verdict is
+show granulocyte MORE distributed than erythroid under the SAE analysis; and the modularity verdict is
 method-dependent. This document collects the robustness battery that stress-tests
 that conclusion. Every unit was executed in-container on CPU; artifacts are the small
 JSON summaries under `data_g0*/robustness/` and `data_g0*/trrust/`.
 
-**Bottom line: the verdict survives every stress test.** No seed count, sparsity
-level, HVG count, or decision-threshold choice resurrects the original claim, and the
-granulocyte-more-distributed direction holds throughout.
+**The SAE rejection survives the tested robustness settings.** No tested seed count,
+sparsity level, HVG count or decision threshold resurrects the original claim;
+granulocyte counts are at least erythroid counts, with a tie in some settings.
+This does not make the reversed direction invariant across decomposition methods.
 
 ## Figures
 
@@ -24,7 +31,7 @@ in exactly one of ten method x species cells (mouse NMF).*
 ![Mouse verdict stable across every stress test](figures/fig_robustness.png)
 
 *Fig 2. Granulocyte minus erythroid real-program count across every robustness
-condition; > 0 everywhere means the verdict never flips toward the original claim.*
+condition; nonnegative values mean these settings do not support the original claim.*
 
 ## Battery
 
@@ -34,7 +41,7 @@ condition; > 0 everywhere means the verdict never flips toward the original clai
 | **R2** L0-band sensitivity | L1 -> mean L0 across (and just past) the 20-50 band | BOTH species. Mouse: NOT SUPPORTED at L0 27.7 / 42.2 / 52.0 (gran >= ery throughout). Human: NOT SUPPORTED at L0 21.4 / 32.5 / 41.5 (gran 2 / ery 1 throughout). Not specific to the frozen L0. |
 | **R3** seed stability | 10 seeds -> 20 seeds (via `--seed-start`) | BOTH species. Mouse: gran_n_real = 3 in **20/20** seeds, 0/20 support the claim. Human: gran 2 / ery 1 stable over 20 seeds, 0/20 support. n=10 was sufficient in both. |
 | **R4** HVG-count sensitivity | 1000 / 2000 / 3000 highly-variable genes | BOTH species NOT SUPPORTED at all three counts; granulocyte >= erythroid throughout. (Caveat: at fixed l1=0.8, L0 leaves the band at the gene-count extremes since L0 depends on gene count; at human 1000-genes both lineages collapse to 1 (a tie, still not the claim). Verdict/direction stable regardless.) |
-| **TRRUST** ground-truth cross-reference | curated TF->target regulon (TRRUST v2) | Human: erythroid TF targets enriched in the erythroid-TF feature in **100% of seeds** (median p=6.4e-5); granulocyte 50%. SAE features recover real regulatory structure, and the unified erythroid program captures its regulon more tightly than the distributed granulocyte one. Mouse cross-ref underpowered (human DB, small panel) and not used as evidence. |
+| **TRRUST** curated-reference cross-reference | curated TF->target regulon (TRRUST v2) | Human: erythroid TF targets enriched in the erythroid-TF feature in **100% of seeds** (median p=6.4e-5); granulocyte 50%. This is lineage-level annotation agreement, not perturbation validation or proof of causal regulation. Mouse cross-ref underpowered (human DB, small panel) and not used as evidence. |
 | **GRN** 4th decomposition family | co-expression regulons (|Pearson|; NOT motif-pruned SCENIC) run through the same v3.1 modularity | Adds a 4th answer: mouse ery=2/gran=2 (tie); human ery=1/gran=2. Still NOT SUPPORTED. |
 | **ICA** 5th decomposition family | FastICA independent components (rank 50, converged 3/3; rank 512 is non-convergent) through the same v3.1 modularity | mouse ery=1/gran=3, human ery=2/gran=3. NOT SUPPORTED; agrees with the SAE granulocyte direction in both species. |
 
@@ -58,7 +65,7 @@ convergence artifact, corrected here (see LAB_NOTEBOOK.md).
 
 Five decomposition families give divergent modularity answers on the identical matrix.
 The original claim (erythroid more distributed) survives in exactly **1 of 10
-method x species combinations** (mouse NMF, the most parts-based/artifact-prone); every
+method x species combinations** (mouse NMF); every
 other combination rejects it, and the SAE's granulocyte-more-distributed direction is
 echoed by ICA (both species) and human PCA/GRN. This is the artifact-vs-signal thesis,
 now demonstrated across five method families and two species: "gene-program modularity"
@@ -67,25 +74,25 @@ biological ground truth.
 
 ## Interpretation
 
-- The core Gate-0 negative is not fragile: it is invariant to the analysis choices a
-  skeptic would probe (thresholds, sparsity, seeds, gene count).
-- TRRUST adds an independent, orthogonal line of support: the SAE is not hallucinating
-  gene sets; the feature that captures a lineage's TFs also captures their known
-  targets, and it does so more consistently for the unified (erythroid) program than
-  the distributed (granulocyte) one, which is exactly what the modularity result
-  predicts.
+- The original-claim rejection is stable over the tested SAE thresholds, sparsity,
+  seeds and gene counts. The cross-method table limits that statement's scope.
+- TRRUST supplies lineage-level annotation agreement under a curated reference.
+  It neither tests perturbation response nor establishes decomposition-independent
+  biological modules. The later single-TF regulon test is a different experiment.
 - The method-dependence caveat from Gate 0 still stands (PCA/NMF/SAE disagree); the
-  hardening does not remove it, and the causal test (Component 2) remains the arbiter.
+  hardening does not remove it. Later Component 2 tests did not causally validate
+  the structural reversal.
 
 ## Deferred / not run here (documented, not hidden)
 
-- **SCENIC 5th baseline**: cisTarget motif databases are proxy-blocked; full SCENIC
+- **Motif-pruned SCENIC baseline**: cisTarget motif databases were proxy-blocked; full SCENIC
   is infeasible in-container. TRRUST covers the curated-regulon validation. Runner in
   `LAB_NOTEBOOK.md` / to run on an unblocked box.
 - **Second human dataset** (non-CD34 marrow): would test whether the human globin
   non-significance is a CD34-selection artifact. Needs reachable data + CPU; deferred.
-- **Component 2** (causal CRISPRi head-to-head vs the 6.2% null): GPU-blocked; fully
-  specified in `docs/COMPONENT2_PLAN.md`.
+- **Component 2 update:** expression-space Replogle and Norman analyses ran later;
+  the matched embedding comparison remains unrun. See `COMPONENT2_RESULTS.md` and
+  `PROJECT_MASTER_SUMMARY.md`; `COMPONENT2_PLAN.md` preserves a superseded design.
 
 ## Reproduce
 

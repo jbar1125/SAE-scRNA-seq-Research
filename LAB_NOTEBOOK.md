@@ -839,3 +839,66 @@ all-cell 2048-latent fit is 2.0 h/seed, control-only 0.22 h/seed, so the decisiv
 
 **Also established.** Regeneron STS 2027 closes 2026-11-05, 8:00 PM ET (18 days). The
 program-modulation test remains unrun; the verified recipe is in the master summary section 18.1.
+
+---
+
+## 2026-10-18 — continuation: environment, publication claims, and modulation design audit
+
+The requested continuation began from full local history (93 commits at `a08db6d`),
+not an additional shallow-history recovery. The CPU environment was rebuilt in an
+isolated virtualenv outside the checkout. All nine original standalone suites,
+all four specification hashes, and both frozen Gate-0 bundle hashes passed. The
+installation was rerun successfully and reusable install/start instructions were
+saved in the cloud configuration draft. No original frozen artifact was changed.
+
+**Additional claim correction.** `build_representation` supplies expression/PCA/NMF
+inputs, but every causal arm then trains a TopK SAE. The historical ladder cannot
+support “SAE no better than plain PCA/NMF.” It reports similar observed rates for
+SAEs trained on different inputs. Original causal JSONs from destroyed instances
+are not present; notebook tables cannot establish exact regeneration. Current
+README, operating instructions, abstract, strategies and historical-plan notices
+now disclose those limits. The historical 10-fold essential-enrichment figure was
+replaced with the recorded v4 6/51 core-essential-tagged vs 14/111 other-tested-TF
+comparison, with descriptive Wilson intervals and an unarchived-source warning.
+The 111 comparator is not the Hart NEGv1 validated nonessential set.
+
+**New methods finding, not biological discovery.** In 20 independent simulated
+seeds, all 20 perturbations identically activating one axis passed the two old
+quantitative program-modulation gates in 20/20 cases. A distinct four-responder
+world also passed in 20/20, and a no-effect world passed in 0/20. The benchmark
+used one planned program and 99 permutations; it did not score the manual
+biological-coherence criterion. Direct synthetic activations were used, not
+trained SAEs. An absent-marker world exposed a separate bug: every feature has
+marker-enrichment p=1, the selector returns -1, and the caller scores the last
+column; all 20 seeds passed the quantitative gates despite no marker match.
+The current code explicitly leaves absent/weak matches unscored and retains all
+planned hypotheses. Exact 95% simulation-frequency intervals are 83.16–100% for
+20/20 and 0–16.84% for 0/20. Full raw outputs and source fingerprints are archived
+under `data_program_modulation_audit/`, including the original executed generator.
+
+**Separate inference.** A controls-fixed, optionally stratified permutation test
+of between-identity rank variation now applies Holm correction over all planned
+programs. It rejected all 20 distinct-responder worlds and none of the 20 generic
+or 20 no-effect worlds; absent matches receive p=1. A deployed-default calibration
+with nine stipulated matched features, 999 permutations and 200 independent null
+worlds produced 6/200 familywise rejections (3.0%; exact 95% interval 1.11–6.42%).
+This is finite synthetic calibration, not proof for arbitrary cell/guide designs.
+A rejection means conditional observed-cell identity heterogeneity; variable
+stress severity can also produce it. It does not establish pathway specificity,
+biological replication, novelty or SAE superiority. The old spec remains intact;
+`config/program_modulation_validation_plan.json` records the next-run scope.
+
+**Executed software path.** The revised modulation CLI ran on synthetic raw-count
+AnnData with actual CPU SAE fitting, strata and hashed provenance. It found no
+significant named-program matches and correctly left them unscored. Invalid
+zero-epoch runs and existing output paths are rejected before data loading. This
+is an implementation smoke test only, not the planned full Norman analysis.
+
+**External prerequisites remain.** The Norman public-data hostname and GitHub API
+returned proxy-policy 403 responses. Both additions were saved in the environment
+configuration draft; draft saving does not apply runtime access. Existing native
+Git authentication works and correction commit `c7fe97e` was pushed to the same
+branch. No NVIDIA GPU is attached. No full real-data modulation result or new
+biological discovery is claimed. See `docs/PROGRAM_MODULATION_AUDIT.md` and
+`docs/MANUSCRIPT_DRAFT.md`; the manuscript has explicit citation, evidence,
+independent-validation, author/disclosure and submission tasks remaining.

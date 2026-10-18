@@ -1,0 +1,21 @@
+{
+  "purpose": "Resolved validation-instance environment, not an assertion of cross-platform portability",
+  "python": "3.12.14",
+  "platform": "Linux-6.18.55-x86_64-with-glibc2.41",
+  "machine": "x86_64",
+  "requirements_sha256": "575a06dc86d6da2d785ad683c2a6ec00f6644bfc087e5b760a105c12abcf5774",
+  "torch_build": "CPU; installed from https://download.pytorch.org/whl/cpu",
+  "blas_thread_limit": 4,
+  "packages": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "pandas": "3.0.3",
+    "statsmodels": "0.14.6",
+    "torch": "2.14.1+cpu",
+    "scanpy": "1.12.4",
+    "anndata": "0.13.4",
+    "h5py": "3.16.0",
+    "scikit-learn": "1.9.1",
+    "matplotlib": "3.11.2"
+  }
+}

@@ -26,6 +26,12 @@ core pins plus open-ended Torch and Scanpy requirements; do not describe it as a
 complete, frozen environment. Record resolved versions, device, CPU thread limits,
 and source revision with each new run.
 
+The continuation also archives the exact resolved instance package list and
+principal versions under
+[`data_program_modulation_audit/environment/`](../data_program_modulation_audit/environment/).
+This records the Python 3.12 Linux CPU environment; it does not assert portability
+to arbitrary CUDA or operating-system configurations.
+
 Gate-0 analysis and synthetic checks work on CPU. Full Perturb-seq fits can require
 substantially more time and memory. Hardware availability and measured run duration
 must be checked for the actual run rather than inferred from an old estimate.
@@ -36,6 +42,13 @@ The onboarding pass ran package consistency, syntax, all nine existing standalon
 test suites, specification hashes, and frozen decision-bundle hashes. These checks
 establish the environment and tested code paths, not replication of historical
 real-data training or a new discovery.
+
+After the continuation, all **11** standalone suites passed, including the new
+counterexample and conditional-identity suites. Actual small SAE fitting and the
+updated AnnData CLI path executed. The current CLI smoke fixture yielded no
+significant named-program matches; it verifies safe unscored behavior, not a
+biological result. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
+archived 80 design-counterexample runs and 200 deployed-default null simulations.
 
 ```bash
 python -m pip check
