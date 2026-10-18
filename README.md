@@ -13,6 +13,10 @@ regulatory logic that single-cell foundation models discard (only ~6% causally
 grounded), tested on Replogle CRISPRi. The metric + pipeline for (2) are built and
 CPU-verified; the GPU run is the open step. See `docs/ELEVATION_PLAN.md`.
 
+**Full start-to-finish record, current state, and next steps:**
+**[`docs/PROJECT_MASTER_SUMMARY.md`](./docs/PROJECT_MASTER_SUMMARY.md)** (2026-10-18; read its
+section 17 before trusting the status table below, which predates the Norman work).
+
 Start here → **[`LAB_NOTEBOOK.md`](./LAB_NOTEBOOK.md)** (dated day-to-day log) and
 **[`docs/COMPONENT0_RESULTS.md`](./docs/COMPONENT0_RESULTS.md)** (the executed
 results + frozen SHAs). For agents: **[`CLAUDE.md`](./CLAUDE.md)** is the operating
@@ -87,6 +91,7 @@ data_g0_human/       <- EXECUTED human run (same convention)
 
 | Doc | What it is |
 |-----|-----------|
+| `PROJECT_MASTER_SUMMARY.md` | **Start here.** Everything, start to finish, as of 2026-10-18: narrative, scorecard, every self-correction, frozen hashes, file and dataset index, stale-doc list, future directions. |
 | `PROJECT_HANDOFF.md` | Phase-1-closeout snapshot (historical record). |
 | `PROJECT_AUDIT.md` | Authoritative corrections + rigor log; sections J/K are current findings. |
 | `STRATEGY_AND_POSITIONING.md` | Field situating, novelty audit vs Kendiukhov et al., the reframe. |

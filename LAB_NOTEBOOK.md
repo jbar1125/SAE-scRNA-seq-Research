@@ -785,3 +785,57 @@ Fix going forward: program_modulation defaults to shuffle_mode="full" (permute A
 control, so group membership is independent of biology), with mode="perturbed" retained to ask the
 different, stricter question. Oracle-verified: full-mode gives p=0.032 on the specific world where
 perturbed-mode gave p=1.000.
+
+---
+
+## 2026-10-18: full-project audit for the master summary; four latent defects found
+
+**Goal.** Compile `docs/PROJECT_MASTER_SUMMARY.md` (everything, start to finish). Doing it from the
+repo rather than from memory surfaced four real problems. Leading with them.
+
+**1. The SAE was never trained on control cells only.** `config/causal_grounding_spec.json` says
+"trained on control (non-targeting) cells only; SAE never sees a perturbation" and ELEVATION_PLAN 3b
+lists it as triviality-trap defense #1. Every caller (`causal_pipeline.run`, `regulon_recovery`,
+`program_modulation`) passed the full matrix to `train_topk_sae`, so every real run fit on ALL
+cells (labels unseen). First in-container run of the pipeline self-test (torch from PyPI): all-cell
+training grounds 8/8 planted regulators with 0 false positives; control-only grounds 0/8 (signal
+present, matched AUC ~0.40 vs 0.31, best mw_q ~0.078, just over the FDR cut). So the pre-registered
+design was never validated, and in this synthetic world it is underpowered. Handling, without
+changing any past number: `train_rows()` + `--train-on {all,control}` (default `all`, results
+byte-identical to before); result JSONs now record `sae.trained_on`; dated erratum in the causal
+spec (`ee5dacb7` -> `aae1a9d9`); program-modulation spec v1.1 (`b396834d` -> `ddb29bcd`) makes the
+all-cell primary explicit and pre-declares control-only as a sensitivity run; erratum notes in
+`causal_grounding.py`, `causal_pipeline.py`, COMPONENT2_RESULTS, ELEVATION_PLAN,
+METHODOLOGY_ADDENDUM_OE; `tests/test_pipeline_training.py`. Interpretation of the Replogle
+positive narrows: features learned from perturbed + control cells respond specifically; NOT
+"programs learned from natural variation behave causally".
+
+**2. My 2026-08-20 re-download instruction was wrong and unrun.** I gave `pt.dt.norman_2019()`
+without running it. Reading both pertpy files' schemas over HTTP: `norman_2019` is PROCESSED
+(111,255 cells, log-normalized X, raw counts only in `layers['counts']`, symbol var_names,
+`perturbation_name`); `norman_2019_raw` is raw (111,445 cells x 33,694, integer counts, Ensembl
+var_names + `gene_symbols`, `guide_identity`, no `perturbation_name`). The August schema matches
+the raw file, so every reported Norman result was normalized exactly once. Following my August
+instruction would have double-normalized the program-modulation run. Fix: `ensure_raw_counts` in
+`prep_norman.py` (passes raw, repairs from `layers['counts']`, refuses otherwise) +
+`tests/test_prep_norman.py`. Verified on the real raw file: 11,855 controls, 57,831 single-gene
+cells, 41,759 dual-gene cells, 102 testable (identical to August).
+
+**3. GATA1 is not in the Norman library.** 0 cells (RUNX1 too; RUNX1T1 is present). The
+2026-08-10 entry's "NOT [grounded] by GATA1 (doesn't ground)" implied GATA1 was tested and failed.
+It was never perturbed.
+
+**4. The regulon chance comparison was worded too strongly.** Per TF and seed from the pasted v2
+output, against the simulated best-of-2048 distribution: 8/42 cells above its mean, 0/42 above its
+95th percentile (SPI1 seed 0 exactly at it). "At or below chance for every regulon size" was too
+strong; "within the chance distribution everywhere" is right. Conclusion unchanged. Also: the v2
+amendment expected the force-keep to make KLF1/LYL1/CBFA2T3/MEIS1 testable; it did not, because
+their TRRUST regulons are tiny (KLF1: 2 targets).
+
+**Verified today.** All 9 test suites pass in a fresh container; all 4 spec hashes and both Gate-0
+bundles verify; the Norman data path, loader and all three Perturb-seq CLIs run end to end on real
+data (subsample, tiny SAE; plumbing only, numbers not interpreted). Timing on this 4-core CPU: an
+all-cell 2048-latent fit is 2.0 h/seed, control-only 0.22 h/seed, so the decisive run needs a GPU.
+
+**Also established.** Regeneron STS 2027 closes 2026-11-05, 8:00 PM ET (18 days). The
+program-modulation test remains unrun; the verified recipe is in the master summary section 18.1.
