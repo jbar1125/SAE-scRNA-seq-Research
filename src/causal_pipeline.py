@@ -2,8 +2,11 @@
 """Causal head-to-head pipeline (Phase 1, RunPod GPU) — expression vs embedding SAEs.
 
 One command per arm. Trains a TopK sparse autoencoder (the standard in the
-foundation-model SAE literature) on CONTROL cells only, encodes all cells, and runs the
-pre-registered causal-grounding metric (src/causal_grounding.py) on Perturb-seq data.
+foundation-model SAE literature), encodes all cells, and runs the pre-registered
+causal-grounding metric (src/causal_grounding.py) on Perturb-seq data. The SAE is fit on ALL
+cells by default (--train-on all; labels unseen): that is what every real run did and the only
+mode the --synthetic self-test validates. The spec's control-only intent is --train-on control,
+which is UNVALIDATED (self-test 0/8). ERRATUM 2026-10-18; see train_rows().
 
   Arm B (contribution): --rep expression   -> SAE on log-norm gene expression
   Arm A (reproduce field): --rep embedding --embedding scgpt_emb.npy
@@ -71,6 +74,27 @@ def train_topk_sae(rep, latent_dim, k, epochs=200, batch=1024, lr=4e-4, seed=0, 
         return topk(enc(xb)).cpu().numpy()
 
     return encode, {"latent_dim": latent_dim, "k": k, "d": d, "device": str(device)}
+
+
+def train_rows(labels, train_on="all"):
+    """Boolean mask of the cells the SAE is FIT on (every cell is still encoded afterwards).
+
+    'all' (DEFAULT) fits on every cell, perturbation labels unseen. This is what every real
+    Component-2 run actually did and the ONLY mode the synthetic self-test validates (8/8 planted
+    regulators, 0 false positives). It deviates from config/causal_grounding_spec.json, which
+    states control-only training (see the spec erratum and LAB_NOTEBOOK 2026-10-18).
+    'control' fits on control cells only: the pre-registered INTENT (the SAE never sees a
+    perturbed cell). UNVALIDATED: on the same synthetic world it grounds 0/8 (signal present,
+    AUC ~0.40, but below FDR). Do not use it as a primary analysis until it is validated."""
+    if train_on not in ("control", "all"):
+        raise ValueError(f"train_on must be 'control' or 'all', got {train_on!r}")
+    labels = np.asarray(labels)
+    if train_on == "all":
+        return np.ones(len(labels), dtype=bool)
+    fit = labels == cg.CONTROL_LABEL
+    if not fit.any():
+        raise ValueError("train_on='control' but there are no control cells")
+    return fit
 
 
 # --------------------------------------------------------------------------- #
@@ -256,9 +280,11 @@ def _effect_size_diagnostic(res):
 def run(rep_matrix, expression, genes, labels, tested, latent, k, seed, out, n_shuffle=0,
         auc_floor=cg.AUC_FLOOR, min_active_cells=cg.MIN_ACTIVE_CELLS,
         colspec_alpha=cg.COLSPEC_ALPHA, effsize_alpha=cg.EFFSIZE_ALPHA,
-        direction="down", tag_set=None, tag_name="tagged"):
-    encode, info = train_topk_sae(rep_matrix, latent, k, seed=seed)
+        direction="down", tag_set=None, tag_name="tagged", train_on="all"):
+    fit = train_rows(labels, train_on)
+    encode, info = train_topk_sae(rep_matrix[fit], latent, k, seed=seed)
     acts = encode(rep_matrix)
+    info.update(trained_on=train_on, n_train_cells=int(fit.sum()))
     res = cg.causal_grounding(acts, expression, labels, genes, tested,
                               auc_floor=auc_floor, min_active_cells=min_active_cells,
                               colspec_alpha=colspec_alpha, effsize_alpha=effsize_alpha,
@@ -337,13 +363,16 @@ def main():
     ap.add_argument("--effsize-alpha", type=float, default=cg.EFFSIZE_ALPHA, help="effect-size-control gate alpha (1.0 disables it = raw metric; default on)")
     ap.add_argument("--direction", choices=["down", "up"], default="down", help="down=knockdown/suppression (Replogle CRISPRi); up=overexpression/activation (TF Atlas)")
     ap.add_argument("--min-active-cells", type=int, default=cg.MIN_ACTIVE_CELLS, help="min control cells a feature must fire in to be matchable")
+    ap.add_argument("--train-on", choices=["all", "control"], default="all",
+                    help="cells the SAE is fit on: all (default; every real run + the validated "
+                         "self-test) or control (pre-registered intent, UNVALIDATED: self-test 0/8)")
     args = ap.parse_args()
 
     if args.synthetic:
         X, genes, labels, tested = _synthetic()
         n_prog = sum(1 for t in tested if not t.startswith("bg"))
         res = run(X, X, genes, labels, tested, latent=128, k=8, seed=args.seed,
-                  out=args.out, n_shuffle=20)
+                  out=args.out, n_shuffle=20, train_on=args.train_on)
         pp = res["per_perturbation"]
         true_g = sum(pp[i]["grounded"] for i in range(n_prog))
         false_g = res["n_grounded"] - true_g
@@ -369,7 +398,8 @@ def main():
     run(rep, X, genes, labels, tested, args.latent, args.k, args.seed, args.out, n_shuffle=args.n_shuffle,
         auc_floor=args.auc_floor, min_active_cells=args.min_active_cells, colspec_alpha=args.colspec_alpha,
         effsize_alpha=args.effsize_alpha, direction=args.direction,
-        tag_set=tag_set, tag_name=(Path(args.tag_list).stem if args.tag_list else "tagged"))
+        tag_set=tag_set, tag_name=(Path(args.tag_list).stem if args.tag_list else "tagged"),
+        train_on=args.train_on)
 
 
 if __name__ == "__main__":

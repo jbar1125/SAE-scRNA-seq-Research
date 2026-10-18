@@ -214,26 +214,32 @@ def main():
     ap.add_argument("--n-hvg", type=int, default=4000)
     ap.add_argument("--n-shuffle", type=int, default=50)
     ap.add_argument("--n-random-features", type=int, default=N_RANDOM_FEATURES)
+    ap.add_argument("--train-on", choices=["all", "control"], default="all",
+                    help="cells the SAE is fit on: all (primary, as frozen) or control "
+                         "(pre-declared sensitivity analysis, unvalidated; spec v1.1)")
     ap.add_argument("--shuffle-mode", choices=["full", "perturbed"], default="full",
                     help="full=permute all labels (standard); perturbed=legacy, keeps the "
                          "perturbed-vs-control contrast and INFLATES this metric")
     ap.add_argument("--out", default="causal_out/program_modulation.json")
     args = ap.parse_args()
 
-    from causal_pipeline import load_perturbseq, train_topk_sae
+    from causal_pipeline import load_perturbseq, train_rows, train_topk_sae
     marker_sets = json.load(open(args.markers))["marker_sets"]
     keep = {g for gs in marker_sets.values() for g in gs}
     X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value,
                                                n_hvg=args.n_hvg, keep_genes=keep)
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} single-gene perts; "
           f"{len(marker_sets)} named programs")
-    encode, info = train_topk_sae(X, args.latent, args.k, seed=args.seed)
+    fit = train_rows(labels, args.train_on)
+    encode, info = train_topk_sae(X[fit], args.latent, args.k, seed=args.seed)
     acts = encode(X)
+    info.update(trained_on=args.train_on, n_train_cells=int(fit.sum()))
     print(f"trained SAE {info}")
     res = program_modulation(acts, X, labels, genes, marker_sets, n_shuffle=args.n_shuffle,
                              n_random_features=args.n_random_features,
                              shuffle_mode=args.shuffle_mode, seed=args.seed)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    res["sae"] = info                       # provenance: which cells the SAE was fit on
     json.dump(res, open(args.out, "w"), indent=2)
 
     bg = res.get("feature_background", {})

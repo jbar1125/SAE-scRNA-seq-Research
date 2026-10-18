@@ -98,8 +98,9 @@ Implications, pre-registered:
 Jain & Sharma (2604.02511) recovered TF signatures with **one-vs-rest differential
 expression** -- a gene list per TF. Our contribution is different and complementary:
 1. **Interpretable PROGRAMS, not gene lists.** SAE features are (aim to be) monosemantic
-   programs; grounding asks whether an unsupervised, control-trained program behaves as a
-   causal unit under its TF's overexpression.
+   programs; grounding asks whether an unsupervised program behaves as a causal unit under its
+   TF's overexpression. (ERRATUM 2026-10-18: this originally said "control-trained"; the SAE was
+   in fact fit on all cells, labels unseen. Programs are still DEFINED over control cells.)
 2. **Program-level structure.** Which TFs CONVERGE on shared SAE features -> a modular map
    of TF regulation that per-TF DE cannot produce.
 3. **A confound-aware causal metric** (cross-fitting, effect-size control, calibrated

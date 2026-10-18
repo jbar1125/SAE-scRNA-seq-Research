@@ -85,6 +85,10 @@ NON-trivial, on three axes:
    asks whether those *unsupervised* programs behave as *causal units* when their
    putative regulator is knocked down. That is a real test of "are the programs
    causally real," not curve-fitting to perturbations.
+   **ERRATUM 2026-10-18: this defense was never implemented.** Every real run fit the SAE
+   on ALL cells (labels unseen), and only that mode passes the pipeline's synthetic
+   self-test (control-only grounds 0/8 there). Defenses 2 and 3 and cross-fitting were in
+   force; this one was not. See LAB_NOTEBOOK 2026-10-18.
 2. **Score at the PROGRAM level, not the target gene.** Exclude the knocked-down gene
    t itself (and guides for it) from the feature's scored genes; require a *coherent
    response of the downstream module* (t's regulatory targets), so we measure

@@ -5,7 +5,10 @@ Measures what fraction of genetic perturbations an SAE dictionary is CAUSALLY GR
 for, on Perturb-seq (CRISPRi) data, defeating the triviality trap
 (docs/ELEVATION_PLAN.md 3b):
 
-- The SAE is trained on CONTROL cells only; it never sees a perturbation.
+- Intended design: the SAE is trained on CONTROL cells only. ERRATUM 2026-10-18: the callers
+  (causal_pipeline.run, regulon_recovery, program_modulation) fit it on ALL cells (labels
+  unseen) in every real run; only that mode passes the synthetic self-test. See
+  causal_pipeline.train_rows and the erratum in config/causal_grounding_spec.json.
 - Each feature's PROGRAM is its gene-association profile = correlation of the feature's
   activation with each gene across control cells. Defined identically for expression-
   and embedding-space SAEs, so the two arms are apples-to-apples.

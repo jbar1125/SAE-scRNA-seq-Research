@@ -213,11 +213,14 @@ def main():
                     help="drop TRRUST hub targets shared by more TFs than this (v2 specificity control; 0 disables)")
     ap.add_argument("--no-keep-regulon-genes", action="store_true",
                     help="do NOT force-keep regulon target genes in the HVG panel (v1 behaviour)")
+    ap.add_argument("--train-on", choices=["all", "control"], default="all",
+                    help="cells the SAE is fit on: all (default; what the v1/v2 runs used) or "
+                         "control (unvalidated)")
     ap.add_argument("--out", default="causal_out/regulon_recovery.json")
     args = ap.parse_args()
 
     from trrust_crossref import load_trrust
-    from causal_pipeline import load_perturbseq, train_topk_sae
+    from causal_pipeline import load_perturbseq, train_rows, train_topk_sae
     regulons = load_trrust(args.trrust)
     if args.max_tfs_per_target:
         regulons, hubs = filter_promiscuous(regulons, args.max_tfs_per_target)
@@ -230,13 +233,17 @@ def main():
           f"{len(regulons)} TRRUST regulons")
     if args.activations:
         acts = np.load(args.activations)
+        info = {"activations": args.activations, "trained_on": "unknown (cached activations)"}
     else:
-        encode, info = train_topk_sae(X, args.latent, args.k, seed=args.seed)
+        fit = train_rows(labels, args.train_on)
+        encode, info = train_topk_sae(X[fit], args.latent, args.k, seed=args.seed)
         acts = encode(X)
+        info.update(trained_on=args.train_on, n_train_cells=int(fit.sum()))
         print(f"trained SAE {info}")
     res = regulon_recovery(acts, X, labels, genes, regulons, top_k=args.top_k,
                            min_targets=args.min_targets, n_shuffle=args.n_shuffle, seed=args.seed)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
+    res["sae"] = info                       # provenance: which cells the SAE was fit on
     json.dump(res, open(args.out, "w"), indent=2)
     print(f"[{args.out}] recovered {res['n_recovered']}/{res['n_tf_tested']} TFs "
           f"= {res['recovery_rate']:.3f}"

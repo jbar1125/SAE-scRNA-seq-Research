@@ -11,7 +11,10 @@
 - Data: Replogle 2022 K562 essential Perturb-seq (`pertpy.data.replogle_2022_k562_essential`), 310,385 cells.
 - Genes: top-2000 HVG UNION perturbed-TF genes = 2,136.
 - Scored perturbations: 162 TFs (`config/tf_lists/hs_hgnc_tfs.txt`, >= min_cells).
-- SAE: TopK, trained on control (non-targeting) cells only, GPU (cuda).
+- SAE: TopK, GPU (cuda). **ERRATUM 2026-10-18:** this line originally said "trained on control
+  (non-targeting) cells only". That was the design intent, not what ran: every caller fit the SAE
+  on ALL cells (perturbation labels unseen). Every number in this file is from all-cell SAEs. See
+  the erratum in `config/causal_grounding_spec.json` and LAB_NOTEBOOK 2026-10-18.
 - Metric: cross-fit Mann-Whitney grounding, spec SHA `b766d21c` (`config/causal_grounding_spec.json`).
 
 ## Seed stability (latent 2048, k 32)
