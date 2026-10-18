@@ -19,6 +19,13 @@ here). Then run:
   python3 src/causal_pipeline.py --adata norman_pert.h5ad \
       --pert-col perturbation --control-value control --direction up ...
 
+INPUT FILE (verified 2026-10-18 against both pertpy files): download with
+`pertpy.data.norman_2019_raw()` (111,445 cells x 33,694 genes, integer counts, Ensembl
+var_names + `gene_symbols`, no `perturbation_name`): this is the file every reported Norman
+result used. `pertpy.data.norman_2019()` is the PROCESSED file (111,255 cells, log-normalized X,
+raw counts only in layers['counts']); feeding its X downstream would double-normalize.
+`ensure_raw_counts` below therefore checks X and swaps in layers['counts'] or refuses.
+
 anndata + numpy only. Usage:
   python3 src/prep_norman.py --in norman_raw.h5ad --out norman_pert.h5ad [--guide-col guide_identity]
 """
@@ -66,6 +73,32 @@ def detect_symbol_column(A, tokens):
     return None, base_hits, base_hits
 
 
+def _nonzero_sample(M, n=200000):
+    """Up to n nonzero values of a sparse or dense matrix (for a cheap integer check)."""
+    d = M.data if hasattr(M, "data") else np.asarray(M).ravel()
+    d = np.asarray(d[:n], dtype=float)
+    return d[d != 0]
+
+
+def ensure_raw_counts(A):
+    """Return (A, note) with A.X holding raw integer counts, or raise SystemExit.
+
+    load_perturbseq applies normalize_total + log1p itself, so X written here must be raw. If X
+    is not integer-valued but a 'counts' layer is (pertpy's processed norman_2019), that layer is
+    swapped in; otherwise refuse, because writing normalized X would double-normalize every
+    downstream result (the same error class as the Paul15 log1p mistake, PROJECT_AUDIT A11)."""
+    d = _nonzero_sample(A.X)
+    if d.size == 0 or np.allclose(d, np.round(d)):
+        return A, "X is integer-valued (raw counts)"
+    if "counts" in A.layers:
+        dc = _nonzero_sample(A.layers["counts"])
+        if dc.size and np.allclose(dc, np.round(dc)):
+            A.X = A.layers["counts"].copy()
+            return A, "X was normalized (max %.3g); replaced it with raw layers['counts']" % d.max()
+    raise SystemExit("X is not raw integer counts (max %.3g, non-integer) and there is no raw "
+                     "'counts' layer. Use pertpy.data.norman_2019_raw()." % d.max())
+
+
 def main():
     ap = argparse.ArgumentParser(description=__doc__)
     ap.add_argument("--in", dest="inp", required=True, help="raw Norman h5ad (from pertpy)")
@@ -79,6 +112,8 @@ def main():
     import anndata as ad
     A = ad.read_h5ad(args.inp)
     print(f"loaded {A.shape[0]} cells x {A.shape[1]} genes")
+    A, note = ensure_raw_counts(A)
+    print(f"raw-count check: {note}")
     if args.guide_col not in A.obs.columns:
         raise SystemExit(f"--guide-col '{args.guide_col}' not in obs; columns: {list(A.obs.columns)}")
 
