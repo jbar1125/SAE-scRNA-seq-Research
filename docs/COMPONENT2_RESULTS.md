@@ -1,4 +1,78 @@
-# COMPONENT 2 — CAUSAL GROUNDING RESULTS (Arm B, expression-space)
+# Component 2: perturbation analyses and evidence status
+
+**Current audit, 2026-10-18:** no new lineage-regulatory discovery or expression-
+versus-foundation-model advantage is established. The original causal result JSONs
+were lost with ephemeral GPU instances. The dated tables and notebook reports
+below preserve the research history, but are not a substitute for archived reruns.
+
+## Current interpretation
+
+| Analysis | Recorded result | What it establishes and what remains missing |
+|---|---|---|
+| Replogle K562, original five-seed run | 22/162, 31/162, 42/162, 31/162, 32/162 grounded perturbations | Historical v3 results, mainly housekeeping/machinery hits; original per-perturbation JSONs unavailable. |
+| Essentiality check after correcting the background | v4 Hart-core-essential-tagged 6/51, other tested TFs 14/111 | Similar observed grounding fractions; the untagged group is not a validated nonessential reference set. The former 10-fold enrichment used the wrong background and is withdrawn. These v4 counts are not a reanalysis of the entire v3 five-seed set. |
+| Column-specificity amendment | GATA1 decreased from at least 3/5 seeds to 2/5; housekeeping hits remained | The proposed fix did not establish the intended specificity and was disabled by default. |
+| Effect-size control, K562 seed 0 | Raw and controlled sets both 22/162; Spearman rho 0.28 | This control removed no calls in the recorded comparison. The broad claim that grounding merely tracks total effect size is unsupported; universal freedom from confounding is also not established. |
+| Representation ladder, K562 | Mean 0.121 expression, 0.130 PCA-input, 0.111 NMF-input | Every arm fits an SAE. The experiment compares SAE input representations, not SAEs against plain PCA/NMF. NMF-input has one recorded seed. |
+| RPE1 ladder | Recorded rates 0.076 expression, 0.070 PCA-input, 0.076 NMF-input | Similar observed rates and housekeeping/chromatin hits in a second cell line. This is a historical report requiring archived regeneration. |
+| Norman CRISPRa rate | Recorded perturbation-identity shuffle p = 0.902 | No evidence that the rate distinguishes perturbation identity beyond generic perturbed-versus-control structure under that shuffle. It is not proof that all biological signal is absent. |
+| Norman regulon recovery v2 | 0/14 TFs pass; 0/42 TF-by-seed comparisons exceed the simulated chance 95th percentile | Unsuccessful single-TF curated-regulon alignment under this analysis. TRRUST coverage and the selection baseline limit the claim; exact real-result JSONs are missing. |
+| Program-level modulation | Implemented; full real-data discovery not established | Existing plans and synthetic checks do not establish a positive result. Full-shuffle counts and a feature-background percentile are exploratory diagnostics; perturbation identity requires a separate test and does not establish pathway specificity. |
+| Foundation-model embedding arm | Not run | The published 6.2% number is not a matched comparison. |
+
+These causal numbers are historical reports traced to `LAB_NOTEBOOK.md` and
+`PROJECT_MASTER_SUMMARY.md` sections 8-9. They were not recomputed from missing
+original outputs during this documentation correction. In particular, similar
+rates do not constitute a statistical equivalence result or a proof of no signal.
+
+## Training and analysis scope
+
+Every historical causal SAE was fit on **all cells**, without perturbation labels.
+Control cells were used to compute feature-gene associations. The code did not
+implement the original control-only training statement. The erratum is recorded in
+`config/causal_grounding_spec.json` (current SHA `aae1a9d9...`).
+
+Cross-fitting separates perturbation-specific matching from suppression testing,
+but test cells still contributed to SAE training. The current control-only mode
+is a sensitivity analysis: its actual-training synthetic test recovers 0/8 planted
+regulators, compared with 8/8 for all-cell fitting. That result limits the current
+validation; it does not prove all control-only approaches are unsuitable.
+
+Causal metric amendments were made after inspecting real results. Describe these
+analyses as exploratory and report their chronology. The single-perturbation
+results neither establish nor causally validate a universal hematopoietic modularity
+direction. K562 and RPE1 are cell lines, and transfer to primary hematopoiesis is
+not established.
+
+The Norman erythroid-like feature is a descriptive lead. GATA1 is absent from the
+Norman perturbation library, so it did not fail a Norman grounding test. Previously
+noticed CBL/UBASH3B/PTPN12 responses require appropriately calibrated testing,
+primary-literature review, and independent validation before any new mechanism is
+claimed. Program-level selection, multiplicity, perturbation identity, and generic
+response axes must be checked explicitly.
+
+## Publication and reproduction requirements
+
+Archive reruns with code and data hashes, resolved environment, exact arguments,
+training diagnostics, per-perturbation results, negative results, and null outputs.
+Record seed variability and uncertainty; use comparable baselines. The original
+causal diagnostic figure was based on hardcoded recorded numbers and contained a
+wrong-background enrichment panel; it cannot serve as independent result evidence.
+See [REPRODUCIBILITY.md](REPRODUCIBILITY.md).
+
+## Historical record: 2026-07-18 K562 analyses
+
+The sections below preserve the sequence of provisional interpretations and
+self-corrections. Statements within this record about essentiality confounding,
+effect detectability, validated GATA1 controls, unrun RPE1, or definitive regulatory
+mechanisms are **superseded by the current interpretation above**. Retaining them
+records how the hypotheses changed; it does not endorse them as current claims.
+The historical phrase “non-essential 14/111” below means not in the Hart CEGv2
+tag set, not validated nonessential genes. The representation-ladder paragraph and
+exact-regeneration claim are corrected
+explicitly because they misdescribed the implementation and evidence status.
+
+---
 
 > **STATUS: PRELIMINARY. NOT FROZEN.** Arm B (expression-space) only — the
 > embedding-space Arm A that makes this a head-to-head is NOT yet run. Single cell
@@ -185,34 +259,28 @@ M1 status: the effect-size control stays in the metric (default on) as a validat
 robustness CHECK -- on this data it is a no-op, but it defends the grounded set against the
 effect-size critique and would filter the confound in datasets where it is present.
 
-## UPDATE 2026-07-18 (representation ladder): the SAE is NOT special; the rate is flat across expression decompositions
+## UPDATE 2026-07-18 (representation ladder): similar recorded rates for SAEs on different input representations
 
 Ran the causal metric with the SAE trained on expression vs PCA-128 vs NMF-128 of the same
 data (`--rep`). Result:
 
-- **Grounding rate is FLAT across representations:** expression 0.121 (seeds 0.136/0.093/
-  0.136), PCA 0.130 (0.130/0.111/0.148), NMF 0.111 (seed0). Statistically indistinguishable;
-  PCA is even marginally higher. So **the sparse autoencoder recovers no more causal grounding
-  than plain matrix factorization** of the same expression -- the SAE is not doing something
-  PCA/NMF cannot for this metric.
-- **The grounded SETS are representation-dependent:** seed-0 grounded expression=22, PCA=21,
-  NMF=18, but expression∩PCA = 6 (vs ~2.85 expected by chance -> ~2x, a weak shared core) and
-  expression∩NMF = 2. So each representation grounds a mostly-different ~13%: a small
-  reproducible core (the strongest housekeeping programs) plus a large method-dependent tail.
+**Interpretation corrected 2026-10-18 after inspecting the implementation:** every
+arm trains a TopK SAE. `build_representation()` constructs expression, PCA-128, or
+NMF-128 inputs, and `run()` then trains an SAE on that input. The original wording
+claiming equivalence to *plain* PCA/NMF was incorrect.
 
-**Interpretation (convergent with Gate 0).** Just as Gate 0 found structural modularity is
-METHOD-dependent, the causal-grounding SET is REPRESENTATION-dependent while the RATE is a
-near-constant of the data/metric (~13%). Two consequences:
-- The "expression-space SAEs specifically recover causal logic" claim is dead -- the SAE is
-  not special vs PCA/NMF.
-- But the claim REFINES rather than dies: if ~13% for any expression decomposition beats the
-  ~6% foundation-model-embedding ceiling, then causal legibility is a property of staying in
-  EXPRESSION SPACE, not of the specific decomposition -- a cleaner, more robust claim. That
-  hinges entirely on the still-unrun EMBEDDING arm (Kendiukhov's 6.2%): embedding ~6% -> real
-  gap; embedding ~13% -> a full null (no representation grounds better). The embedding
-  head-to-head is now THE pivotal remaining experiment.
+- Recorded mean grounding rates: SAE on expression 0.121 (seeds
+  0.136/0.093/0.136), SAE on PCA-128 0.130 (0.130/0.111/0.148), SAE on
+  NMF-128 0.111 (seed 0 only). These are similar observed rates, without a formal
+  equivalence test; the NMF-input comparison is under-replicated.
+- Recorded seed-0 grounded counts were expression 22, PCA-input 21, NMF-input 18.
+  Expression/PCA-input overlap was 6 and expression/NMF-input overlap 2. These
+  are historical reports, not currently inspectable per-perturbation JSON evidence.
+- This experiment does not establish that an SAE offers no benefit over direct
+  matrix-factorization features. Direct PCA/NMF feature baselines and a matched
+  foundation-model embedding arm remain separate, uncompleted comparisons.
 
-## Not done (the real next steps)
+## Historical next-step list (superseded; see current status above)
 
 - **Arm A** (scGPT / Geneformer embedding-space SAE) at MATCHED hyperparameters — the
   actual head-to-head. This is the deliverable; the number above is not.
@@ -221,10 +289,11 @@ near-constant of the data/metric (~13%). Two consequences:
   split via DepMap) — see `UPGRADE_BACKLOG.md`.
 - Second cell line (RPE1), effect-size CIs, cross-fit K-repeat stability.
 
-## Reproduce
+## Historical reproduction command (not evidence of exact regeneration)
 
-Regenerable from the pinned code + seeds (raw JSONs were on an ephemeral GPU box and are
-not committed; they regenerate exactly):
+The original JSONs were not preserved. This command records the intended run shape;
+current defaults include later amendments and must be matched to the specific historical
+revision before a reproduction is claimed. Exact regenerated outputs have not been verified:
 
 ```bash
 for s in 0 1 2 3 4; do

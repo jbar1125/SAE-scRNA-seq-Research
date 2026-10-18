@@ -1,58 +1,153 @@
-# REPRODUCIBILITY
+# Reproducibility
 
-How to re-verify this project end to end, and the checks that pass as of the latest
-commit. Reproducibility is a first-class deliverable here (and an ISEF/STS judging
-criterion), so the verification is scripted, not asserted.
+The committed Gate-0 decision bundles and structural summaries can be inspected
+and integrity-checked without downloading large data. Reproducing their model
+fits additionally requires source data and checkpoints. Original Component 2
+result JSONs were lost with ephemeral GPU instances; narrative tables remain,
+but exact causal reproduction has not been demonstrated.
 
-## Environment
+## Validated cloud environment
 
-- CPU only (no GPU needed for Gate 0 + hardening). ~4 cores, 16 GB RAM is ample.
-- Python 3.11; `pip install -r requirements.txt` (numpy, pandas, scipy, statsmodels,
-  scikit-learn, torch, scanpy/anndata/h5py for preprocessing, matplotlib for figures).
-- Large inputs (matrices, checkpoints, raw h5/h5ad) are gitignored and regenerable;
-  the committed evidence is the small JSON/CSV artifacts + figures.
-
-## Verification checks (all PASS at the latest commit)
-
-| # | Check | Command | Expected |
-|---|-------|---------|----------|
-| 1 | Syntax | `python3 -m py_compile src/*.py tests/*.py` | no error |
-| 2 | Logic tests | `python3 tests/test_v0b_logic.py` (and v3, v3_1, baselines) | `ALL ... TESTS PASSED` |
-| 3 | Pre-registration freeze | `sha256sum config/preregistration_spec.json` | `fc342829191da5a0bb5244975c3f61c8934943cb512818446e5b5f0984f6011a` (matches `config/preregistration_spec.sha256`) |
-| 4 | Frozen mouse decision bundle | `cat data_g0/v0b_outputs/v0b_v3_1_decision.json data_g0/v0b_outputs/v0b_v3_1_per_seed.csv \| sha256sum` | `172861417a923a83705812a96e5ad1e555055e968323289879447e53beb84396` |
-| 5 | Frozen human decision bundle | same on `data_g0_human/...` | `cc8159c882cf326bca5bbbc7f74d110d4a81338ec0ba07e208eb935bc8f729d3` |
-| 6 | Figures deterministic | `python3 src/make_figures.py` twice | byte-identical PNG/SVG both runs |
-
-## Re-run the analysis from checkpoints (fast, no training)
+The 2026-10-18 cloud setup uses Python 3.12 in
+`/workspace/.venvs/sae-scrna`. Activate it from the repository root:
 
 ```bash
-# frozen verdict (mouse); add V0B_MARKERS_JSON=config/human_markers.json for human
-python3 src/v0b_v3_1_decision.py --data-dir ./data_g0 --output-dir /tmp/check
-# baselines, sensitivity, robustness, cross-refs, extra families
-python3 src/baselines_nmf_pca.py  --data-dir ./data_g0 --rank 512 --seeds 10 --out /tmp/bl
-python3 src/marker_sensitivity.py --data-dir ./data_g0 --out /tmp/ms
-python3 src/robustness_sweeps.py  --data-dir ./data_g0 --out /tmp/r1
-python3 src/grn_baseline.py --data-dir ./data_g0 --tfs config/tf_lists/mm_mgi_tfs.txt --out /tmp/grn
-python3 src/ica_baseline.py --data-dir ./data_g0 --out /tmp/ica     # rank 50 (converges)
-python3 src/make_figures.py
+source /workspace/.venvs/sae-scrna/bin/activate
+export XDG_CACHE_HOME=/workspace/.cache
+export MPLCONFIGDIR=/workspace/.cache/matplotlib
+export NUMBA_CACHE_DIR=/workspace/.cache/numba
+export OMP_NUM_THREADS=4 MKL_NUM_THREADS=4 OPENBLAS_NUM_THREADS=4
 ```
 
-## Re-run from raw data (retrains; ~10 min/species on CPU)
+The reusable install/validation instructions and resolved package list live under
+`/workspace/onboarding/sae-scrna/` in this cloud workspace. They are environment
+artifacts, not a portable repository lockfile. `requirements.txt` has historical
+core pins plus open-ended Torch and Scanpy requirements; do not describe it as a
+complete, frozen environment. Record resolved versions, device, CPU thread limits,
+and source revision with each new run.
+
+Gate-0 analysis and synthetic checks work on CPU. Full Perturb-seq fits can require
+substantially more time and memory. Hardware availability and measured run duration
+must be checked for the actual run rather than inferred from an old estimate.
+
+## Code checks
+
+The onboarding pass ran package consistency, syntax, all nine existing standalone
+test suites, specification hashes, and frozen decision-bundle hashes. These checks
+establish the environment and tested code paths, not replication of historical
+real-data training or a new discovery.
 
 ```bash
-python3 src/preprocess_paul15.py --n-hvg 2000 --out-dir ./data_g0
-python3 src/train_sae.py --matrix ./data_g0/expression_matrix.npy --latent-dim 512 \
-    --l1 0.8 --seeds 10 --epochs 300 --out-dir ./data_g0
-# then the analysis block above
+python -m pip check
+python -m py_compile src/*.py tests/*.py
+for test_file in tests/test_*.py; do
+  python "$test_file" || exit $?
+done
 ```
 
-## Fixed-on-audit note (self-correction)
+`test_pipeline_training.py` trains actual small SAEs. It records that its current
+all-cell mode recovers 8/8 planted regulators, while control-only mode recovers
+0/8. The latter is a documented power limitation of this synthetic setup.
 
-The pre-registration hash `fc342829` is the SHA-256 of the canonical serialization
-`json.dumps(spec, indent=2)`. The committed `preregistration_spec.json` had originally
-been written with a trailing newline, so `sha256sum` of the file returned a different
-value (`6398c5ed…`) and the documented verification (check #3) did not reproduce the
-recorded hash. Caught during a reproducibility pass and fixed by normalizing the file
-to the exact canonical bytes; the spec CONTENT is byte-identical to the freeze commit
-(`35173e4`) — verified `json.load` equality — so nothing that was frozen changed, only
-the trailing byte, and check #3 now passes. This is logged in `LAB_NOTEBOOK.md`.
+## Verify preserved evidence without modifying it
+
+Run this read-only check from the repository root:
+
+```bash
+python - <<'PY'
+import hashlib
+from pathlib import Path
+
+for spec in sorted(Path("config").glob("*_spec.json")):
+    expected = spec.with_suffix(".sha256").read_text().split()[0]
+    actual = hashlib.sha256(spec.read_bytes()).hexdigest()
+    assert actual == expected, (str(spec), actual, expected)
+    print("SPEC PASS", spec, actual)
+
+bundles = {
+    "data_g0": "172861417a923a83705812a96e5ad1e555055e968323289879447e53beb84396",
+    "data_g0_human": "cc8159c882cf326bca5bbbc7f74d110d4a81338ec0ba07e208eb935bc8f729d3",
+}
+for dataset, expected in bundles.items():
+    run = Path(dataset) / "v0b_outputs"
+    payload = ((run / "v0b_v3_1_decision.json").read_bytes()
+               + (run / "v0b_v3_1_per_seed.csv").read_bytes())
+    actual = hashlib.sha256(payload).hexdigest()
+    assert actual == expected, (dataset, actual, expected)
+    print("BUNDLE PASS", dataset, actual)
+PY
+```
+
+The Gate-0 metric spec is `fc342829...`. Current causal, regulon, and modulation
+specifications have separate sidecar hashes. The causal spec includes dated
+outcome-informed amendments and an implementation erratum. Matching a hash
+establishes integrity of those bytes, not confirmatory status or result validity.
+
+The mouse decision JSON's prose rounds erythroid count to 2, while its numeric
+field and per-seed CSV give median 1.5. Cite the numeric evidence. Preserve the
+frozen bytes and disclose this wording discrepancy rather than changing the bundle.
+
+## Preserve frozen outputs during regeneration
+
+Do not run training or preprocessing into `data_g0/` or `data_g0_human/` during
+development. Use a new run directory and compare its outputs with the reference
+artifacts. The committed directories omit large expression matrices, cell metadata,
+and checkpoints, so a fresh checkout alone cannot rerun checkpoint analyses.
+
+The supported entrypoints are `preprocess_paul15.py`,
+`preprocess_human_marrow.py`, `train_sae.py`, and `v0b_v3_1_decision.py`. Their CLI
+help exposes input/output paths. Mouse preprocessing follows its depth-adjusted
+source and log policy; human preprocessing requires the Setty raw-count file and
+normalizes counts before `log1p`. Their frozen matrix MD5s are:
+
+| Dataset | Expression matrix MD5 |
+|---|---|
+| Mouse | `184ea5ddfca23db2bbb343b311688c45` |
+| Human | `627961897d52a50c7a81f5bbf7e04097` |
+
+Human structural analyses require
+`V0B_MARKERS_JSON=config/human_markers.json`. Use each new run's provenance report
+for newly generated matrices rather than forcing them to match by editing a hash.
+Differences across numerical libraries and devices must be investigated and
+reported; seed equality alone does not guarantee byte-identical training outputs.
+
+`src/make_figures.py` reads committed structural summaries and normally writes to
+`docs/figures/`. When verifying deterministic rendering, redirect the module's
+`OUT` path to a scratch location or use a disposable copy of the checkout so
+rendering cannot overwrite tracked figures. A figure reproduced from committed
+summaries verifies rendering, not model fitting. The historical causal diagnostic
+was built from hardcoded narrative numbers and originally contained a wrong-
+background essentiality panel; it is not an independent evidence source.
+
+## Missing causal evidence and publication requirements
+
+The historical Replogle K562/RPE1, effect-size, representation-ladder, Norman,
+and regulon-recovery outputs were not committed and are reported as lost in
+[the master summary, section 12](PROJECT_MASTER_SUMMARY.md#12-frozen-artifacts-registry).
+The current implementation includes later changes; running current defaults is
+not automatically a recreation of every historical metric version.
+
+For each causal rerun, retain:
+
+- Code SHA, full command, data source and checksum, preprocessing decisions, and
+  the resolved environment.
+- Actual SAE training population and held-out design. Historical SAEs used all
+  cells. Cross-fitting did not hold test cells out of SAE training.
+- Seed, architecture, training diagnostics, per-perturbation results, null outputs,
+  uncertainty estimates, and all tested programs including negative/low-power ones.
+- Machine-readable results and a manifest in a durable archive; large datasets
+  and checkpoints can be deposited separately. Link the archive in the manuscript.
+
+The PCA/NMF ladder trains an SAE on PCA/NMF inputs; plain PCA/NMF feature baselines
+remain a separate experiment. A literature grounding rate from another metric is
+not a substitute for the unrun matched embedding arm. Program-modulation inference
+must address selection, multiplicity, perturbation identity, and the dominant-axis
+alternative before any positive is treated as a discovery.
+
+## Historical hash correction
+
+The Gate-0 spec was intended to use the canonical `json.dumps(spec, indent=2)`
+serialization. A trailing newline initially caused the file hash to disagree with
+the documented `fc342829...` hash. The file was normalized to the canonical bytes;
+parsed content was checked against freeze commit `35173e4`. This integrity repair
+is documented in `LAB_NOTEBOOK.md` and did not change the analysis specification.

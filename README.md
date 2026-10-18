@@ -1,159 +1,97 @@
 # SAE / scRNA-seq Hematopoiesis Research
 
-A fully computational research project (Jacob Barzideh) testing whether sparse
-autoencoders (SAEs) can discover **real** gene programs in blood-cell development,
-and building a rigorous framework to tell a genuine biological program from a
-decomposition artifact.
+A computational research project by Jacob Barzideh evaluating whether sparse
+autoencoder (SAE) features provide reliable descriptions of hematopoietic gene
+programs, and whether those descriptions survive structural and perturbation tests.
 
-**One line:** two acts. (1) A rigor foundation — a pre-registered, cross-species,
-cross-method demonstration that SAE gene-program modularity is method-dependent, so no
-single-method structural claim is trustworthy. (2) The centerpiece it motivates — a
-causal head-to-head asking whether SAEs trained on gene EXPRESSION recover the
-regulatory logic that single-cell foundation models discard (only ~6% causally
-grounded), tested on Replogle CRISPRi. The metric + pipeline for (2) are built and
-CPU-verified; the GPU run is the open step. See `docs/ELEVATION_PLAN.md`.
+**Current conclusion:** the measured modularity of erythroid and granulocyte programs
+depends on the decomposition. The original asymmetric-modularity hypothesis is not
+supported by the frozen SAE analyses in either species. Later perturbation analyses
+have not established a new lineage-regulatory discovery or an advantage over
+foundation-model features.
 
-**Full start-to-finish record, current state, and next steps:**
-**[`docs/PROJECT_MASTER_SUMMARY.md`](./docs/PROJECT_MASTER_SUMMARY.md)** (2026-10-18; read its
-section 17 before trusting the status table below, which predates the Norman work).
+Start with [the master summary](docs/PROJECT_MASTER_SUMMARY.md),
+[the results](docs/COMPONENT0_RESULTS.md), and
+[the reproducibility guide](docs/REPRODUCIBILITY.md). Agents must read
+[CLAUDE.md](CLAUDE.md) before working. The master summary records the project through
+2026-10-18; its section 17 documents additional historical claims requiring correction.
 
-Start here → **[`LAB_NOTEBOOK.md`](./LAB_NOTEBOOK.md)** (dated day-to-day log) and
-**[`docs/COMPONENT0_RESULTS.md`](./docs/COMPONENT0_RESULTS.md)** (the executed
-results + frozen SHAs). For agents: **[`CLAUDE.md`](./CLAUDE.md)** is the operating
-manual, read it first.
+## Evidence and status
 
----
+| Component | Status | Evidence and limits |
+|---|---|---|
+| Gate 0, mouse Paul15 | Executed; frozen decision bundle | 2,730 cells, 2,012 genes, 10 SAE seeds; original claim supported in 0/10 seeds. [Results](docs/COMPONENT0_RESULTS.md). |
+| Gate 0, human Setty 2019 CD34+ marrow | Executed; frozen decision bundle | 4,142 cells, 2,032 genes, 10 SAE seeds; original claim supported in 0/10 seeds. |
+| Structural comparison | Executed, committed summaries | PCA, NMF, SAE, co-expression GRN, and ICA across two datasets; only mouse NMF supports the original decision rule. ICA uses rank 50 rather than 512. [Hardening](docs/COMPONENT0_HARDENING.md). |
+| Structural robustness | Executed, committed summaries | Threshold, sparsity, seed-count, and gene-panel sweeps; marker leave-one-out flips 0/34 mouse and 0/36 human decisions. |
+| Replogle CRISPRi, K562 and RPE1 | Historical exploratory results; original JSONs missing | Recorded perturbation-responsive programs are mainly housekeeping/chromatin programs. Original outputs from ephemeral GPU instances must be regenerated and archived. [Causal results](docs/COMPONENT2_RESULTS.md). |
+| Causal representation ladder | Historical exploratory results | Every arm trains an SAE: on expression, PCA-reduced input, or NMF-reduced input. This is not a direct SAE-versus-PCA/NMF comparison. |
+| Norman CRISPRa grounding and regulon recovery | Historical exploratory results; original JSONs missing | Grounding rate did not exceed the recorded perturbation-identity shuffle null; single-TF regulon recovery was unsuccessful. Neither result establishes absence of all biological signal. |
+| Program-level modulation | Analysis implemented; full real-data validation pending | Named-program test and synthetic checks exist. No completed full-scale discovery is established in the committed record. [Spec](config/program_modulation_spec.json). |
+| Expression versus foundation-model embedding | Not run | The published 6.2% figure uses a different protocol and is not a matched baseline for this project. |
 
-## Status at a glance
+The Gate-0 metric was version-locked before the final runs, following exploratory
+metric and marker development. Causal metrics underwent outcome-informed amendments;
+report those analyses as exploratory and disclose the amendment chain. A SHA-256
+records file integrity, not independent registration or biological validation.
 
-| Item | State | Where |
-|------|-------|-------|
-| Gate 0 executed + frozen (mouse + human) | ✅ done, in `main` | `docs/COMPONENT0_RESULTS.md` |
-| Robustness battery R1–R4 (both species) | ✅ done | `docs/COMPONENT0_HARDENING.md` |
-| 5 decomposition families × 2 species | ✅ done | `docs/COMPONENT0_HARDENING.md` |
-| TRRUST regulon cross-reference | ✅ done | `data_g0*/trrust/` |
-| Result figures (deterministic) | ✅ done | `docs/figures/`, `src/make_figures.py` |
-| Competition abstract + visual brief | ✅ done | `docs/ABSTRACT.md`, `docs/web/result_brief.html` |
-| Reproducibility verification | ✅ passes | `docs/REPRODUCIBILITY.md` |
-| **Causal head-to-head — metric + pipeline** | ✅ **built, CPU-verified** | `src/causal_grounding.py`, `src/causal_pipeline.py`, `tests/test_causal_grounding.py` |
-| Causal metric pre-registered (frozen spec) | ✅ v7 (directional: knockdown + overexpression) | `config/causal_grounding_spec.json` (SHA `ee5dacb7`) |
-| Causal head-to-head — Arm B (expression) run | 🔴 **honest negative** (grounds housekeeping/effect-size, NOT lineage regulators; no master TF robust) | `docs/COMPONENT2_RESULTS.md` |
-| Causal head-to-head — Arm A (embedding) + specificity fixes | 🟡 next | `docs/UPGRADE_BACKLOG.md` (S.1-S.3, Tier 1.1) |
-| Causally-supervised SAE (a method idea) | ❌ prototyped, did NOT validate — shelved | `docs/ELEVATION_PLAN.md` §4 |
-| Second human dataset / full SCENIC / mouse TRRUST | ⛔ blocked (no reachable data/DB here) | logged in `LAB_NOTEBOOK.md` |
+**Training correction:** every historical causal SAE was fit on all cells, including
+perturbed cells, without perturbation labels. Feature-gene associations used control
+cells. Cross-fitting separated perturbation matching from testing; it did not hold
+test cells out of SAE training. `--train-on control` is available as a sensitivity
+mode, but its current synthetic test recovers none of the eight planted regulators.
+See [the dated erratum](config/causal_grounding_spec.json).
 
-**Act 1 finding (done):** the original "asymmetric modularity" claim is NOT SUPPORTED
-in either species; the modularity verdict is method-dependent (survives in 1 of 10
-method × species cells); every stress test confirms it. Structural, not yet causal.
+## Development
 
-**Act 2 (the winnable result, built and ready):** does an expression-space SAE beat the
-~6-10% causal-grounding ceiling of foundation-model SAEs on Replogle CRISPRi? Metric and
-pipeline are built and verified on synthetic (recovers planted regulators, FDR-calibrated,
-defeats the triviality trap); the GPU run is the open step.
+The repository contains standalone Python scripts rather than a packaged application.
+Gate-0 analysis and synthetic tests run on CPU. Full Perturb-seq fits are larger;
+choose resources from the actual dataset and record runtime rather than promising a
+GPU duration from an estimate.
 
-Follow-up hardening lives on PR #3 (draft); Gate 0 is already merged to `main`.
+Use the configured cloud Python environment when available. For a new environment,
+`requirements.txt` contains historical core version pins and open-ended Torch/Scanpy
+requirements; it is not a complete environment lock. Record the resolved environment
+and follow [REPRODUCIBILITY.md](docs/REPRODUCIBILITY.md).
 
----
+From the repository root, the standalone checks are:
+
+```bash
+python3 -m py_compile src/*.py tests/*.py
+for test_file in tests/test_*.py; do
+  python3 "$test_file" || exit $?
+done
+```
+
+Synthetic success verifies specified code paths, not a real-data biological result.
+See the reproducibility guide for evidence checks that do not retrain or overwrite
+the frozen Gate-0 artifacts. Put new matrices, checkpoints, logs, and analyses in a
+separate run directory; do not overwrite `data_g0/` or `data_g0_human/`.
 
 ## Repository map
 
-```
-README.md            <- you are here (project map)
-CLAUDE.md            <- operating manual for Claude Code (rules, status)
-LAB_NOTEBOOK.md      <- dated research log (thoughts + what was done each session)
-requirements.txt     <- pinned environment
+| Path | Contents |
+|---|---|
+| `src/` | Preprocessing, SAE training, structural metrics, causal metrics, diagnostics, figure generators. |
+| `tests/` | Standalone logic, synthetic, preprocessing, and actual-training checks. |
+| `config/` | Versioned analysis specifications, marker panels, TF lists, reference gene sets. |
+| `data_g0/`, `data_g0_human/` | Committed Gate-0 summaries and frozen decision bundles; large matrices/checkpoints are excluded. |
+| `docs/figures/` | Structural figures and a historical causal diagnostic; the original causal enrichment panel used a wrong background and must not be cited. |
+| `LAB_NOTEBOOK.md` | Dated research history, including retractions and corrections. |
 
-src/                 <- all executable code
-  v0b_module_definitions.py   canonical v2 module logic (markers, coverage, loaders,
-                              V0B_MARKERS_JSON override for the human arm)
-  v0b_v3_loading.py           continuous decoder-loading strength (no gate)
-  v0b_v3_1_decision.py        THE pre-registered metric (control-referenced,
-                              abundance-matched null, effect-size floor, 60% rule)
-  train_sae.py                overcomplete SAE trainer (L0 QC band reporting)
-  preprocess_paul15.py        mouse marker-aware preprocessing (+ h5 fallback loader)
-  preprocess_human_marrow.py  human CELLxGENE preprocessing (ortholog markers)
-  baselines_nmf_pca.py        PCA/NMF participation ratio + same v3.1 modularity
-  marker_sensitivity.py       leave-one-marker-out robustness
+## Reading and publication
 
-tests/               <- synthetic logic tests (no data/torch needed); add src/ to path
-config/              <- frozen specs + marker panels
-  preregistration_spec.json / .sha256   frozen metric spec (SHA fc342829)
-  human_markers.json                    1:1 human orthologs of the mouse submodules
-docs/                <- narrative + reference documents (see index below)
+- [Master summary](docs/PROJECT_MASTER_SUMMARY.md): project history, evidence registry,
+  limitations, file index, and remaining directions.
+- [Gate-0 results](docs/COMPONENT0_RESULTS.md) and
+  [hardening](docs/COMPONENT0_HARDENING.md): committed structural evidence.
+- [Causal results](docs/COMPONENT2_RESULTS.md): current interpretation plus a labeled
+  historical record; missing raw evidence is explicit.
+- [Abstract draft](docs/ABSTRACT.md): evidence-limited manuscript framing.
+- [Reproducibility](docs/REPRODUCIBILITY.md): artifact verification and regeneration gaps.
+- [Research audit](docs/PROJECT_AUDIT.md): earlier methodological corrections.
 
-data/                <- manifest for the large Drive inputs (gitignored)
-data_g0/             <- EXECUTED mouse run (matrices/checkpoints gitignored;
-                        small result artifacts committed as evidence)
-data_g0_human/       <- EXECUTED human run (same convention)
-```
-
-## Documentation index (`docs/`)
-
-| Doc | What it is |
-|-----|-----------|
-| `PROJECT_MASTER_SUMMARY.md` | **Start here.** Everything, start to finish, as of 2026-10-18: narrative, scorecard, every self-correction, frozen hashes, file and dataset index, stale-doc list, future directions. |
-| `PROJECT_HANDOFF.md` | Phase-1-closeout snapshot (historical record). |
-| `PROJECT_AUDIT.md` | Authoritative corrections + rigor log; sections J/K are current findings. |
-| `STRATEGY_AND_POSITIONING.md` | Field situating, novelty audit vs Kendiukhov et al., the reframe. |
-| `DIFFERENTIATION.md` | Verified competitor landscape + differentiation table + rehearsed novelty answer (all competitors are embedding-space; this is expression-space). |
-| `PREREGISTRATION.md` | The frozen analysis spec (what was locked before running). |
-| `COMPONENT0_STATUS.md` | Gate-0 state + the Colab/GPU reproduction runner. |
-| `COMPONENT0_RESULTS.md` | The EXECUTED Gate-0 numbers (mouse + human) + frozen SHAs. |
-| `COMPONENT2_RESULTS.md` | Causal Arm-B (expression) preliminary run: seed table, sensitivity sweep, the essential-gene confound (NOT frozen). |
-| `COMPONENT2_NEXT_DIRECTIONS.md` | Results-driven execution map: the v4 re-run, the head-to-head grid redesign, and the exhaustive prioritized direction tree. |
-| `COMPONENT0_HARDENING.md` | Robustness battery (R1-R4 + TRRUST + GRN + ICA) stress-testing the frozen verdict. |
-| `ABSTRACT.md` | One-page competition/mentor summary (draft), traced to committed numbers. |
-| `REPRODUCIBILITY.md` | Scripted end-to-end verification + expected hashes/outputs. |
-| `ELEVATION_PLAN.md` | **The pivot**: how to turn the null into a positive, causal, benchmark-beating result. |
-| `UPGRADE_BACKLOG.md` | Exhaustive, prioritized backlog of upgrades + redirections (tiers 0-6 + big reframes). |
-| `IMPACT_STRATEGY.md` | How to make the project impressive/influential AFTER the causal negative: the auditor reframe, the effect-size-residual metric, the benchmark, the 3 project shapes. |
-| `METHODOLOGY_ADDENDUM_OE.md` | The overexpression pivot: causal grounding on the Joung TF Atlas (GSE216481) via `direction=up`; the metric generalization, TopK-competition subtlety, pre-registration, and data-access plan. |
-| `RUNPOD_EXECUTION.md` | Turnkey GPU steps for the expression-vs-embedding causal head-to-head. |
-| `phase2_research_plan_v6.md` | Reframed plan; the causal head-to-head is the spine. |
-| `VERSION_HISTORY.md` | Metric/pipeline version lineage (v2 -> v3 -> v3.1). |
-| `COMPUTE.md` | What runs on CPU vs GPU and why (incl. why the AMD 5700 XT isn't practical). |
-| `COMPONENT2_PLAN.md` | Executable design for the causal CRISPRi head-to-head vs the 6.2% null (GPU-blocked; specified, not run). |
-
-## How to run (from repo root)
-
-```bash
-pip install -r requirements.txt
-
-# logic tests (no data needed)
-python3 tests/test_v0b_logic.py
-python3 tests/test_v0b_v3_1_logic.py
-python3 tests/test_baselines_logic.py
-
-# mouse pipeline (needs Paul15 -> data_g0/expression_matrix.npy)
-python3 src/preprocess_paul15.py --n-hvg 2000 --out-dir ./data_g0
-python3 src/train_sae.py --matrix ./data_g0/expression_matrix.npy --latent-dim 512 --l1 0.8 --seeds 10 --epochs 300 --out-dir ./data_g0
-python3 src/v0b_v3_1_decision.py --data-dir ./data_g0 --output-dir ./data_g0/v0b_outputs
-python3 src/baselines_nmf_pca.py --data-dir ./data_g0 --rank 512 --seeds 10 --out ./data_g0/baselines
-python3 src/marker_sensitivity.py --data-dir ./data_g0 --out ./data_g0/sensitivity
-
-# human replication arm (needs Setty marrow -> data_g0_human/)
-python3 src/preprocess_human_marrow.py --out-dir ./data_g0_human
-V0B_MARKERS_JSON=config/human_markers.json python3 src/train_sae.py --matrix ./data_g0_human/expression_matrix.npy --latent-dim 512 --l1 0.8 --seeds 10 --epochs 300 --out-dir ./data_g0_human
-V0B_MARKERS_JSON=config/human_markers.json python3 src/v0b_v3_1_decision.py --data-dir ./data_g0_human --output-dir ./data_g0_human/v0b_outputs
-```
-
-Runs are CPU-friendly (~50-75 s/seed; a full 10-seed run is ~8-12 min).
-
-## Current status
-
-**Gate 0 (Component 0): COMPLETE and frozen** (mouse + human). Original claim NOT
-SUPPORTED in both species; the modularity verdict is method-dependent (PCA/NMF/SAE
-disagree); marker leave-one-out is robust (0/34 mouse, 0/36 human); nulls calibrated.
-Frozen bundles: mouse `172861...`, human `cc8159c8...`.
-
-**Next: Component 2** — Replogle CRISPRi causal head-to-head vs Kendiukhov's 6.2%
-embedding-space null (the centerpiece). Optional cheap hardening first: SCENIC as a
-5th baseline, TRRUST/ChIP-Atlas cross-reference.
-
-## Data provenance
-
-- Mouse: Paul15 myeloid atlas, obtained via git-LFS mirror, hash-verified.
-- Human: Setty 2019 CD34+ bone-marrow (distributed with Palantir), sha256
-  `be4f8603...`, hash-verified.
-- Large binaries (matrices, checkpoints, raw h5ad) are gitignored and regenerable;
-  the committed small JSON/CSV artifacts are the reproducible evidence.
+Older strategy documents and research plans describe proposed work and superseded
+interpretations. Use the dated evidence, executable implementation, and corrections
+before quoting them. Publication still requires an archived causal rerun, uncertainty
+estimates, audited citations, and validation of any claimed biological novelty.
