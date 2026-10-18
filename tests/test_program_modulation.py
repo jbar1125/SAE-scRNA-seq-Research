@@ -1,5 +1,5 @@
 #!/usr/bin/env python3
-"""Synthetic-oracle test for the program-modulation metric.
+"""Synthetic-oracle checks for the historical program-modulation readouts.
 
 Two worlds must be told apart, because confusing them is exactly how this project's earlier
 metrics failed:
@@ -10,9 +10,13 @@ metrics failed:
      failure mode). The metric may report many modulators, but the feature-background
      percentile must NOT single it out, so the run reads as a negative rather than a discovery.
 Pure numpy; no torch or data needed.
+These two worlds do not validate perturbation-identity specificity; see
+test_program_modulation_counterexamples.py and test_program_modulation_specificity.py.
 """
 import os
+import subprocess
 import sys
+import tempfile
 
 import numpy as np
 
@@ -82,7 +86,7 @@ def test_specific_world_detected():
     assert r["feature_background_percentile"] >= 90, r["feature_background_percentile"]
     print(f"specific world: found all movers {sorted(found)}, shuffle p="
           f"{r['shuffle_null']['empirical_p']:.3f}, background pct "
-          f"{r['feature_background_percentile']:.0f} -> reads as POSITIVE")
+          f"{r['feature_background_percentile']:.0f} -> quantitative gates pass")
 
 
 def test_dominant_axis_not_flagged_as_discovery():
@@ -126,9 +130,31 @@ def test_label_free_selection():
     print("label-free: selected feature identical under label shuffle (non-circular)")
 
 
+def test_cli_rejects_untrained_or_invalid_runs_before_loading():
+    script = os.path.join(os.path.dirname(__file__), "..", "src", "program_modulation.py")
+    for flag, value in (("--epochs", "0"), ("--epochs", "-1"), ("--batch", "0"),
+                        ("--n-identity-shuffle", "0"), ("--k", "2049"),
+                        ("--match-alpha", "nan")):
+        result = subprocess.run([sys.executable, script, "--adata", "missing-input.h5ad",
+                                 flag, value], capture_output=True, text=True)
+        assert result.returncode == 2, (flag, value, result.stderr)
+        assert "error:" in result.stderr and "FileNotFoundError" not in result.stderr
+    with tempfile.TemporaryDirectory() as tmp:
+        existing = os.path.join(tmp, "prior_result.json")
+        with open(existing, "w") as stream:
+            stream.write("preserve prior evidence\n")
+        result = subprocess.run([sys.executable, script, "--adata", "missing-input.h5ad",
+                                 "--out", existing], capture_output=True, text=True)
+        assert result.returncode == 2 and "output already exists" in result.stderr
+        with open(existing) as stream:
+            assert stream.read() == "preserve prior evidence\n"
+    print("CLI: untrained/invalid runs rejected before data loading; prior evidence preserved")
+
+
 if __name__ == "__main__":
     test_specific_world_detected()
     test_dominant_axis_not_flagged_as_discovery()
     test_low_power_program_flagged()
     test_label_free_selection()
+    test_cli_rejects_untrained_or_invalid_runs_before_loading()
     print("ALL PROGRAM-MODULATION TESTS PASSED")

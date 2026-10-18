@@ -24,7 +24,7 @@ THE THREE READOUTS (all pre-registered in config/program_modulation_spec.json):
   1. n_modulators: perturbations with BH-q < ALPHA and AUC >= AUC_FLOOR on the program feature.
      Multiple testing is over ~100 PERTURBATIONS, not 2048 features -- that is why this is
      powered where regulon recovery was not.
-  2. LABEL-SHUFFLE NULL (mode "full", the default): permute ALL labels including control, so
+  2. EXPLORATORY LABEL-SHUFFLE (mode "full", the default): permute ALL labels including control, so
      group membership is independent of biology, and recount. Answers "is the modulator set
      larger than chance?" NOTE: the legacy mode "perturbed" (permute among perturbed cells only,
      controls fixed) INFLATES this metric -- spreading strongly activating cells across every
@@ -39,8 +39,14 @@ THE THREE READOUTS (all pre-registered in config/program_modulation_spec.json):
 HONEST PRE-STATEMENT OF THE LIKELY NEGATIVE: if the erythroid program simply IS K562's dominant
 axis, many perturbations will nudge it and the feature-background percentile will be unremarkable.
 That outcome is a real negative and must be reported as one, not spun as "many modulators found".
-A positive requires a modulator set that is both above the shuffle null AND high against the
-feature background AND biologically coherent on inspection.
+AUDIT 2026-10-18: the old three-part positive rule is insufficient. A common response to EVERY
+perturbation, confined to one feature, can pass both quantitative gates. Full-label shuffles also
+hold the original control-selected feature fixed, rather than repeating control-dependent
+selection, so their p-values are exploratory. The feature percentile is descriptive. Neither
+quantity establishes perturbation-identity or pathway specificity. The CLI now separately runs
+program_modulation_specificity: a controls-fixed identity-randomization test, corrected over all
+planned programs. That tests conditional rank heterogeneity, not a novel biological mechanism.
+The version-locked v1.1 spec remains unchanged as a historical record.
 
 Pure numpy/scipy; unit-tested against a synthetic oracle (tests/test_program_modulation.py).
 """
@@ -112,17 +118,36 @@ def select_program_feature(prog, marker_idx, n_genes, top_k, eligible):
 def program_modulation(activations, expression, labels, gene_names, marker_sets,
                        top_k=TOP_K, auc_floor=AUC_FLOOR, alpha=ALPHA, min_cells=MIN_CELLS,
                        min_active_cells=MIN_ACTIVE_CELLS, n_shuffle=0,
-                       n_random_features=N_RANDOM_FEATURES, shuffle_mode="full", seed=0):
+                       n_random_features=N_RANDOM_FEATURES, shuffle_mode="full", seed=0,
+                       match_alpha=ALPHA):
     """See module docstring. marker_sets: {program_name: [gene symbols]}."""
     activations = np.asarray(activations, float)
+    expression = np.asarray(expression)
     labels = np.asarray(labels).astype(str)
     gname = list(map(str, gene_names))
     gidx = {g: i for i, g in enumerate(gname)}
     n_genes = len(gname)
+    if (activations.ndim != 2 or expression.ndim != 2 or labels.ndim != 1
+            or len(labels) != len(activations) or len(expression) != len(labels)
+            or expression.shape[1] != n_genes):
+        raise ValueError("activations, expression, labels and gene_names must have aligned shapes")
+    if not np.isfinite(activations).all() or not np.isfinite(expression).all():
+        raise ValueError("activations and expression must be finite")
+    if len(set(gname)) != n_genes:
+        raise ValueError("gene_names must be unique; resolve duplicate symbols before analysis")
+    if top_k < 1 or n_random_features < 1 or n_shuffle < 0 or min_cells < 1 or min_active_cells < 1:
+        raise ValueError("invalid feature, shuffle or cell-count settings")
+    if not 0 < match_alpha < 1 or shuffle_mode not in ("full", "perturbed"):
+        raise ValueError("invalid match_alpha or shuffle_mode")
+    if n_genes == 0:
+        raise ValueError("expression must contain genes")
+    top_k = min(top_k, n_genes)
     rng = np.random.default_rng(seed)
 
     is_ctrl = labels == cg.CONTROL_LABEL
     ctrl_idx = np.where(is_ctrl)[0]
+    if len(ctrl_idx) < 2:
+        raise ValueError("at least two control cells are required")
     prog = cg.gene_association(activations, expression, is_ctrl)
 
     # eligible features: fire in enough CONTROL cells (unreliable features have noisy programs)
@@ -138,8 +163,18 @@ def program_modulation(activations, expression, labels, gene_names, marker_sets,
             pert_idx[p] = idx
 
     out = {"n_perturbations": len(pert_idx), "n_eligible_features": int(len(eligible)),
-           "top_k": top_k, "auc_floor": auc_floor, "alpha": alpha, "programs": {}}
+           "top_k": top_k, "auc_floor": auc_floor, "alpha": alpha,
+           "match_alpha": match_alpha, "programs": {},
+           "interpretation": {
+               "label_shuffle": "exploratory: control-dependent selection is held fixed",
+               "feature_background": "descriptive percentile, not a calibrated specificity test",
+               "biological_specificity": "not established by these two readouts"}}
     if len(eligible) == 0 or not pert_idx:
+        for name, genes in marker_sets.items():
+            found = sorted(set(genes) & set(gname))
+            out["programs"][name] = {"n_markers_in_panel": len(found),
+                "markers_found": found, "low_power": True,
+                "reason": "no_eligible_features" if len(eligible) == 0 else "no_eligible_perturbations"}
         return out
 
     # ---- feature-background null: identical test on random eligible features ----
@@ -156,9 +191,15 @@ def program_modulation(activations, expression, labels, gene_names, marker_sets,
         rec = {"n_markers_in_panel": len(midx), "markers_found": [gname[i] for i in midx]}
         if len(midx) < 3:
             rec["low_power"] = True
+            rec["reason"] = "insufficient_marker_coverage"
             out["programs"][name] = rec
             continue
         f, ep, ebonf = select_program_feature(prog, midx, n_genes, top_k, eligible)
+        if f < 0 or not np.isfinite(ebonf) or ebonf > match_alpha:
+            rec.update(low_power=True, feature=None, enrich_p=ep, enrich_p_bonf=ebonf,
+                       reason="no_significant_program_match")
+            out["programs"][name] = rec
+            continue
         n_mod, rows = _count_modulators(activations[:, f], ctrl_idx, pert_idx, auc_floor, alpha)
         rec.update(low_power=False, feature=int(f), enrich_p=ep, enrich_p_bonf=ebonf,
                    n_modulators=int(n_mod),
@@ -214,6 +255,13 @@ def main():
     ap.add_argument("--n-hvg", type=int, default=4000)
     ap.add_argument("--n-shuffle", type=int, default=50)
     ap.add_argument("--n-random-features", type=int, default=N_RANDOM_FEATURES)
+    ap.add_argument("--match-alpha", type=float, default=ALPHA,
+                    help="maximum feature-selection Bonferroni p; unmatched programs are not scored")
+    ap.add_argument("--n-identity-shuffle", type=int, default=999,
+                    help="controls-fixed identity permutations; Holm correction across named programs")
+    ap.add_argument("--strata-col", help="optional obs column constraining identity permutations within strata")
+    ap.add_argument("--epochs", type=int, default=200)
+    ap.add_argument("--batch", type=int, default=1024)
     ap.add_argument("--train-on", choices=["all", "control"], default="all",
                     help="cells the SAE is fit on: all (primary, as frozen) or control "
                          "(pre-declared sensitivity analysis, unvalidated; spec v1.1)")
@@ -222,25 +270,86 @@ def main():
                          "perturbed-vs-control contrast and INFLATES this metric")
     ap.add_argument("--out", default="causal_out/program_modulation.json")
     args = ap.parse_args()
+    if args.epochs < 1 or args.batch < 1 or args.latent < 1 or not 1 <= args.k <= args.latent:
+        ap.error("epochs, batch and latent must be positive; k must be between 1 and latent")
+    if (args.n_hvg < 0 or args.n_shuffle < 0 or args.n_identity_shuffle < 1
+            or args.n_random_features < 1 or not 0 < args.match_alpha < 1):
+        ap.error("invalid gene, permutation, feature-background or marker-match settings")
+    if Path(args.out).exists():
+        ap.error("output already exists; choose a new run path to preserve prior evidence")
 
     from causal_pipeline import load_perturbseq, train_rows, train_topk_sae
     marker_sets = json.load(open(args.markers))["marker_sets"]
     keep = {g for gs in marker_sets.values() for g in gs}
     X, genes, labels, tested = load_perturbseq(args.adata, args.pert_col, args.control_value,
                                                n_hvg=args.n_hvg, keep_genes=keep)
+    if len(set(genes)) != len(genes):
+        ap.error("duplicate gene symbols in input panel; resolve them before fitting an SAE")
+    if np.count_nonzero(labels == cg.CONTROL_LABEL) < 2:
+        ap.error("at least two control cells are required before fitting an SAE")
+    strata = None
+    if args.strata_col:
+        import anndata as ad
+        backed = ad.read_h5ad(args.adata, backed="r")
+        try:
+            if args.strata_col not in backed.obs:
+                ap.error(f"strata column {args.strata_col!r} is absent from obs")
+            if backed.obs[args.strata_col].isna().any():
+                ap.error("strata values must not be missing")
+            strata = np.asarray(backed.obs[args.strata_col].astype(str))
+            if np.any(np.char.strip(strata.astype(str)) == ""):
+                ap.error("strata values must not be empty")
+        finally:
+            backed.file.close()
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} single-gene perts; "
           f"{len(marker_sets)} named programs")
     fit = train_rows(labels, args.train_on)
-    encode, info = train_topk_sae(X[fit], args.latent, args.k, seed=args.seed)
+    encode, info = train_topk_sae(X[fit], args.latent, args.k, seed=args.seed,
+                                 epochs=args.epochs, batch=args.batch)
     acts = encode(X)
-    info.update(trained_on=args.train_on, n_train_cells=int(fit.sum()))
+    info.update(trained_on=args.train_on, n_train_cells=int(fit.sum()),
+                epochs=args.epochs, batch=args.batch)
     print(f"trained SAE {info}")
     res = program_modulation(acts, X, labels, genes, marker_sets, n_shuffle=args.n_shuffle,
                              n_random_features=args.n_random_features,
-                             shuffle_mode=args.shuffle_mode, seed=args.seed)
+                             shuffle_mode=args.shuffle_mode, seed=args.seed,
+                             match_alpha=args.match_alpha)
+    from program_modulation_specificity import program_modulation_specificity
+    res["identity_heterogeneity"] = program_modulation_specificity(
+        acts, labels, res["programs"], strata=strata,
+        n_shuffle=args.n_identity_shuffle, match_alpha=args.match_alpha, seed=args.seed)
     Path(args.out).parent.mkdir(parents=True, exist_ok=True)
     res["sae"] = info                       # provenance: which cells the SAE was fit on
-    json.dump(res, open(args.out, "w"), indent=2)
+    import hashlib
+    import importlib.metadata
+    import platform
+    import subprocess
+    from datetime import datetime, timezone
+    def digest(path):
+        h = hashlib.sha256()
+        with open(path, "rb") as stream:
+            for block in iter(lambda: stream.read(8 * 1024 * 1024), b""):
+                h.update(block)
+        return h.hexdigest()
+    root = Path(__file__).resolve().parent.parent
+    res["provenance"] = {
+        "created_utc": datetime.now(timezone.utc).isoformat(),
+        "arguments": vars(args), "python": platform.python_version(),
+        "input_sha256": digest(args.adata), "markers_sha256": digest(args.markers),
+        "source_sha256": {name: digest(root / "src" / name) for name in
+            ("program_modulation.py", "program_modulation_specificity.py",
+             "causal_pipeline.py", "causal_grounding.py")},
+        "packages": {name: importlib.metadata.version(name) for name in
+            ("numpy", "scipy", "pandas", "statsmodels", "torch", "scanpy", "anndata")}}
+    try:
+        res["provenance"]["git_commit"] = subprocess.check_output(
+            ["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
+        res["provenance"]["git_dirty"] = bool(subprocess.check_output(
+            ["git", "-C", str(root), "status", "--porcelain"], text=True).strip())
+    except (OSError, subprocess.CalledProcessError):
+        res["provenance"]["git_commit"] = None
+    with open(args.out, "x") as stream:
+        json.dump(res, stream, indent=2, allow_nan=False)
 
     bg = res.get("feature_background", {})
     print(f"\n[{args.out}] {res['n_perturbations']} perturbations x "
@@ -250,15 +359,18 @@ def main():
     print(f"\n  {'program':<16}{'mkrs':>5}{'feat':>7}{'modul':>7}{'bg pct':>8}{'shufP':>8}  top genes")
     for name, r in res["programs"].items():
         if r.get("low_power"):
-            print(f"  {name:<16}{r['n_markers_in_panel']:>5}   LOW POWER (<3 markers in panel)")
+            print(f"  {name:<16}{r['n_markers_in_panel']:>5}   UNSCORED: {r.get('reason')}")
             continue
         sp = r.get("shuffle_null", {}).get("empirical_p", float("nan"))
         print(f"  {name:<16}{r['n_markers_in_panel']:>5}{r['feature']:>7}{r['n_modulators']:>7}"
               f"{r['feature_background_percentile']:>7.0f}%{sp:>8.3f}  "
               f"{', '.join(r['top_program_genes'][:6])}")
-    print("\n  READ: a POSITIVE needs shufP < 0.05 AND a high background percentile AND a "
-          "coherent modulator list.\n  Many modulators at an unremarkable percentile = the "
-          "dominant-axis artifact, i.e. a negative.")
+    print("\n  Shuffle p and feature percentile are exploratory; they do not establish specificity.")
+    for name, r in res["identity_heterogeneity"]["programs"].items():
+        print(f"  {name}: conditional identity heterogeneity Holm p={r['holm_p']:.4g}; "
+              f"{r['status']}")
+    print("  Identity heterogeneity is conditional cell-level evidence, not pathway specificity "
+          "or independent biological replication.")
     for name, r in res["programs"].items():
         if not r.get("low_power") and r.get("modulators"):
             print(f"\n  {name} modulators ({r['n_modulators']}): "

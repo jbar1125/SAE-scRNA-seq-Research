@@ -129,13 +129,14 @@ def load_perturbseq(h5ad, pert_col, control_value, min_cells=30, n_hvg=0, tf_set
 
     tf_set (optional): restrict the SCORED perturbations to these genes (e.g. transcription
     factors). Causal/regulatory grounding is only meaningful for regulators; essential
-    housekeeping-gene knockdowns cause broad non-specific effects and are not testable for
-    target-specific responses. This also matches the foundation-model benchmark (TF panel).
+    housekeeping-gene knockdowns can cause broad non-specific effects, so that alternative
+    needs separate controls. A TF panel alone does not make protocols directly comparable.
 
     exclude_set (optional): drop these genes from the scored perturbations (e.g. Hart CEGv2
     core-essential genes -- knocking down a core-essential gene collapses transcription
-    globally, which grounds a broad 'cell-health' feature non-specifically; the first real
-    run was ~10x enriched for such genes, see docs/COMPONENT2_RESULTS.md)."""
+    globally, which can ground a broad 'cell-health' feature non-specifically). The historical
+    ~10x enrichment claim used an untested background and is withdrawn; see the current audit
+    in docs/COMPONENT2_RESULTS.md. The tagged-vs-other-tested comparison was 6/51 vs 14/111."""
     import anndata as ad
     import scanpy as sc
     from collections import Counter

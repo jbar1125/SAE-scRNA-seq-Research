@@ -1,0 +1,53 @@
+{
+  "completed_utc": "2026-10-18T19:04:24.060516+00:00",
+  "n_simulations": 200,
+  "familywise_rejections": 6,
+  "familywise_rejection_frequency": 0.03,
+  "exact_95_percent_binomial_interval": [
+    0.011087455672203693,
+    0.06415062670502639
+  ],
+  "nominal_familywise_alpha": 0.05,
+  "one_sided_binomial_p_for_rate_above_nominal": 0.9376575049577053,
+  "anti_conservatism_signal_at_0_05": false,
+  "paired_generic_offset_rank_invariance_checks_passed": 5,
+  "elapsed_seconds": 27.188656,
+  "sources": {
+    "calibration_generator": {
+      "path": "/workspace/SAE-scRNA-seq-Research/src/calibrate_program_modulation_specificity.py",
+      "sha256": "1a6ee1d85737d90aaf62f6ab9900e564cbad1c9e9f49971d80a843957deff4f0"
+    },
+    "executed_identity_module": {
+      "path": "/workspace/SAE-scRNA-seq-Research/src/program_modulation_specificity.py",
+      "sha256": "26ef91771d04d032ca9727672dc56811e32dfb22d4941f146faed03a7cc6b268"
+    }
+  },
+  "parameters": {
+    "n_simulations": 200,
+    "seed_start": 0,
+    "seed_end_inclusive": 199,
+    "n_permutations": 999,
+    "n_programs": 9,
+    "n_distinct_features": 9,
+    "n_controls": 100,
+    "n_perturbations": 10,
+    "cells_per_perturbation": 40,
+    "min_cells": 20,
+    "alpha": 0.05,
+    "match_alpha": 0.05,
+    "stipulated_marker_match_p_bonf": 1e-06,
+    "generator": "independent standard normal float64 features for every cell",
+    "generator_stream_salt": 20261018,
+    "generator_seed_sequence": "[simulation_seed, generator_stream_salt, 1]",
+    "permutation_seed": "simulation_seed (separate generator stream)",
+    "paired_generic_checks": 5,
+    "paired_generic_offset": 3.0,
+    "strata": null,
+    "multiplicity": "Holm over all nine planned programs",
+    "outcome": "any Holm-adjusted conditional_heterogeneity rejection in one simulation",
+    "confidence_interval": "two-sided exact Clopper-Pearson 95% interval for simulation familywise rejection frequency",
+    "anti_conservatism_diagnostic": "one-sided exact binomial test against nominal familywise rate 0.05; no tuning or reruns"
+  },
+  "simulation_results_sha256": "890afae49477de4b7587e57b0204efd210da1ea27bceb973f78ebb070efbd813",
+  "interpretation": "Finite synthetic null calibration only; neither a proof of general validity nor evidence for a biological effect or discovery."
+}

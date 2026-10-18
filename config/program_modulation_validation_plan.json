@@ -1,0 +1,61 @@
+{
+  "name": "program_modulation_validation",
+  "version": "audit-v2",
+  "date": "2026-10-18",
+  "status": "prospective for the next real-data run; software design informed by synthetic counterexamples, not independent registration",
+  "historical_spec_preserved": "config/program_modulation_spec.json",
+  "reason": "A generic perturbation response confined to one axis passes the historical quantitative gates, and absent marker overlap selects feature -1. Neither behavior establishes perturbation-identity specificity.",
+  "primary_scope": "Conditional cell-level perturbation-identity rank heterogeneity for externally named, control-selected programs. A rejection is not pathway specificity, biological replication, an SAE advantage, or novelty.",
+  "input": {
+    "source": "https://scverse-exampledata.s3.eu-west-1.amazonaws.com/pertpy/norman_2019_raw.h5ad",
+    "expected_bytes": 828160302,
+    "independent_checksum": null,
+    "preparation": "src/prep_norman.py; retain integer counts; record downloaded-file hash without claiming it is an independent expected checksum",
+    "duplicate_symbols": "fail before training if duplicate symbols survive the gene panel; document an explicit aggregation/mapping policy in a separate amendment before resolving them",
+    "programs": "All nine config/human_markers.json marker_sets; retain unmatchable programs with p=1",
+    "data_available_at_plan_creation": false
+  },
+  "training": {
+    "primary_train_on": "all",
+    "seeds": [0, 1, 2],
+    "latent_dim": 2048,
+    "k": 32,
+    "epochs": 200,
+    "batch": 1024,
+    "n_hvg": 4000,
+    "sensitivity_train_on": "control; report as sensitivity, not a gate or validated replacement",
+    "small_cpu_runs": "Implementation pilots only; they do not complete this full-data analysis"
+  },
+  "marker_match": {
+    "selection": "control cells only; eligible features active in at least 50 controls; top 50 associated genes",
+    "minimum_panel_markers": 3,
+    "bonferroni_match_alpha": 0.05,
+    "no_match": "Do not score an arbitrary feature; retain the named hypothesis with p=1",
+    "interpretation": "A diagnostic annotation gate; gene correlations violate a naive exchangeable-gene interpretation of hypergeometric p"
+  },
+  "identity_inference": {
+    "minimum_cells_per_single_perturbation": 20,
+    "statistic": "Sum over eligible single-perturbation groups of n_g times squared deviation of pooled mean midrank from the grand mean",
+    "permutations": 999,
+    "empirical_p": "(1 + number of permuted statistics >= observed) / (1 + number of permutations)",
+    "conditioning": "Keep original controls, eligible groups, chosen features and fitted label-blind representation fixed; shuffle only single-perturbation identities",
+    "strata": "Use documented exchangeable batch/guide/replicate strata where appropriate. A completely confounded design is uninformative and receives p=1. Cell shuffling does not create biological replicates.",
+    "multiplicity_per_seed": "Holm across all nine planned programs, including no-match p=1",
+    "across_seeds": "Report all 27 raw program-by-seed p-values and apply Holm across that complete family before inferential claims about repeated seed findings. Agreement across seeds is computational robustness, not independent biological replication.",
+    "family_alpha": 0.05,
+    "limitations": "Unequal generic perturbation severity can cause rank heterogeneity. Exchangeability must be justified from the experimental design. Inspecting the data and choosing strata or signatures afterward makes those analyses exploratory."
+  },
+  "historical_readouts": {
+    "full_label_shuffle": "Exploratory only: it does not repeat the control-dependent feature selection; no calibrated discovery claim",
+    "random_feature_percentile": "Descriptive; feature activity/power are unmatched and the selected named feature is not exchangeable with random features",
+    "per_perturbation_modulators": "Exploratory candidates; BH within one program does not correct the full program-by-perturbation family"
+  },
+  "follow_up_required_before_biological_claim": [
+    "Direct external-marker expression-score baseline with held-out controls and target-transcript omission sensitivity",
+    "Guide, batch, library-depth, cell-state and generic-effect severity checks supported by available experimental metadata",
+    "Appropriate full-family multiple-testing correction for named regulator claims",
+    "Primary-literature review and independent validation for any proposed mechanism or novelty",
+    "Direct PCA/NMF feature baselines if an SAE advantage is claimed; PCA/NMF-to-SAE inputs are not those baselines"
+  ],
+  "archive": "Retain code and data hashes, resolved versions, complete arguments, seed, training population, strata, all named-program records, null metadata, logs and per-perturbation outputs. Preserve prior outputs; use a new output path for every run."
+}

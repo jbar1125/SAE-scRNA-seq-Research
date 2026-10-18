@@ -1,0 +1,33 @@
+{
+  "purpose": "Exact provenance of the original20seed run and subsequent current-API reanalysis",
+  "historical_ref": "a08db6d5ef4440adb9f1e1613e96856ab6515533",
+  "executed_generator": {
+    "artifact": "executed_generator_source.txt",
+    "sha256": "a03a456ca5c52c517a9e5646229149be958852cc4eef0103024b94e721fa4711",
+    "copy_timing": "Exact source was copied while original run was executing, before generator safety/provenance enhancements",
+    "working_tree_dirty": null,
+    "dirty_flag_note": "Not captured by the original generator; current CLI records dirty status and generator hash"
+  },
+  "artifacts": {
+    "README.md": "1d79c1a959e906f3436f6799036f6e75d6c8addfc9baf22d5524544e138e901e",
+    "executed_generator_source.txt": "a03a456ca5c52c517a9e5646229149be958852cc4eef0103024b94e721fa4711",
+    "legacy_counterexamples_20seeds.json": "c9c3bb43d2451919726bdef60d1cbcd0da13531289895cdb210323cc02a258a8",
+    "rates_and_intervals.json": "d9fa184ae3c0b8b93899a33bc09fe4b00c5d41fd3451243d3e5b8a926cad2efe",
+    "specificity_reanalysis_20seeds.json": "0349d20023793f8ada2ec21c01504177b58d163fba1a64315140ad6e8d506067"
+  },
+  "reanalysis_source_sha256": "26ef91771d04d032ca9727672dc56811e32dfb22d4941f146faed03a7cc6b268",
+  "reanalysis_generator_sha256": "4ddf38e4b20fb8a55ad174e94684e1e092ba422974a20eb0f8589aa067c2d142",
+  "notes": [
+    "The legacy result file is copied byte for byte; intervals are supplied separately.",
+    "Legacy summary identity diagnostics are ungated rank calculations and are not the current marker-gated diagnostic. Use specificity_reanalysis_20seeds.json for current method results.",
+    "Quantitative legacy gates exclude the manually judged biological-coherence criterion.",
+    "A new output directory is mandatory; current CLI prevents metadata overwrite using preflight, exclusive output claim and exclusive writes.",
+    "Safety and provenance enhancements after the original run leave world generation and historical metric computations unchanged.",
+    "Full original JSONL outputs, metadata and log are archived byte for byte inside legacy_run/ for durable Git retention."
+  ],
+  "raw_legacy_run": {
+    "legacy_run/metadata.json": "8a736366a66b2e34775ee1a95fa9db5d326f70f16dc62ce64b2434ff63460b33",
+    "legacy_run/results.jsonl": "ee518d41dedd97396e12bc93099d61e09ef6f179d6bd1ed328f9e7a15c137f9d",
+    "legacy_run/run.log": "024fb870760259b49b7dbc46e40267b974ead62c5468528acc8ef9ca57103f63"
+  }
+}

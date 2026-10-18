@@ -1,0 +1,103 @@
+{
+  "scope": "Independent simulation seed frequencies; not biological replication or discovery rates",
+  "n_permutations": 99,
+  "n_planned_programs": 1,
+  "scenario_summary": {
+    "specific_subset": {
+      "legacy_quantitative_positive": {
+        "count": 20,
+        "n": 20,
+        "rate": 1.0,
+        "interval_95_percent": [
+          0.8315665290169146,
+          1.0
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_conditional_identity_rejection": {
+        "count": 20,
+        "n": 20,
+        "rate": 1.0,
+        "interval_95_percent": [
+          0.8315665290169146,
+          1.0
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_marker_matched_count": 20,
+      "legacy_invalid_feature_minus_one_count": 0
+    },
+    "generic_one_axis": {
+      "legacy_quantitative_positive": {
+        "count": 20,
+        "n": 20,
+        "rate": 1.0,
+        "interval_95_percent": [
+          0.8315665290169146,
+          1.0
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_conditional_identity_rejection": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_marker_matched_count": 20,
+      "legacy_invalid_feature_minus_one_count": 0
+    },
+    "null": {
+      "legacy_quantitative_positive": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_conditional_identity_rejection": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_marker_matched_count": 20,
+      "legacy_invalid_feature_minus_one_count": 0
+    },
+    "absent_markers_last_feature": {
+      "legacy_quantitative_positive": {
+        "count": 20,
+        "n": 20,
+        "rate": 1.0,
+        "interval_95_percent": [
+          0.8315665290169146,
+          1.0
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_conditional_identity_rejection": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "current_marker_matched_count": 0,
+      "legacy_invalid_feature_minus_one_count": 20
+    }
+  }
+}
