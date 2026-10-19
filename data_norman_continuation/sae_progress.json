@@ -1,0 +1,31 @@
+{
+  "observed_utc": "2026-10-19T01:24:47.001853+00:00",
+  "seed": 0,
+  "completed_epochs": 10,
+  "target_epochs": 200,
+  "complete": false,
+  "checkpoint_path": "/workspace/research-runs/norman-sae-primary/seed0.pt",
+  "observed_checkpoint_sha256": "06d1f3b442e2487cd32394b4fda7339e1097b9b42e86852332ff9df70e37a9e6",
+  "input": {
+    "shape": [
+      111445,
+      4081
+    ],
+    "dtype": "<f4",
+    "sha256": "2ba75854fbf964aadb128b3651ad1f3182b57df47f822da85d4e697f3e5507fd"
+  },
+  "training_params": {
+    "latent_dim": 2048,
+    "k": 32,
+    "batch": 1024,
+    "lr": 0.0004,
+    "seed": 0,
+    "device": "cpu",
+    "torch_version": "2.14.1+cpu"
+  },
+  "pending_seeds": [
+    1,
+    2
+  ],
+  "note": "Checkpoint is a mutable local runtime artifact; this progress observation is not a completed SAE result."
+}

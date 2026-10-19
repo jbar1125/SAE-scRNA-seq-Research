@@ -42,6 +42,12 @@ simulations. A separate conditional identity-heterogeneity test and a prospectiv
 distinguish that question from generic perturbation response. Full simulated
 outputs and calibration records are [archived](data_program_modulation_audit/README.md).
 
+The [fresh Norman continuation](docs/NORMAN_CONTINUATION_RESULTS.md) now includes
+a completed full-data, held-out-control marker baseline: 37 heme-panel associations,
+of which 29 survive target omission, RNA-depth matching and every negative-control
+reference. These are conditional marker-score associations. The full-size CPU SAE
+run is training with resumable checkpoints; it has no completed result yet.
+
 **Training correction:** every historical causal SAE was fit on all cells, including
 perturbed cells, without perturbation labels. Feature-gene associations used control
 cells. Cross-fitting separated perturbation matching from testing; it did not hold

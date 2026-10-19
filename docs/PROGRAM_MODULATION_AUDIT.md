@@ -118,8 +118,11 @@ checks, and independent validation of any proposed mechanism. Direct PCA/NMF
 feature baselines remain unrun: the earlier causal ladder instead trained an SAE
 on each reduced representation.
 
-The Norman source and GitHub API returned network-policy 403 responses in this
-instance. Their hostnames were added to the saved configuration draft; saving a
-draft does not apply runtime networking. No GPU device is attached. Full real-data
-training, biological novelty review, and publication submission remain outstanding.
-See the [manuscript draft](MANUSCRIPT_DRAFT.md) for the current bounded paper scope.
+The Norman source and GitHub API initially returned network-policy 403 responses.
+Access later recovered: the raw file was downloaded and fingerprinted, preparation
+completed, and PR #3 was updated through the REST API. A fresh full-data marker
+baseline and explicit sensitivities are now archived; see
+[NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md). The user selected
+CPU execution and full-size SAE training is running with checkpoints. No completed
+SAE result, biological novelty review or publication submission is claimed. See
+the [manuscript draft](MANUSCRIPT_DRAFT.md) for the current bounded paper scope.

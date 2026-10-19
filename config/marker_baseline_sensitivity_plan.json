@@ -1,0 +1,10 @@
+{
+  "name": "Norman marker-baseline reference and depth sensitivities",
+  "status": "Exploratory follow-up declared after seeing the primary marker baseline and before these sensitivity outcomes",
+  "date": "2026-10-18",
+  "fixed": "Keep all nine panels, eligible genes, discovery means/scales, original discovery/inference split, direction, AUC>=0.55, and target-omission rule from the primary baseline. Do not refit or choose favorable reference groups.",
+  "negative_control_references": "Repeat the complete program-by-perturbation analysis against each observed negative-control guide_identity separately, using only the original inference controls. Preserve all planned comparisons, including untestable p=1. BH jointly over programs x perturbations x all control references, separately for original and target-omission scores. Report all references and their intersection descriptively; these are not independent biological replicates.",
+  "depth_matching": "Derive quartile boundaries for log1p(UMI_count) within each gemgroup using discovery controls only. Use unique quantile boundaries, infinite end bins and fixed scores/split. Compare within gemgroup-by-depth-bin strata with the same sum-U test and min-cell rules. BH over the complete program-by-perturbation family, separately for original and omission scores. UMI count can be downstream of perturbation, so this is an overadjustment-prone robustness sensitivity, not a preferred causal estimator.",
+  "technical_partition_consistency": "Report descriptive per-gemgroup AUCs for all comparisons with sufficient cells. Do not interpret technical partitions as biological replication or select favorable partitions.",
+  "claims": "Responses that survive remain conditional cell-level associations. Sensitivity failure can reflect reference dependence, depth relationships, lost power, or overadjustment. No pathway mechanism, novelty or SAE advantage follows."
+}

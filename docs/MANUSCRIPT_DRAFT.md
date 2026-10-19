@@ -1,8 +1,9 @@
 # Measured hematopoietic gene-program modularity depends on decomposition: a computational audit of sparse-autoencoder interpretation
 
 **Internal manuscript draft, 2026-10-18. Not ready for submission.** Primary numerical
-results below come from preserved Gate-0 artifacts. Historical causal analyses lack
-their original result JSONs and are excluded from the primary results. The program-modulation design audit uses synthetic data and tests statistical
+results below come from preserved Gate-0 artifacts and a fresh, archived Norman
+external-marker analysis. Historical causal analyses lack their original result
+JSONs and are excluded from the primary results. The program-modulation design audit uses synthetic data and tests statistical
 interpretation, not biological discovery. No novel biological mechanism is claimed.
 
 **Authors and affiliations:** TODO: author-confirmed author list, order, affiliations,
@@ -31,8 +32,13 @@ biological partition or a causal lineage mechanism. In a separate synthetic audi
 conditional identity test rejected in 0/20 generic-response simulations and 20/20
 specific-response simulations. This counterexample shows why program responses
 and feature-background rankings alone do not establish identity-specific effects.
-Reproducible evidence and precise null hypotheses are necessary before descriptive
-SAE features become causal biological claims.
+A fresh heldout-control marker baseline found 37 heme-panel associations among
+105 Norman perturbations; 29 survived target omission, RNA-depth matching and
+every negative-control reference. KLF1's TF-panel AUC fell from 0.615 to 0.425
+after its own transcript was removed, while heme and membrane associations
+persisted. These are conditional marker-score associations, not an SAE advantage
+or a new mechanism. Precise nulls and comparison baselines are necessary before
+descriptive features become causal biological claims.
 
 ## Introduction
 
@@ -183,6 +189,42 @@ The generator supplied independent normal features. The outcome was any Holm-adj
 rejection at familywise alpha 0.05. Five paired uniform-offset checks assessed rank
 invariance; they were not additional independent simulations.
 
+### Fresh external-marker baseline and sensitivities
+
+A separate real-data analysis used the raw Norman K562 CRISPRa counts. Its plan
+was declared before examining these new baseline outcomes, informed by prior
+project history; this remains an exploratory continuation rather than independent
+prospective confirmation. The prepared dataset contains 111,445 cells, including
+11,855 controls, 57,831 single-perturbation cells and 41,759 dual-perturbation cells.
+All 105 adequately sampled single-perturbation labels were analyzed, without
+requiring that their own target transcript be observed.
+
+Duplicate symbols were summed in raw counts, reducing 33,694 columns to 33,660
+unique symbols while preserving exact per-cell library totals. All-gene
+normalization to 10,000 and log1p preceded marker subsetting. Within each of eight
+technical gemgroups, an outcome-blind split assigned half the controls to score
+fitting, yielding 5,926 discovery and 5,929 inference controls. Eligible markers
+had nonzero expression in at least ten discovery controls and positive variance.
+Scores averaged discovery-control-standardized marker expression with a 0.1
+standard-deviation floor, requiring at least three eligible markers.
+
+One-sided, tie-corrected Mann–Whitney U statistics and their null variances were
+summed within gemgroups; AUC was weighted by within-group comparison pairs. All
+nine programs crossed with 105 perturbations entered a single BH family of 945,
+including unscorable p=1 records. Activation required q < 0.05 and AUC ≥ 0.55.
+The target transcript was omitted where present, with at least three remaining
+markers and a separate same-sized correction family. A controls-fixed identity
+omnibus used 999 within-gemgroup permutations and Holm over all nine panels.
+
+Additional sensitivities were declared after primary outcomes and before their
+own outcomes. They retained the primary scores and control split. Comparisons
+used each of four negative-control construct identities, with joint BH across
+all 3,780 program–perturbation–reference hypotheses. Depth matching used
+within-gemgroup log-UMI quartiles learned from discovery controls, with BH over
+945 comparisons. Original and target-omitted scores were corrected separately.
+Depth may be a perturbation mediator, so this sensitivity can overadjust genuine
+biology. Per-gemgroup effects are descriptive, not biological replication.
+
 ## Results
 
 ### The original direction was unsupported in both SAE analyses
@@ -269,6 +311,43 @@ and its provenance record identify the exact executed sources. This finite
 calibration does not validate arbitrary real-data exchangeability, marker matching,
 or trained-SAE inference.
 
+### Raw marker responses distinguish self-target signal from broader association
+
+The fresh baseline found seven TF-panel, 37 heme-panel, 25 membrane-panel, six
+granulocyte-TF and three progenitor associations among 105 single perturbations.
+Cycling had no positive association under the fixed AUC criterion. Erythroid
+effector, granulocyte-primary and granulocyte-secondary panels were unscorable
+because only two, one and two markers, respectively, met discovery eligibility.
+They are not negative biological findings.
+
+Target omission retained six TF-panel, 37 heme, 25 membrane, four granulocyte-TF
+and three progenitor associations. Requiring the original association also to
+survive depth matching and every control reference retained three, 29, 20, four
+and two, respectively. These intersections are descriptive robustness, not
+independent validation. All comparisons and references are archived in
+[`data_norman_continuation/`](../data_norman_continuation/).
+
+KLF1 illustrates the direct-target trap. Its TF-panel AUC was 0.615, but fell to
+0.425 after excluding KLF1 from its own score and no longer met the activation
+criterion. Its heme and membrane AUCs were 0.626 and 0.580; those signatures do
+not contain KLF1, and both survived the sensitivities. Removing CEBPA or CEBPE
+left only two granulocyte-TF markers, so those omission comparisons were
+unscorable rather than clean negatives.
+
+CBL and PTPN12 retained heme and membrane associations across the sensitivities.
+UBASH3B's heme AUC was 0.571 against pooled inference controls, but its lowest
+control-reference AUC was 0.548, below the 0.55 floor. The earlier candidate trio
+therefore cannot be endorsed without qualification. All six adequately covered
+panels, including Cycling, showed conditional identity heterogeneity at the
+permutation floor (raw p=0.001, Holm p=0.009). This broad pattern does not establish
+erythroid pathway specificity, and no SAE advantage follows from a marker baseline.
+
+The full-size 2,048-feature, 200-epoch SAE run is ongoing on CPU; no completed
+new SAE result is included. Its model, optimizer, means, input fingerprints and
+RNG states are checkpointed. Small tests verified exact uninterrupted/resumed
+training equivalence. See [the continuation record](NORMAN_CONTINUATION_RESULTS.md)
+for complete method details and actual run status.
+
 ## Discussion
 
 The preserved evidence supports a narrower conclusion than either the original
@@ -308,9 +387,11 @@ alone. Biological effect sizes and uncertainty across independent samples are no
 available from these summaries.
 
 Priority work is to broaden the synthetic audit to graded generic severity,
-multiple programs, and experimental dependence; archive a real-data
-program-modulation run under a fixed analysis plan, test direct gene-set/PCA/NMF
-baselines, and evaluate effects with guide or sample structure where available.
+multiple programs and experimental dependence; finish the full-size SAE runs,
+compare them with the now-archived external-marker baseline and direct PCA/NMF
+features, and evaluate effects with defensible guide or sample structure. Norman
+construct strings often reflect vector orientation rather than independent
+sgRNA reagents; they must not be treated as biological replicates.
 Independent dataset replication and primary-literature review are needed before
 any potentially interesting modulator can be characterized as new biology. None
 of these future outcomes is assumed in this draft.
@@ -339,6 +420,12 @@ Relevant artifacts are each dataset's `v0b_outputs/v0b_v3_1_decision.json`,
 Historical causal evidence limitations are detailed in
 [COMPONENT2_RESULTS.md](COMPONENT2_RESULTS.md).
 
+Fresh Norman baseline and sensitivity JSONs, a 945-row table, data fingerprints,
+source hashes and technical-overlap metadata are retained under
+[`data_norman_continuation/`](../data_norman_continuation/). Large source files and
+resumable SAE weights remain outside Git. Their source fingerprints and preparation
+policies are recorded; no unavailable full-SAE result is asserted.
+
 **TODO:** deposit durable run archives with machine-readable outputs, exact code
 revisions, environment manifests, and source-data access instructions; add archive
 identifiers and a release tag. No archive identifier is invented here.
@@ -357,7 +444,8 @@ determination, institutional approval, or exemption is asserted in this draft.
 Bibliographic fields below are traced to the repository bibliography; primary
 data identity is also checked against preprocessing reports. **TODO before
 submission:** verify final citation metadata and claims against the primary texts;
-add the primary TRRUST database citation after checking its metadata.
+add verified Norman and TRRUST primary citations. Citation API access was requested;
+those remaining fields are not fabricated here.
 
 1. Paul F, et al. Transcriptional heterogeneity and lineage commitment in myeloid
    progenitors. *Cell*. 2015;163:1663–1677.

@@ -1,0 +1,41 @@
+{
+  "completed_utc": "2026-10-19T01:29:07.673704+00:00",
+  "syntax": "PASS all src/*.py and tests/*.py",
+  "standalone_suites": 15,
+  "pass_markers": [
+    "ALL BASELINE LOGIC TESTS PASSED",
+    "ALL CAUSAL-GROUNDING TESTS PASSED",
+    "ALL MARKER-BASELINE SENSITIVITY TESTS PASSED",
+    "ALL MARKER-PROGRAM BASELINE TESTS PASSED (6 checks)",
+    "ALL NORMAN-UNIQUE TESTS PASSED",
+    "ALL PIPELINE-TRAINING TESTS PASSED",
+    "ALL PREP-NORMAN TESTS PASSED",
+    "ALL PROGRAM-MODULATION TESTS PASSED",
+    "ALL PROGRAM-MODULATION COUNTEREXAMPLE TESTS PASSED",
+    "ALL PROGRAM-MODULATION SPECIFICITY TESTS PASSED (6 checks)",
+    "ALL REGULON-RECOVERY TESTS PASSED",
+    "ALL TOPK CHECKPOINT TESTS PASSED",
+    "ALL V0b LOGIC TESTS PASSED",
+    "ALL V0b v3.1 LOGIC TESTS PASSED",
+    "ALL V0b v3 LOGIC TESTS PASSED"
+  ],
+  "skipped": 0,
+  "exit_status": 0,
+  "frozen_integrity_checks": [
+    "config/causal_grounding_spec.json",
+    "config/preregistration_spec.json",
+    "config/program_modulation_spec.json",
+    "config/regulon_recovery_spec.json",
+    "data_g0 frozen bundle",
+    "data_g0_human frozen bundle"
+  ],
+  "full_log_sha256": "26a8267698d6c564f552806ae29d3a01fa1c16806d3660e1b7242f7623a00a2b",
+  "additional_functional_checks": [
+    "actual two-epoch checkpoint/activation CLI",
+    "actual full-data heldout-control marker baseline",
+    "exact primary reproduction before full-data sensitivity analysis",
+    "deterministic PNG and SVG figure generation",
+    "CPU sequence syntax and dry-run seed paths/parameters/resume selection"
+  ],
+  "sae_status": "Full-size seed 0 is running; no completed primary SAE result asserted."
+}

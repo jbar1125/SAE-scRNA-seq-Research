@@ -1,7 +1,8 @@
 # Abstract draft
 
-Manuscript draft based on committed Gate-0 evidence. Later causal work is described
-as exploratory context because its original result JSONs were not preserved.
+Manuscript draft based on committed Gate-0 evidence, an archived simulation audit,
+and a fresh Norman marker baseline. Older causal outputs were not preserved and
+remain exploratory context; new full-size SAE training is unfinished.
 This is not a claim of a new biological discovery.
 
 ## Working title
@@ -34,6 +35,14 @@ changed the SAE decision among 34 mouse and 36 human omissions. The original
 hypothesis remained unsupported in the reported threshold, sparsity, seed-count,
 and gene-panel sweeps, although some conditions produced ties rather than the
 opposite direction.
+
+A fresh Norman CRISPRa external-marker baseline tested all nine panels across 105
+perturbations using heldout controls and technical strata. Thirty-seven heme-panel
+associations met the declared criterion; 29 also survived target omission,
+RNA-depth matching and every negative-control reference. KLF1's TF-panel AUC fell
+from 0.615 to 0.425 when its own transcript was omitted, while downstream marker
+associations persisted. These are conditional marker-score associations, not a
+new mechanism or evidence that SAEs improve on direct gene-set scores.
 
 These results demonstrate method dependence of this operational program-modularity
 measure in two datasets. They do not establish a method-independent biological

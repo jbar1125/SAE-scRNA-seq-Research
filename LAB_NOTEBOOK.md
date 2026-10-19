@@ -902,3 +902,64 @@ branch. No NVIDIA GPU is attached. No full real-data modulation result or new
 biological discovery is claimed. See `docs/PROGRAM_MODULATION_AUDIT.md` and
 `docs/MANUSCRIPT_DRAFT.md`; the manuscript has explicit citation, evidence,
 independent-validation, author/disclosure and submission tasks remaining.
+
+## 2026-10-18 — CPU continuation: archived real Norman baseline
+
+After the usage interruption, the user explicitly chose this CPU environment and
+asked to continue. The public Norman file had been downloaded and prepared.
+Checkpoint/marker-baseline work left in the workspace was inspected and tested,
+then committed as `d1ab30c`; checkpoint-enabled CLI and explicit unique-count
+preparation were committed as `ebdc0b0`. The raw source observed SHA is
+`32cc993abad41336eb0f3635f97e802e13fe5721dd9277c1c55e7c13853782e0`.
+Original files were preserved. All 34 duplicated symbol columns were summed before
+normalization with exact per-cell count conservation; none overlaps the 59 markers
+or 105 single-target symbols. The unique input SHA is
+`a09744916427b08d75dade996d059f717e4812463292a1e5a4e5450589cf2c6a`.
+
+The full-data marker baseline completed: 111,445 cells, 5,926 discovery and 5,929
+inference controls split within eight gemgroups, all nine panels, all 105 single
+perturbations, BH over 945 comparisons. Target omission left six TF-panel, 37
+heme, 25 membrane, four granulocyte-TF and three progenitor associations. Three
+panels were unscorable (<3 eligible markers); Cycling had no positive association.
+All six adequately covered panels nonetheless had conditional identity
+heterogeneity (raw permutation floor .001, Holm .009), so this does not isolate
+an erythroid-specific mechanism.
+
+A subsequent, explicitly exploratory plan retained the original scores/split and
+examined discovery-defined RNA-depth bins plus every negative-control reference.
+Joint reference correction covered 3,780 comparisons. Twenty-nine heme, 20
+membrane, three TF-panel, four granulocyte-TF and two progenitor associations
+survived the original and all specified sensitivities. Reference intersections
+are descriptive robustness, not independent replication; depth adjustment can
+remove perturbation-mediated effects. Original primary computations reproduced
+exactly before sensitivity testing.
+
+KLF1's TF-panel AUC .615 becomes .425 after its own transcript is excluded, while
+heme .626 and membrane .580 associations remain. CEBPA/CEBPE omission tests fall
+below minimum marker coverage and are unscorable, not clean negatives. CBL and
+PTPN12 survive the heme/membrane sensitivities. UBASH3B's heme AUC .571 falls to
+.548 against one negative-control reference, below the fixed .55 floor, so the
+former three-candidate story is not confirmed wholesale. These are marker-score
+associations, not novel mechanisms or an SAE advantage.
+
+Full JSONs, source/data fingerprints, exact plans, a 945-row comparison table and
+figures are archived under `data_norman_continuation/`. All 15 standalone suites
+passed, with zero skips; all four original spec hashes and both frozen Gate-0
+bundles still match. Figure outputs are byte-identical across consecutive runs
+and were visually checked.
+
+The 2048-feature, k32, 200-epoch all-cell SAE seed 0 is running on four CPU cores,
+with complete epoch-boundary model/optimizer/RNG/input-hash checkpoints. Seeds 1
+and 2 are queued sequentially by `src/continue_norman_cpu.sh`; no completed new
+SAE result is claimed. Exact uninterrupted/resumed small-model equality and a
+real synthetic checkpoint/activation CLI were tested. An explicit interim plan
+allows a separate copied checkpoint at or after epoch 20 solely to validate
+full-data inference, without selecting a favorable training epoch.
+
+GitHub REST access and dataset access work. The PR title/body were updated and
+verified after the old gh-pr GraphQL route hit a deprecated Projects field.
+Crossref/EuropePMC requests still returned403; their domains were added to the
+configuration draft for citation review. Updated startup instructions preserve
+CPU resume behavior and distinguish completed marker results from unfinished
+SAE training. Primary-text citation review, independent biological validation,
+confirmed disclosures and publication submission remain outstanding.

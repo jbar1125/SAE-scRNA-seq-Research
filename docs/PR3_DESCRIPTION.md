@@ -37,13 +37,33 @@ and Gate-0 decision bundles remain unchanged.
 - Corrected historical figures include descriptive uncertainty and are
   deterministic across consecutive generations.
 
+## Fresh real-data continuation
+
+The public Norman raw file is now downloaded, fingerprinted and prepared. A
+full-data external-marker baseline uses 5,926 discovery and 5,929 heldout controls,
+eight gemgroup strata, all nine panels and all 105 sufficiently sampled single
+perturbations (BH over 945 comparisons). Heme associations number 37; 29 survive
+target omission, discovery-defined RNA-depth matching and all four negative-control
+references. The reference sensitivity corrects all 3,780 comparisons jointly.
+
+KLF1's TF-panel AUC falls from 0.615 to 0.425 after its own transcript is omitted,
+while its heme and membrane associations persist. CBL and PTPN12 survive all
+sensitivities; UBASH3B falls below the fixed effect floor against one reference.
+These are conditional marker-score associations, not biological novelty or an
+SAE advantage. Complete JSONs, source/data hashes, a 945-row table and reproducible
+figures are archived in `data_norman_continuation/`.
+
+All 15 standalone suites pass with no skipped suites. Full-size CPU seed 0 is
+training toward 200 epochs with resumable model/optimizer/RNG checkpoints; seeds
+1 and 2 are queued sequentially. No completed new SAE outcome is claimed.
+
 ## Scope and outstanding work
 
-No new real-data biological discovery is established. The Norman download and
-GitHub API are blocked by this instance's network policy; required domains are
-saved in the cloud configuration draft. No GPU is attached. The manuscript draft
-uses preserved structural evidence and the methods audit, with explicit citation,
-authorship, archival, independent-validation and submission tasks remaining.
+No new biological discovery is established. GitHub API access recovered and this
+PR is updated through REST; no GPU is attached and the user chose CPU execution.
+The manuscript now includes preserved structural evidence, the simulation audit
+and the fresh marker baseline. Full SAE completion, citation-text access, confirmed
+authorship/disclosures, independent validation and submission remain outstanding.
 
 Conditional cell-level identity heterogeneity does not establish pathway
 specificity, biological replication, novelty, or SAE superiority. Full Norman

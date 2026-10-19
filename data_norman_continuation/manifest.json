@@ -1,0 +1,29 @@
+{
+  "artifacts": {
+    "README.md": "1a123696619fce32488950c6a2d67b496e2094d3f32b00726af92ad08d216f2f",
+    "marker_baseline/comparisons.csv": "1acea1fd21a77199a770935f5c01c56cfbf33628e90c97b9c5cd0cdbd396fbaf",
+    "marker_baseline/gemgroup_seed0.json": "04c203360aaeedeb27b0030fd38e478ee3428cdb153b0b2d276a56b2aaeb12ca",
+    "marker_baseline/gemgroup_seed0.log": "77d8c812fc63b20abcb43c819e5fdacd2707dc2bfc80ce6ff1ed282fde733638",
+    "marker_baseline/sensitivity_seed0.json": "35c9ef0b6332ca6aae2fb297bf8558500f69f4b790f2bc680ed562b278d94c9f",
+    "marker_baseline/sensitivity_seed0.log": "69a35571f67b6cbcd1e83a6086df3e14a2f9d30475277c4e2a6c6a2b2291e19b",
+    "marker_baseline/summary.json": "836bd30fbd047f99210b508011289dcf96fd4fde290ff062dc35afc5a1f7e41b",
+    "provenance/actual_trainer_profile.json": "d7e37a9b1c8b4828aee2ecde8ef4d86b32acf85586c1ec615264bdc3e8f75939",
+    "provenance/actual_trainer_profile.py": "51af45a74e607dba7a38aee8d0a07b022808f821f50bb8e004b568eec9b57252",
+    "provenance/compute_profile.json": "9e8aba7a21a638374f456d903491979c5aa804564b12bf0a64c66c5758c94284",
+    "provenance/compute_profile.py": "4b0211b5f02cf390b9116bc5c42c0ec58972611840e0cb456b0caf1020d0994a",
+    "provenance/gemgroup_exchangeability.json": "22c021475af09856f0d2a85ce3881bb46eb7a3dc7ac5601393858603722bf4d5",
+    "provenance/metadata_only.json": "e064df298f445f2963c75197a4e6cf5cd243cdecc26990108d86d3baada5d05a",
+    "provenance/norman_download_manifest.json": "1414cf910acc46dab6bd0bdc0d4ded75fb60c7144c4faea8cf55bebd178c0307",
+    "provenance/norman_pert_unique.manifest.json": "ae0dd3d43b32f037bebdc8bbfdc7cfe9f444226c18b2dee33e590d01162cb112",
+    "sae_progress.json": "c283ca78d09b9097fbae0f73bf882fbb40b3e3b4c192920601446373477a61af",
+    "validation.json": "ae6fb5c02d925310efa2a078a16fc7e3a5cb8827b98a0f8ea4a0b2d34776e6cf"
+  },
+  "source_sha256": {
+    "src/marker_program_baseline.py": "868d17702fd2676464f3e8a0135fb2363b6b7fb836a36c7c942653893a7add9a",
+    "src/marker_baseline_sensitivity.py": "6a6a8fa135b8b904f0485253dd8918d4cfd202a779577937dc1136be6ea6a1a8",
+    "src/program_modulation_specificity.py": "26ef91771d04d032ca9727672dc56811e32dfb22d4941f146faed03a7cc6b268",
+    "config/marker_program_baseline_plan.json": "469ffc88e78da94978596816f9624f7deb8fdfbe6383ffb066798a94cd0280a7",
+    "config/marker_baseline_sensitivity_plan.json": "756bfa9142f9d7584bed9593f9c5607bf4400db31db15312a9f557b5920c7d8e"
+  },
+  "updated_utc": "2026-10-19T01:31:32.239252+00:00"
+}

@@ -1,0 +1,12 @@
+{
+  "source": "/workspace/datasets/sae-scrna/norman_pert.h5ad",
+  "source_sha256": "d9195d5d51b70a5f7f7d8ca22425e79bdba743700da837f1ef3fd93fac46b697",
+  "duplicate_policy": "sum raw counts by symbol before normalization",
+  "input_genes": 33694,
+  "unique_genes": 33660,
+  "duplicate_columns_aggregated": 34,
+  "cells": 111445,
+  "per_cell_library_totals_exactly_preserved": true,
+  "dtype": "float32",
+  "output_sha256": "a09744916427b08d75dade996d059f717e4812463292a1e5a4e5450589cf2c6a"
+}
