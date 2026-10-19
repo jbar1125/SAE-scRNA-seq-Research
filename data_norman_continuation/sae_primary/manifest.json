@@ -1,11 +1,14 @@
 {
   "generator": "archive_norman_cpu_results.py",
-  "updated_utc": "2026-10-19T05:21:50.833313+00:00",
+  "updated_utc": "2026-10-19T09:52:35.701875+00:00",
   "complete_seeds": [
-    0
+    0,
+    1
   ],
   "artifacts": {
     "seed0.json": "b7f5cea97eafaada5ab7d98b9b19764787a47db570cfc7121d4f46304ccf34c8",
-    "seed0.log": "678fba927865b2169f13f02f9f1033baec9c5c5eac64370f5ffbe5586220f028"
+    "seed0.log": "678fba927865b2169f13f02f9f1033baec9c5c5eac64370f5ffbe5586220f028",
+    "seed1.json": "6f61407da6a065ad422cde51be794f41eff8da702217eb0d5743a54a51ba147c",
+    "seed1.log": "02ff7a57f19781635683aef1073cb1fc99695c304f1a0d4a0051c7e653c7cedf"
   }
 }
