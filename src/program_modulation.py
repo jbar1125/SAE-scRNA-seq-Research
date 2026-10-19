@@ -262,6 +262,10 @@ def main():
     ap.add_argument("--strata-col", help="optional obs column constraining identity permutations within strata")
     ap.add_argument("--epochs", type=int, default=200)
     ap.add_argument("--batch", type=int, default=1024)
+    ap.add_argument("--checkpoint", type=Path, help="epoch-boundary model/optimizer checkpoint")
+    ap.add_argument("--resume", action="store_true", help="resume the explicitly selected checkpoint")
+    ap.add_argument("--checkpoint-every", type=int, default=5)
+    ap.add_argument("--activations-out", type=Path, help="save encoded cells to a new .npy file")
     ap.add_argument("--train-on", choices=["all", "control"], default="all",
                     help="cells the SAE is fit on: all (primary, as frozen) or control "
                          "(pre-declared sensitivity analysis, unvalidated; spec v1.1)")
@@ -277,6 +281,12 @@ def main():
         ap.error("invalid gene, permutation, feature-background or marker-match settings")
     if Path(args.out).exists():
         ap.error("output already exists; choose a new run path to preserve prior evidence")
+    if args.resume and args.checkpoint is None:
+        ap.error("resume requires a checkpoint path")
+    if args.checkpoint_every < 1:
+        ap.error("checkpoint-every must be positive")
+    if args.activations_out is not None and args.activations_out.exists():
+        ap.error("activations output already exists; preserve it and choose a new path")
 
     from causal_pipeline import load_perturbseq, train_rows, train_topk_sae
     marker_sets = json.load(open(args.markers))["marker_sets"]
@@ -304,11 +314,20 @@ def main():
     print(f"loaded {X.shape[0]} cells x {X.shape[1]} genes; {len(tested)} single-gene perts; "
           f"{len(marker_sets)} named programs")
     fit = train_rows(labels, args.train_on)
-    encode, info = train_topk_sae(X[fit], args.latent, args.k, seed=args.seed,
-                                 epochs=args.epochs, batch=args.batch)
+    training = X if args.train_on == "all" else X[fit]
+    encode, info = train_topk_sae(training, args.latent, args.k, seed=args.seed,
+                                 epochs=args.epochs, batch=args.batch,
+                                 checkpoint_path=args.checkpoint, resume=args.resume,
+                                 checkpoint_every=args.checkpoint_every)
     acts = encode(X)
+    if args.activations_out is not None:
+        args.activations_out.parent.mkdir(parents=True, exist_ok=True)
+        with args.activations_out.open("xb") as stream:
+            np.save(stream, acts, allow_pickle=False)
     info.update(trained_on=args.train_on, n_train_cells=int(fit.sum()),
-                epochs=args.epochs, batch=args.batch)
+                epochs=args.epochs, batch=args.batch,
+                mean_active_features=float((acts > 0).sum(axis=1).mean()),
+                features_ever_active=int((acts > 0).any(axis=0).sum()))
     print(f"trained SAE {info}")
     res = program_modulation(acts, X, labels, genes, marker_sets, n_shuffle=args.n_shuffle,
                              n_random_features=args.n_random_features,
@@ -334,13 +353,18 @@ def main():
     root = Path(__file__).resolve().parent.parent
     res["provenance"] = {
         "created_utc": datetime.now(timezone.utc).isoformat(),
-        "arguments": vars(args), "python": platform.python_version(),
+        "arguments": {name: str(value) if isinstance(value, Path) else value
+                      for name, value in vars(args).items()}, "python": platform.python_version(),
         "input_sha256": digest(args.adata), "markers_sha256": digest(args.markers),
         "source_sha256": {name: digest(root / "src" / name) for name in
             ("program_modulation.py", "program_modulation_specificity.py",
              "causal_pipeline.py", "causal_grounding.py")},
         "packages": {name: importlib.metadata.version(name) for name in
             ("numpy", "scipy", "pandas", "statsmodels", "torch", "scanpy", "anndata")}}
+    if args.checkpoint is not None:
+        res["provenance"]["checkpoint_sha256"] = digest(args.checkpoint)
+    if args.activations_out is not None:
+        res["provenance"]["activations_sha256"] = digest(args.activations_out)
     try:
         res["provenance"]["git_commit"] = subprocess.check_output(
             ["git", "-C", str(root), "rev-parse", "HEAD"], text=True).strip()
