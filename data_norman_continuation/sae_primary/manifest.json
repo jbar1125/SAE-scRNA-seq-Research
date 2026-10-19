@@ -1,14 +1,18 @@
 {
   "generator": "archive_norman_cpu_results.py",
-  "updated_utc": "2026-10-19T09:52:35.701875+00:00",
+  "updated_utc": "2026-10-19T15:37:07.611447+00:00",
   "complete_seeds": [
     0,
-    1
+    1,
+    2
   ],
   "artifacts": {
+    "seed2.log": "985b7f2cfa61a4693fb2ebf894ea1a2954f877ec7373e61638c19a69df051f41",
     "seed0.json": "b7f5cea97eafaada5ab7d98b9b19764787a47db570cfc7121d4f46304ccf34c8",
     "seed0.log": "678fba927865b2169f13f02f9f1033baec9c5c5eac64370f5ffbe5586220f028",
+    "joint_summary.json": "b2c411f4d8beb1500d43608b54654acb600f55ec5cbf09be1384311a70e5e10e",
     "seed1.json": "6f61407da6a065ad422cde51be794f41eff8da702217eb0d5743a54a51ba147c",
+    "seed2.json": "362fc40e2acdd9142e111fcf4510db525ced102a8da948784118eba60d425958",
     "seed1.log": "02ff7a57f19781635683aef1073cb1fc99695c304f1a0d4a0051c7e653c7cedf"
   }
 }
