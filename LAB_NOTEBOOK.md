@@ -1087,3 +1087,42 @@ the continuation changes. The 15-suite raw log and separate archiver/PCA logs ar
 now retained in Git. `docs/CONTINUATION_VERIFICATION.md` provides commands and scoped
 PASS/UNVERIFIED statuses, explicitly distinguishing the two still-running fits
 from completed evidence and from biological claims.
+
+## 2026-10-18 — Dual-marker additivity screen and scale follow-up
+
+Metadata showed 131 dual labels (41,759 cells, minimum 54 per pair), with both
+single arms adequately sampled for every pair. The plan and contrast tests were
+committed before dual expression outcomes (`93d7f2c`). The original marker-fit
+parameters and exact control split reproduced; all 9 × 131 comparisons remained
+in the Holm family. The four-group, within-gemgroup Welch contrast uses fixed
+dual-count weights and discovery-control score SD units. Tests recover a planted
+interaction, avoid a batch-composition artifact and retain unavailable arms at p=1.
+
+Primary/target-omission same-sign flags were 0 TF, 25 heme (17 above/8 below), 8 membrane
+(6 above/2 below), 6 granulocyte TF (1 above/5 below), 11 progenitor (8 above/3 below), 10 Cycling
+(9 above/1 below); three low-coverage panels remained unscored. Heme target omission
+does not change its score because the perturbation targets are not panel members.
+CBL+CNN1 has heme contrast .877 control SD, pointwise interval .633–1.120 and Holm
+p=4.61e-9; this recovers prior published context in the same data, not novel biology.
+Its membrane contrast .191 is unflagged. Full JSONs are archived with lossless
+compression, exact raw/compressed hashes, all 1,179 portable rows and summaries.
+
+The next sensitivity was fixed after those primary results and before linear
+outcomes (`7a808ed`): compare log and linear normalized expression using the
+same markers/split and respective discovery-control standardization; joint Holm
+covers all 2,358 scale-specific tests. This changes both transformation and fitted
+standardization, so it cannot isolate a pure log-link effect. All pairs remain,
+including the known-context pair regardless of its outcome. The sensitivity is
+running; neither stable results nor independent experimental units are assumed.
+
+The log/linear sensitivity then completed, reproducing every original panel/pair
+primary and omission estimate exactly before the new scale was analyzed. Under
+joint 2,358-test correction and same-sign/effect-floor rules on both scales and
+their target omissions, 21 heme contrasts remained (14 above/7 below), 6 membrane
+(4 above/2 below), 6 granulocyte TF (1 above/5 below), 4 progenitor (all above) and 6 Cycling
+(5 above/1 below); TF had none and three panels remained unscored. The known
+CBL+CNN1 heme contrast was .877 SD on the log score and 1.995 SD on the linear score;
+both joint p-values are <1e-8. This is scale robustness in the same data, not
+independent confirmation or evidence of a new mechanism. All 1,179 joint records,
+linear outputs and exact raw/compressed hashes are archived. The dual suite passed
+separately, bringing distinct exercised standalone suites to 18.

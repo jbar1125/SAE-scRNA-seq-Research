@@ -37,7 +37,9 @@
     "deterministic PNG and SVG figure generation",
     "CPU sequence syntax and dry-run seed paths/parameters/resume selection",
     "Actual full-data direct signed PCA; 945 comparisons retained",
-    "PCA model/source hashes and exact existing discovery/inference control split verified"
+    "PCA model/source hashes and exact existing discovery/inference control split verified",
+    "Actual full-data dual marker screen; exact baseline parameters/split reproduced, all1179 hypotheses retained",
+    "Actual dual log/linear sensitivity; every original estimate reproduced exactly and joint2358 families retained"
   ],
   "sae_status": "Full-size seed 0 is running; no completed primary SAE result asserted.",
   "additional_standalone_suites": [
@@ -50,7 +52,12 @@
       "suite": "tests/test_norman_direct_pca.py",
       "status": "PASS",
       "scope": "Separate run; signed-axis invariance, retained no-match records and discovery-only selection conditional on fixed scores."
+    },
+    {
+      "suite": "tests/test_norman_dual_marker.py",
+      "status": "PASS",
+      "scope": "Separate run; planted additivity, true interaction, batch-composition artifact and unavailable-arm/marker handling."
     }
   ],
-  "standalone_suites_executed_total": 17
+  "standalone_suites_executed_total": 18
 }

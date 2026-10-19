@@ -256,6 +256,28 @@ still saw inference-control expression, so this split is not an independent
 representation-training holdout. Neither capacity nor all analysis choices are
 matched to the 2,048-feature primary SAE; no superiority test is asserted.
 
+### Exploratory dual-construct marker contrasts
+
+A later plan fixed analysis of all 131 observed double perturbations (41,759
+cells), retaining the existing marker parameters and discovery/inference split.
+All pairs had both sampled single arms. Within gemgroups, the contrast was
+mean(AB)−mean(A)−mean(B)+mean(inference controls), weighted by usable dual-cell
+counts. Scores were scaled by their discovery-control standard deviations. Each
+group required at least two cells per usable stratum and 20 pooled cells, with
+at least 80% dual-cell coverage. An independent-cell Welch–Satterthwaite approximation
+supplied two-sided p-values and pointwise 95% intervals. Holm covered all 9 × 131
+hypotheses; a flag also required absolute contrast ≥ 0.2 SD. A separate same-sized
+family omitted both target transcripts, retaining at least three markers.
+
+After primary dual outcomes, an explicitly exploratory sensitivity retained
+every pair, marker eligibility and the split, but used linear normalized
+expression with its own discovery-control standardization. All original primary
+estimates reproduced exactly before the sensitivity ran. Joint Holm correction
+covered 2,358 scale-specific hypotheses, separately for primary and target omission.
+Same-sign consistency required every correction and effect-floor rule on both
+scales and their omission scores. Transformation and standardization both vary;
+this does not isolate a pure log-link effect or establish independent validation.
+
 ## Results
 
 ### The original direction was unsupported in both SAE analyses
@@ -285,6 +307,16 @@ above the chosen baseline. The ten comparisons are descriptive, not independent 
 demonstrates that this operational answer depends on the representation and its
 associated preprocessing and capacity choices.
 
+![Decomposition-dependent operational program counts](figures/fig_method_dependence.png)
+
+**Figure 1. Representation dependence of the frozen counting rule.** Bars show
+median erythroid minus granulocyte above-control panel counts; labels report
+the two counts separately. Only mouse NMF satisfies the original decision.
+The figure's term “real program” denotes this operational above-control rule,
+not a demonstrated biological partition. Seeds and the ten method-by-dataset
+combinations are not independent biological samples. ICA uses rank 50 and
+NMF/PCA preprocessing differs, as detailed in Methods.
+
 ### Tested sensitivity analyses did not restore the original claim
 
 None of twelve threshold combinations per dataset supported the original direction.
@@ -299,6 +331,8 @@ These sweeps have qualifications. Fixed regularization pushed active-feature cou
 outside the target quality band at gene-panel extremes. Repeated seeds assess a
 fixed sample of cells. Stability of a decision can coexist with an incomplete panel,
 a biased metric, or weak biological identifiability.
+Displayed mouse settings are summarized in Supplementary Figure 1; the complete
+human and mouse outcomes remain in the archived sensitivity artifacts.
 
 A secondary TRRUSTv2 [7] comparison in the human arm found curated erythroid target
 enrichment in all ten SAE seeds, with median unadjusted p = 6.44 × 10^-5. This is
@@ -365,6 +399,15 @@ not contain KLF1, and both survived the sensitivities. Removing CEBPA or CEBPE
 left only two granulocyte-TF markers, so those omission comparisons were
 unscorable rather than clean negatives.
 
+![Marker-score robustness and direct-target diagnostic](figures/fig_norman_marker_baseline.png)
+
+**Figure 2. Fixed-marker associations and an own-transcript diagnostic.** Panel A
+reports counts under the primary and explicit sensitivity rules, retaining
+unscorable panels. Panel B follows the existing KLF1 candidate after removing its
+own transcript from the TF score; downstream panels are unchanged by that
+omission. This candidate illustration is post hoc. Scores, depth adjustment and
+reference intersections do not supply independent biological validation.
+
 CBL and PTPN12 retained heme and membrane associations across the sensitivities.
 UBASH3B's heme AUC was 0.571 against pooled inference controls, but its lowest
 control-reference AUC was 0.548, below the 0.55 floor. The earlier candidate trio
@@ -409,11 +452,45 @@ justification. Full outputs are retained in the
 
 ![Fixed boundary audit](figures/fig_identity_boundaries.png)
 
+**Figure 3. Severity and exchangeability determine interpretation.** Points show
+the proportion of 100 simulation seeds with any Holm rejection across nine
+stipulated matched features; error bars are exact 95% binomial intervals.
+Conditioned batch confounding is untestable and is shown without an interval.
+The nominal 5% reference applies only to valid null worlds. Paired analyses share
+draws; the independent-cluster analysis uses different units and eligibility
+from the invalid cell shuffle. No model learning or biological replication is
+assessed by this experiment.
+
 The full-size 2,048-feature, 200-epoch SAE run is ongoing on CPU; no completed
 new SAE result is included. Its model, optimizer, means, input fingerprints and
 RNG states are checkpointed. Small tests verified exact uninterrupted/resumed
 training equivalence. See [the continuation record](NORMAN_CONTINUATION_RESULTS.md)
 for complete method details and actual run status.
+
+### Additive departures depended on the marker panel and score scale
+
+The dual screen retained 25 heme contrasts after the target-omission rule
+(17 above additive, 8 below), eight membrane (six above, two below), six granulocyte-TF
+(one above, five below), 11 progenitor (eight above, three below), and ten Cycling
+(nine above, one below). The TF panel retained none and three low-coverage panels
+remained unscored. Target omission leaves heme scores unchanged because its
+markers are not the perturbed targets; this is not extra independent evidence.
+
+The joint log/linear sensitivity retained 21 heme (14 above/seven below), six
+membrane (four above/two below), six granulocyte-TF (one above/five below), four
+progenitor (all above) and six Cycling (five above/one below) contrasts. The
+preidentified known-context pair CBL+CNN1 had heme contrasts 0.877 SD on the log
+score and 1.995 SD on the linear score (joint corrected p<1e-8 on both), while its
+membrane comparison remained unflagged. Norman et al. [6] already reported its
+erythroid synergy, so this is contextual recovery in the same data, not new biology.
+Full outputs, all failures and every joint p-value are retained in
+[the dual-marker archive](../data_norman_continuation/dual_marker/).
+
+These are score-scale additive departures. Nonlinear transformation, library
+composition, saturation, state mixtures and construct effects remain explanations;
+the independent-cell standard errors do not repair unobserved experimental-unit
+dependence. We do not call these validated molecular genetic interactions or
+interpret larger standardized effects across scales as stronger biological synergy.
 
 ## Discussion
 
@@ -550,3 +627,16 @@ do not imply that every cited paper was read in full.
    architectures in single-cell foundation models: inhibitory dominance,
    biological coherence, and cross-model convergence. *Bioinformatics*.
    2026;42(7):btag379. https://doi.org/10.1093/bioinformatics/btag379
+
+## Supplementary figure
+
+![Displayed mouse sensitivity settings](figures/fig_robustness.png)
+
+**Supplementary Figure 1. Displayed mouse robustness settings.** Bars show
+granulocyte minus erythroid operational above-control counts for the displayed
+sparsity, gene-panel and extended-seed settings. The sign convention is opposite
+to Figure 1 and positive values do not support the original direction. Values
+are descriptive summaries of fixed cells, not population confidence intervals.
+The plot does not display every individual threshold or marker omission.
+Quality-band deviations at extreme gene panels remain limitations, and human
+outcomes must be read from their separate preserved artifacts.

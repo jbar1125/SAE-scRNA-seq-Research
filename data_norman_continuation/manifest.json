@@ -1,6 +1,6 @@
 {
   "artifacts": {
-    "README.md": "f205ae59c9c9bb77384d747867353ce08bdd6b381927ab3a8f1643886e7c101b",
+    "README.md": "1e3a554e1921f7b613c0891398fb730f906e286ea67574f7c685e9f863dc92bc",
     "marker_baseline/comparisons.csv": "1acea1fd21a77199a770935f5c01c56cfbf33628e90c97b9c5cd0cdbd396fbaf",
     "marker_baseline/gemgroup_seed0.json": "04c203360aaeedeb27b0030fd38e478ee3428cdb153b0b2d276a56b2aaeb12ca",
     "marker_baseline/gemgroup_seed0.log": "77d8c812fc63b20abcb43c819e5fdacd2707dc2bfc80ce6ff1ed282fde733638",
@@ -20,14 +20,23 @@
     "sae_interim_epoch20/snapshot_manifest.json": "3c901c385d825439ef3f458a3ec23d4cfd996a31ec7aceba84e80f64c32d7427",
     "sae_interim_epoch20/summary.json": "cee2b249e680229afbceec54813dfc5f279a424afad9027aaccfd8af3610ad85",
     "sae_progress.json": "c283ca78d09b9097fbae0f73bf882fbb40b3e3b4c192920601446373477a61af",
-    "validation.json": "1475a7c47d403618894dd3fd1305e7b517e233f85fe49aaff459c9da9bf700e8",
+    "validation.json": "7a004502d984146a9864e7593d2572d4fca467a0b3178c5a4640fd6cc1b7bac5",
     "direct_pca/comparisons.csv": "7c6e350c76a26310c83fbe2ebe75cab50814a6fe9c42b9945ede4a582a1b799b",
     "direct_pca/seed0.json": "b9243f3e87b3b4f9234b3a6318cd744e884db2ddd30630b992a5aed8f9e0d11e",
     "direct_pca/seed0.log": "f5766205e04e78bddd5bccea981faa3b2b80d00ab9db9f4de8ffec5a986eea0c",
     "direct_pca/summary.json": "0b90079d3360e9b6943b438314eb8cec9e164a472ff671a3aa15a817ae8c088c",
     "validation_logs/result_archive.log": "9f6946362de7c019066cd4d1735811ce827888b774b1f30272b5b6091cf9dfbe",
     "validation_logs/fifteen_suites.log": "26a8267698d6c564f552806ae29d3a01fa1c16806d3660e1b7242f7623a00a2b",
-    "validation_logs/direct_pca.log": "2afeacfb39d61f01f1fed9d6db4cc58eb08d41811298e71b45b417d2783dacba"
+    "validation_logs/direct_pca.log": "2afeacfb39d61f01f1fed9d6db4cc58eb08d41811298e71b45b417d2783dacba",
+    "dual_marker/comparisons.csv": "30bad39c4de216e7e72bd9e9c302a86ead8c5a652982a9a2e528af6d1f95ca64",
+    "dual_marker/results.json.gz": "8abd1493474d289bdba2e3b106eb4ff59018a5dca5143d9f4e2cd8c0026d1c50",
+    "dual_marker/run.log": "ebe59c8c7dd85ef39be33d61863077cea20cb3e2011253656ec1d3a8ac7f970b",
+    "dual_marker/summary.json": "1574a67a6fa07c115abb4716c055a723d7fbb89a1bf68a092729b2cd348bcd67",
+    "validation_logs/dual_marker.log": "815fb245c12fd2e3fd04ce1a40699c71f2aefa0ec8875cdfcd6b6d558d634949",
+    "dual_marker/scale_comparisons.csv": "7eac49d2e0f923acd8dc80ad7a6191d59271d0d7770dae5ad748201c21aab7d7",
+    "dual_marker/scale_sensitivity.json.gz": "919d595d5046f42dc94e914b759906f4049584d725d5d943b2730a0450865325",
+    "dual_marker/scale_sensitivity.log": "29119a5433308014a3b895b353ae625a4c0ed2ccecf19299fd2b110364e9ccf0",
+    "dual_marker/scale_sensitivity_summary.json": "201ed226bbf5b72f449174586d101f41d251e3eeff80e56681fff5d96bfabaee"
   },
   "source_sha256": {
     "src/marker_program_baseline.py": "868d17702fd2676464f3e8a0135fb2363b6b7fb836a36c7c942653893a7add9a",
@@ -38,7 +47,11 @@
     "src/archive_norman_cpu_results.py": "098806988cb2f51ea67ab791d795e97aa6742c5451b539b00f806ab83d3809f9",
     "config/norman_interim_diagnostics_plan.json": "12f3aa444d58ae97d9c762f11030d4fb679d4d518314e1d767fe8b9a7a741af3",
     "src/norman_direct_pca.py": "f15c057dbcdd0f03b3265809ae860829020f53db6ea8c2602f2ec6c156fa49a7",
-    "config/norman_direct_pca_plan.json": "75fae93df252fc5dfbe406863266047c7c1744f9731ffad648bb7e80674cb1dc"
+    "config/norman_direct_pca_plan.json": "75fae93df252fc5dfbe406863266047c7c1744f9731ffad648bb7e80674cb1dc",
+    "src/norman_dual_marker.py": "6b69f8d2dfcfe720ba28e7d0ff510c75b2c5b20af6f127df879febcdb30c51c8",
+    "config/norman_dual_marker_plan.json": "d3c61c835180c7688fe12e3bfcdf5031361ccd3dd783946c2df057c0d680a3a0",
+    "src/norman_dual_scale_sensitivity.py": "be58ed486f0bf3b679df78d9b55c10bcd04c8d6859c076859d49322be66b46b5",
+    "config/norman_dual_scale_sensitivity_plan.json": "a448758fbed6b80ed2634da7ef836d5ccb98747594fb47ba37210df6109bfe0f"
   },
-  "updated_utc": "2026-10-19T02:02:14.639778+00:00"
+  "updated_utc": "2026-10-19T02:34:56.163945+00:00"
 }

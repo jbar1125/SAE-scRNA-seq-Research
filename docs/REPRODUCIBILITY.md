@@ -53,13 +53,20 @@ completed and are archived in [the continuation record](NORMAN_CONTINUATION_RESU
 full-size SAE training is still running. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
 archived 80 design-counterexample runs and 200 deployed-default null simulations.
 
-After that combined run, the completed-result archiver and direct signed-PCA
-suites passed separately (**17 distinct suites exercised** in total). Their
+After that combined run, the completed-result archiver, direct signed-PCA and
+dual-marker suites passed separately (**18 distinct suites exercised** in total). Their
 checks include recovery after interrupted evidence publication, rejecting partial
 or incompatible seeds, PCA sign invariance, retained no-match hypotheses and
 discovery-only annotation conditional on fixed scores. The full-data PCA command
 also completed; fitted-model/source hashes and the exact prior control split were
 verified. This does not imply an independent representation-training holdout.
+The full-data dual-marker screen and explicitly post-primary log/linear
+sensitivity also completed. They retain all 1,179 pair-panel contrasts and joint
+2,358-test scale families, reproduce the original fits/split/estimates and retain
+all failures. These are scale-dependent conditional-cell additive departures,
+not validated molecular genetic interactions. See
+[the result record](NORMAN_DUAL_MARKER_RESULTS.md) and
+[the command/status table](CONTINUATION_VERIFICATION.md).
 
 ```bash
 python -m pip check

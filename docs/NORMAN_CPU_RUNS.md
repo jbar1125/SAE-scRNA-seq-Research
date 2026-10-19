@@ -89,8 +89,8 @@ in `data_norman_continuation/`; results are summarized in
 ## Separate control-only sensitivity
 
 The [concrete sensitivity plan](../config/norman_control_sae_sensitivity_plan.json)
-retains the architecture and200-epoch target but trains seed0 on11,855 controls,
-then encodes all111,445 cells. One CPU thread is used, and it is queued behind
+retains the architecture and 200-epoch target but trains seed 0 on 11,855 controls,
+then encodes all 111,445 cells. One CPU thread is used, and it is queued behind
 the ordinary NMF process. This does not replace the three all-cell primary seeds
 or complete a three-seed control sensitivity. Full-data preprocessing still
 defines the gene panel; it is not an independent preprocessing holdout.
@@ -114,5 +114,5 @@ python -u src/program_modulation.py \
 
 Use the same one-thread settings and `--resume` for a partial checkpoint, after
 checking existing output artifacts. The original synthetic control-only test
-found0/8 planted regulators; that is a limitation to report alongside real-data
+found 0/8 planted regulators; that is a limitation to report alongside real-data
 results, not a reason to suppress this arm or call it a validated replacement.

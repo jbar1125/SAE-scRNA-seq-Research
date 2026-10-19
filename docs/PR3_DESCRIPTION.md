@@ -79,6 +79,15 @@ documents known CBL/erythroid and UBASH3B/erythroleukemia context and distinguis
 model-internal circuits from cellular causality. Novelty remains unestablished;
 the original Norman full text and supplements still require review.
 
+An additional declared exploratory screen covers all 131 double constructs and
+all nine marker panels (1,179 tests), using within-gemgroup four-group additive
+contrasts and target omission. A post-primary log/linear sensitivity reproduces
+the original outputs exactly and jointly corrects all 2,358 scale-specific tests.
+Twenty-one heme contrasts retain the same sign and effect/correction rules on
+both scales. The known CBL+CNN1 erythroid response is recovered; no new biological
+genetic interaction is claimed. Complete raw outputs are retained with lossless
+compression, all comparisons, source hashes and pointwise uncertainty.
+
 ## Scope and outstanding work
 
 No new biological discovery is established. GitHub API access recovered and this

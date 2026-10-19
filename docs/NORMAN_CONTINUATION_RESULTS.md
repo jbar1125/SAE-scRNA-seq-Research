@@ -6,6 +6,12 @@ marker results below have machine-readable outputs in
 [`data_norman_continuation/`](../data_norman_continuation/), unlike the lost
 historical Component 2 outputs. No new biological mechanism or SAE advantage is claimed.
 
+The ordinary PCA baseline and [dual-marker additivity screen](NORMAN_DUAL_MARKER_RESULTS.md)
+also completed. The latter retains all 131 observed pairs and explicitly tests
+log/linear score sensitivity. These are scale-dependent score contrasts, not
+validated molecular genetic interactions. Direct NMF and the primary SAE remain
+pending; a separate one-seed control-only sensitivity is queued behind NMF.
+
 ## Dataset and design
 
 The raw Norman file was downloaded from the public scverse S3 source, checked at

@@ -12,9 +12,11 @@ and the cache/thread settings in [NORMAN_CPU_RUNS.md](NORMAN_CPU_RUNS.md).
 | Every original suite plus checkpoint, unique-count, marker, sensitivity and identity tests | PASS | Fifteen standalone scripts executed together with zero skipped suites; [complete log](../data_norman_continuation/validation_logs/fifteen_suites.log). |
 | `python tests/test_norman_result_archive.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/result_archive.log): partial/incompatible runs rejected, complete family retained, interrupted publication recovered, existing evidence preserved. |
 | `python tests/test_norman_direct_pca.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/direct_pca.log): both signs, planted responses, no-match retention and discovery-only annotation conditional on fixed scores. |
+| `python tests/test_norman_dual_marker.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/dual_marker.log): additive null, planted interaction, technical-composition artifact and unavailable-arm handling. |
 | Actual checkpointed small SAE/AnnData CLI | PASS | Real small training, saved factors, model/optimizer/RNG continuation and output provenance; see [validation record](../data_norman_continuation/validation.json). Not a completed full-size SAE. |
 | Full-data marker baseline and specified sensitivities | PASS | All 111,445 cells, 945 primary comparisons, 3,780 reference comparisons; original baseline reproduced before sensitivity. Complete outputs and hashes archived. |
 | Full-data ordinary PCA command | PASS | 64 components, all 945 comparisons and annotation failures; source/model fingerprints and exact existing control split verified. No SAE trained. |
+| Full-data dual-marker screen and log/linear sensitivity | PASS | 1,179 pair-panel contrasts; original fits/split and all original estimates reproduced. Both scales enter joint 2,358-test Holm families. Complete outputs and failures are archived. No validated molecular mechanism follows. |
 | `python src/audit_identity_boundaries.py --out-dir <fresh-directory>` | PASS | 100 seeds × six analyses, 600 unique complete records, all nine hypotheses; summary counts recomputed and source/output hashes verified. No biological model fitted. |
 | `python src/make_identity_boundary_figure.py` twice | PASS | PNG and SVG byte-identical after layout correction; rendered figure inspected. |
 | Four frozen spec hashes and both Gate-0 bundle hashes | PASS | Rechecked after new experiments; all match, with original evidence preserved. |
@@ -22,8 +24,8 @@ and the cache/thread settings in [NORMAN_CPU_RUNS.md](NORMAN_CPU_RUNS.md).
 | Three full-size 200-epoch SAE seeds | UNVERIFIED | Seed 0 is partial/running; seeds 1 and 2 are queued. Copied epoch 20 inference is an interim readiness check. The archive watcher validates actual completion rather than inferring it from a process. |
 | Independent biological replication, novel mechanism or SAE superiority | UNVERIFIED | Computational seeds, gemgroups, annotations and cell-level p-values do not establish these claims. |
 
-The two separately executed suites make 17 distinct standalone suites exercised;
-this is not a claim that a single 17-suite invocation was run. The 100-seed boundary
+The three separately executed suites make 18 distinct standalone suites exercised;
+this is not a claim that a single 18-suite invocation was run. The 100-seed boundary
 experiment is a research execution, not an additional unit-test suite. Source
 fingerprints in run provenance identify the executed code revision; later
 documentation commits do not change the underlying scientific outputs.
