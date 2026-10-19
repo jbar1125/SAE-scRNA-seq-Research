@@ -47,10 +47,11 @@ def main():
     with warnings.catch_warnings(record=True) as caught:
         warnings.simplefilter('always')
         scores=model.fit_transform(x)
+    fit_seconds=time.perf_counter()-started
     notices=[{'category':w.category.__name__,'message':str(w.message)} for w in caught]
     converged=not any(issubclass(w.category,ConvergenceWarning) for w in caught)
     print(json.dumps({'stage':'fit_complete','iterations':int(model.n_iter_),'converged':converged,
-        'elapsed_seconds':time.perf_counter()-started,'warnings':notices}),flush=True)
+        'elapsed_seconds':fit_seconds,'warnings':notices}),flush=True)
     for p in [args.model_out,args.scores_out]:p.parent.mkdir(parents=True,exist_ok=True)
     with args.model_out.open('xb') as stream:np.savez_compressed(stream,components=model.components_)
     with args.scores_out.open('xb') as stream:np.save(stream,scores,allow_pickle=False)
@@ -59,7 +60,7 @@ def main():
     result['fit']={'settings':settings,'iterations':int(model.n_iter_),'convergence_warning_absent':converged,
         'warnings':notices,'reconstruction_frobenius_error':float(model.reconstruction_err_),
         'relative_reconstruction_error':float(model.reconstruction_err_/np.linalg.norm(x)),
-        'fit_elapsed_seconds':time.perf_counter()-started,
+        'fit_elapsed_seconds':fit_seconds,
         'orientation_note':'Nonnegative NMF scores; negative orientations have no positive discovery controls and are ineligible.'}
     for which in ['discovery','inference']:
         result['control_split'][which+'_cell_ids']=ids[result['control_split'].pop(which+'_rows')].tolist()
