@@ -53,19 +53,33 @@ These are conditional marker-score associations, not biological novelty or an
 SAE advantage. Complete JSONs, source/data hashes, a 945-row table and reproducible
 figures are archived in `data_norman_continuation/`.
 
-All 15 standalone suites pass with no skipped suites. Full-size CPU seed 0 is
+The declared ordinary PCA comparison also completed: 64 components, both signed
+orientations, discovery-only annotation and the same inference controls, with
+joint BH over 945 tests. Ery_TF and Cycling matched (28 and 52 associations);
+the other seven panels were unmatched and remain unscored. Different model
+capacities and score definitions prevent a superiority claim from these counts.
+
+All 15 suites passed together with no skips; the completed-result archiver and
+direct-PCA suites passed separately (17 distinct suites exercised). Full-size CPU seed 0 is
 training toward 200 epochs with resumable model/optimizer/RNG checkpoints; seeds
-1 and 2 are queued sequentially. No completed new SAE outcome is claimed.
+1 and 2 are queued sequentially. A separate copied epoch-20 checkpoint completed
+full-data inference; its complete nine-panel outputs are archived as an interim
+readiness check, not a completed primary seed. A tested watcher will validate and
+publish compact outputs after actual full-seed completion.
+
+Crossref verified nine bibliographic references. Targeted primary-source review
+documents known CBL/erythroid and UBASH3B/erythroleukemia context and distinguishes
+model-internal circuits from cellular causality. Novelty remains unestablished;
+the original Norman full text and supplements still require review.
 
 ## Scope and outstanding work
 
 No new biological discovery is established. GitHub API access recovered and this
 PR is updated through REST; no GPU is attached and the user chose CPU execution.
 The manuscript now includes preserved structural evidence, the simulation audit
-and the fresh marker baseline. Full SAE completion, citation-text access, confirmed
+and the fresh marker/PCA baselines. Full SAE completion, remaining primary-text review, confirmed
 authorship/disclosures, independent validation and submission remain outstanding.
 
 Conditional cell-level identity heterogeneity does not establish pathway
 specificity, biological replication, novelty, or SAE superiority. Full Norman
-runs, direct marker/factor baselines and appropriate guide/batch validation remain
-separate experiments.
+runs, direct NMF and appropriate guide/batch validation remain separate experiments.

@@ -53,6 +53,14 @@ completed and are archived in [the continuation record](NORMAN_CONTINUATION_RESU
 full-size SAE training is still running. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
 archived 80 design-counterexample runs and 200 deployed-default null simulations.
 
+After that combined run, the completed-result archiver and direct signed-PCA
+suites passed separately (**17 distinct suites exercised** in total). Their
+checks include recovery after interrupted evidence publication, rejecting partial
+or incompatible seeds, PCA sign invariance, retained no-match hypotheses and
+discovery-only annotation conditional on fixed scores. The full-data PCA command
+also completed; fitted-model/source hashes and the exact prior control split were
+verified. This does not imply an independent representation-training holdout.
+
 ```bash
 python -m pip check
 python -m py_compile src/*.py tests/*.py

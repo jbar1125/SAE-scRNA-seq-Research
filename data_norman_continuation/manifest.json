@@ -1,6 +1,6 @@
 {
   "artifacts": {
-    "README.md": "c8bffc68fed033f7caad1a2a4ef8ec81692e8e16fb29aa7e7cbb2671eff48e25",
+    "README.md": "f205ae59c9c9bb77384d747867353ce08bdd6b381927ab3a8f1643886e7c101b",
     "marker_baseline/comparisons.csv": "1acea1fd21a77199a770935f5c01c56cfbf33628e90c97b9c5cd0cdbd396fbaf",
     "marker_baseline/gemgroup_seed0.json": "04c203360aaeedeb27b0030fd38e478ee3428cdb153b0b2d276a56b2aaeb12ca",
     "marker_baseline/gemgroup_seed0.log": "77d8c812fc63b20abcb43c819e5fdacd2707dc2bfc80ce6ff1ed282fde733638",
@@ -20,7 +20,11 @@
     "sae_interim_epoch20/snapshot_manifest.json": "3c901c385d825439ef3f458a3ec23d4cfd996a31ec7aceba84e80f64c32d7427",
     "sae_interim_epoch20/summary.json": "cee2b249e680229afbceec54813dfc5f279a424afad9027aaccfd8af3610ad85",
     "sae_progress.json": "c283ca78d09b9097fbae0f73bf882fbb40b3e3b4c192920601446373477a61af",
-    "validation.json": "c4eeb25c775d4cb7dccda429d0332bccc5b836724e587fb7216031973d9c2968"
+    "validation.json": "1475a7c47d403618894dd3fd1305e7b517e233f85fe49aaff459c9da9bf700e8",
+    "direct_pca/comparisons.csv": "7c6e350c76a26310c83fbe2ebe75cab50814a6fe9c42b9945ede4a582a1b799b",
+    "direct_pca/seed0.json": "b9243f3e87b3b4f9234b3a6318cd744e884db2ddd30630b992a5aed8f9e0d11e",
+    "direct_pca/seed0.log": "f5766205e04e78bddd5bccea981faa3b2b80d00ab9db9f4de8ffec5a986eea0c",
+    "direct_pca/summary.json": "0b90079d3360e9b6943b438314eb8cec9e164a472ff671a3aa15a817ae8c088c"
   },
   "source_sha256": {
     "src/marker_program_baseline.py": "868d17702fd2676464f3e8a0135fb2363b6b7fb836a36c7c942653893a7add9a",
@@ -29,7 +33,9 @@
     "config/marker_program_baseline_plan.json": "469ffc88e78da94978596816f9624f7deb8fdfbe6383ffb066798a94cd0280a7",
     "config/marker_baseline_sensitivity_plan.json": "756bfa9142f9d7584bed9593f9c5607bf4400db31db15312a9f557b5920c7d8e",
     "src/archive_norman_cpu_results.py": "098806988cb2f51ea67ab791d795e97aa6742c5451b539b00f806ab83d3809f9",
-    "config/norman_interim_diagnostics_plan.json": "12f3aa444d58ae97d9c762f11030d4fb679d4d518314e1d767fe8b9a7a741af3"
+    "config/norman_interim_diagnostics_plan.json": "12f3aa444d58ae97d9c762f11030d4fb679d4d518314e1d767fe8b9a7a741af3",
+    "src/norman_direct_pca.py": "f15c057dbcdd0f03b3265809ae860829020f53db6ea8c2602f2ec6c156fa49a7",
+    "config/norman_direct_pca_plan.json": "75fae93df252fc5dfbe406863266047c7c1744f9731ffad648bb7e80674cb1dc"
   },
-  "updated_utc": "2026-10-19T01:54:56.037728+00:00"
+  "updated_utc": "2026-10-19T02:02:14.639778+00:00"
 }

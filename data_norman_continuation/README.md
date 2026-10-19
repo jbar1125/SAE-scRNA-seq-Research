@@ -15,14 +15,17 @@ See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
 - `marker_baseline/comparisons.csv`: a 945-row portable comparison table.
 - `marker_baseline/summary.json`: all-panel counts and candidates, including
   low-power and negative outcomes. No selected favorable reference is omitted.
+- `direct_pca/`: a completed ordinary 64-component signed-PCA analysis, all 945
+  comparisons, annotation failures and full source/model provenance. No SAE is
+  trained in this baseline; unequal model capacities prevent a superiority claim.
 - `provenance/`: observed source fingerprints, exact count-conserving symbol
   aggregation, metadata-only technical overlap and timing preflights. The initial
   metadata heuristic omitted `gemgroup`; its explicit cross-tab verifies eight
   technical partitions with controls and all interventions. They are not
   biological replicates. Timing estimates are variable preflight measurements.
 - `validation.json`: 15 standalone suites passed together, plus the completed-
-  result archiver suite passed separately; frozen integrity, actual CLI/training
-  checks and rendering checks.
+  result archiver and direct-PCA suites passed separately; frozen integrity,
+  actual CLI/training checks and rendering checks.
 - `sae_interim_epoch20/`: a separate copied partial model's full-data inference
   diagnostic, with all nine outcomes. Twenty of the planned 200 epochs had
   completed; this is not a completed primary seed or an independent replicate.

@@ -35,7 +35,9 @@
     "actual full-data heldout-control marker baseline",
     "exact primary reproduction before full-data sensitivity analysis",
     "deterministic PNG and SVG figure generation",
-    "CPU sequence syntax and dry-run seed paths/parameters/resume selection"
+    "CPU sequence syntax and dry-run seed paths/parameters/resume selection",
+    "Actual full-data direct signed PCA; 945 comparisons retained",
+    "PCA model/source hashes and exact existing discovery/inference control split verified"
   ],
   "sae_status": "Full-size seed 0 is running; no completed primary SAE result asserted.",
   "additional_standalone_suites": [
@@ -43,7 +45,12 @@
       "suite": "tests/test_norman_result_archive.py",
       "status": "PASS",
       "scope": "Executed separately after the fifteen-suite run; includes interrupted-archive recovery, not future full-run completion."
+    },
+    {
+      "suite": "tests/test_norman_direct_pca.py",
+      "status": "PASS",
+      "scope": "Separate run; signed-axis invariance, retained no-match records and discovery-only selection conditional on fixed scores."
     }
   ],
-  "standalone_suites_executed_total": 16
+  "standalone_suites_executed_total": 17
 }

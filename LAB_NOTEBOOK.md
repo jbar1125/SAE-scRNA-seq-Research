@@ -971,7 +971,7 @@ The predeclared readiness check copied the epoch-20 seed-0 checkpoint from the
 inference reconstructed the copied model without optimizer steps. Four panels
 matched (Ery_TF, Ery_Heme, Ery_Effector, Cycling), each with per-seed identity Holm
 p=.009; the other five retained p=1. The heme feature had seven exploratory
-modulators and background percentile86. No matched feature reached percentile90.
+modulators and background percentile 86. No matched feature reached percentile 90.
 All outcomes and snapshot hashes are archived under
 `data_norman_continuation/sae_interim_epoch20/`; none is a completed primary result.
 This observation does not change the 200-epoch target or select a favorable epoch.
@@ -995,3 +995,39 @@ retrieved. The original Norman abstract already reports CBL/CNN1 synergy driving
 erythroid differentiation, so CBL-associated erythroid recovery cannot alone be
 presented as novel biology. Legitimate free full-text hosts were added to the
 network draft; access and a fuller claim-by-claim literature check remain pending.
+
+## 2026-10-18 — Ordinary PCA comparison and primary-source citation checks
+
+The ordinary PCA plan and sign/heldout-selection tests were committed before
+viewing full-data results (`5fbf6e8`). The fit uses 64 components, randomized SVD,
+three power iterations, seed 0, all cells and the identical 4,081-gene SAE input.
+Both signed orientations enter the annotation search and its correction; no SAE
+is trained. Annotation uses the existing discovery-control split, and associations
+use heldout controls, gemgroup strata and joint BH over 945 tests. This split is for annotation
+and association: all-cell representation fitting still sees every expression row.
+The small test's inference-control independence holds conditional on fixed scores,
+not as an independent representation-training holdout. Unequal model capacities
+and differing procedures preclude a superiority claim from the response counts.
+The real-data command was launched with one CPU thread alongside the main SAE.
+
+Bibliographic metadata for nine references was verified with Crossref. The Norman
+abstract was read through EuropePMC; its free HTML remained inaccessible and its
+non-OA REST full-text route was unavailable. Two other open-access XMLs were
+retrieved: Wang et al. (2024) on FLI1/UBASH3A/B and Kendiukhov (2026) on SAE model-internal
+circuits. Targeted methods/results/limitations sections support the statements in
+`docs/LITERATURE_REVIEW.md`; the experiments were not reproduced. Seven first-page
+query logs are archived as bibliographic metadata, without treating hit counts or
+missing hits as novelty evidence. The manuscript now includes verified Norman and
+TRRUST references and explicitly distinguishes prior biology from this analysis.
+
+The declared direct PCA analysis completed. All 128 signed orientations were
+eligible, explaining35.77% of expression variance across 64 components. Ery_TF
+matched component 12 with 28 positive associations and Cycling matched component 3
+with 52; both had identity Holm p=.009. Seven panels were unmatched and stayed
+unscored, including Ery_Effector at adjusted annotation p=0.0561. The TF-matched
+feature's leading genes include globins and mitochondrial transcripts as well
+as LMO2, illustrating why the panel name does not make different scores equivalent.
+Cycling's 52 PCA associations versus zero for its direct marker score reflect
+different measurements, not a method ranking. All 945 comparisons and full outputs
+are archived; the exact existing split and fitted-model/source hashes verified.
+The direct-PCA suite passed separately, bringing distinct exercised suites to 17.

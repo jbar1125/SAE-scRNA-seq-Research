@@ -59,6 +59,11 @@ commitment was treated as unified while erythroid commitment was considered
 distributed. Exploratory metric and marker corrections changed its interpretation,
 motivating an explicit final decision rule and comparisons across methods.
 
+Related foundation-model work distinguishes model-internal SAE ablations from
+cellular causal structure and quantifies annotation-selection and sign-bias
+effects in validation [9]. Our expression-space analysis asks different questions;
+it does not claim to introduce SAE interpretation or biological causal discovery.
+
 We test that direction across two datasets and five decomposition families, then
 audit a perturbation-validation design. The contribution is an inspectable account
 of what these measurements support, without claiming that SAE use in single-cell
@@ -191,7 +196,7 @@ invariance; they were not additional independent simulations.
 
 ### Fresh external-marker baseline and sensitivities
 
-A separate real-data analysis used the raw Norman K562 CRISPRa counts. Its plan
+A separate real-data analysis used the raw Norman K562 CRISPRa counts [6]. Its plan
 was declared before examining these new baseline outcomes, informed by prior
 project history; this remains an exploratory continuation rather than independent
 prospective confirmation. The prepared dataset contains 111,445 cells, including
@@ -224,6 +229,21 @@ within-gemgroup log-UMI quartiles learned from discovery controls, with BH over
 945 comparisons. Original and target-omitted scores were corrected separately.
 Depth may be a perturbation mediator, so this sensitivity can overadjust genuine
 biology. Per-gemgroup effects are descriptive, not biological replication.
+
+### Direct PCA features
+
+After observing the marker baseline and an explicitly interim epoch-20 SAE
+inference check, we fixed a separate exploratory PCA analysis before its outcomes.
+The identical normalized 111,445 × 4,081 matrix supplied 64 ordinary principal
+components (randomized SVD, three power iterations, seed 0). No SAE was trained.
+Both signs of each component entered the annotation search. Discovery controls
+alone supplied gene associations and marker matching, with Bonferroni over all
+eligible orientations; associations used the same inference controls and the
+stratified test, with BH over all 945 hypotheses. Identity inference used 999
+within-gemgroup permutations and Holm across all nine panels. All-cell fitting
+still saw inference-control expression, so this split is not an independent
+representation-training holdout. Neither capacity nor all analysis choices are
+matched to the 2,048-feature primary SAE; no superiority test is asserted.
 
 ## Results
 
@@ -269,7 +289,7 @@ outside the target quality band at gene-panel extremes. Repeated seeds assess a
 fixed sample of cells. Stability of a decision can coexist with an incomplete panel,
 a biased metric, or weak biological identifiability.
 
-A secondary TRRUST comparison in the human arm found curated erythroid target
+A secondary TRRUSTv2 [7] comparison in the human arm found curated erythroid target
 enrichment in all ten SAE seeds, with median unadjusted p = 6.44 × 10^-5. This is
 a structural association based on a curated database and feature selection rule,
 not a perturbation experiment or proof that the identified feature implements a
@@ -342,6 +362,22 @@ panels, including Cycling, showed conditional identity heterogeneity at the
 permutation floor (raw p=0.001, Holm p=0.009). This broad pattern does not establish
 erythroid pathway specificity, and no SAE advantage follows from a marker baseline.
 
+### Ordinary PCA recovered different annotated responses
+
+The 64 components explained 35.77% of expression variance. Ery_TF matched the
+positive orientation of component 12 (zero-based), with 28 positive associations;
+Cycling matched component 3, with 52. Both rejected the identity null (Holm
+p=0.009). The other seven panels were unmatched and unscored, not biological
+negatives. Ery_Effector's adjusted annotation p=0.0561 failed the fixed threshold.
+
+The TF-matched feature's leading associated genes include globins, mitochondrial
+transcripts and LMO2. Its annotation does not make it equivalent to the direct
+TF score. Similarly, 52 associations for the Cycling PCA feature coexist with
+zero for the direct Cycling marker score because these are different measurements.
+These results show that ordinary PCA can recover annotated identity-associated
+features; they do not rank its biological fidelity or demonstrate an SAE advantage.
+Complete comparisons and failures are archived alongside the marker baseline.
+
 The full-size 2,048-feature, 200-epoch SAE run is ongoing on CPU; no completed
 new SAE result is included. Its model, optimizer, means, input fingerprints and
 RNG states are checkpointed. Small tests verified exact uninterrupted/resumed
@@ -396,11 +432,19 @@ Independent dataset replication and primary-literature review are needed before
 any potentially interesting modulator can be characterized as new biology. None
 of these future outcomes is assumed in this draft.
 
+Known biology also limits novelty: the original Norman abstract explicitly reports
+CBL/CNN1 synergy driving erythroid differentiation [6]. Prior work links FLI1 and
+UBASH3B in erythroleukemia, using interventions and endpoints different from our
+CRISPRa marker-score analysis [8]. Neither source independently validates our
+scores. The [targeted literature review](LITERATURE_REVIEW.md) documents what was
+read and what remains unchecked, including the original Norman full text and
+supplements. We do not characterize PTPN12 or UBASH3B as newly discovered regulators.
+
 ## Data and code availability
 
 Code and small structural evidence artifacts are available in
 [the project repository](https://github.com/jbar1125/SAE-scRNA-seq-Research).
-Primary-source data are described in [1,2]. Large matrices and checkpoints are
+Primary-source data are described in [1,2,6]. Large matrices and checkpoints are
 excluded from Git; their preprocessing reports record provenance. The frozen mouse
 decision bundle has SHA-256 `172861417a923a83705812a96e5ad1e555055e968323289879447e53beb84396`;
 the human bundle has `cc8159c882cf326bca5bbbc7f74d110d4a81338ec0ba07e208eb935bc8f729d3`.
@@ -441,11 +485,10 @@ determination, institutional approval, or exemption is asserted in this draft.
 
 ## References
 
-Bibliographic fields below are traced to the repository bibliography; primary
-data identity is also checked against preprocessing reports. **TODO before
-submission:** verify final citation metadata and claims against the primary texts;
-add verified Norman and TRRUST primary citations. Citation API access was requested;
-those remaining fields are not fabricated here.
+Bibliographic fields were checked against Crossref, with retrieval provenance in
+[`data_literature_review/`](../data_literature_review/). **TODO before submission:**
+complete claim verification against primary texts and supplements. Metadata checks
+do not imply that every cited paper was read in full.
 
 1. Paul F, et al. Transcriptional heterogeneity and lineage commitment in myeloid
    progenitors. *Cell*. 2015;163:1663–1677.
@@ -456,9 +499,23 @@ those remaining fields are not fabricated here.
 3. Benjamini Y, Hochberg Y. Controlling the false discovery rate: a practical and
    powerful approach to multiple testing. *Journal of the Royal Statistical
    Society: Series B*. 1995;57:289–300.
+   https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
 4. Wolf FA, Angerer P, Theis FJ. SCANPY: large-scale single-cell gene expression
    data analysis. *Genome Biology*. 2018;19:15.
    https://doi.org/10.1186/s13059-017-1382-0
 5. Replogle JM, et al. Mapping information-rich genotype-phenotype landscapes with
    genome-scale Perturb-seq. *Cell*. 2022;185:2559–2575.e28.
    https://doi.org/10.1016/j.cell.2022.05.013
+6. Norman TM, et al. Exploring genetic interaction manifolds constructed from
+   rich single-cell phenotypes. *Science*. 2019;365(6455):786–793.
+   https://doi.org/10.1126/science.aax4438
+7. Han H, et al. TRRUST v2: an expanded reference database of human and mouse
+   transcriptional regulatory interactions. *Nucleic Acids Research*.
+   2018;46(D1):D380–D386. https://doi.org/10.1093/nar/gkx1013
+8. Wang J, et al. FLI1 induces erythroleukemia through opposing effects on
+   UBASH3A and UBASH3B expression. *BMC Cancer*. 2024;24:326.
+   https://doi.org/10.1186/s12885-024-12075-2
+9. Kendiukhov I. Causal circuit tracing reveals distinct computational
+   architectures in single-cell foundation models: inhibitory dominance,
+   biological coherence, and cross-model convergence. *Bioinformatics*.
+   2026;42(7):btag379. https://doi.org/10.1093/bioinformatics/btag379

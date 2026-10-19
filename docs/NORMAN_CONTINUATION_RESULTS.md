@@ -105,6 +105,40 @@ severity, compositional normalization, cell state, viability, construct effects
 and unobserved confounding remain possible. Literature novelty, independent
 experimental validation and an SAE advantage have not been established.
 
+## Ordinary PCA comparison
+
+A [separate exploratory plan](../config/norman_direct_pca_plan.json) fixed 64
+ordinary PCA components before outcomes. It used the identical 111,445 × 4,081 input,
+randomized SVD with three power iterations and seed 0. No SAE was trained. Both
+component signs entered the 128-orientation annotation search and its correction.
+The components explained 35.77% of expression variance.
+
+Annotation used the existing 5,926 discovery controls; stratified association tests
+used the same 5,929 inference controls as the marker baseline. These controls are
+held out from annotation, conditional on the fitted scores. The all-cell PCA fit
+still saw their expression: this is not an independent model-training holdout.
+BH covered every 9 × 105 comparison, with unmatched hypotheses at p=1.
+
+Ery_TF matched component 12 (zero-based; 28 positive associations), and Cycling
+matched component 3 (52). Both had identity Holm p=.009. The other seven panels,
+including heme and membrane, did not pass the annotation gate; these are unscored
+panels, not zero biological effects. Ery_Effector's adjusted match p=0.0561 also
+failed the fixed 0.05 gate and was retained as a failure.
+
+Names do not make different scores equivalent. The TF-matched component's top
+associated genes include globins and mitochondrial transcripts as well as LMO2.
+The Cycling PCA feature had 52 positive associations, while the direct marker
+score had none under its rule. These are different measurements, not a contradiction
+or a method ranking. CBL and PTPN12 associate with the Cycling PCA feature, with
+AUC 0.570 and 0.609, respectively; this alone does not identify a mechanism.
+
+All 945 comparisons, failures, source/model hashes and split identities are archived
+in [`direct_pca/`](../data_norman_continuation/direct_pca/). The fitted PCA weights
+remain outside Git. Rank-64 PCA and 2,048 SAE features have unequal capacities, and
+the primary SAE's annotation/association procedures differ. No SAE advantage,
+PCA superiority, independent replication or new biological mechanism follows
+from comparing these counts. Direct NMF has not been run.
+
 ## Full-size SAE status
 
 The user selected CPU execution. Seed 0 is training on all 111,445 cells with
