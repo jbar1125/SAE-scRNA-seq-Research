@@ -85,3 +85,34 @@ Equivalent commands completed on the full dataset. Choose fresh output paths.
 Their plans, raw outputs, source fingerprints and comparison table are archived
 in `data_norman_continuation/`; results are summarized in
 [NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md).
+
+## Separate control-only sensitivity
+
+The [concrete sensitivity plan](../config/norman_control_sae_sensitivity_plan.json)
+retains the architecture and200-epoch target but trains seed0 on11,855 controls,
+then encodes all111,445 cells. One CPU thread is used, and it is queued behind
+the ordinary NMF process. This does not replace the three all-cell primary seeds
+or complete a three-seed control sensitivity. Full-data preprocessing still
+defines the gene panel; it is not an independent preprocessing holdout.
+
+Artifacts are under `/workspace/research-runs/norman-sae-control-sensitivity/`.
+Check its waiting worker/trainer before starting another copy. Its command uses
+the primary CLI flags with these explicit differences:
+
+```bash
+export OMP_NUM_THREADS=1 MKL_NUM_THREADS=1 OPENBLAS_NUM_THREADS=1
+python -u src/program_modulation.py \
+  --adata /workspace/datasets/sae-scrna/norman_pert_unique.h5ad \
+  --pert-col perturbation --control-value control --train-on control \
+  --latent 2048 --k 32 --n-hvg 4000 --epochs 200 --batch 1024 --seed 0 \
+  --n-shuffle 0 --n-identity-shuffle 999 --strata-col gemgroup \
+  --checkpoint-every 5 \
+  --checkpoint /workspace/research-runs/norman-sae-control-sensitivity/seed0.pt \
+  --activations-out /workspace/research-runs/norman-sae-control-sensitivity/seed0_activations.npy \
+  --out /workspace/research-runs/norman-sae-control-sensitivity/seed0.json
+```
+
+Use the same one-thread settings and `--resume` for a partial checkpoint, after
+checking existing output artifacts. The original synthetic control-only test
+found0/8 planted regulators; that is a limitation to report alongside real-data
+results, not a reason to suppress this arm or call it a validated replacement.
