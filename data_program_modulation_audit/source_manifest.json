@@ -9,7 +9,7 @@
     "dirty_flag_note": "Not captured by the original generator; current CLI records dirty status and generator hash"
   },
   "artifacts": {
-    "README.md": "1d79c1a959e906f3436f6799036f6e75d6c8addfc9baf22d5524544e138e901e",
+    "README.md": "b55c39ba4f4f5c33568f6b9af396f67113138028953a7d1cd5cd60872a1c6bde",
     "executed_generator_source.txt": "a03a456ca5c52c517a9e5646229149be958852cc4eef0103024b94e721fa4711",
     "legacy_counterexamples_20seeds.json": "c9c3bb43d2451919726bdef60d1cbcd0da13531289895cdb210323cc02a258a8",
     "rates_and_intervals.json": "d9fa184ae3c0b8b93899a33bc09fe4b00c5d41fd3451243d3e5b8a926cad2efe",
@@ -29,5 +29,9 @@
     "legacy_run/metadata.json": "8a736366a66b2e34775ee1a95fa9db5d326f70f16dc62ce64b2434ff63460b33",
     "legacy_run/results.jsonl": "ee518d41dedd97396e12bc93099d61e09ef6f179d6bd1ed328f9e7a15c137f9d",
     "legacy_run/run.log": "024fb870760259b49b7dbc46e40267b974ead62c5468528acc8ef9ca57103f63"
+  },
+  "boundary_audit_manifest": {
+    "artifact": "boundary_audit/manifest.json",
+    "sha256": "c93955b51683ecf25156161c02fa502f2fd13a3ab9337798f1f600a3a2e0368a"
   }
 }

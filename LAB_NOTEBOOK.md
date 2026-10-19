@@ -1031,3 +1031,35 @@ Cycling's 52 PCA associations versus zero for its direct marker score reflect
 different measurements, not a method ranking. All 945 comparisons and full outputs
 are archived; the exact existing split and fitted-model/source hashes verified.
 The direct-PCA suite passed separately, bringing distinct exercised suites to 17.
+
+## 2026-10-18 — Fixed identity-test severity and dependence audit
+
+Plan and generator were committed before outcomes (`7a3c220`). One hundred seeds
+crossed with six analyses retain600 unique complete records, nine hypotheses each.
+With 999 permutations, identical generic responses gave 4/100 familywise rejections
+(exact 95% interval 1.10–9.93%). A single shared factor with unequal generic severity
+gave all-nine rejections in 100/100: correct identity rank heterogeneity does not
+establish separate pathway regulation. Pooled shuffling under complete identity/
+batch confounding rejected in 100/100; within-batch conditioning correctly found
+no exchangeable identities and ran no permutations in every case.
+
+A separate population-null world had four independent clusters per perturbation
+and ten correlated cells each. Invalid cell shuffling rejected in 100/100 worlds;
+analysis of 40 independent cluster means (minimum-two-unit eligibility) rejected
+in 8/100, exact 95% interval 3.52–15.16%. This wide interval includes 5%; it does not
+prove calibration or establish Norman's experimental units. Paired worlds share
+some draws, and stipulated matches do not calibrate feature selection. The test
+source, running SAE settings and thresholds remain unchanged.
+
+All raw outcomes, exact plans, sources, versions, logs and summaries are archived
+under `data_program_modulation_audit/boundary_audit/`. Counts were recomputed from
+all 600 records and artifact/source hashes verified. The standalone PNG/SVG figure
+renders archived data and is byte-identical across two generations; its initially
+overlapping count labels were corrected before committing. The manuscript now
+reports these limitations quantitatively rather than assuming them away.
+
+Later nominally successful HTML requests still did not retrieve the Norman text:
+PMC served a browser challenge, EuropePMC an application shell, and its explicit
+no-JavaScript route failed. Those are not full-text review. The abstract and the
+two successfully retrieved open-access comparison papers remain the verified
+review sources; no challenge or access restriction was bypassed.

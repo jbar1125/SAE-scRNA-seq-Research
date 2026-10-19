@@ -13,5 +13,5 @@
       "review_scope": "Targeted methods/results/discussion passages supporting the literature-review statements, not independent reproduction of that paper."
     }
   ],
-  "norman_status": "EuropePMC abstract read; freely listed HTML requests returned403 and the non-open-access REST fullTextXML endpoint returned500. Do not imply full-text review."
+  "norman_status": "Only the EuropePMC abstract was read. Later PMC HTTP200 content was a browser challenge; EuropePMC HTTP200 content was an application shell, not the article. REST fullTextXML returned500; no-JavaScript article route520. Full-text claims remain unchecked."
 }

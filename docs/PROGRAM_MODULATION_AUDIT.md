@@ -96,6 +96,46 @@ versions and summary are under
 These stipulated-feature simulations assess the conditional rank test, not the
 whole biological feature-discovery process.
 
+## Severity, confounding and correlated-cell boundaries
+
+A [separately fixed audit](../config/identity_boundary_audit_plan.json) ran 100
+seeds in each of six analyses, with nine stipulated matches and 999 permutations
+when identifiable. All 600 seed-analysis records are archived in
+[`boundary_audit/`](../data_program_modulation_audit/boundary_audit/).
+
+| Analysis | Any Holm rejection | Exact 95% interval |
+|---|---:|---:|
+| Identical generic response; valid cell null | 4/100 | 1.10–9.93% |
+| Unequal generic severity; rank-one group effects | 100/100 | 96.38–100% |
+| Batch-confounded identities; pooled shuffling | 100/100 | 96.38–100% |
+| Same confounding; condition on batch | No test in 100/100 | Not an absence result |
+| Clustered population null; invalid cell shuffling | 100/100 | 96.38–100% |
+| Same clustered data; independent cluster means | 8/100 | 3.52–15.16% |
+
+Graded severity caused all nine panels to reject in every simulation even though
+the constructed group-effect matrix has rank one: one generic factor changes in
+strength, without separate pathway-selective factors. This is a correct rejection
+of equal identity rank locations, not a false rejection under that null. It shows
+why the test cannot establish selective pathway regulation.
+
+Complete identity/batch confounding leaves no movable identity within a stratum.
+Conditioning therefore executes no permutations and returns uninformative p=1,
+not evidence of no effect. The pooled result ignores that design limitation.
+
+The cluster world has four independent simulated clusters per identity and ten
+correlated cells per cluster, with no population identity effect. Cell shuffling
+violates exchangeability and rejected in all 100 simulations. A separate analysis
+of the 40 cluster means rejected in 8/100. It uses a minimum of two independent
+units per group rather than the deployed 20-cell threshold. Its interval includes
+5% and is wide; this is not proof of general calibration, an identification of
+Norman's experimental units, or an implemented guide-aware remedy.
+
+Worlds share some random draws; paired analyses are not independent experiments.
+The annotation gates are stipulated and no SAE is trained. Architecture, markers,
+thresholds and the running 200-epoch primary fits were not changed after outcomes.
+
+![Fixed severity and dependence audit](figures/fig_identity_boundaries.png)
+
 ## Workflow and remaining experiment
 
 The original nine suites passed during cloud setup. New tests cover the
@@ -112,11 +152,11 @@ run. Seed agreement is computational robustness; it does not create biological
 replication. If claiming findings across three seeds, correct over all 27 planned
 program-by-seed hypotheses rather than selecting promising seeds afterward.
 
-Required next steps are the full Norman run, transparent direct marker-score
-baselines, target-transcript omission sensitivity, design-supported guide/batch
-checks, and independent validation of any proposed mechanism. Direct PCA/NMF
-feature baselines remain unrun: the earlier causal ladder instead trained an SAE
-on each reduced representation.
+The fresh marker baseline, target omission, depth/reference sensitivities and
+ordinary signed-PCA comparison have now completed. The full primary SAE sequence,
+direct NMF, design-supported experimental-unit checks and independent validation
+remain outstanding. The earlier causal ladder trained an SAE on reduced
+representations and is distinct from the newly completed ordinary PCA analysis.
 
 The Norman source and GitHub API initially returned network-policy 403 responses.
 Access later recovered: the raw file was downloaded and fingerprinted, preparation

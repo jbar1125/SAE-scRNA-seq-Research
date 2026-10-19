@@ -31,6 +31,13 @@ and Gate-0 decision bundles remain unchanged.
   for arbitrary experimental designs.
 - Raw simulation outputs, executed generator, source hashes, versions, parameters
   and summaries are retained under `data_program_modulation_audit/`.
+- A later fixed boundary audit retains 600 records (100 seeds, six analyses).
+  Variable-strength generic effects make all nine identity tests reject in every
+  simulation despite rank-one group effects. Invalid cell shuffling in a clustered
+  population null rejects in 100/100 worlds, versus 8/100 for a separate simulated
+  cluster-unit analysis (exact 95% interval 3.52–15.16%). Complete identity/batch
+  confounding is correctly reported as unidentifiable. These outcomes quantify
+  scope and dependence limits; they do not establish a validated biological test.
 - All original standalone suites and new counterexample/specificity suites,
   syntax checks, frozen hashes, and synthetic actual-training CLI checks have
   been exercised. See the continuation audit and reproducibility guide.

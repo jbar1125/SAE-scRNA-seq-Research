@@ -12,8 +12,10 @@ published. Search metadata and source fingerprints are in
 | SAE circuit structure establishes cellular causal regulation | Kendiukhov, *Bioinformatics* 2026;42(7):btag379, [10.1093/bioinformatics/btag379](https://doi.org/10.1093/bioinformatics/btag379). Full-text biological-prior, annotation-selection, CRISPRi and limitation sections reviewed. | That work distinguishes model-internal ablations from cellular causal structure and shows the importance of annotation selection and a sign-bias null. We do not claim to originate SAE interpretation or compare its reported percentages with our different estimands. |
 | PTPN12 is a new erythroid regulator | Targeted PTPN12/PTP-PEST searches returned related papers, including the original Norman article through indexed search. We have not completed its full text and supplements or established an independent validation experiment. | Novelty remains unestablished. A search hit is not evidence of a specific directional result; absence from a title or abstract is not evidence of novelty. |
 
-The Norman paper is PMID 31395745 / PMC6746554. EuropePMC lists a free HTML copy, but
-the HTML requests currently returned403 and its REST full-text endpoint returned500.
+The Norman paper is PMID 31395745 / PMC6746554. EuropePMC lists a free HTML copy,
+but article content was not retrieved. Initial requests returned 403; later PMC
+requests served a browser challenge and EuropePMC served an application shell.
+The REST full-text endpoint returned 500 and the no-JavaScript article route 520.
 Only its abstract has been reviewed here. Two other open-access full-text XMLs
 were retrieved successfully. Their targeted review does not independently
 reproduce their experiments. No access restriction was bypassed.

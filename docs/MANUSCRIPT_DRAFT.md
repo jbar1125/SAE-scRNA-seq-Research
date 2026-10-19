@@ -14,9 +14,9 @@ and each mentor's role. No mentor approval is implied by this draft.
 
 Sparse autoencoders (SAEs) can describe single-cell expression as overlapping gene
 programs, but biologically recognizable features need not imply a method-independent
-program structure. We evaluated an initial hypothesis that erythroid commitment is
-more distributed than granulocyte commitment. Following exploratory metric and marker
-development, a version-locked analysis assessed mouse Paul15 data (2,730 cells,
+program structure. We tested whether erythroid commitment is more distributed
+than granulocyte commitment. A version-locked analysis following exploratory
+development assessed mouse Paul15 data (2,730 cells,
 2,012 genes) and human Setty CD34+ marrow data (4,142 cells, 2,032 genes), with ten SAE
 seeds per dataset. A control-referenced decoder-loading measure combined a fixed
 effect floor with an abundance-matched permutation null. Comparisons included PCA,
@@ -25,20 +25,20 @@ in either dataset. Median erythroid/granulocyte above-control program counts wer
 1.5/3 in mouse and 1/2 in human. Only mouse NMF supported the decision rule among
 ten method-by-dataset combinations. Marker omissions changed none of 34 mouse or
 36 human decisions; additional sensitivity analyses also failed to restore support.
-These findings establish dependence of an operational modularity measure on the
-analysis representation and preprocessing choices. They do not identify an invariant
-biological partition or a causal lineage mechanism. In a separate synthetic audit, legacy quantitative modulation gates passed in
-20/20 simulations of an identical generic response across all perturbations. A
-conditional identity test rejected in 0/20 generic-response simulations and 20/20
-specific-response simulations. This counterexample shows why program responses
-and feature-background rankings alone do not establish identity-specific effects.
+This operational modularity measure depends on representation and preprocessing.
+It does not establish an invariant partition or causal lineage mechanism. In a separate synthetic audit,
+legacy quantitative modulation gates passed in 20/20 simulations of an identical
+generic response. A conditional identity test removed that failure but rejected
+all nine panels in 100/100 worlds containing only one variable-strength generic
+factor. Correlated-cell population nulls rejected in 100/100 under invalid cell
+shuffling, compared with 8/100 for independent cluster means. Rank heterogeneity
+therefore does not establish selective biological regulation.
 A fresh heldout-control marker baseline found 37 heme-panel associations among
 105 Norman perturbations; 29 survived target omission, RNA-depth matching and
 every negative-control reference. KLF1's TF-panel AUC fell from 0.615 to 0.425
 after its own transcript was removed, while heme and membrane associations
 persisted. These are conditional marker-score associations, not an SAE advantage
-or a new mechanism. Precise nulls and comparison baselines are necessary before
-descriptive features become causal biological claims.
+or a new mechanism. Precise nulls and baselines are necessary for causal biological claims.
 
 ## Introduction
 
@@ -193,6 +193,17 @@ planned features with stipulated marker matches, and 999 permutations per simula
 The generator supplied independent normal features. The outcome was any Holm-adjusted
 rejection at familywise alpha 0.05. Five paired uniform-offset checks assessed rank
 invariance; they were not additional independent simulations.
+
+A subsequent fixed boundary audit used 100 simulation seeds, nine stipulated
+matched features and 999 permutations per identifiable analysis. Group severity
+spanning 0–4 multiplied fixed feature coefficients spanning 0.5–1.5, producing a
+rank-one matrix of group effects. A batch-confounded world assigned each identity
+exclusively to its own offset stratum. A population-null cluster world generated
+four independent normal cluster offsets per identity, ten cells per cluster and
+cell noise SD 0.15. Independent-cell shuffling was compared with a separate test of
+the 40 cluster means, using minimum-two-unit eligibility rather than 20 cells.
+Worlds shared some baseline draws; these paired comparisons are not independent
+trials. All six analyses and all 600 records were retained without tuning the test.
 
 ### Fresh external-marker baseline and sensitivities
 
@@ -378,6 +389,26 @@ These results show that ordinary PCA can recover annotated identity-associated
 features; they do not rank its biological fidelity or demonstrate an SAE advantage.
 Complete comparisons and failures are archived alongside the marker baseline.
 
+### Rank heterogeneity did not identify selective regulation or independent units
+
+In the boundary audit, unequal generic severity made all nine features reject
+in 100/100 simulations, despite rank-one group effects. This correctly detects
+identity rank heterogeneity but cannot distinguish pathway-selective regulation
+from generic strength differences. Identical generic responses yielded 4/100
+familywise rejections (exact 95% interval 1.10–9.93%). Ignoring complete identity/batch
+confounding yielded 100/100 rejections; conditioning correctly reported no
+exchangeable identities and no test in every run.
+
+Under the clustered population null, invalid cell shuffling rejected in 100/100
+simulations (interval 96.38–100%), compared with 8/100 for the separate cluster-mean
+analysis (3.52–15.16%). The latter interval includes 5% but remains wide; this does
+not establish universal calibration or identify experimental units in Norman.
+An exchangeability assumption and a biological interpretation require distinct
+justification. Full outputs are retained in the
+[boundary audit archive](../data_program_modulation_audit/boundary_audit/).
+
+![Fixed boundary audit](figures/fig_identity_boundaries.png)
+
 The full-size 2,048-feature, 200-epoch SAE run is ongoing on CPU; no completed
 new SAE result is included. Its model, optimizer, means, input fingerprints and
 RNG states are checkpointed. Small tests verified exact uninterrupted/resumed
@@ -422,8 +453,8 @@ ICA rank, and deterministic comparator fits complicate attribution to algorithms
 alone. Biological effect sizes and uncertainty across independent samples are not
 available from these summaries.
 
-Priority work is to broaden the synthetic audit to graded generic severity,
-multiple programs and experimental dependence; finish the full-size SAE runs,
+The boundary audit now includes graded generic severity, nine programs and
+cluster dependence. Priority work is to finish the full-size SAE runs,
 compare them with the now-archived external-marker baseline and direct PCA/NMF
 features, and evaluate effects with defensible guide or sample structure. Norman
 construct strings often reflect vector orientation rather than independent

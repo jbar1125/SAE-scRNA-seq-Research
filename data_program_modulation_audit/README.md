@@ -64,3 +64,12 @@ python3 tests/test_program_modulation_counterexamples.py
 The current generator preserves the original world construction and historical
 metric calculations. Runtime, output-safety metadata, and provenance fields can
 differ across reruns; the original artifacts remain preserved here.
+
+The later [`boundary_audit/`](boundary_audit/) retains 100 seeds for six analyses
+of generic severity, complete batch confounding and correlated cells. Graded
+severity yielded all-nine identity rejections in 100/100 worlds despite rank-one
+group effects. Cell shuffling under a clustered population null rejected in
+100/100 worlds, while a separate independent-cluster-mean analysis rejected in
+8/100 (exact 95% interval 3.52–15.16%). These are scope/dependence examples, not
+proof of pathway specificity, universal calibration or biological discovery.
+See the [full audit](../docs/PROGRAM_MODULATION_AUDIT.md) for all six outcomes.
