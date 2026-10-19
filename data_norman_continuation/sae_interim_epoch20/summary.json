@@ -1,0 +1,192 @@
+{
+  "scope": "Exploratory full-shape readiness check from epoch20 of a200epoch parent run; no optimizer steps during inference reconstruction, no completed primary seed or independent replicate",
+  "actual_epochs": 20,
+  "parent_target_epochs": 200,
+  "cells": 111445,
+  "genes": 4081,
+  "eligible_features": 461,
+  "features_nonzero_in_encoded_cells": 474,
+  "programs": {
+    "Ery_TF": {
+      "matched": true,
+      "feature": 3,
+      "marker_match_p_bonf": 0.04280345214848172,
+      "exploratory_modulators": [
+        "PRDM1"
+      ],
+      "exploratory_modulator_count": 1,
+      "descriptive_background_percentile": 53.0,
+      "identity_holm_p": 0.009000000000000001,
+      "reason": null,
+      "direct_baseline_eligible_markers": [
+        "GATA1",
+        "KLF1",
+        "TAL1",
+        "LMO2",
+        "ZFPM1",
+        "STAT5A",
+        "MYB"
+      ],
+      "direct_baseline_low_power": false
+    },
+    "Ery_Heme": {
+      "matched": true,
+      "feature": 1550,
+      "marker_match_p_bonf": 0.026985052784634755,
+      "exploratory_modulators": [
+        "PTPN12",
+        "PRDM1",
+        "TBX2",
+        "HNF4A",
+        "DUSP9",
+        "PTPN1",
+        "CKS1B"
+      ],
+      "exploratory_modulator_count": 7,
+      "descriptive_background_percentile": 86.0,
+      "identity_holm_p": 0.009000000000000001,
+      "reason": null,
+      "direct_baseline_eligible_markers": [
+        "ALAS2",
+        "FECH",
+        "HMBS",
+        "PPOX",
+        "CPOX",
+        "UROD",
+        "ALAD"
+      ],
+      "direct_baseline_low_power": false
+    },
+    "Ery_Membrane": {
+      "matched": false,
+      "feature": null,
+      "marker_match_p_bonf": 1.0,
+      "exploratory_modulators": null,
+      "exploratory_modulator_count": null,
+      "descriptive_background_percentile": null,
+      "identity_holm_p": 1.0,
+      "reason": "no_significant_program_match",
+      "direct_baseline_eligible_markers": [
+        "GYPC",
+        "ANK1",
+        "RHAG",
+        "AQP1",
+        "EPOR",
+        "TSPO",
+        "ERMAP"
+      ],
+      "direct_baseline_low_power": false
+    },
+    "Ery_Effector": {
+      "matched": true,
+      "feature": 1753,
+      "marker_match_p_bonf": 0.0007982295185177005,
+      "exploratory_modulators": [
+        "KLF1",
+        "CDKN1C"
+      ],
+      "exploratory_modulator_count": 2,
+      "descriptive_background_percentile": 71.0,
+      "identity_holm_p": 0.009000000000000001,
+      "reason": null,
+      "direct_baseline_eligible_markers": [
+        "HBA1",
+        "HBA2"
+      ],
+      "direct_baseline_low_power": true
+    },
+    "Gran_TF": {
+      "matched": false,
+      "feature": null,
+      "marker_match_p_bonf": 1.0,
+      "exploratory_modulators": null,
+      "exploratory_modulator_count": null,
+      "descriptive_background_percentile": null,
+      "identity_holm_p": 1.0,
+      "reason": "no_significant_program_match",
+      "direct_baseline_eligible_markers": [
+        "CEBPA",
+        "CEBPE",
+        "RUNX1"
+      ],
+      "direct_baseline_low_power": false
+    },
+    "Gran_Primary": {
+      "matched": false,
+      "feature": null,
+      "marker_match_p_bonf": 1.0,
+      "exploratory_modulators": null,
+      "exploratory_modulator_count": null,
+      "descriptive_background_percentile": null,
+      "identity_holm_p": 1.0,
+      "reason": "no_significant_program_match",
+      "direct_baseline_eligible_markers": [
+        "PRTN3"
+      ],
+      "direct_baseline_low_power": true
+    },
+    "Gran_Secondary": {
+      "matched": false,
+      "feature": null,
+      "marker_match_p_bonf": 1.0,
+      "exploratory_modulators": null,
+      "exploratory_modulator_count": null,
+      "descriptive_background_percentile": null,
+      "identity_holm_p": 1.0,
+      "reason": "no_significant_program_match",
+      "direct_baseline_eligible_markers": [
+        "LCN2",
+        "MMP9"
+      ],
+      "direct_baseline_low_power": true
+    },
+    "Progenitor": {
+      "matched": false,
+      "feature": null,
+      "marker_match_p_bonf": 1.0,
+      "exploratory_modulators": null,
+      "exploratory_modulator_count": null,
+      "descriptive_background_percentile": null,
+      "identity_holm_p": 1.0,
+      "reason": "no_significant_program_match",
+      "direct_baseline_eligible_markers": [
+        "KIT",
+        "MLLT3",
+        "EIF4EBP1"
+      ],
+      "direct_baseline_low_power": false
+    },
+    "Cycling": {
+      "matched": true,
+      "feature": 1905,
+      "marker_match_p_bonf": 1.3021146388394695e-07,
+      "exploratory_modulators": [
+        "CNNM4"
+      ],
+      "exploratory_modulator_count": 1,
+      "descriptive_background_percentile": 53.0,
+      "identity_holm_p": 0.009000000000000001,
+      "reason": null,
+      "direct_baseline_eligible_markers": [
+        "TOP2A",
+        "PCNA",
+        "MCM2",
+        "MCM3",
+        "MCM4",
+        "MCM5",
+        "MCM6",
+        "MCM7",
+        "CDK1",
+        "CDK4",
+        "CDK6",
+        "CENPE",
+        "CENPF",
+        "AURKB",
+        "BIRC5",
+        "CCNB2"
+      ],
+      "direct_baseline_low_power": false
+    }
+  },
+  "annotation_caution": "SAE matching checks marker presence, while the direct baseline requires detection in >=10 discovery controls. HBB was detected in only3 discovery controls. Ery_Effector can therefore match a SAE feature while its direct baseline is unscored; do not call this an SAE advantage."
+}

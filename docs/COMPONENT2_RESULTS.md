@@ -5,6 +5,10 @@ versus-foundation-model advantage is established. The original causal result JSO
 were lost with ephemeral GPU instances. The dated tables and notebook reports
 below preserve the research history, but are not a substitute for archived reruns.
 
+A fresh, archived external-marker analysis is now complete; the full-size SAE
+CPU run remains in progress. See [the continuation record](NORMAN_CONTINUATION_RESULTS.md).
+These new marker outputs do not recreate the lost historical causal JSONs below.
+
 ## Current interpretation
 
 | Analysis | Recorded result | What it establishes and what remains missing |

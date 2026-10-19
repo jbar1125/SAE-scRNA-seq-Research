@@ -37,5 +37,13 @@
     "deterministic PNG and SVG figure generation",
     "CPU sequence syntax and dry-run seed paths/parameters/resume selection"
   ],
-  "sae_status": "Full-size seed 0 is running; no completed primary SAE result asserted."
+  "sae_status": "Full-size seed 0 is running; no completed primary SAE result asserted.",
+  "additional_standalone_suites": [
+    {
+      "suite": "tests/test_norman_result_archive.py",
+      "status": "PASS",
+      "scope": "Executed separately after the fifteen-suite run; includes interrupted-archive recovery, not future full-run completion."
+    }
+  ],
+  "standalone_suites_executed_total": 16
 }

@@ -43,11 +43,14 @@ test suites, specification hashes, and frozen decision-bundle hashes. These chec
 establish the environment and tested code paths, not replication of historical
 real-data training or a new discovery.
 
-After the continuation, all **11** standalone suites passed, including the new
-counterexample and conditional-identity suites. Actual small SAE fitting and the
+After the real-data CPU continuation, all **15** standalone suites passed with
+zero skips, including counterexample, conditional-identity, checkpoint, duplicate-
+preparation, marker-baseline and sensitivity suites. Actual small SAE fitting and the
 updated AnnData CLI path executed. The current CLI smoke fixture yielded no
 significant named-program matches; it verifies safe unscored behavior, not a
-biological result. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
+biological result. A later full-data marker baseline and its explicit sensitivities
+completed and are archived in [the continuation record](NORMAN_CONTINUATION_RESULTS.md);
+full-size SAE training is still running. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
 archived 80 design-counterexample runs and 200 deployed-default null simulations.
 
 ```bash

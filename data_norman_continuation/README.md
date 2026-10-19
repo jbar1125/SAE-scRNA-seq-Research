@@ -20,8 +20,12 @@ See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
   metadata heuristic omitted `gemgroup`; its explicit cross-tab verifies eight
   technical partitions with controls and all interventions. They are not
   biological replicates. Timing estimates are variable preflight measurements.
-- `validation.json`: 15 passing standalone suites, no skips, frozen integrity,
-  actual CLI/training checks and rendering checks.
+- `validation.json`: 15 standalone suites passed together, plus the completed-
+  result archiver suite passed separately; frozen integrity, actual CLI/training
+  checks and rendering checks.
+- `sae_interim_epoch20/`: a separate copied partial model's full-data inference
+  diagnostic, with all nine outcomes. Twenty of the planned 200 epochs had
+  completed; this is not a completed primary seed or an independent replicate.
 - `sae_progress.json`: timestamped observation of a partial, mutable local
   checkpoint. It is not a completed result or a permanent weight archive.
 

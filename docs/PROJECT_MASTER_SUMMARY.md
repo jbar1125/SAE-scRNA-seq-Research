@@ -1,5 +1,11 @@
 # PROJECT MASTER SUMMARY
 
+> **Fresh real-data continuation:** the heldout-control Norman marker baseline and
+> its explicit sensitivity checks are now archived; see
+> [NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md). Full-size CPU
+> SAE seed 0 is training with checkpoints, and seeds 1 and 2 are queued. No
+> completed new SAE result or biological discovery is asserted.
+>
 > **Continuation audit, 2026-10-18:** the record below predates additional same-day
 > checks. Read [PROGRAM_MODULATION_AUDIT.md](PROGRAM_MODULATION_AUDIT.md) and
 > [MANUSCRIPT_DRAFT.md](MANUSCRIPT_DRAFT.md) for the continuation. The old two

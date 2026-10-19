@@ -114,3 +114,26 @@ means and RNG states; small tests verified exact uninterrupted/resumed equality.
 Seeds 1 and 2 remain pending. A running or partial seed is not a completed result.
 Use [the run instructions](NORMAN_CPU_RUNS.md) and timestamped progress records
 for current status rather than an old duration estimate.
+
+### Interim inference readiness check
+
+The [declared diagnostic](../config/norman_interim_diagnostics_plan.json) used a
+separate copy of the epoch-20 checkpoint from the 200-epoch parent fit. Inference
+and the complete nine-panel analysis finished on all 111,445 cells without further
+optimizer steps. This is a partial-model implementation check, not a completed
+primary seed, a selected best epoch, or an independent replicate.
+
+Four panels matched an eligible SAE feature: Ery_TF, Ery_Heme, Ery_Effector and
+Cycling. Each rejected the conditional identity null (per-seed Holm p=.009);
+the other five hypotheses retained p=1. The heme feature had seven exploratory
+modulators and a descriptive feature-background percentile of 86. None of the
+matched features reached the old 90th-percentile background threshold, which is
+itself descriptive and does not establish specificity. Full outputs, negatives
+and checkpoint provenance are retained in
+[`sae_interim_epoch20/`](../data_norman_continuation/sae_interim_epoch20/).
+
+Annotation coverage differs between analyses: the direct marker baseline requires
+detection in at least ten discovery controls, while SAE matching checks marker
+presence. HBB was detected in only three discovery controls. An Ery_Effector SAE
+match alongside an unscorable direct score therefore does not establish an SAE
+advantage. The fixed 200-epoch primary fits remain unchanged.

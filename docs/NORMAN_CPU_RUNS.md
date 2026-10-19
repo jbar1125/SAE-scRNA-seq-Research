@@ -56,6 +56,18 @@ nine planned panels. Claims across seeds need the complete 27-hypothesis family,
 and agreement across seeds is not biological replication. Match failures and
 negative outcomes must remain in the report.
 
+A separate `src/archive_norman_cpu_results.py --watch --publish` worker is running.
+It validates actual completion, configuration, the input fingerprint, the entire
+nine-panel family, 999-permutation execution, and large model/activation hashes
+before copying compact outputs. After all three seeds complete, it applies Holm
+to all 27 identity tests and generates `docs/NORMAN_SAE_RESULTS.md`. Its scoped Git
+commits preserve unrelated staged work and push the user-authorized branch.
+Inspect `archive-worker.log` and the existing worker before starting another copy.
+If absent, start it from the activated environment with the same command. A copied
+result interrupted before publication is recovered on the next pass; differing
+existing outputs are preserved for review. Large weights remain outside Git.
+This automation does not replace scientific interpretation or biological validation.
+
 The completed marker-baseline command and its exploratory sensitivity command are:
 
 ```bash

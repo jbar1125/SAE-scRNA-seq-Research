@@ -1,0 +1,18 @@
+{
+  "copied_utc": "2026-10-19T01:33:06.773867+00:00",
+  "actual_completed_epochs": 20,
+  "parent_target_epochs": 200,
+  "parent_checkpoint_sha256": "b00184b4369821831b82962ddc5b005a0293436696b12a1e1584d5734c4fbaff",
+  "parent_snapshot": "/workspace/research-runs/norman-sae-interim/seed0_epoch20_parent.pt",
+  "analysis_copy": "/workspace/research-runs/norman-sae-interim/seed0_epoch20_analysis.pt",
+  "input": {
+    "shape": [
+      111445,
+      4081
+    ],
+    "dtype": "<f4",
+    "sha256": "2ba75854fbf964aadb128b3651ad1f3182b57df47f822da85d4e697f3e5507fd"
+  },
+  "scope": "Interim full-shape inference diagnostic, not completed primary model or an independent seed",
+  "primary_training_untouched": true
+}

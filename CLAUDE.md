@@ -4,7 +4,10 @@ Operating manual for this repository. Read this file before making changes.
 
 ## Start here
 
-Read [README.md](README.md), then the current-state and limitations sections of
+Read [README.md](README.md), [NORMAN_CONTINUATION_RESULTS.md](docs/NORMAN_CONTINUATION_RESULTS.md),
+and [NORMAN_CPU_RUNS.md](docs/NORMAN_CPU_RUNS.md). Check existing CPU trainers and
+`continue_norman_cpu.sh` workers before starting another long job. Then read the
+current-state and limitations sections of
 [PROJECT_MASTER_SUMMARY.md](docs/PROJECT_MASTER_SUMMARY.md), and the latest
 [LAB_NOTEBOOK.md](LAB_NOTEBOOK.md) entries. Use
 [COMPONENT0_RESULTS.md](docs/COMPONENT0_RESULTS.md) and committed JSON/CSV artifacts

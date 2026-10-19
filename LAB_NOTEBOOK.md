@@ -963,3 +963,35 @@ configuration draft for citation review. Updated startup instructions preserve
 CPU resume behavior and distinguish completed marker results from unfinished
 SAE training. Primary-text citation review, independent biological validation,
 confirmed disclosures and publication submission remain outstanding.
+
+## 2026-10-18 — Interim full-shape inference and durable CPU continuation
+
+The predeclared readiness check copied the epoch-20 seed-0 checkpoint from the
+200-epoch parent without stopping or modifying the primary trainer. Full-data
+inference reconstructed the copied model without optimizer steps. Four panels
+matched (Ery_TF, Ery_Heme, Ery_Effector, Cycling), each with per-seed identity Holm
+p=.009; the other five retained p=1. The heme feature had seven exploratory
+modulators and background percentile86. No matched feature reached percentile90.
+All outcomes and snapshot hashes are archived under
+`data_norman_continuation/sae_interim_epoch20/`; none is a completed primary result.
+This observation does not change the 200-epoch target or select a favorable epoch.
+
+HBB was detected in only three discovery controls, failing the direct baseline's
+minimum-ten rule. SAE matching checks presence rather than that detection rule.
+Thus matching Ery_Effector while its direct score is unscorable cannot establish
+an SAE advantage. This eligibility mismatch is explicitly recorded.
+
+A separate completed-result watcher validates configuration, all nine hypotheses,
+permutation execution and model/activation hashes before archiving compact seed
+outputs and publishing scoped evidence commits. All three completed seeds are
+required for the joint 27-test Holm table. Tests reject partial or incompatible
+runs and exercise recovery after interrupted archive publication, without claiming
+the still-future 200-epoch real outputs have completed. This sixteenth suite passed
+separately after the full fifteen-suite run. The sequential training worker and
+primary fit remain active; no duplicate trainer was launched.
+
+Citation APIs recovered. Crossref metadata and the EuropePMC Norman abstract were
+retrieved. The original Norman abstract already reports CBL/CNN1 synergy driving
+erythroid differentiation, so CBL-associated erythroid recovery cannot alone be
+presented as novel biology. Legitimate free full-text hosts were added to the
+network draft; access and a fuller claim-by-claim literature check remain pending.
