@@ -621,7 +621,7 @@ embedding head-to-head is now the pivotal remaining experiment.
 
 ### 2026-07-18 (RPE1 replication) — ladder-flat replicates; rate cell-line-dependent; still housekeeping
 
-Ran RPE1 (second cell line) expression seeds 0-2 + pca/nmf seed0. (1) Ladder FLAT again:
+Ran RPE1 (second cell line) expression seeds 0-2 + pca/nmf seed 0. (1) Ladder FLAT again:
 expression 0.076 ~ pca 0.070 ~ nmf 0.076 -> "SAE not special vs matrix factorization"
 replicates in a second cell line (robust). (2) Rate is LOWER than K562 (7.6% vs 13%) ->
 the grounding rate is cell-line-dependent, not a universal constant. (3) Grounded set again
@@ -973,7 +973,7 @@ matched (Ery_TF, Ery_Heme, Ery_Effector, Cycling), each with per-seed identity H
 p=.009; the other five retained p=1. The heme feature had seven exploratory
 modulators and background percentile 86. No matched feature reached percentile 90.
 All outcomes and snapshot hashes are archived under
-`data_norman_continuation/sae_interim_epoch20/`; none is a completed primary result.
+`data_norman_continuation/sae_interim_epoch 20/`; none is a completed primary result.
 This observation does not change the 200-epoch target or select a favorable epoch.
 
 HBB was detected in only three discovery controls, failing the direct baseline's
@@ -1063,3 +1063,27 @@ PMC served a browser challenge, EuropePMC an application shell, and its explicit
 no-JavaScript route failed. Those are not full-text review. The abstract and the
 two successfully retrieved open-access comparison papers remain the verified
 review sources; no challenge or access restriction was bypassed.
+
+## 2026-10-18 — Direct NMF launch and verification index
+
+The direct NMF settings were committed before inspecting outcomes: rank 64,
+NNDSVDa initialization, multiplicative updates, Frobenius loss, tolerance 1e-4,
+maximum 200 iterations and seed 0. It uses the identical nonnegative matrix,
+existing discovery/inference split and unchanged factor-analysis routine. Negative
+orientations have no positive discovery controls and are ineligible for this
+nonnegative score representation. Warnings and actual iterations will be retained;
+capacity/search differences preclude a superiority claim.
+
+The initial launch was stopped before its loaded-data log or any fit outcomes,
+to correct a timing field that would otherwise include downstream analysis in
+fit duration. The log/path was preserved. The corrected run uses a fresh v2
+directory, `/workspace/research-runs/norman-direct-nmf-v2/`, and one CPU thread.
+The primary SAE was not interrupted. Actual fitted cell factors and gene components
+will be retained outside Git with hashes, rather than replacing joint-fit factors
+with a potentially different later NMF transform.
+
+The original V0b logic suite and four spec/two bundle hashes passed again after
+the continuation changes. The 15-suite raw log and separate archiver/PCA logs are
+now retained in Git. `docs/CONTINUATION_VERIFICATION.md` provides commands and scoped
+PASS/UNVERIFIED statuses, explicitly distinguishing the two still-running fits
+from completed evidence and from biological claims.

@@ -24,7 +24,10 @@
     "direct_pca/comparisons.csv": "7c6e350c76a26310c83fbe2ebe75cab50814a6fe9c42b9945ede4a582a1b799b",
     "direct_pca/seed0.json": "b9243f3e87b3b4f9234b3a6318cd744e884db2ddd30630b992a5aed8f9e0d11e",
     "direct_pca/seed0.log": "f5766205e04e78bddd5bccea981faa3b2b80d00ab9db9f4de8ffec5a986eea0c",
-    "direct_pca/summary.json": "0b90079d3360e9b6943b438314eb8cec9e164a472ff671a3aa15a817ae8c088c"
+    "direct_pca/summary.json": "0b90079d3360e9b6943b438314eb8cec9e164a472ff671a3aa15a817ae8c088c",
+    "validation_logs/result_archive.log": "9f6946362de7c019066cd4d1735811ce827888b774b1f30272b5b6091cf9dfbe",
+    "validation_logs/fifteen_suites.log": "26a8267698d6c564f552806ae29d3a01fa1c16806d3660e1b7242f7623a00a2b",
+    "validation_logs/direct_pca.log": "2afeacfb39d61f01f1fed9d6db4cc58eb08d41811298e71b45b417d2783dacba"
   },
   "source_sha256": {
     "src/marker_program_baseline.py": "868d17702fd2676464f3e8a0135fb2363b6b7fb836a36c7c942653893a7add9a",

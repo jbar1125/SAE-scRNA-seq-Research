@@ -1,0 +1,251 @@
+PASS test_participation_ratio_known_cases
+PASS test_pr_of_representation_rank
+
+ALL BASELINE LOGIC TESTS PASSED
+true regulators grounded: 6/6; null=False; global=False; background all False=True
+grounding rate (of 13 tested): 0.462
+null-world grounding (calibration): 1/13 (expect ~0)
+column specificity: gate-off false-grounds 5/5 stressors -> gate-on rejects all 5, keeps 3/3 true regs
+effect-size control: crux pair (supp=0.39) -> low-effect p=0.000 FLAGGED, high-effect p=0.346 not; null false-flag 1%
+overexpression: direction=up grounds 6/6 activated TFs, 0 background; wrong-sign direction=down grounds 0/6
+empty-tested: handled cleanly (no ZeroDivisionError)
+ALL CAUSAL-GROUNDING TESTS PASSED
+ALL MARKER-BASELINE SENSITIVITY TESTS PASSED
+ALL MARKER-PROGRAM BASELINE TESTS PASSED (6 checks)
+/workspace/SAE-scRNA-seq-Research/tests/test_norman_unique.py:20: UserWarning: Variable names are not unique. To make them unique, call `.var_names_make_unique`.
+  a = ad.AnnData(sparse.csr_matrix(counts),
+/workspace/SAE-scRNA-seq-Research/src/prep_norman_unique.py:24: UserWarning: Variable names are not unique. To make them unique, call `.var_names_make_unique`.
+  a = ad.read_h5ad(inp)
+/workspace/SAE-scRNA-seq-Research/src/prep_norman_unique.py:24: UserWarning: Variable names are not unique. To make them unique, call `.var_names_make_unique`.
+  a = ad.read_h5ad(inp)
+ALL NORMAN-UNIQUE TESTS PASSED
+train_rows: default 'all'; 'control' masks control rows; bad mode and zero-control inputs raise
+  effect-size diag: rho(effect,suppression)=+0.19 | mean effect grounded nan vs not 0.27 | pass effsize gate 9/33
+  diag: scored 33 | pass match: 27 | pass floor(auc<=0.45): 4 | median auc 0.510 min 0.339 | mw_q<0.05: 0
+[/tmp/tmppwf8o792/a.json] grounded 0/33 = 0.000  (SAE {'latent_dim': 16, 'k': 4, 'd': 18, 'device': 'stub', 'trained_on': 'all', 'n_train_cells': 3440})
+  effect-size diag: rho(effect,suppression)=+0.19 | mean effect grounded nan vs not 0.27 | pass effsize gate 9/33
+  diag: scored 33 | pass match: 27 | pass floor(auc<=0.45): 4 | median auc 0.510 min 0.339 | mw_q<0.05: 0
+[/tmp/tmppwf8o792/c.json] grounded 0/33 = 0.000  (SAE {'latent_dim': 16, 'k': 4, 'd': 18, 'device': 'stub', 'trained_on': 'control', 'n_train_cells': 2000})
+run(): default fits on all 3440 cells; train_on='control' fits on the 2000 control rows; every cell is encoded either way; trained_on is recorded
+  effect-size diag: rho(effect,suppression)=+0.39 | mean effect grounded 3.49 vs not 0.27 | pass effsize gate 76/258
+  diag: scored 258 | pass match: 258 | pass floor(auc<=0.45): 53 | median auc 0.499 min 0.312 | mw_q<0.05: 8
+[/tmp/tmppratb6ij/all.json] grounded 8/258 = 0.031  | shuffled null mean 0.000 p=0.048  (SAE {'latent_dim': 128, 'k': 8, 'd': 120, 'device': 'cpu', 'trained_on': 'all', 'n_train_cells': 12640})
+  grounded (8), sorted by q:
+    g0           feat 35 auc 0.314 q 0.0001 | top: g7, g6, g13, g8, g1, g0, g4, g12
+    g15          feat 75 auc 0.322 q 0.0001 | top: g20, g17, g19, g91, g23, g103, g97, g92
+    g30          feat 92 auc 0.323 q 0.0001 | top: g49, g32, g51, g56, g36, g33, g42, g54
+    g45          feat 92 auc 0.323 q 0.0001 | top: g49, g32, g51, g56, g36, g33, g42, g54
+    g60          feat 42 auc 0.313 q 0.0001 | top: g61, g66, g68, g60, g62, g65, g69, g74
+    g75          feat 112 auc 0.312 q 0.0001 | top: g79, g83, g78, g81, g84, g88, g76, g87
+    g90          feat 75 auc 0.322 q 0.0001 | top: g20, g17, g19, g91, g23, g103, g97, g92
+    g105         feat 44 auc 0.323 q 0.0001 | top: g109, g105, g106, g110, g117, g114, g107, g119
+real TopK SAE, default all-cell fit: 8/8 true regulators, 0 false positives (validated)
+  effect-size diag: rho(effect,suppression)=+0.39 | mean effect grounded nan vs not 0.37 | pass effsize gate 70/258
+  diag: scored 258 | pass match: 252 | pass floor(auc<=0.45): 28 | median auc 0.494 min 0.397 | mw_q<0.05: 0
+[/tmp/tmpmhzyr3q7/control.json] grounded 0/258 = 0.000  | shuffled null mean 0.000 p=1.000  (SAE {'latent_dim': 128, 'k': 8, 'd': 120, 'device': 'cpu', 'trained_on': 'control', 'n_train_cells': 2000})
+real TopK SAE, control-only fit (pre-registered intent, UNVALIDATED): 0/8 true regulators, 0 false positives [known limitation, recorded, not asserted]
+ALL PIPELINE-TRAINING TESTS PASSED
+parse_guide: control / single / dual (order-invariant) all correct
+ensure_raw_counts: raw passes; processed is repaired from layers['counts']; normalized-without-counts is refused
+CLI end to end: raw written unchanged; processed written as raw; normalized refused with no output file
+ALL PREP-NORMAN TESTS PASSED
+specific world: found all movers ['P0', 'P1', 'P16', 'P2', 'P3'], shuffle p=0.032, background pct 97 -> quantitative gates pass
+dominant-axis world: 18 modulators BUT background mean 17.8 -> percentile 20 -> correctly reads as NEGATIVE, not a discovery
+low-power: program with <3 in-panel markers flagged, not scored
+label-free: selected feature identical under label shuffle (non-circular)
+CLI: untrained/invalid runs rejected before data loading; prior evidence preserved
+ALL PROGRAM-MODULATION TESTS PASSED
+generic one-axis: legacy quantitative gates pass despite no identity effect
+specific subset: four planted modulators and identity heterogeneity recovered
+null world: no modulators and no identity signal at the fixed oracle seed
+historical absent markers: index -1 silently scores an unrelated last feature
+current module: absent and weak marker matches are explicitly untested
+current empty feature set: every planned program is retained
+benchmark repeat: existing metadata is preserved before any output write
+ALL PROGRAM-MODULATION COUNTEREXAMPLE TESTS PASSED
+ALL PROGRAM-MODULATION SPECIFICITY TESTS PASSED (6 checks)
+oracle: recovered exactly the causal set [np.str_('CAUSAL_0'), np.str_('CAUSAL_1'), np.str_('CAUSAL_2'), np.str_('CAUSAL_3')]; WRONGFEAT/NOREGULON rejected
+shuffle null: real 4 vs null mean 0.00 (max 0), p=0.024
+low-power: TINY (2 targets) flagged low_power, excluded from tested pool
+filter_promiscuous: hub dropped, specific kept, boundary (==max_tfs) kept
+hvg_keep_mask: HVGs + tested target + regulon genes kept; absent gene ignored
+ALL REGULON-RECOVERY TESTS PASSED
+TopK SAE checkpoint: epoch 5/5 -> /tmp/tmpybnp7j10/continuous.pt
+TopK SAE checkpoint: epoch 2/2 -> /tmp/tmpybnp7j10/resumed.pt
+TopK SAE checkpoint: epoch 5/5 -> /tmp/tmpybnp7j10/resumed.pt
+TopK SAE checkpoint: epoch 5/5 -> /tmp/tmpybnp7j10/resumed.pt
+PASS exact uninterrupted vs 2+3 resumed weights, optimizer, RNG and inference
+TopK SAE checkpoint: epoch 2/2 -> /tmp/tmp4y4at66c/sae.pt
+PASS explicit-resume requirement, existing-file protection, input/parameter refusals
+PASS ten-epoch/final checkpoint schedule and atomic-save failure protection
+PASS chunked SHA256 for noncontiguous float32 input
+ALL TOPK CHECKPOINT TESTS PASSED
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_assignment_recovers_engineered_modules
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_supported_when_ery_distributed_gran_unified
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_not_supported_when_ery_unified
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_metrics_bounds
+
+ALL V0b LOGIC TESTS PASSED
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_supported_when_ery_has_multiple_above_control
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_not_supported_when_ery_undetected
+PASS test_progenitor_only_baseline
+PASS test_norm_largest_frac_bounds
+
+ALL V0b v3.1 LOGIC TESTS PASSED
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_strength_high_for_targeted_low_for_untargeted
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_supported_when_ery_distributed_gran_unified
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_not_supported_when_ery_unified
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_metrics_bounds
+
+ALL V0b v3 LOGIC TESTS PASSED
+

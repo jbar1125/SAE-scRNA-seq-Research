@@ -1,10 +1,14 @@
 # PROJECT MASTER SUMMARY
 
 > **Fresh real-data continuation:** the heldout-control Norman marker baseline and
-> its explicit sensitivity checks are now archived; see
+> its explicit sensitivity checks, plus an ordinary signed-PCA comparison, are
+> now archived; see
 > [NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md). Full-size CPU
 > SAE seed 0 is training with checkpoints, and seeds 1 and 2 are queued. No
 > completed new SAE result or biological discovery is asserted.
+> A subsequent 600-record synthetic audit quantifies generic-severity and
+> correlated-cell limits. [The literature review](LITERATURE_REVIEW.md) records
+> prior CBL/erythroid biology and distinguishes abstract from full-text checks.
 >
 > **Continuation audit, 2026-10-18:** the record below predates additional same-day
 > checks. Read [PROGRAM_MODULATION_AUDIT.md](PROGRAM_MODULATION_AUDIT.md) and

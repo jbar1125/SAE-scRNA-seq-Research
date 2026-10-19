@@ -41,12 +41,22 @@ simulations. A separate conditional identity-heterogeneity test and a prospectiv
 [real-data validation plan](config/program_modulation_validation_plan.json) now
 distinguish that question from generic perturbation response. Full simulated
 outputs and calibration records are [archived](data_program_modulation_audit/README.md).
+The later fixed boundary audit shows that unequal generic severity can make all
+nine identity tests reject despite rank-one group effects, and that correlated
+cells invalidate independent-cell permutations. These tests do not establish
+selective pathway regulation or biological replication.
 
 The [fresh Norman continuation](docs/NORMAN_CONTINUATION_RESULTS.md) now includes
 a completed full-data, held-out-control marker baseline: 37 heme-panel associations,
 of which 29 survive target omission, RNA-depth matching and every negative-control
 reference. These are conditional marker-score associations. The full-size CPU SAE
 run is training with resumable checkpoints; it has no completed result yet.
+An ordinary signed-PCA comparison also completed, with all annotation failures
+and 945 comparisons archived. Its TF and Cycling features recover different
+responses from the direct marker scores; unequal capacities and procedures
+preclude a superiority claim. Direct NMF is running under a separately fixed plan.
+The [targeted literature review](docs/LITERATURE_REVIEW.md) records prior biology
+and unverified novelty rather than presenting known CBL responses as a discovery.
 
 **Training correction:** every historical causal SAE was fit on all cells, including
 perturbed cells, without perturbation labels. Feature-gene associations used control
