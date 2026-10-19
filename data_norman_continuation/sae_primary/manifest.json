@@ -1,0 +1,11 @@
+{
+  "generator": "archive_norman_cpu_results.py",
+  "updated_utc": "2026-10-19T05:21:50.833313+00:00",
+  "complete_seeds": [
+    0
+  ],
+  "artifacts": {
+    "seed0.json": "b7f5cea97eafaada5ab7d98b9b19764787a47db570cfc7121d4f46304ccf34c8",
+    "seed0.log": "678fba927865b2169f13f02f9f1033baec9c5c5eac64370f5ffbe5586220f028"
+  }
+}
