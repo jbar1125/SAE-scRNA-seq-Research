@@ -1317,3 +1317,19 @@ draft records all fits as complete and preserves the tested installation and
 network settings. Saving the draft does not apply or publish it. No submission,
 merge, new mechanism, independent replication or public archive deposition is
 claimed. Large-asset upload remains denied at the network CONNECT stage.
+
+
+### 2026-10-20: final candidate-membership and literature access checks
+
+An exact post hoc set comparison confirmed that all 57 direct-score candidates
+are identical under the original context family and both count denominators in
+the expanded family. Candidate lists, CSV source hashes and comparison scope are
+archived separately; no new hypothesis test or threshold was introduced.
+All 150 local Markdown links in the consolidated review/evidence commit resolve.
+
+Additional original-Norman full-text routes failed. A supplementary API returned
+HTTP200 carrying an explicit not-open-access XML error, not supplements. Crossref
+and EuropePMC link the published article to public preprint 10.1101/601096, but
+its PDF was denied by proxy CONNECT before retrieval. Metadata/abstract review
+is distinct from full-text review; the latter remains incomplete. No access
+restriction was bypassed and no known regulator was relabeled as novel.

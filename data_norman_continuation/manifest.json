@@ -17,6 +17,7 @@
     "dual_marker/scale_sensitivity.log": "29119a5433308014a3b895b353ae625a4c0ed2ccecf19299fd2b110364e9ccf0",
     "dual_marker/scale_sensitivity_summary.json": "201ed226bbf5b72f449174586d101f41d251e3eeff80e56681fff5d96bfabaee",
     "dual_marker/summary.json": "1574a67a6fa07c115abb4716c055a723d7fbb89a1bf68a092729b2cd348bcd67",
+    "k562_composition/candidate_overlap.json": "d7cfd5c2e557039666f3733565291bc77e687d12cbe6148e0782a6e460eed03c",
     "k562_composition/comparisons.csv": "e83eeb4d8bb45883d56f628785fe9fba4312c5f0b6e34b55ecaaf5e54515679a",
     "k562_composition/results.json.gz": "14d3045e728bed7aa7aeaf09f9b35121f4b1f6b3c1a79a0a96660ce46451c993",
     "k562_composition/run.log": "cc11faeb9376131c35e1d847cb45b16261f3a9bf4df51dd941a9401551ad0ee7",
@@ -98,7 +99,7 @@
     "target_rna/results.json": "04f61d29fa5ce3f673d2afdd13d241800438fee98ddc00310c43bf47bc099e81",
     "target_rna/run.log": "edc11c4b172c7c4568237dfd6bf92f81df58adeedaaffdee3f73944f09374e82",
     "target_rna/validation.json": "6ee2706542d6614a99eecb7ab81cc5e8ff6bfb1c0cdc79b793ba554be238d4b4",
-    "validation.json": "847ccbbe151fcddb9b64185195ef8407405c7dffc1e694c68a22556307c083d3",
+    "validation.json": "da82b65de148c32117ae348b0091f2c2e2921d4cc20e1727353aac4721be78f3",
     "validation_logs/context_sensitivity_relevant.log": "bb94b144564768a4d577643c38e188c0d91671b2d2f56e465356961885749632",
     "validation_logs/direct_pca.log": "2afeacfb39d61f01f1fed9d6db4cc58eb08d41811298e71b45b417d2783dacba",
     "validation_logs/dual_marker.log": "815fb245c12fd2e3fd04ce1a40699c71f2aefa0ec8875cdfcd6b6d558d634949",
@@ -159,7 +160,7 @@
     "src/build_manuscript_review.py": "b7cb92ab16f47c0e2f2139f08b51199783dd6615525ae0c01e83f11a745a7751",
     "src/program_modulation.py": "8256b31525ff854a905ddec2ec00fe593818827d71c7268bd06fdedbce6efece"
   },
-  "updated_utc": "2026-10-20T19:13:32.718220+00:00",
+  "updated_utc": "2026-10-20T19:19:20.336234+00:00",
   "compressed_json_sources": {
     "dual_marker/results.json.gz": {
       "uncompressed_sha256": "8fe0ca5d869e971ecd896f2fca9530d059e9ebe011094ee4ba9cc458803e44c3"

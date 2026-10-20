@@ -52,8 +52,8 @@ a completed full-data, held-out-control marker baseline: 37 heme-panel associati
 of which 29 survive target omission, RNA-depth matching and every negative-control
 reference. These are conditional marker-score associations. All three full-size CPU
 SAE seeds completed their fixed 200 epochs and are archived with a separate
-one-seed control-only sensitivity. No candidate combines the old background gate
-with two-seed agreement. See [the interpretation](docs/NORMAN_COMPLETED_MODELS.md).
+one-seed control-only sensitivity. With the original nine panels, no candidate
+combines the old background gate with two-seed agreement. See [the interpretation](docs/NORMAN_COMPLETED_MODELS.md).
 An ordinary signed-PCA comparison also completed, with all annotation failures
 and 945 comparisons archived. Its TF and Cycling features recover different
 responses from the direct marker scores; unequal capacities and procedures

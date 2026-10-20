@@ -54,7 +54,9 @@
     "Actual composition sensitivity:11025 complete hypotheses,945 old records recovered, fixed weights, jointBH independently reproduced",
     "Seven large model/count archives built and every member streamed back to its originalSHA256; locally verified, remote upload blocked",
     "Actual PDF/Word internal review build: source and five figure hashes fixed, PDF content checked, Word CRC and five embedded images verified; final pages inspected",
-    "Robustness figure title limited to displayed sensitivity settings; PNG/SVG reproduced byte-identically twice without changing count calculations"
+    "Robustness figure title limited to displayed sensitivity settings; PNG/SVG reproduced byte-identically twice without changing count calculations",
+    "Post hoc exact candidate-set check: all 57 direct calls identical in original context and both denominators under joint composition correction; no new inference",
+    "150 local Markdown references in consolidated review/evidence commit resolved"
   ],
   "sae_status": "PASS: all three declared all-cell seeds and one control-only sensitivity completed200 epochs. Separate historical K562 programme has positive conditional associations; no independent biological validation or novel regulator mechanism established.",
   "additional_standalone_suites": [
@@ -105,7 +107,7 @@
     }
   ],
   "standalone_suites_executed_total": 24,
-  "updated_utc": "2026-10-20T19:13:16.561488+00:00",
+  "updated_utc": "2026-10-20T19:19:20.290076+00:00",
   "large_archive_upload": {
     "status": "FAIL_NETWORK",
     "stage": "CONNECT tunnel to uploads.github.com",

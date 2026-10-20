@@ -81,7 +81,10 @@ A separately fixed [denominator sensitivity](../data_norman_continuation/k562_co
 removed these eight genes from library-size normalization while holding score
 weights fixed. All945 original transcript/program comparisons reproduced first,
 and nominal BH retained 11,025 old/new hypotheses. The KLF1 GYPB AUC changed only
-from .519 to .521 and remained below the floor. Neither denominator establishes
+from .519 to .521 and remained below the floor. A separate exact set check
+confirmed the same 57 direct-score candidates under both denominators and the
+original context family; [all memberships and source hashes](../data_norman_continuation/k562_composition/candidate_overlap.json)
+are retained. This post hoc comparison adds no new inference. Neither denominator establishes
 absolute RNA abundance; this particular compositional change does not explain
 the threshold result. The historically chosen program and marginal RNA changes
 do not establish simultaneous same-cell coactivation or a causal regulon.

@@ -36,7 +36,8 @@ are excluded from the primary manuscript.
   references, depth matching and every single-gene omission, including CBL,
   UBASH3B and PTPN12. These three meet the criterion for all eight individual
   transcripts. KLF1 meets seven; GYPB AUC .519 becomes .521 after excluding
-  signature genes from the count denominator. All unfavorable outcomes remain.
+  signature genes from the count denominator. Exact set comparison confirms the
+  same 57 candidates under both denominators. All unfavorable outcomes remain.
   Historical selection used the same data, so nominal p/q values do not calibrate
   the full selection process. Context and program granularity changed together.
 - **Numerical stopping changes annotation:** the bounded NMF warm restart meets
@@ -61,7 +62,9 @@ The manuscript source, PDF and editable Word copy include four main figures and
 one supplementary figure. The claim-to-evidence ledger, reproduction commands,
 full result records, ten checked citation records and targeted literature review
 are versioned. The original Norman abstract and selected author code were read;
-its full article and supplements remain unchecked.
+its full article and supplements remain unchecked. Additional public-repository
+attempts returned errors, and the linked public preprint PDF was denied at proxy
+CONNECT; these failures are recorded without claiming full-text review.
 
 Twenty-four distinct standalone suites passed: fifteen together and nine
 separately. Syntax, actual full-data research executions, score recovery,

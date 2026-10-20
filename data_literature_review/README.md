@@ -17,3 +17,8 @@ paper is attributed to this project.
 repository and identifies reviewed notebook cells. This is code-context review,
 not execution or full original-article/supplement review. Ten bibliographic
 references now include the Tirosh citation used by the external phase diagnostic.
+
+`norman_fulltext_followup.json` records additional failed public full-text attempts,
+the supplementary API's explicit XML error and the linked preprint's metadata.
+A public bioRxiv PDF request was denied at CONNECT. These are retrieval diagnostics,
+not completed primary-text review.
