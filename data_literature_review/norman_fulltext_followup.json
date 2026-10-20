@@ -1,0 +1,90 @@
+{
+  "reviewed_utc": "2026-10-20T19:19:20.288025+00:00",
+  "original_full_text_reviewed": false,
+  "original_supplements_reviewed": false,
+  "public_endpoint_attempts": {
+    "europepmc_oai": {
+      "url": "https://europepmc.org/oai.cgi?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:6746554&metadataPrefix=pmc",
+      "requested_utc": "2026-10-20T19:14:42.011506+00:00",
+      "status": 500,
+      "error": "HTTP Error 500: Internal Server Error"
+    },
+    "ebi_oai": {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/oai?verb=GetRecord&identifier=oai:pubmedcentral.nih.gov:6746554&metadataPrefix=pmc",
+      "requested_utc": "2026-10-20T19:14:42.012498+00:00",
+      "status": 404,
+      "error": "HTTP Error 404: Not Found"
+    },
+    "pmc_oa_record": {
+      "url": "https://pmc.ncbi.nlm.nih.gov/utils/oa/oa.fcgi?id=PMC6746554",
+      "requested_utc": "2026-10-20T19:14:42.013287+00:00",
+      "status": 404,
+      "error": "HTTP Error 404: Not Found"
+    },
+    "europepmc_supplement": {
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6746554/supplementaryFiles",
+      "requested_utc": "2026-10-20T19:14:42.013908+00:00",
+      "status": 200,
+      "final_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC6746554/supplementaryFiles",
+      "content_type": "application/xml",
+      "bytes": 296,
+      "limit_exceeded": false,
+      "sha256": "2f626636db05457475ea4d1d70027b7268a32db575016622656d45a0bf6789f6",
+      "prefix": "<?xml version=\"1.0\" encoding=\"UTF-8\" standalone=\"yes\"?><ns4:errorBean xmlns:slx=\"http://www.scholix.org\" xmlns:epmc=\"https://www.europepmc.org/data\" xmlns:ns4=\"http://webservice.cdb.ebi.ac.uk/\"><errCode>0</errCode><errMsg>Article with id PMC6746554 is not open access one</errMsg></ns4:errorBean>"
+    }
+  },
+  "preprint_metadata": {
+    "id": "PPR75523",
+    "source": "PPR",
+    "doi": "10.1101/601096",
+    "title": "Exploring genetic interaction manifolds constructed from rich phenotypes",
+    "pubTypeList": {
+      "pubType": [
+        "Preprint"
+      ]
+    },
+    "fullTextUrlList": {
+      "fullTextUrl": [
+        {
+          "availability": "Open access",
+          "availabilityCode": "OA",
+          "documentStyle": "pdf",
+          "site": "Unpaywall",
+          "url": "https://www.biorxiv.org/content/biorxiv/early/2019/04/07/601096.full.pdf"
+        },
+        {
+          "availability": "Free",
+          "availabilityCode": "F",
+          "documentStyle": "doi",
+          "site": "DOI",
+          "url": "https://doi.org/10.1101/601096"
+        }
+      ]
+    },
+    "commentCorrectionList": {
+      "commentCorrection": [
+        {
+          "source": "MED",
+          "id": "31395745",
+          "reference": "Science (New York, N.Y.). 2019 Aug;365(6455):786-793",
+          "type": "Preprint of",
+          "note": "CrossRef Pre-print loader",
+          "orderIn": 10001
+        }
+      ]
+    }
+  },
+  "preprint_search_sha256": "c6b23c439a5e97e4c03ba39d9553f51088df2740d9ed931837b4301c9fc1d720",
+  "preprint_source_relation": {
+    "url": "https://api.crossref.org/works/10.1126/science.aax4438",
+    "field": "relation.has-preprint",
+    "doi": "10.1101/601096",
+    "review_scope": "Crossref metadata, not article content"
+  },
+  "preprint_retrieval": {
+    "url": "https://www.biorxiv.org/content/biorxiv/early/2019/04/07/601096.full.pdf",
+    "requested_utc": "2026-10-20T19:17:21.894079+00:00",
+    "error": "URLError: <urlopen error Tunnel connection failed: 403 Forbidden>"
+  },
+  "interpretation": "HTTP200 supplementaryFiles response is an XML error stating the article is not open access, not retrieved supplements. No full-text or supplement claims were verified. Preprint metadata is linked to the published article but the PDF request was denied at CONNECT before retrieval."
+}

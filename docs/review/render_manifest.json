@@ -1,0 +1,29 @@
+{
+  "source": "docs/MANUSCRIPT_DRAFT.md",
+  "source_sha256": "3d7d69e82b41c9c1505e8990a1c7eb16d9fadea73dfddd7ca4b0daa23a2efeae",
+  "generator_sha256": "b7cb92ab16f47c0e2f2139f08b51199783dd6615525ae0c01e83f11a745a7751",
+  "layout_filter_sha256": "e4f778adcf54ef5b3e2bc578fb965dc0781983a1039cd001d8372a2dace8c602",
+  "figure_sha256": {
+    "docs/figures/fig_method_dependence.png": "20911458af4970d657032ff65839fb402ed709f8d05fc4ea038064a3ff69ef77",
+    "docs/figures/fig_norman_marker_baseline.png": "f86f216c80c2e3393550d66d5890b8694a6af7d46713db1b82e1bd9825460b8b",
+    "docs/figures/fig_identity_boundaries.png": "4b0ff916071560fd0df63eb092a184aef0566005fc79909f0c1c5ad74aaade48",
+    "docs/figures/fig_norman_common_inference.png": "f9e8abeee39d2f8fe071316eb299b58c18260060f9c9a166473eb7f729cf3c09",
+    "docs/figures/fig_robustness.png": "ae1fd999ffee7efca870b363d489be80d3a06e3688a12b1d70bd20e388c2fec9"
+  },
+  "rendered_utc": "2026-10-20T19:12:52.401558+00:00",
+  "outputs": {
+    "manuscript-review.pdf": {
+      "bytes": 798104,
+      "sha256": "42895fee3e4f7d9f99ce2a686d03549f17f90df979db87086a6920624281e1d2"
+    },
+    "manuscript-review.docx": {
+      "bytes": 712969,
+      "sha256": "641ce1fd844a472ee4bf6cfd3f1240b648c729935c65ca38be0d5e3768bb62b3"
+    }
+  },
+  "embedded_figures": 5,
+  "pdf_content_checks": "PASS",
+  "pandoc_version": "pandoc 3.1.11.1",
+  "pdf_info": "Title:           Representation and annotation change measured structure and perturbation responses of hematopoietic gene programs\nCreator:         LaTeX via pandoc\nProducer:        xdvipdfmx (20240305)\nCreationDate:    Tue Oct 20 19:12:52 2026 UTC\nCustom Metadata: no\nMetadata Stream: no\nTagged:          no\nUserProperties:  no\nSuspects:        no\nForm:            none\nJavaScript:      no\nPages:           25\nEncrypted:       no\nPage size:       612 x 792 pts (letter)\nPage rot:        0\nFile size:       798104 bytes\nOptimized:       no\nPDF version:     1.5\n",
+  "scope": "Internal review copies. Placeholders remain; no author approval, submission or venue formatting is implied."
+}

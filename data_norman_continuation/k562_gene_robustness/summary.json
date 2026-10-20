@@ -1,0 +1,3211 @@
+{
+  "primary_calls": 57,
+  "primary_and_all_omissions": 46,
+  "primary_references_depth_and_all_omissions": [
+    "AHR",
+    "ARID1A",
+    "ATL1",
+    "BPGM",
+    "C19orf26",
+    "CBL",
+    "CDKN1A",
+    "CDKN1B",
+    "CDKN1C",
+    "CKS1B",
+    "CLDN6",
+    "CNN1",
+    "DUSP9",
+    "EGR1",
+    "ELMSAN1",
+    "FEV",
+    "HOXA13",
+    "HOXC13",
+    "IER5L",
+    "IGDCC3",
+    "IKZF3",
+    "KLF1",
+    "POU3F2",
+    "PRDM1",
+    "PRTG",
+    "PTPN1",
+    "PTPN12",
+    "PTPN9",
+    "RHOXF2",
+    "RREB1",
+    "S1PR2",
+    "SAMD1",
+    "SGK1",
+    "SLC6A9",
+    "TP73",
+    "UBASH3B",
+    "ZBTB1",
+    "ZBTB25"
+  ],
+  "n_full_descriptive_intersection": 38,
+  "preidentified_cases": [
+    {
+      "pert": "CBL",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6030027649844317,
+      "minimum_omission_auc": 0.7286382654385054,
+      "individual_auc": {
+        "HBZ": 0.7692160336663207,
+        "ALAS2": 0.653494137584328,
+        "HBG1": 0.6204998053969901,
+        "HBG2": 0.683293737026466,
+        "HBA1": 0.6251864945511157,
+        "SLC25A37": 0.6287086063181111,
+        "GYPB": 0.6030027649844317,
+        "BLVRB": 0.6104169369486248
+      },
+      "omission_auc": {
+        "HBZ": 0.7286382654385054,
+        "ALAS2": 0.7394062986507525,
+        "HBG1": 0.7522318532693306,
+        "HBG2": 0.7451156671639855,
+        "HBA1": 0.7436166158536586,
+        "SLC25A37": 0.7403124189154126,
+        "GYPB": 0.752404158017644,
+        "BLVRB": 0.7522298261546445
+      }
+    },
+    {
+      "pert": "KLF1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5190845193129573,
+      "minimum_omission_auc": 0.844927304582617,
+      "individual_auc": {
+        "HBZ": 0.872307278596938,
+        "ALAS2": 0.5624630417513306,
+        "HBG1": 0.7786672529679789,
+        "HBG2": 0.8504969383821103,
+        "HBA1": 0.786607359682135,
+        "SLC25A37": 0.6150315628588637,
+        "GYPB": 0.5190845193129573,
+        "BLVRB": 0.7609506176057778
+      },
+      "omission_auc": {
+        "HBZ": 0.844927304582617,
+        "ALAS2": 0.8696229606935734,
+        "HBG1": 0.8539849052565434,
+        "HBG2": 0.847072083505405,
+        "HBA1": 0.8457494755530188,
+        "SLC25A37": 0.8606627720161402,
+        "GYPB": 0.8747885405076126,
+        "BLVRB": 0.8544157132410343
+      }
+    },
+    {
+      "pert": "PTPN12",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5757302794375038,
+      "minimum_omission_auc": 0.7235681091194399,
+      "individual_auc": {
+        "HBZ": 0.8038520731486511,
+        "ALAS2": 0.6011889673486631,
+        "HBG1": 0.5757302794375038,
+        "HBG2": 0.6551013941698353,
+        "HBA1": 0.6316630454463155,
+        "SLC25A37": 0.6639266099342145,
+        "GYPB": 0.5892977850202185,
+        "BLVRB": 0.6768513489045809
+      },
+      "omission_auc": {
+        "HBZ": 0.7235681091194399,
+        "ALAS2": 0.7510682600036213,
+        "HBG1": 0.7632597018528577,
+        "HBG2": 0.7543514997887621,
+        "HBA1": 0.7500482829380167,
+        "SLC25A37": 0.7382581930110447,
+        "GYPB": 0.7615667813386444,
+        "BLVRB": 0.748328203271169
+      }
+    },
+    {
+      "pert": "UBASH3B",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.553175825808549,
+      "minimum_omission_auc": 0.6838249997486463,
+      "individual_auc": {
+        "HBZ": 0.7025955339478279,
+        "ALAS2": 0.6095086538278931,
+        "HBG1": 0.5864852153765893,
+        "HBG2": 0.6544920253856045,
+        "HBA1": 0.5833008435429474,
+        "SLC25A37": 0.6175257190670198,
+        "GYPB": 0.553175825808549,
+        "BLVRB": 0.6091846868635864
+      },
+      "omission_auc": {
+        "HBZ": 0.6838249997486463,
+        "ALAS2": 0.6907254960883782,
+        "HBG1": 0.7007204355009702,
+        "HBG2": 0.6913505289039974,
+        "HBA1": 0.6969702386072548,
+        "SLC25A37": 0.6876723867316537,
+        "GYPB": 0.7055944626225907,
+        "BLVRB": 0.6964708826312374
+      }
+    }
+  ],
+  "all_105_summaries": [
+    {
+      "pert": "AHR",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5109217306239466,
+      "minimum_omission_auc": 0.6703613215039808,
+      "individual_auc": {
+        "HBZ": 0.6041275206787672,
+        "ALAS2": 0.622493849640664,
+        "HBG1": 0.5979190477112915,
+        "HBG2": 0.6452102260620266,
+        "HBA1": 0.5534863336109873,
+        "SLC25A37": 0.6601224260504039,
+        "GYPB": 0.6891949809193576,
+        "BLVRB": 0.5109217306239466
+      },
+      "omission_auc": {
+        "HBZ": 0.69911425139957,
+        "ALAS2": 0.6788931290316332,
+        "HBG1": 0.6942956627859675,
+        "HBG2": 0.6892773085640121,
+        "HBA1": 0.6959809581000717,
+        "SLC25A37": 0.6703613215039808,
+        "GYPB": 0.6712076012630029,
+        "BLVRB": 0.7085637700249888
+      }
+    },
+    {
+      "pert": "ARID1A",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 6,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.4725513589012396,
+      "minimum_omission_auc": 0.6354129081068498,
+      "individual_auc": {
+        "HBZ": 0.5791101670255485,
+        "ALAS2": 0.7113891637083164,
+        "HBG1": 0.6139061863469708,
+        "HBG2": 0.6703835185939592,
+        "HBA1": 0.4725513589012396,
+        "SLC25A37": 0.5159285340161788,
+        "GYPB": 0.598713845079439,
+        "BLVRB": 0.588820345690508
+      },
+      "omission_auc": {
+        "HBZ": 0.7017662806262003,
+        "ALAS2": 0.6354129081068498,
+        "HBG1": 0.6864866437758249,
+        "HBG2": 0.6772682302275504,
+        "HBA1": 0.7081068497934004,
+        "SLC25A37": 0.699243438282023,
+        "GYPB": 0.6903858464761683,
+        "BLVRB": 0.6874352557760577
+      }
+    },
+    {
+      "pert": "ARRDC3",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 2,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.47416739636270394,
+      "minimum_omission_auc": 0.5360142502134532,
+      "individual_auc": {
+        "HBZ": 0.5585775428202002,
+        "ALAS2": 0.5329413433499458,
+        "HBG1": 0.514598012498943,
+        "HBG2": 0.5216740181837525,
+        "HBA1": 0.4847923162325316,
+        "SLC25A37": 0.5511782886104678,
+        "GYPB": 0.47416739636270394,
+        "BLVRB": 0.5443532438057672
+      },
+      "omission_auc": {
+        "HBZ": 0.5396995561811392,
+        "ALAS2": 0.5423701072857763,
+        "HBG1": 0.5486714076450322,
+        "HBG2": 0.5469883330469106,
+        "HBA1": 0.551996639306475,
+        "SLC25A37": 0.5360142502134532,
+        "GYPB": 0.5567321620007037,
+        "BLVRB": 0.5421518804335076
+      }
+    },
+    {
+      "pert": "ATL1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5837511516787727,
+      "minimum_omission_auc": 0.8122495768250091,
+      "individual_auc": {
+        "HBZ": 0.8330922842878875,
+        "ALAS2": 0.8573311049688244,
+        "HBG1": 0.6698110175483705,
+        "HBG2": 0.7490875847242756,
+        "HBA1": 0.5837511516787727,
+        "SLC25A37": 0.6667613007363602,
+        "GYPB": 0.7839825587624006,
+        "BLVRB": 0.6254758486711948
+      },
+      "omission_auc": {
+        "HBZ": 0.8454500653510746,
+        "ALAS2": 0.8122495768250091,
+        "HBG1": 0.8581167463021291,
+        "HBG2": 0.8537314392235007,
+        "HBA1": 0.8598130173626735,
+        "SLC25A37": 0.8520583802932585,
+        "GYPB": 0.8427396027511731,
+        "BLVRB": 0.8547991972174013
+      }
+    },
+    {
+      "pert": "BAK1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4814092357794061,
+      "minimum_omission_auc": 0.4882846184269147,
+      "individual_auc": {
+        "HBZ": 0.4814092357794061,
+        "ALAS2": 0.4976047771081157,
+        "HBG1": 0.5074288032499451,
+        "HBG2": 0.49950585792234325,
+        "HBA1": 0.5037841002029363,
+        "SLC25A37": 0.4849460333867766,
+        "GYPB": 0.49840920521391674,
+        "BLVRB": 0.4967183779172676
+      },
+      "omission_auc": {
+        "HBZ": 0.4950868291453982,
+        "ALAS2": 0.4929046384519413,
+        "HBG1": 0.4882846184269147,
+        "HBG2": 0.49023154747515163,
+        "HBA1": 0.4890635752915994,
+        "SLC25A37": 0.49445467925223846,
+        "GYPB": 0.4913050445098361,
+        "BLVRB": 0.49031398167367357
+      }
+    },
+    {
+      "pert": "BCL2L11",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.48886913664724063,
+      "minimum_omission_auc": 0.5354349821189558,
+      "individual_auc": {
+        "HBZ": 0.5234326056854092,
+        "ALAS2": 0.5118636740864717,
+        "HBG1": 0.5072206130181399,
+        "HBG2": 0.5284582540610891,
+        "HBA1": 0.48886913664724063,
+        "SLC25A37": 0.5284050848280437,
+        "GYPB": 0.5914580159553934,
+        "BLVRB": 0.5358753620709185
+      },
+      "omission_auc": {
+        "HBZ": 0.5573199007815878,
+        "ALAS2": 0.5558496559025939,
+        "HBG1": 0.5589219128903026,
+        "HBG2": 0.5541852277376954,
+        "HBA1": 0.5621698595176394,
+        "SLC25A37": 0.5514042456788439,
+        "GYPB": 0.5354349821189558,
+        "BLVRB": 0.5523104343463998
+      }
+    },
+    {
+      "pert": "BCORL1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.40291484010424033,
+      "minimum_omission_auc": 0.45043029433748816,
+      "individual_auc": {
+        "HBZ": 0.40291484010424033,
+        "ALAS2": 0.5642487020464233,
+        "HBG1": 0.4960114442132482,
+        "HBG2": 0.5352808529120624,
+        "HBA1": 0.4458584170016767,
+        "SLC25A37": 0.47210283630633726,
+        "GYPB": 0.4968081452899941,
+        "BLVRB": 0.46773802549443444
+      },
+      "omission_auc": {
+        "HBZ": 0.49618568311751277,
+        "ALAS2": 0.45043029433748816,
+        "HBG1": 0.4693592048645482,
+        "HBG2": 0.4605879174158098,
+        "HBA1": 0.4873664168400638,
+        "SLC25A37": 0.4829031231692289,
+        "GYPB": 0.47245005151411085,
+        "BLVRB": 0.4805155451405022
+      }
+    },
+    {
+      "pert": "BPGM",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5983556426414066,
+      "minimum_omission_auc": 0.7950944643157352,
+      "individual_auc": {
+        "HBZ": 0.8649948695354756,
+        "ALAS2": 0.7291723430280755,
+        "HBG1": 0.6504110168754601,
+        "HBG2": 0.7125751453631616,
+        "HBA1": 0.6575154058864109,
+        "SLC25A37": 0.5983556426414066,
+        "GYPB": 0.6899431301051021,
+        "BLVRB": 0.6891750097102012
+      },
+      "omission_auc": {
+        "HBZ": 0.7950944643157352,
+        "ALAS2": 0.8105061478617267,
+        "HBG1": 0.8265613133989183,
+        "HBG2": 0.8224714346170122,
+        "HBA1": 0.8237902828422193,
+        "SLC25A37": 0.8237207172215492,
+        "GYPB": 0.8250395654467562,
+        "BLVRB": 0.8233381063078626
+      }
+    },
+    {
+      "pert": "C19orf26",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 6,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5123464680923155,
+      "minimum_omission_auc": 0.6491271301950577,
+      "individual_auc": {
+        "HBZ": 0.6179864314371741,
+        "ALAS2": 0.6533517122417392,
+        "HBG1": 0.5728852062621766,
+        "HBG2": 0.6379942861103196,
+        "HBA1": 0.5123464680923155,
+        "SLC25A37": 0.523684149731632,
+        "GYPB": 0.7080402590502006,
+        "BLVRB": 0.5530375253159195
+      },
+      "omission_auc": {
+        "HBZ": 0.6816423967534018,
+        "ALAS2": 0.6574561639932542,
+        "HBG1": 0.6845578666091684,
+        "HBG2": 0.6734404238443235,
+        "HBA1": 0.6903441424930117,
+        "SLC25A37": 0.6865107539716153,
+        "GYPB": 0.6491271301950577,
+        "BLVRB": 0.6841220092561933
+      }
+    },
+    {
+      "pert": "C3orf72",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 5,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.38101676029053216,
+      "minimum_omission_auc": 0.4521904917680854,
+      "individual_auc": {
+        "HBZ": 0.38101676029053216,
+        "ALAS2": 0.7269590729959466,
+        "HBG1": 0.45902443761788175,
+        "HBG2": 0.5055254266743678,
+        "HBA1": 0.46864665382000703,
+        "SLC25A37": 0.4066811148992287,
+        "GYPB": 0.6247744593413446,
+        "BLVRB": 0.5072684151072628
+      },
+      "omission_auc": {
+        "HBZ": 0.5855009941678891,
+        "ALAS2": 0.4521904917680854,
+        "HBG1": 0.5630926032886767,
+        "HBG2": 0.5544798891847823,
+        "HBA1": 0.556713572308463,
+        "SLC25A37": 0.5735070869602997,
+        "GYPB": 0.5209618638220005,
+        "BLVRB": 0.5492918151103297
+      }
+    },
+    {
+      "pert": "CBFA2T3",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.27325587325158956,
+      "minimum_omission_auc": 0.22143438501441157,
+      "individual_auc": {
+        "HBZ": 0.29910695162076656,
+        "ALAS2": 0.4364238491649855,
+        "HBG1": 0.3314284490372906,
+        "HBG2": 0.27325587325158956,
+        "HBA1": 0.39651919197276386,
+        "SLC25A37": 0.3798749977051635,
+        "GYPB": 0.33173952687610536,
+        "BLVRB": 0.44887818191832013
+      },
+      "omission_auc": {
+        "HBZ": 0.2417513376347069,
+        "ALAS2": 0.2332145457957575,
+        "HBG1": 0.2439992574928962,
+        "HBG2": 0.25275023407332464,
+        "HBA1": 0.2387935483476157,
+        "SLC25A37": 0.24281920156008086,
+        "GYPB": 0.24121485585366897,
+        "BLVRB": 0.22143438501441157
+      }
+    },
+    {
+      "pert": "CBL",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6030027649844317,
+      "minimum_omission_auc": 0.7286382654385054,
+      "individual_auc": {
+        "HBZ": 0.7692160336663207,
+        "ALAS2": 0.653494137584328,
+        "HBG1": 0.6204998053969901,
+        "HBG2": 0.683293737026466,
+        "HBA1": 0.6251864945511157,
+        "SLC25A37": 0.6287086063181111,
+        "GYPB": 0.6030027649844317,
+        "BLVRB": 0.6104169369486248
+      },
+      "omission_auc": {
+        "HBZ": 0.7286382654385054,
+        "ALAS2": 0.7394062986507525,
+        "HBG1": 0.7522318532693306,
+        "HBG2": 0.7451156671639855,
+        "HBA1": 0.7436166158536586,
+        "SLC25A37": 0.7403124189154126,
+        "GYPB": 0.752404158017644,
+        "BLVRB": 0.7522298261546445
+      }
+    },
+    {
+      "pert": "CDKN1A",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5931026769070167,
+      "minimum_omission_auc": 0.7393893072850645,
+      "individual_auc": {
+        "HBZ": 0.7135187532622475,
+        "ALAS2": 0.7033629110431735,
+        "HBG1": 0.6489877712325702,
+        "HBG2": 0.7363414361345164,
+        "HBA1": 0.6507493848333458,
+        "SLC25A37": 0.6574975766162106,
+        "GYPB": 0.6259768100812766,
+        "BLVRB": 0.5931026769070167
+      },
+      "omission_auc": {
+        "HBZ": 0.7503057191857431,
+        "ALAS2": 0.7393893072850645,
+        "HBG1": 0.7508015807918873,
+        "HBG2": 0.7403362911043173,
+        "HBA1": 0.7500596525240474,
+        "SLC25A37": 0.7472298859145478,
+        "GYPB": 0.7529826262023712,
+        "BLVRB": 0.7537469241667288
+      }
+    },
+    {
+      "pert": "CDKN1B",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5414479881577177,
+      "minimum_omission_auc": 0.6702952006948777,
+      "individual_auc": {
+        "HBZ": 0.6763019781994348,
+        "ALAS2": 0.6747238228061805,
+        "HBG1": 0.6093991999119169,
+        "HBG2": 0.6633097221712482,
+        "HBA1": 0.6364260285536022,
+        "SLC25A37": 0.6392324537257924,
+        "GYPB": 0.5894655069059591,
+        "BLVRB": 0.5414479881577177
+      },
+      "omission_auc": {
+        "HBZ": 0.6768060092242572,
+        "ALAS2": 0.6702952006948777,
+        "HBG1": 0.6859715442678704,
+        "HBG2": 0.6798644499088584,
+        "HBA1": 0.6768109027293525,
+        "SLC25A37": 0.6732313037520951,
+        "GYPB": 0.6878543203533111,
+        "BLVRB": 0.6877111853292718
+      }
+    },
+    {
+      "pert": "CDKN1C",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5921939621936118,
+      "minimum_omission_auc": 0.7016262822160432,
+      "individual_auc": {
+        "HBZ": 0.6855591513423838,
+        "ALAS2": 0.7125528658550833,
+        "HBG1": 0.6380587424352174,
+        "HBG2": 0.6921571605486366,
+        "HBA1": 0.6065436829684324,
+        "SLC25A37": 0.6229583849335234,
+        "GYPB": 0.643380377129238,
+        "BLVRB": 0.5921939621936118
+      },
+      "omission_auc": {
+        "HBZ": 0.7174977218029301,
+        "ALAS2": 0.7016262822160432,
+        "HBG1": 0.7169719840175713,
+        "HBG2": 0.7148281421594972,
+        "HBA1": 0.7176671262004346,
+        "SLC25A37": 0.7141505245694791,
+        "GYPB": 0.7109727317335327,
+        "BLVRB": 0.7169953501413651
+      }
+    },
+    {
+      "pert": "CEBPA",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.2002278105204368,
+      "minimum_omission_auc": 0.1700186657652229,
+      "individual_auc": {
+        "HBZ": 0.2806625611781478,
+        "ALAS2": 0.4078440306294919,
+        "HBG1": 0.2900601125824895,
+        "HBG2": 0.21828510119196343,
+        "HBA1": 0.3774100148444275,
+        "SLC25A37": 0.37347697643998296,
+        "GYPB": 0.2002278105204368,
+        "BLVRB": 0.37229971046017724
+      },
+      "omission_auc": {
+        "HBZ": 0.17036699539969724,
+        "ALAS2": 0.173529887270536,
+        "HBG1": 0.17469098605211716,
+        "HBG2": 0.18540395949381971,
+        "HBA1": 0.1760901835711871,
+        "SLC25A37": 0.17711018680462676,
+        "GYPB": 0.19309954584870442,
+        "BLVRB": 0.1700186657652229
+      }
+    },
+    {
+      "pert": "CEBPB",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.2722350771156364,
+      "minimum_omission_auc": 0.24562956497393795,
+      "individual_auc": {
+        "HBZ": 0.4923076500797369,
+        "ALAS2": 0.4360141961940366,
+        "HBG1": 0.3388037538118647,
+        "HBG2": 0.2722350771156364,
+        "HBA1": 0.4704314577998095,
+        "SLC25A37": 0.35672054742632225,
+        "GYPB": 0.307973968154632,
+        "BLVRB": 0.3668722534673902
+      },
+      "omission_auc": {
+        "HBZ": 0.24562956497393795,
+        "ALAS2": 0.2736664992328236,
+        "HBG1": 0.2830674977972843,
+        "HBG2": 0.29396853890640995,
+        "HBA1": 0.26110896100438347,
+        "SLC25A37": 0.28742077771647684,
+        "GYPB": 0.2887245658385553,
+        "BLVRB": 0.28416679704547887
+      }
+    },
+    {
+      "pert": "CEBPE",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.23966604198966548,
+      "minimum_omission_auc": 0.19243696192677504,
+      "individual_auc": {
+        "HBZ": 0.28086629652549844,
+        "ALAS2": 0.42062866414609135,
+        "HBG1": 0.339352136329742,
+        "HBG2": 0.2550256613230178,
+        "HBA1": 0.4214853171748272,
+        "SLC25A37": 0.36206956875419577,
+        "GYPB": 0.23966604198966548,
+        "BLVRB": 0.34852056513952456
+      },
+      "omission_auc": {
+        "HBZ": 0.19941920346028782,
+        "ALAS2": 0.1974828505389206,
+        "HBG1": 0.19545574815822334,
+        "HBG2": 0.2040425057347098,
+        "HBA1": 0.19243696192677504,
+        "SLC25A37": 0.20275725284986104,
+        "GYPB": 0.21619910650050403,
+        "BLVRB": 0.19943560396498602
+      }
+    },
+    {
+      "pert": "CELF2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3764620151967512,
+      "minimum_omission_auc": 0.36752366533188063,
+      "individual_auc": {
+        "HBZ": 0.44235988284068883,
+        "ALAS2": 0.46345421872568027,
+        "HBG1": 0.42632830076549744,
+        "HBG2": 0.40039336097236566,
+        "HBA1": 0.47974615482574673,
+        "SLC25A37": 0.44907531872143536,
+        "GYPB": 0.3764620151967512,
+        "BLVRB": 0.4300425905225475
+      },
+      "omission_auc": {
+        "HBZ": 0.36973808951084575,
+        "ALAS2": 0.37287507251708574,
+        "HBG1": 0.37465510166541677,
+        "HBG2": 0.37589178328357364,
+        "HBA1": 0.36752366533188063,
+        "SLC25A37": 0.373535862351959,
+        "GYPB": 0.3877959050839783,
+        "BLVRB": 0.37774539074328245
+      }
+    },
+    {
+      "pert": "CITED1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4619993702770781,
+      "minimum_omission_auc": 0.48776448362720404,
+      "individual_auc": {
+        "HBZ": 0.4795654911838791,
+        "ALAS2": 0.5182777078085642,
+        "HBG1": 0.47381297229219144,
+        "HBG2": 0.469845717884131,
+        "HBA1": 0.4619993702770781,
+        "SLC25A37": 0.5383564231738035,
+        "GYPB": 0.5130321158690176,
+        "BLVRB": 0.5392695214105794
+      },
+      "omission_auc": {
+        "HBZ": 0.499933879093199,
+        "ALAS2": 0.48870277078085644,
+        "HBG1": 0.5039105793450882,
+        "HBG2": 0.5059949622166247,
+        "HBA1": 0.5069521410579345,
+        "SLC25A37": 0.48806675062972293,
+        "GYPB": 0.49031486146095715,
+        "BLVRB": 0.48776448362720404
+      }
+    },
+    {
+      "pert": "CKS1B",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 6,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5030879405144515,
+      "minimum_omission_auc": 0.6914915060638976,
+      "individual_auc": {
+        "HBZ": 0.6592822987939395,
+        "ALAS2": 0.6781626893918185,
+        "HBG1": 0.5329818922944266,
+        "HBG2": 0.5620835619659794,
+        "HBA1": 0.5030879405144515,
+        "SLC25A37": 0.6990363833861521,
+        "GYPB": 0.6112974389410856,
+        "BLVRB": 0.6921410094177987
+      },
+      "omission_auc": {
+        "HBZ": 0.7183227135802193,
+        "ALAS2": 0.6914915060638976,
+        "HBG1": 0.7297170181077056,
+        "HBG2": 0.731542346498841,
+        "HBA1": 0.7258759896527397,
+        "SLC25A37": 0.6916762785697488,
+        "GYPB": 0.7143864992889059,
+        "BLVRB": 0.6989775921342904
+      }
+    },
+    {
+      "pert": "CLDN6",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6299117738003928,
+      "minimum_omission_auc": 0.8232183086431156,
+      "individual_auc": {
+        "HBZ": 0.8309255518655203,
+        "ALAS2": 0.8640876800565419,
+        "HBG1": 0.6667523361671198,
+        "HBG2": 0.7932175858067055,
+        "HBA1": 0.7066007011513178,
+        "SLC25A37": 0.6550243154136833,
+        "GYPB": 0.7791403467205313,
+        "BLVRB": 0.6299117738003928
+      },
+      "omission_auc": {
+        "HBZ": 0.8539368481923066,
+        "ALAS2": 0.8232183086431156,
+        "HBG1": 0.8657451841024179,
+        "HBG2": 0.8546155112662086,
+        "HBA1": 0.8600608788887595,
+        "SLC25A37": 0.8600608788887595,
+        "GYPB": 0.8495897903372835,
+        "BLVRB": 0.8627454130006144
+      }
+    },
+    {
+      "pert": "CNN1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5990979354267277,
+      "minimum_omission_auc": 0.8301120507250961,
+      "individual_auc": {
+        "HBZ": 0.8615911695030825,
+        "ALAS2": 0.7056832001237198,
+        "HBG1": 0.6394869848232424,
+        "HBG2": 0.7199013053839178,
+        "HBA1": 0.7465757396824058,
+        "SLC25A37": 0.842734452434678,
+        "GYPB": 0.5990979354267277,
+        "BLVRB": 0.6683678131831825
+      },
+      "omission_auc": {
+        "HBZ": 0.8454873925360439,
+        "ALAS2": 0.8527910753073662,
+        "HBG1": 0.862409231180188,
+        "HBG2": 0.8597204355497444,
+        "HBA1": 0.8521549027464378,
+        "SLC25A37": 0.8301120507250961,
+        "GYPB": 0.8655953661331253,
+        "BLVRB": 0.8626271466430474
+      }
+    },
+    {
+      "pert": "CNNM4",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.34625578997849127,
+      "minimum_omission_auc": 0.5319026737998628,
+      "individual_auc": {
+        "HBZ": 0.887286025655384,
+        "ALAS2": 0.5266561564019286,
+        "HBG1": 0.41334774905163524,
+        "HBG2": 0.34625578997849127,
+        "HBA1": 0.4693192162673628,
+        "SLC25A37": 0.5327670425665721,
+        "GYPB": 0.7614299129026422,
+        "BLVRB": 0.50877147640503
+      },
+      "omission_auc": {
+        "HBZ": 0.5319026737998628,
+        "ALAS2": 0.6731824564728586,
+        "HBG1": 0.7014252033851093,
+        "HBG2": 0.7220264709345233,
+        "HBA1": 0.6868055974338872,
+        "SLC25A37": 0.6699259973982787,
+        "GYPB": 0.6058736872937791,
+        "BLVRB": 0.6848701005941459
+      }
+    },
+    {
+      "pert": "COL1A1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.2767190922252608,
+      "minimum_omission_auc": 0.2779420802758632,
+      "individual_auc": {
+        "HBZ": 0.2809655212238955,
+        "ALAS2": 0.5292485944918103,
+        "HBG1": 0.3645123103131097,
+        "HBG2": 0.2767190922252608,
+        "HBA1": 0.4000862072521335,
+        "SLC25A37": 0.43911664377431026,
+        "GYPB": 0.42504506288179705,
+        "BLVRB": 0.44781367684242224
+      },
+      "omission_auc": {
+        "HBZ": 0.3253828798171911,
+        "ALAS2": 0.2779420802758632,
+        "HBG1": 0.311171057461877,
+        "HBG2": 0.334867739926332,
+        "HBA1": 0.30935204319437054,
+        "SLC25A37": 0.3029298091478681,
+        "GYPB": 0.29529489892302807,
+        "BLVRB": 0.2935707538803575
+      }
+    },
+    {
+      "pert": "COL2A1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.242906199372244,
+      "minimum_omission_auc": 0.29526163635667174,
+      "individual_auc": {
+        "HBZ": 0.242906199372244,
+        "ALAS2": 0.48325833759573505,
+        "HBG1": 0.3626800630009261,
+        "HBG2": 0.3196204171670764,
+        "HBA1": 0.41302785244804563,
+        "SLC25A37": 0.48940182918997843,
+        "GYPB": 0.4284829079569088,
+        "BLVRB": 0.49670461894128703
+      },
+      "omission_auc": {
+        "HBZ": 0.35080091842551764,
+        "ALAS2": 0.3002390700378321,
+        "HBG1": 0.32452687341004904,
+        "HBG2": 0.3337933722845497,
+        "HBA1": 0.3208045010962071,
+        "SLC25A37": 0.3036583799568728,
+        "GYPB": 0.30800152319835605,
+        "BLVRB": 0.29526163635667174
+      }
+    },
+    {
+      "pert": "CSRNP1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3658050177878806,
+      "minimum_omission_auc": 0.40066813701879067,
+      "individual_auc": {
+        "HBZ": 0.4506727846835504,
+        "ALAS2": 0.442477402490585,
+        "HBG1": 0.502543540168499,
+        "HBG2": 0.4659269837782416,
+        "HBA1": 0.5139176433804579,
+        "SLC25A37": 0.45536692609086327,
+        "GYPB": 0.3658050177878806,
+        "BLVRB": 0.4726632809133084
+      },
+      "omission_auc": {
+        "HBZ": 0.4123041995172062,
+        "ALAS2": 0.42655140458062574,
+        "HBG1": 0.40066813701879067,
+        "HBG2": 0.407235428162595,
+        "HBA1": 0.4055974784306104,
+        "SLC25A37": 0.42091787153854604,
+        "GYPB": 0.442336564164533,
+        "BLVRB": 0.4108901827236442
+      }
+    },
+    {
+      "pert": "DLX2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.20815333927014135,
+      "minimum_omission_auc": 0.2414142140458978,
+      "individual_auc": {
+        "HBZ": 0.20815333927014135,
+        "ALAS2": 0.46378454918055456,
+        "HBG1": 0.32511030109941574,
+        "HBG2": 0.2574961419966481,
+        "HBA1": 0.39817175812485367,
+        "SLC25A37": 0.5344168929844261,
+        "GYPB": 0.46558218515097377,
+        "BLVRB": 0.4067533956882549
+      },
+      "omission_auc": {
+        "HBZ": 0.3055400375014519,
+        "ALAS2": 0.25876186209274327,
+        "HBG1": 0.282221472439014,
+        "HBG2": 0.29638315642751656,
+        "HBA1": 0.2718855265414037,
+        "SLC25A37": 0.2414142140458978,
+        "GYPB": 0.24673521651833866,
+        "BLVRB": 0.2614758314757762
+      }
+    },
+    {
+      "pert": "DUSP9",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6196391826843153,
+      "minimum_omission_auc": 0.8750327864613157,
+      "individual_auc": {
+        "HBZ": 0.8958942114809876,
+        "ALAS2": 0.8356714851989907,
+        "HBG1": 0.6660186337927748,
+        "HBG2": 0.8028683997620903,
+        "HBA1": 0.6196391826843153,
+        "SLC25A37": 0.6938584954800862,
+        "GYPB": 0.8765585113653576,
+        "BLVRB": 0.672628569106472
+      },
+      "omission_auc": {
+        "HBZ": 0.8829883520323911,
+        "ALAS2": 0.8750327864613157,
+        "HBG1": 0.8997805615997576,
+        "HBG2": 0.8941708442467611,
+        "HBA1": 0.8999504970612248,
+        "SLC25A37": 0.8884244396747583,
+        "GYPB": 0.8804799568511698,
+        "BLVRB": 0.8968362450173815
+      }
+    },
+    {
+      "pert": "EGR1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5471375,
+      "minimum_omission_auc": 0.6692395833333333,
+      "individual_auc": {
+        "HBZ": 0.7169333333333333,
+        "ALAS2": 0.6100395833333333,
+        "HBG1": 0.56193125,
+        "HBG2": 0.6085166666666667,
+        "HBA1": 0.5637145833333334,
+        "SLC25A37": 0.5471375,
+        "GYPB": 0.5753979166666666,
+        "BLVRB": 0.6381041666666667
+      },
+      "omission_auc": {
+        "HBZ": 0.6692395833333333,
+        "ALAS2": 0.6772125,
+        "HBG1": 0.6960208333333333,
+        "HBG2": 0.6973104166666667,
+        "HBA1": 0.69075,
+        "SLC25A37": 0.6875916666666667,
+        "GYPB": 0.6950229166666667,
+        "BLVRB": 0.6790583333333333
+      }
+    },
+    {
+      "pert": "ELMSAN1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.48733759004819327,
+      "minimum_omission_auc": 0.6079026940839325,
+      "individual_auc": {
+        "HBZ": 0.6092156200846076,
+        "ALAS2": 0.5063132492045593,
+        "HBG1": 0.6633752540741645,
+        "HBG2": 0.7282875221753776,
+        "HBA1": 0.5279477989815486,
+        "SLC25A37": 0.48733759004819327,
+        "GYPB": 0.5100415855664328,
+        "BLVRB": 0.5789012504399164
+      },
+      "omission_auc": {
+        "HBZ": 0.6431383815385942,
+        "ALAS2": 0.6560248795167742,
+        "HBG1": 0.6221890239960928,
+        "HBG2": 0.6079026940839325,
+        "HBA1": 0.6529637796180449,
+        "SLC25A37": 0.6573349325940344,
+        "GYPB": 0.6601532704641926,
+        "BLVRB": 0.6447544009595564
+      }
+    },
+    {
+      "pert": "ETS2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.21592275716206258,
+      "minimum_omission_auc": 0.23187307694471163,
+      "individual_auc": {
+        "HBZ": 0.26134876840086174,
+        "ALAS2": 0.4650275344954634,
+        "HBG1": 0.3128728688188011,
+        "HBG2": 0.21592275716206258,
+        "HBA1": 0.3997013111932365,
+        "SLC25A37": 0.45527711683738614,
+        "GYPB": 0.3945060384639183,
+        "BLVRB": 0.41786507815971696
+      },
+      "omission_auc": {
+        "HBZ": 0.25737131349949655,
+        "ALAS2": 0.2320277651214724,
+        "HBG1": 0.2539496110295483,
+        "HBG2": 0.27817715452505104,
+        "HBA1": 0.24564482469610804,
+        "SLC25A37": 0.23187307694471163,
+        "GYPB": 0.23386152314416375,
+        "BLVRB": 0.23279839349297154
+      }
+    },
+    {
+      "pert": "FEV",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5630207294431743,
+      "minimum_omission_auc": 0.8196780108327067,
+      "individual_auc": {
+        "HBZ": 0.723864752274715,
+        "ALAS2": 0.6769866355699447,
+        "HBG1": 0.764768385681187,
+        "HBG2": 0.8470561045218111,
+        "HBA1": 0.5630207294431743,
+        "SLC25A37": 0.5810266521412242,
+        "GYPB": 0.7672866831356543,
+        "BLVRB": 0.7280708652356037
+      },
+      "omission_auc": {
+        "HBZ": 0.8472354349193685,
+        "ALAS2": 0.8305087996562994,
+        "HBG1": 0.829077992420174,
+        "HBG2": 0.8196780108327067,
+        "HBA1": 0.8475212127721603,
+        "SLC25A37": 0.8418066147024075,
+        "GYPB": 0.8254472711092017,
+        "BLVRB": 0.8371200497138386
+      }
+    },
+    {
+      "pert": "FOSB",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.2836205036854774,
+      "minimum_omission_auc": 0.3146613867476596,
+      "individual_auc": {
+        "HBZ": 0.4090281916063812,
+        "ALAS2": 0.4345680910914182,
+        "HBG1": 0.44165176883694407,
+        "HBG2": 0.40917556798643284,
+        "HBA1": 0.47310274269579167,
+        "SLC25A37": 0.39203398627477365,
+        "GYPB": 0.2836205036854774,
+        "BLVRB": 0.41473101674751006
+      },
+      "omission_auc": {
+        "HBZ": 0.3207646911824071,
+        "ALAS2": 0.3311995796569334,
+        "HBG1": 0.3146613867476596,
+        "HBG2": 0.31893423382437436,
+        "HBA1": 0.31497963429298853,
+        "SLC25A37": 0.3358184408433346,
+        "GYPB": 0.36019962023883517,
+        "BLVRB": 0.3265380006792129
+      }
+    },
+    {
+      "pert": "FOXA1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.48182417783556397,
+      "minimum_omission_auc": 0.547941314768822,
+      "individual_auc": {
+        "HBZ": 0.5288795021412094,
+        "ALAS2": 0.6183353477847872,
+        "HBG1": 0.48182417783556397,
+        "HBG2": 0.4976142162416332,
+        "HBA1": 0.4972520883497382,
+        "SLC25A37": 0.4907866459225504,
+        "GYPB": 0.7295764602669175,
+        "BLVRB": 0.5327635012954554
+      },
+      "omission_auc": {
+        "HBZ": 0.6064529770226302,
+        "ALAS2": 0.5680926668707417,
+        "HBG1": 0.6114848979256936,
+        "HBG2": 0.6110904230979213,
+        "HBA1": 0.6040372131773527,
+        "SLC25A37": 0.6047157098811211,
+        "GYPB": 0.547941314768822,
+        "BLVRB": 0.5980317283993474
+      }
+    },
+    {
+      "pert": "FOXA3",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4772171721029715,
+      "minimum_omission_auc": 0.5479391512162118,
+      "individual_auc": {
+        "HBZ": 0.4971599899603872,
+        "ALAS2": 0.6410429193448062,
+        "HBG1": 0.4772171721029715,
+        "HBG2": 0.48162177941224615,
+        "HBA1": 0.478465303316346,
+        "SLC25A37": 0.5207080655193863,
+        "GYPB": 0.6641326647533201,
+        "BLVRB": 0.546429117059703
+      },
+      "omission_auc": {
+        "HBZ": 0.5983377347577944,
+        "ALAS2": 0.5479391512162118,
+        "HBG1": 0.5971714482141494,
+        "HBG2": 0.6060747842028875,
+        "HBA1": 0.5968331569126009,
+        "SLC25A37": 0.5864184226895249,
+        "GYPB": 0.5500862097187817,
+        "BLVRB": 0.5822293396772046
+      }
+    },
+    {
+      "pert": "FOXF1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3910608804380632,
+      "minimum_omission_auc": 0.43001582989941545,
+      "individual_auc": {
+        "HBZ": 0.3910608804380632,
+        "ALAS2": 0.5732794993563329,
+        "HBG1": 0.45402399738837457,
+        "HBG2": 0.461537810053526,
+        "HBA1": 0.4384042907034758,
+        "SLC25A37": 0.4549494613522553,
+        "GYPB": 0.5314888728742047,
+        "BLVRB": 0.49760780654261444
+      },
+      "omission_auc": {
+        "HBZ": 0.4819673115656818,
+        "ALAS2": 0.43001582989941545,
+        "HBG1": 0.465489895350198,
+        "HBG2": 0.4637121114129263,
+        "HBA1": 0.4718280146103196,
+        "SLC25A37": 0.46754870619829875,
+        "GYPB": 0.44339579060184414,
+        "BLVRB": 0.453620550535568
+      }
+    },
+    {
+      "pert": "FOXL2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.29946049109355893,
+      "minimum_omission_auc": 0.37723487226940744,
+      "individual_auc": {
+        "HBZ": 0.29946049109355893,
+        "ALAS2": 0.6321476668098748,
+        "HBG1": 0.4120065517697214,
+        "HBG2": 0.4133873393040087,
+        "HBA1": 0.4385967811229717,
+        "SLC25A37": 0.46350569252123336,
+        "GYPB": 0.5567930202584355,
+        "BLVRB": 0.459979882018573
+      },
+      "omission_auc": {
+        "HBZ": 0.4792117634422816,
+        "ALAS2": 0.37723487226940744,
+        "HBG1": 0.44778826134373245,
+        "HBG2": 0.4491432301133547,
+        "HBA1": 0.4429363990878747,
+        "SLC25A37": 0.44105266201791204,
+        "GYPB": 0.412623103869923,
+        "BLVRB": 0.4372211573416174
+      }
+    },
+    {
+      "pert": "FOXO4",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 3,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4054384644335717,
+      "minimum_omission_auc": 0.5382887968887217,
+      "individual_auc": {
+        "HBZ": 0.604105507464559,
+        "ALAS2": 0.6615606573830134,
+        "HBG1": 0.4410738928616234,
+        "HBG2": 0.4054384644335717,
+        "HBA1": 0.591936394429808,
+        "SLC25A37": 0.5398350269727763,
+        "GYPB": 0.5421747584995609,
+        "BLVRB": 0.47055890101618364
+      },
+      "omission_auc": {
+        "HBZ": 0.569846945176264,
+        "ALAS2": 0.5382887968887217,
+        "HBG1": 0.601605821101493,
+        "HBG2": 0.6144712081294693,
+        "HBA1": 0.5573453769915945,
+        "SLC25A37": 0.5763580479237235,
+        "GYPB": 0.5761259565926483,
+        "BLVRB": 0.5959101743821352
+      }
+    },
+    {
+      "pert": "GLB1L2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.47043497730464695,
+      "minimum_omission_auc": 0.51210079586395,
+      "individual_auc": {
+        "HBZ": 0.5119902995902914,
+        "ALAS2": 0.546853327827905,
+        "HBG1": 0.48928913094680765,
+        "HBG2": 0.4938122086751206,
+        "HBA1": 0.47043497730464695,
+        "SLC25A37": 0.5175427373416341,
+        "GYPB": 0.5006600698452761,
+        "BLVRB": 0.53762398118074
+      },
+      "omission_auc": {
+        "HBZ": 0.5220062052381049,
+        "ALAS2": 0.51210079586395,
+        "HBG1": 0.5276080755329264,
+        "HBG2": 0.5276444229913667,
+        "HBA1": 0.5307892050956229,
+        "SLC25A37": 0.5191463872080209,
+        "GYPB": 0.522981771022643,
+        "BLVRB": 0.5155639817041433
+      }
+    },
+    {
+      "pert": "HES7",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.30848745719775444,
+      "minimum_omission_auc": 0.2817810027801333,
+      "individual_auc": {
+        "HBZ": 0.3789300243664194,
+        "ALAS2": 0.45458936679511813,
+        "HBG1": 0.3442588636875946,
+        "HBG2": 0.30848745719775444,
+        "HBA1": 0.40341451895106323,
+        "SLC25A37": 0.4409946222131579,
+        "GYPB": 0.4662090359699874,
+        "BLVRB": 0.3737186161591224
+      },
+      "omission_auc": {
+        "HBZ": 0.29384613733214543,
+        "ALAS2": 0.2954347849421968,
+        "HBG1": 0.3039469305825399,
+        "HBG2": 0.3194523459387512,
+        "HBA1": 0.29974989534247165,
+        "SLC25A37": 0.2977479846716974,
+        "GYPB": 0.2817810027801333,
+        "BLVRB": 0.2994064039673254
+      }
+    },
+    {
+      "pert": "HK2",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 3,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.4696872891692767,
+      "minimum_omission_auc": 0.550047583516891,
+      "individual_auc": {
+        "HBZ": 0.5303417524138023,
+        "ALAS2": 0.554989120576185,
+        "HBG1": 0.531293422751623,
+        "HBG2": 0.537148652693942,
+        "HBA1": 0.4696872891692767,
+        "SLC25A37": 0.5797682928463879,
+        "GYPB": 0.5653524977995416,
+        "BLVRB": 0.48118328813271555
+      },
+      "omission_auc": {
+        "HBZ": 0.5719516390622696,
+        "ALAS2": 0.5550561396140598,
+        "HBG1": 0.5646353940942824,
+        "HBG2": 0.5643092347766255,
+        "HBA1": 0.5769579611915091,
+        "SLC25A37": 0.550047583516891,
+        "GYPB": 0.5606187197576592,
+        "BLVRB": 0.5804652908402846
+      }
+    },
+    {
+      "pert": "HNF4A",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 3,
+      "n_passing_omissions": 1,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.2489361097696088,
+      "minimum_omission_auc": 0.43307292406465725,
+      "individual_auc": {
+        "HBZ": 0.6961194284253288,
+        "ALAS2": 0.5978296071134342,
+        "HBG1": 0.31403653305303825,
+        "HBG2": 0.2489361097696088,
+        "HBA1": 0.5116246697537001,
+        "SLC25A37": 0.5260958495497287,
+        "GYPB": 0.5530126985028835,
+        "BLVRB": 0.4681770404249879
+      },
+      "omission_auc": {
+        "HBZ": 0.43307292406465725,
+        "ALAS2": 0.46135621147126504,
+        "HBG1": 0.5362461293713247,
+        "HBG2": 0.5612624641345416,
+        "HBA1": 0.4890145166330502,
+        "SLC25A37": 0.4866594699014233,
+        "GYPB": 0.48155450129257693,
+        "BLVRB": 0.5039402289707678
+      }
+    },
+    {
+      "pert": "HOXA13",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.3515016904814787,
+      "minimum_omission_auc": 0.5873102835566744,
+      "individual_auc": {
+        "HBZ": 0.3515016904814787,
+        "ALAS2": 0.6482169739147603,
+        "HBG1": 0.6364477678240912,
+        "HBG2": 0.7122380987636041,
+        "HBA1": 0.4355642753140347,
+        "SLC25A37": 0.4756743416993658,
+        "GYPB": 0.798615532686755,
+        "BLVRB": 0.4675526270328965
+      },
+      "omission_auc": {
+        "HBZ": 0.700180153500654,
+        "ALAS2": 0.6270625107968708,
+        "HBG1": 0.6367809284074925,
+        "HBG2": 0.6198415636336714,
+        "HBA1": 0.6720021717134326,
+        "SLC25A37": 0.6674070235186693,
+        "GYPB": 0.5873102835566744,
+        "BLVRB": 0.6687396658522742
+      }
+    },
+    {
+      "pert": "HOXB9",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3497236620848182,
+      "minimum_omission_auc": 0.4524353604541738,
+      "individual_auc": {
+        "HBZ": 0.3497236620848182,
+        "ALAS2": 0.5173979111707626,
+        "HBG1": 0.5290849030406812,
+        "HBG2": 0.6414501087610497,
+        "HBA1": 0.4067682541151787,
+        "SLC25A37": 0.4499689529627744,
+        "GYPB": 0.5449111784761111,
+        "BLVRB": 0.4956331667206615
+      },
+      "omission_auc": {
+        "HBZ": 0.5314240369633297,
+        "ALAS2": 0.4828971321022508,
+        "HBG1": 0.48319988892488547,
+        "HBG2": 0.4524353604541738,
+        "HBA1": 0.5131207479057712,
+        "SLC25A37": 0.5063839265052992,
+        "GYPB": 0.47834806621310993,
+        "BLVRB": 0.4934511963715463
+      }
+    },
+    {
+      "pert": "HOXC13",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.42303970868735913,
+      "minimum_omission_auc": 0.6066308305878273,
+      "individual_auc": {
+        "HBZ": 0.42303970868735913,
+        "ALAS2": 0.6417149297728455,
+        "HBG1": 0.6311114964452922,
+        "HBG2": 0.7102028784463326,
+        "HBA1": 0.4722004508409918,
+        "SLC25A37": 0.48821744407837697,
+        "GYPB": 0.741447893185365,
+        "BLVRB": 0.474787584532686
+      },
+      "omission_auc": {
+        "HBZ": 0.6885555748222646,
+        "ALAS2": 0.6251465233223513,
+        "HBG1": 0.6423686492110283,
+        "HBG2": 0.6269793653546037,
+        "HBA1": 0.6651603953528697,
+        "SLC25A37": 0.6635477718050979,
+        "GYPB": 0.6066308305878273,
+        "BLVRB": 0.6705531472169238
+      }
+    },
+    {
+      "pert": "IER5L",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5883519874200539,
+      "minimum_omission_auc": 0.8003825519319203,
+      "individual_auc": {
+        "HBZ": 0.7949779322374333,
+        "ALAS2": 0.7583513927797453,
+        "HBG1": 0.6473270918124636,
+        "HBG2": 0.7172683545641947,
+        "HBA1": 0.5883519874200539,
+        "SLC25A37": 0.6894078043236957,
+        "GYPB": 0.8266623500185,
+        "BLVRB": 0.5927622363761298
+      },
+      "omission_auc": {
+        "HBZ": 0.8196290765896718,
+        "ALAS2": 0.8037653945768803,
+        "HBG1": 0.83603454199482,
+        "HBG2": 0.8301773349542788,
+        "HBA1": 0.8371214123368043,
+        "SLC25A37": 0.8125231249008933,
+        "GYPB": 0.8003825519319203,
+        "BLVRB": 0.8379208731962577
+      }
+    },
+    {
+      "pert": "IGDCC3",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5507830992583241,
+      "minimum_omission_auc": 0.7491912576929146,
+      "individual_auc": {
+        "HBZ": 0.8130084775480863,
+        "ALAS2": 0.8253467290866692,
+        "HBG1": 0.6345405291673242,
+        "HBG2": 0.6772931899075973,
+        "HBA1": 0.6086640629109463,
+        "SLC25A37": 0.5507830992583241,
+        "GYPB": 0.6887361264531061,
+        "BLVRB": 0.5629657391334841
+      },
+      "omission_auc": {
+        "HBZ": 0.7907855978117931,
+        "ALAS2": 0.7491912576929146,
+        "HBG1": 0.8131849104904179,
+        "HBG2": 0.8127224589272877,
+        "HBA1": 0.8094020128697421,
+        "SLC25A37": 0.8108200515491032,
+        "GYPB": 0.8011063770098014,
+        "BLVRB": 0.8190608945698105
+      }
+    },
+    {
+      "pert": "IKZF3",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.7448252249194355,
+      "minimum_omission_auc": 0.9228238711599903,
+      "individual_auc": {
+        "HBZ": 0.9198686892806327,
+        "ALAS2": 0.828255090905144,
+        "HBG1": 0.8881500660105736,
+        "HBG2": 0.9148404399126174,
+        "HBA1": 0.8660123496014698,
+        "SLC25A37": 0.7448252249194355,
+        "GYPB": 0.8794927151559883,
+        "BLVRB": 0.8136636953686034
+      },
+      "omission_auc": {
+        "HBZ": 0.9260089553358054,
+        "ALAS2": 0.9261352535930868,
+        "HBG1": 0.9246808502240808,
+        "HBG2": 0.9261293333622767,
+        "HBA1": 0.9241539496819849,
+        "SLC25A37": 0.9279685517339369,
+        "GYPB": 0.9228238711599903,
+        "BLVRB": 0.9263621957741393
+      }
+    },
+    {
+      "pert": "IRF1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 4,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4095678146868019,
+      "minimum_omission_auc": 0.5271167376105511,
+      "individual_auc": {
+        "HBZ": 0.49423101765352706,
+        "ALAS2": 0.598895039809444,
+        "HBG1": 0.5653854757756304,
+        "HBG2": 0.5773535147942417,
+        "HBA1": 0.4564175596353978,
+        "SLC25A37": 0.484986782697464,
+        "GYPB": 0.4095678146868019,
+        "BLVRB": 0.6160349982828535
+      },
+      "omission_auc": {
+        "HBZ": 0.5640180599709503,
+        "ALAS2": 0.5275924974872946,
+        "HBG1": 0.5423757116706103,
+        "HBG2": 0.5423347522110231,
+        "HBA1": 0.5691631982406337,
+        "SLC25A37": 0.5603868463421627,
+        "GYPB": 0.5804522554483958,
+        "BLVRB": 0.5271167376105511
+      }
+    },
+    {
+      "pert": "ISL2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.35060194894731356,
+      "minimum_omission_auc": 0.37860329304890905,
+      "individual_auc": {
+        "HBZ": 0.35060194894731356,
+        "ALAS2": 0.47002885183597326,
+        "HBG1": 0.4458130076590617,
+        "HBG2": 0.40622573954555463,
+        "HBA1": 0.4375305609306745,
+        "SLC25A37": 0.4561046545311287,
+        "GYPB": 0.5765431097412604,
+        "BLVRB": 0.4763774144583618
+      },
+      "omission_auc": {
+        "HBZ": 0.4343753983059685,
+        "ALAS2": 0.4116056220525358,
+        "HBG1": 0.4116844142150331,
+        "HBG2": 0.420642387866007,
+        "HBA1": 0.4193434758930744,
+        "SLC25A37": 0.4149114167526042,
+        "GYPB": 0.37860329304890905,
+        "BLVRB": 0.4040253525369918
+      }
+    },
+    {
+      "pert": "JUN",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 1,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.33785863887557094,
+      "minimum_omission_auc": 0.4682177193469429,
+      "individual_auc": {
+        "HBZ": 0.33785863887557094,
+        "ALAS2": 0.5173256958288123,
+        "HBG1": 0.557884377602261,
+        "HBG2": 0.6396174518660577,
+        "HBA1": 0.4405107370864771,
+        "SLC25A37": 0.5624946377652729,
+        "GYPB": 0.5713820686870726,
+        "BLVRB": 0.4115824270105226
+      },
+      "omission_auc": {
+        "HBZ": 0.5516969895783391,
+        "ALAS2": 0.4978475358954301,
+        "HBG1": 0.4912664967574251,
+        "HBG2": 0.4682177193469429,
+        "HBA1": 0.5214766963587272,
+        "SLC25A37": 0.49125135632996036,
+        "GYPB": 0.4882081304095486,
+        "BLVRB": 0.533452774483333
+      }
+    },
+    {
+      "pert": "KIAA1804",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 6,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.48241875719551486,
+      "minimum_omission_auc": 0.600717858421292,
+      "individual_auc": {
+        "HBZ": 0.5624135328889448,
+        "ALAS2": 0.5746471174404768,
+        "HBG1": 0.5988313032709964,
+        "HBG2": 0.7004827646256397,
+        "HBA1": 0.5285063320530557,
+        "SLC25A37": 0.5500904579007962,
+        "GYPB": 0.5664962317270203,
+        "BLVRB": 0.48241875719551486
+      },
+      "omission_auc": {
+        "HBZ": 0.6406789663612704,
+        "ALAS2": 0.6264765922041736,
+        "HBG1": 0.6251801902034577,
+        "HBG2": 0.600717858421292,
+        "HBA1": 0.6353869372986465,
+        "SLC25A37": 0.6312631212329364,
+        "GYPB": 0.6297659704149454,
+        "BLVRB": 0.6518918762032836
+      }
+    },
+    {
+      "pert": "KIF18B",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5133186738295913,
+      "minimum_omission_auc": 0.5678552223151012,
+      "individual_auc": {
+        "HBZ": 0.5602015770502452,
+        "ALAS2": 0.5677753581905984,
+        "HBG1": 0.5133186738295913,
+        "HBG2": 0.5514750903795675,
+        "HBA1": 0.5197104659273023,
+        "SLC25A37": 0.5409942551073108,
+        "GYPB": 0.560393250949052,
+        "BLVRB": 0.5205437149596154
+      },
+      "omission_auc": {
+        "HBZ": 0.5741964338006272,
+        "ALAS2": 0.5678552223151012,
+        "HBG1": 0.5851058732077159,
+        "HBG2": 0.5797017341163567,
+        "HBA1": 0.5797762739658927,
+        "SLC25A37": 0.5786794733227203,
+        "GYPB": 0.5716487682289865,
+        "BLVRB": 0.5847864167097045
+      }
+    },
+    {
+      "pert": "KIF2C",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4656939198893558,
+      "minimum_omission_auc": 0.48122878876535985,
+      "individual_auc": {
+        "HBZ": 0.4656939198893558,
+        "ALAS2": 0.5297749880312782,
+        "HBG1": 0.4829980318102027,
+        "HBG2": 0.49972445342837385,
+        "HBA1": 0.48480983031012287,
+        "SLC25A37": 0.532902813979467,
+        "GYPB": 0.47999468056811534,
+        "BLVRB": 0.483025692856003
+      },
+      "omission_auc": {
+        "HBZ": 0.4978371189956913,
+        "ALAS2": 0.48124049151550613,
+        "HBG1": 0.4937709452630459,
+        "HBG2": 0.4885791797436034,
+        "HBA1": 0.4937837118995691,
+        "SLC25A37": 0.48122878876535985,
+        "GYPB": 0.49336986009894146,
+        "BLVRB": 0.49427097186020535
+      }
+    },
+    {
+      "pert": "KLF1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5190845193129573,
+      "minimum_omission_auc": 0.844927304582617,
+      "individual_auc": {
+        "HBZ": 0.872307278596938,
+        "ALAS2": 0.5624630417513306,
+        "HBG1": 0.7786672529679789,
+        "HBG2": 0.8504969383821103,
+        "HBA1": 0.786607359682135,
+        "SLC25A37": 0.6150315628588637,
+        "GYPB": 0.5190845193129573,
+        "BLVRB": 0.7609506176057778
+      },
+      "omission_auc": {
+        "HBZ": 0.844927304582617,
+        "ALAS2": 0.8696229606935734,
+        "HBG1": 0.8539849052565434,
+        "HBG2": 0.847072083505405,
+        "HBA1": 0.8457494755530188,
+        "SLC25A37": 0.8606627720161402,
+        "GYPB": 0.8747885405076126,
+        "BLVRB": 0.8544157132410343
+      }
+    },
+    {
+      "pert": "KMT2A",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 5,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.49782011948974647,
+      "minimum_omission_auc": 0.5816188466399773,
+      "individual_auc": {
+        "HBZ": 0.594678641625417,
+        "ALAS2": 0.5114005245076477,
+        "HBG1": 0.5543800842998491,
+        "HBG2": 0.5717912882731894,
+        "HBA1": 0.5523004281808717,
+        "SLC25A37": 0.5173638757885711,
+        "GYPB": 0.5737595839574158,
+        "BLVRB": 0.49782011948974647
+      },
+      "omission_auc": {
+        "HBZ": 0.5859340634865838,
+        "ALAS2": 0.5997761655261502,
+        "HBG1": 0.5929330668106928,
+        "HBG2": 0.5937654860604575,
+        "HBA1": 0.5891356759856791,
+        "SLC25A37": 0.5978440619832179,
+        "GYPB": 0.5816188466399773,
+        "BLVRB": 0.6082841027411371
+      }
+    },
+    {
+      "pert": "LHX1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.21348439369300312,
+      "minimum_omission_auc": 0.3943484895157997,
+      "individual_auc": {
+        "HBZ": 0.21348439369300312,
+        "ALAS2": 0.5906433795875092,
+        "HBG1": 0.520049645034422,
+        "HBG2": 0.5743386034916291,
+        "HBA1": 0.39339391508048516,
+        "SLC25A37": 0.43882485260511067,
+        "GYPB": 0.46057589672686633,
+        "BLVRB": 0.4874114377001383
+      },
+      "omission_auc": {
+        "HBZ": 0.5028923784484673,
+        "ALAS2": 0.3943484895157997,
+        "HBG1": 0.41816449484565626,
+        "HBG2": 0.40472523300212765,
+        "HBA1": 0.4549075513464335,
+        "SLC25A37": 0.44817359285340747,
+        "GYPB": 0.4384057711457042,
+        "BLVRB": 0.43225207928877935
+      }
+    },
+    {
+      "pert": "LYL1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.45733630297869154,
+      "minimum_omission_auc": 0.5252466646078789,
+      "individual_auc": {
+        "HBZ": 0.6580119596851927,
+        "ALAS2": 0.5045246539832864,
+        "HBG1": 0.5046884211905408,
+        "HBG2": 0.5185524850503935,
+        "HBA1": 0.5285610009451708,
+        "SLC25A37": 0.5602460563296805,
+        "GYPB": 0.5051922003138092,
+        "BLVRB": 0.45733630297869154
+      },
+      "omission_auc": {
+        "HBZ": 0.5252466646078789,
+        "ALAS2": 0.562807063513602,
+        "HBG1": 0.566282047682772,
+        "HBG2": 0.5625356778558661,
+        "HBA1": 0.5558633339260146,
+        "SLC25A37": 0.5503264426331271,
+        "GYPB": 0.5637771892556235,
+        "BLVRB": 0.5794926024012952
+      }
+    },
+    {
+      "pert": "MAML2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 1,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4836175177821967,
+      "minimum_omission_auc": 0.5309727260571186,
+      "individual_auc": {
+        "HBZ": 0.5414824464161703,
+        "ALAS2": 0.5154292098191371,
+        "HBG1": 0.5303073764304478,
+        "HBG2": 0.5744339675542308,
+        "HBA1": 0.5163296424581487,
+        "SLC25A37": 0.5102433648358948,
+        "GYPB": 0.5081146773755246,
+        "BLVRB": 0.4836175177821967
+      },
+      "omission_auc": {
+        "HBZ": 0.5430137210837112,
+        "ALAS2": 0.5445859735240454,
+        "HBG1": 0.5412710873775519,
+        "HBG2": 0.5309727260571186,
+        "HBA1": 0.5440920835256413,
+        "SLC25A37": 0.5472344316814258,
+        "GYPB": 0.5457204108129559,
+        "BLVRB": 0.5529648496978429
+      }
+    },
+    {
+      "pert": "MAP2K3",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.335290243300735,
+      "minimum_omission_auc": 0.4668364853353938,
+      "individual_auc": {
+        "HBZ": 0.532409454609774,
+        "ALAS2": 0.4809739476905747,
+        "HBG1": 0.5455077570437122,
+        "HBG2": 0.5802573579038992,
+        "HBA1": 0.5591099298537962,
+        "SLC25A37": 0.42579606864739317,
+        "GYPB": 0.335290243300735,
+        "BLVRB": 0.5066015164985547
+      },
+      "omission_auc": {
+        "HBZ": 0.4766392660482133,
+        "ALAS2": 0.4974701750629547,
+        "HBG1": 0.47304468038559466,
+        "HBG2": 0.4668364853353938,
+        "HBA1": 0.47388950692850856,
+        "SLC25A37": 0.5053878056386936,
+        "GYPB": 0.5316937957614377,
+        "BLVRB": 0.48762550212486677
+      }
+    },
+    {
+      "pert": "MAP2K6",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3979321790272629,
+      "minimum_omission_auc": 0.43927250827879266,
+      "individual_auc": {
+        "HBZ": 0.3979321790272629,
+        "ALAS2": 0.49924452664920754,
+        "HBG1": 0.5055059142989805,
+        "HBG2": 0.5231062980120171,
+        "HBA1": 0.472880345586917,
+        "SLC25A37": 0.42899853042810665,
+        "GYPB": 0.4884778821001853,
+        "BLVRB": 0.4850713562202427
+      },
+      "omission_auc": {
+        "HBZ": 0.47314851564044375,
+        "ALAS2": 0.45102525242464037,
+        "HBG1": 0.44578597577888074,
+        "HBG2": 0.43927250827879266,
+        "HBA1": 0.45829649187597976,
+        "SLC25A37": 0.4722781122667112,
+        "GYPB": 0.44986062819218137,
+        "BLVRB": 0.45056323373242146
+      }
+    },
+    {
+      "pert": "MAP4K3",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 3,
+      "n_passing_omissions": 7,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.49055183358797266,
+      "minimum_omission_auc": 0.5459516049675012,
+      "individual_auc": {
+        "HBZ": 0.5526363491752276,
+        "ALAS2": 0.5694221969021556,
+        "HBG1": 0.49417165772038013,
+        "HBG2": 0.5235186836196022,
+        "HBA1": 0.5037178571824932,
+        "SLC25A37": 0.537814861810393,
+        "GYPB": 0.5554497127446665,
+        "BLVRB": 0.49055183358797266
+      },
+      "omission_auc": {
+        "HBZ": 0.5577821594646286,
+        "ALAS2": 0.5459516049675012,
+        "HBG1": 0.5684881084060566,
+        "HBG2": 0.5639304964171695,
+        "HBA1": 0.561470421764077,
+        "SLC25A37": 0.553760954730927,
+        "GYPB": 0.5529470954471972,
+        "BLVRB": 0.5676409548789014
+      }
+    },
+    {
+      "pert": "MAP4K5",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5063703190320654,
+      "minimum_omission_auc": 0.5745895051943168,
+      "individual_auc": {
+        "HBZ": 0.5865283235886131,
+        "ALAS2": 0.5859790310331862,
+        "HBG1": 0.5375896747745689,
+        "HBG2": 0.5616663840329134,
+        "HBA1": 0.518355219016582,
+        "SLC25A37": 0.5243624151177109,
+        "GYPB": 0.5862665801561613,
+        "BLVRB": 0.5063703190320654
+      },
+      "omission_auc": {
+        "HBZ": 0.5863347809096875,
+        "ALAS2": 0.5745895051943168,
+        "HBG1": 0.5956285160253338,
+        "HBG2": 0.590758613570844,
+        "HBA1": 0.5951050291604303,
+        "SLC25A37": 0.5950644773610364,
+        "GYPB": 0.583396618717236,
+        "BLVRB": 0.5991012246643417
+      }
+    },
+    {
+      "pert": "MAP7D1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4628635686173014,
+      "minimum_omission_auc": 0.48669421413845726,
+      "individual_auc": {
+        "HBZ": 0.47299395800051763,
+        "ALAS2": 0.5055680996706798,
+        "HBG1": 0.5050683183250185,
+        "HBG2": 0.5165516872082749,
+        "HBA1": 0.5017144285089559,
+        "SLC25A37": 0.4628635686173014,
+        "GYPB": 0.5051415005934904,
+        "BLVRB": 0.5219368312077751
+      },
+      "omission_auc": {
+        "HBZ": 0.500170461137538,
+        "ALAS2": 0.49246847361422236,
+        "HBG1": 0.49121366544993705,
+        "HBG2": 0.48841578238092265,
+        "HBA1": 0.4936072611089791,
+        "SLC25A37": 0.5030049353407884,
+        "GYPB": 0.4904104454301243,
+        "BLVRB": 0.48669421413845726
+      }
+    },
+    {
+      "pert": "MAPK1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.1726846844936418,
+      "minimum_omission_auc": 0.16986166776229758,
+      "individual_auc": {
+        "HBZ": 0.22039322546670342,
+        "ALAS2": 0.46148503933668383,
+        "HBG1": 0.2642255303207018,
+        "HBG2": 0.1726846844936418,
+        "HBA1": 0.3834584473142906,
+        "SLC25A37": 0.42765036650620974,
+        "GYPB": 0.3108728997462377,
+        "BLVRB": 0.397583250277442
+      },
+      "omission_auc": {
+        "HBZ": 0.1956301998289402,
+        "ALAS2": 0.16986166776229758,
+        "HBG1": 0.1947572293968375,
+        "HBG2": 0.21509443631557,
+        "HBA1": 0.18446006602059786,
+        "SLC25A37": 0.1752938764835196,
+        "GYPB": 0.18365159644025983,
+        "BLVRB": 0.17594860430759662
+      }
+    },
+    {
+      "pert": "MEIS1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 3,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.46652795870330316,
+      "minimum_omission_auc": 0.5567560723039109,
+      "individual_auc": {
+        "HBZ": 0.46652795870330316,
+        "ALAS2": 0.5186986891837276,
+        "HBG1": 0.5694965057041409,
+        "HBG2": 0.6294936263141553,
+        "HBA1": 0.4696640653864367,
+        "SLC25A37": 0.5332500160447936,
+        "GYPB": 0.6442288178369536,
+        "BLVRB": 0.5260966399600354
+      },
+      "omission_auc": {
+        "HBZ": 0.6120195451604566,
+        "ALAS2": 0.5890121784319814,
+        "HBG1": 0.5770106728232419,
+        "HBG2": 0.5645755241443788,
+        "HBA1": 0.5991559571283115,
+        "SLC25A37": 0.5836055166336809,
+        "GYPB": 0.5567560723039109,
+        "BLVRB": 0.5887832148909561
+      }
+    },
+    {
+      "pert": "MIDN",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4307262722146236,
+      "minimum_omission_auc": 0.45604560387878346,
+      "individual_auc": {
+        "HBZ": 0.4566226956091044,
+        "ALAS2": 0.5402192039769345,
+        "HBG1": 0.4310488983000786,
+        "HBG2": 0.4307262722146236,
+        "HBA1": 0.44077766518682776,
+        "SLC25A37": 0.5030990280321171,
+        "GYPB": 0.6031040264644271,
+        "BLVRB": 0.4798040614534532
+      },
+      "omission_auc": {
+        "HBZ": 0.49306126714803084,
+        "ALAS2": 0.4662810300405782,
+        "HBG1": 0.49772116926963816,
+        "HBG2": 0.4979756349145041,
+        "HBA1": 0.49421772262335906,
+        "SLC25A37": 0.48120362250021587,
+        "GYPB": 0.45604560387878346,
+        "BLVRB": 0.48594758916521635
+      }
+    },
+    {
+      "pert": "NCL",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4643726544274267,
+      "minimum_omission_auc": 0.47239972501155175,
+      "individual_auc": {
+        "HBZ": 0.4798182146036898,
+        "ALAS2": 0.5207227462780765,
+        "HBG1": 0.4688581217387384,
+        "HBG2": 0.4643726544274267,
+        "HBA1": 0.46664919813819294,
+        "SLC25A37": 0.5007325511940585,
+        "GYPB": 0.5416286303546675,
+        "BLVRB": 0.4891835998692678
+      },
+      "omission_auc": {
+        "HBZ": 0.4869352312044269,
+        "ALAS2": 0.4764343915880583,
+        "HBG1": 0.48987388849443825,
+        "HBG2": 0.4896569406408132,
+        "HBA1": 0.49163201136017853,
+        "SLC25A37": 0.48422197428181807,
+        "GYPB": 0.47239972501155175,
+        "BLVRB": 0.48285830205903235
+      }
+    },
+    {
+      "pert": "NIT1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3433689613951199,
+      "minimum_omission_auc": 0.3812952675620561,
+      "individual_auc": {
+        "HBZ": 0.3433689613951199,
+        "ALAS2": 0.5227515645875818,
+        "HBG1": 0.39955347725195134,
+        "HBG2": 0.4187680191266437,
+        "HBA1": 0.46190492932986427,
+        "SLC25A37": 0.44638914281696085,
+        "GYPB": 0.5027459391041418,
+        "BLVRB": 0.46289642078616133
+      },
+      "omission_auc": {
+        "HBZ": 0.42628507137332117,
+        "ALAS2": 0.3818648477603544,
+        "HBG1": 0.40851557555727447,
+        "HBG2": 0.4027002320511919,
+        "HBA1": 0.392672807819422,
+        "SLC25A37": 0.4125870191969622,
+        "GYPB": 0.3812952675620561,
+        "BLVRB": 0.3961887349694114
+      }
+    },
+    {
+      "pert": "OSR2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.30265407451876264,
+      "minimum_omission_auc": 0.27088831318133044,
+      "individual_auc": {
+        "HBZ": 0.30265407451876264,
+        "ALAS2": 0.4517553932293031,
+        "HBG1": 0.3785756207098931,
+        "HBG2": 0.31297719150513503,
+        "HBA1": 0.4343169605864159,
+        "SLC25A37": 0.4513343567139544,
+        "GYPB": 0.34394519944506446,
+        "BLVRB": 0.3879042319877624
+      },
+      "omission_auc": {
+        "HBZ": 0.28886395349930366,
+        "ALAS2": 0.27269870304637045,
+        "HBG1": 0.2799066870268376,
+        "HBG2": 0.2892319407567376,
+        "HBA1": 0.27302237067060975,
+        "SLC25A37": 0.27088831318133044,
+        "GYPB": 0.28626655439026255,
+        "BLVRB": 0.28168551594096625
+      }
+    },
+    {
+      "pert": "PLK4",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.47478545254890725,
+      "minimum_omission_auc": 0.5209773098912641,
+      "individual_auc": {
+        "HBZ": 0.523555460068512,
+        "ALAS2": 0.5343037204139364,
+        "HBG1": 0.546794619305093,
+        "HBG2": 0.550727491913441,
+        "HBA1": 0.5369176782325348,
+        "SLC25A37": 0.4992659433523114,
+        "GYPB": 0.485014502094747,
+        "BLVRB": 0.47478545254890725
+      },
+      "omission_auc": {
+        "HBZ": 0.5279956075959943,
+        "ALAS2": 0.5244983946240794,
+        "HBG1": 0.5240806388083217,
+        "HBG2": 0.5209773098912641,
+        "HBA1": 0.5235912677098626,
+        "SLC25A37": 0.5331161003091393,
+        "GYPB": 0.5314689488070088,
+        "BLVRB": 0.5416025113092467
+      }
+    },
+    {
+      "pert": "POU3F2",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 6,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.4889276229043249,
+      "minimum_omission_auc": 0.6359357332561992,
+      "individual_auc": {
+        "HBZ": 0.525628937314756,
+        "ALAS2": 0.6180302250538123,
+        "HBG1": 0.5896759240128774,
+        "HBG2": 0.6678249305980775,
+        "HBA1": 0.4889276229043249,
+        "SLC25A37": 0.5581717711671168,
+        "GYPB": 0.7371705052159442,
+        "BLVRB": 0.5749709807928536
+      },
+      "omission_auc": {
+        "HBZ": 0.6979523145869881,
+        "ALAS2": 0.6604471023992968,
+        "HBG1": 0.6738579204591985,
+        "HBG2": 0.6636326412549821,
+        "HBA1": 0.6898645019026833,
+        "SLC25A37": 0.6779825922322438,
+        "GYPB": 0.6359357332561992,
+        "BLVRB": 0.676994624403181
+      }
+    },
+    {
+      "pert": "PRDM1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.60734717983166,
+      "minimum_omission_auc": 0.9005378404331577,
+      "individual_auc": {
+        "HBZ": 0.9310883491950427,
+        "ALAS2": 0.8217327208053631,
+        "HBG1": 0.7696280199988278,
+        "HBG2": 0.8632181161609103,
+        "HBA1": 0.8149206764256378,
+        "SLC25A37": 0.7266413600645589,
+        "GYPB": 0.60734717983166,
+        "BLVRB": 0.8377123973797749
+      },
+      "omission_auc": {
+        "HBZ": 0.9005378404331577,
+        "ALAS2": 0.9075437418005257,
+        "HBG1": 0.9189136795408746,
+        "HBG2": 0.9115313349533165,
+        "HBA1": 0.9052084413447363,
+        "SLC25A37": 0.9160328745384626,
+        "GYPB": 0.9294721229143468,
+        "BLVRB": 0.9118176121327425
+      }
+    },
+    {
+      "pert": "PRTG",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5730802800897986,
+      "minimum_omission_auc": 0.8337586053698294,
+      "individual_auc": {
+        "HBZ": 0.893609910869796,
+        "ALAS2": 0.8644872949160006,
+        "HBG1": 0.709970040928338,
+        "HBG2": 0.7551691193526954,
+        "HBA1": 0.640188404030714,
+        "SLC25A37": 0.5730802800897986,
+        "GYPB": 0.7521555198213464,
+        "BLVRB": 0.6515301930040457
+      },
+      "omission_auc": {
+        "HBZ": 0.8527140088147295,
+        "ALAS2": 0.8337586053698294,
+        "HBG1": 0.8753907063971661,
+        "HBG2": 0.8747921147094324,
+        "HBA1": 0.8776376367718117,
+        "SLC25A37": 0.876355923207272,
+        "GYPB": 0.8685073934428164,
+        "BLVRB": 0.8773742171128419
+      }
+    },
+    {
+      "pert": "PTPN1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6359411670149494,
+      "minimum_omission_auc": 0.8105963671435461,
+      "individual_auc": {
+        "HBZ": 0.8995322295450893,
+        "ALAS2": 0.6974843272785726,
+        "HBG1": 0.649864973476933,
+        "HBG2": 0.705002411187912,
+        "HBA1": 0.7439254139205915,
+        "SLC25A37": 0.6907426458768686,
+        "GYPB": 0.6359411670149494,
+        "BLVRB": 0.6941826072978621
+      },
+      "omission_auc": {
+        "HBZ": 0.8105963671435461,
+        "ALAS2": 0.8440861597813857,
+        "HBG1": 0.8521781064137598,
+        "HBG2": 0.8487831538337888,
+        "HBA1": 0.8345249959813534,
+        "SLC25A37": 0.8362224722713391,
+        "GYPB": 0.8532743931843755,
+        "BLVRB": 0.8468349140009644
+      }
+    },
+    {
+      "pert": "PTPN12",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5757302794375038,
+      "minimum_omission_auc": 0.7235681091194399,
+      "individual_auc": {
+        "HBZ": 0.8038520731486511,
+        "ALAS2": 0.6011889673486631,
+        "HBG1": 0.5757302794375038,
+        "HBG2": 0.6551013941698353,
+        "HBA1": 0.6316630454463155,
+        "SLC25A37": 0.6639266099342145,
+        "GYPB": 0.5892977850202185,
+        "BLVRB": 0.6768513489045809
+      },
+      "omission_auc": {
+        "HBZ": 0.7235681091194399,
+        "ALAS2": 0.7510682600036213,
+        "HBG1": 0.7632597018528577,
+        "HBG2": 0.7543514997887621,
+        "HBA1": 0.7500482829380167,
+        "SLC25A37": 0.7382581930110447,
+        "GYPB": 0.7615667813386444,
+        "BLVRB": 0.748328203271169
+      }
+    },
+    {
+      "pert": "PTPN13",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 6,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4730238864816724,
+      "minimum_omission_auc": 0.5435900771532357,
+      "individual_auc": {
+        "HBZ": 0.5734131550770031,
+        "ALAS2": 0.5101169807166945,
+        "HBG1": 0.5113703455384215,
+        "HBG2": 0.5456715133442075,
+        "HBA1": 0.5612147381693369,
+        "SLC25A37": 0.4730238864816724,
+        "GYPB": 0.5139371166104613,
+        "BLVRB": 0.508773553752089
+      },
+      "omission_auc": {
+        "HBZ": 0.5494791406070189,
+        "ALAS2": 0.5589857001330918,
+        "HBG1": 0.5621678958481352,
+        "HBG2": 0.5538871821556874,
+        "HBA1": 0.5435900771532357,
+        "SLC25A37": 0.5709739720407081,
+        "GYPB": 0.5616925678718315,
+        "BLVRB": 0.5611922226336172
+      }
+    },
+    {
+      "pert": "PTPN9",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5331846297005857,
+      "minimum_omission_auc": 0.6506863478509436,
+      "individual_auc": {
+        "HBZ": 0.6228249432858333,
+        "ALAS2": 0.5331846297005857,
+        "HBG1": 0.5670382736998315,
+        "HBG2": 0.6292961361383278,
+        "HBA1": 0.5579062285231206,
+        "SLC25A37": 0.5925307594528679,
+        "GYPB": 0.623477232227027,
+        "BLVRB": 0.5720558809397827
+      },
+      "omission_auc": {
+        "HBZ": 0.6596724262715833,
+        "ALAS2": 0.6663139136728277,
+        "HBG1": 0.6643768131807981,
+        "HBG2": 0.6547125975392438,
+        "HBA1": 0.6648694509825387,
+        "SLC25A37": 0.6507988638920819,
+        "GYPB": 0.6506863478509436,
+        "BLVRB": 0.6646626647447711
+      }
+    },
+    {
+      "pert": "RHOXF2",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.4711343693662103,
+      "minimum_omission_auc": 0.7992854756001468,
+      "individual_auc": {
+        "HBZ": 0.7356486619169221,
+        "ALAS2": 0.7313417134559136,
+        "HBG1": 0.7464758517980685,
+        "HBG2": 0.8335698579614602,
+        "HBA1": 0.6035152785283767,
+        "SLC25A37": 0.6022240190759863,
+        "GYPB": 0.7639222934088012,
+        "BLVRB": 0.4711343693662103
+      },
+      "omission_auc": {
+        "HBZ": 0.8247847557126886,
+        "ALAS2": 0.8002673278355109,
+        "HBG1": 0.8080520134158969,
+        "HBG2": 0.7992854756001468,
+        "HBA1": 0.8225941526161411,
+        "SLC25A37": 0.8209522316511206,
+        "GYPB": 0.8071361680534985,
+        "BLVRB": 0.8409440633005911
+      }
+    },
+    {
+      "pert": "RREB1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5156024545646147,
+      "minimum_omission_auc": 0.6301292132099026,
+      "individual_auc": {
+        "HBZ": 0.7668042022665003,
+        "ALAS2": 0.593655258507482,
+        "HBG1": 0.5268234950795221,
+        "HBG2": 0.5400913571440151,
+        "HBA1": 0.660181011980999,
+        "SLC25A37": 0.5156024545646147,
+        "GYPB": 0.5475875877498744,
+        "BLVRB": 0.5560829104586501
+      },
+      "omission_auc": {
+        "HBZ": 0.6301292132099026,
+        "ALAS2": 0.6646738866101393,
+        "HBG1": 0.6881170862988603,
+        "HBG2": 0.6918743211037435,
+        "HBA1": 0.6476346038488351,
+        "SLC25A37": 0.6821873834730305,
+        "GYPB": 0.6839707527439568,
+        "BLVRB": 0.6779883594623952
+      }
+    },
+    {
+      "pert": "RUNX1T1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.36941487201027445,
+      "minimum_omission_auc": 0.3495366649208415,
+      "individual_auc": {
+        "HBZ": 0.38779184232951847,
+        "ALAS2": 0.45414529759404554,
+        "HBG1": 0.4354312620241546,
+        "HBG2": 0.3975874770752416,
+        "HBA1": 0.4487280540272383,
+        "SLC25A37": 0.45485659169989784,
+        "GYPB": 0.36941487201027445,
+        "BLVRB": 0.47157762094160477
+      },
+      "omission_auc": {
+        "HBZ": 0.3617591694712224,
+        "ALAS2": 0.3602657111298946,
+        "HBG1": 0.3581205933039827,
+        "HBG2": 0.36342029616800026,
+        "HBA1": 0.35870656827818426,
+        "SLC25A37": 0.35891053596831934,
+        "GYPB": 0.37521585140089503,
+        "BLVRB": 0.3495366649208415
+      }
+    },
+    {
+      "pert": "S1PR2",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 7,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5368406682056246,
+      "minimum_omission_auc": 0.7398143321667039,
+      "individual_auc": {
+        "HBZ": 0.7770000248219029,
+        "ALAS2": 0.5646523692506268,
+        "HBG1": 0.6932112095713258,
+        "HBG2": 0.7526695956512026,
+        "HBA1": 0.7555166679077618,
+        "SLC25A37": 0.5592014793854096,
+        "GYPB": 0.5532603569389629,
+        "BLVRB": 0.5368406682056246
+      },
+      "omission_auc": {
+        "HBZ": 0.7542979124779705,
+        "ALAS2": 0.7779457393203763,
+        "HBG1": 0.7660734231886216,
+        "HBG2": 0.7605058703800234,
+        "HBA1": 0.7398143321667039,
+        "SLC25A37": 0.7777173778141833,
+        "GYPB": 0.7815027179983618,
+        "BLVRB": 0.7847097078462035
+      }
+    },
+    {
+      "pert": "SAMD1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5685093419983753,
+      "minimum_omission_auc": 0.7399688600054156,
+      "individual_auc": {
+        "HBZ": 0.7822840509071216,
+        "ALAS2": 0.6400609260763607,
+        "HBG1": 0.6163769293257514,
+        "HBG2": 0.6786081776333605,
+        "HBA1": 0.6694760357432982,
+        "SLC25A37": 0.5685093419983753,
+        "GYPB": 0.6195261305171947,
+        "BLVRB": 0.5902694286487951
+      },
+      "omission_auc": {
+        "HBZ": 0.7399688600054156,
+        "ALAS2": 0.7520769022474952,
+        "HBG1": 0.7664527484430003,
+        "HBG2": 0.7590089358245329,
+        "HBA1": 0.7516788518819388,
+        "SLC25A37": 0.7658218250744652,
+        "GYPB": 0.7634741402653669,
+        "BLVRB": 0.7667966422962361
+      }
+    },
+    {
+      "pert": "SET",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 5,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3466084398372128,
+      "minimum_omission_auc": 0.4615567588553493,
+      "individual_auc": {
+        "HBZ": 0.3840318684578548,
+        "ALAS2": 0.5267611929892674,
+        "HBG1": 0.4158716184534119,
+        "HBG2": 0.4402534767268119,
+        "HBA1": 0.47091757153383357,
+        "SLC25A37": 0.7268310487801211,
+        "GYPB": 0.3466084398372128,
+        "BLVRB": 0.778939230930121
+      },
+      "omission_auc": {
+        "HBZ": 0.5853723887809686,
+        "ALAS2": 0.5435682775421151,
+        "HBG1": 0.5752494507913116,
+        "HBG2": 0.5720717641799736,
+        "HBA1": 0.5573521511072348,
+        "SLC25A37": 0.4828039923062937,
+        "GYPB": 0.5964221805122849,
+        "BLVRB": 0.4615567588553493
+      }
+    },
+    {
+      "pert": "SGK1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 6,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5265540604699744,
+      "minimum_omission_auc": 0.6980522926197139,
+      "individual_auc": {
+        "HBZ": 0.5852827164010702,
+        "ALAS2": 0.6591456228250974,
+        "HBG1": 0.6759499751439695,
+        "HBG2": 0.7825558143561729,
+        "HBA1": 0.5265540604699744,
+        "SLC25A37": 0.5972890169858851,
+        "GYPB": 0.6550974412252627,
+        "BLVRB": 0.5464737950410823
+      },
+      "omission_auc": {
+        "HBZ": 0.7488451720651731,
+        "ALAS2": 0.7116588747200205,
+        "HBG1": 0.7193949651177729,
+        "HBG2": 0.6980522926197139,
+        "HBA1": 0.739221140472879,
+        "SLC25A37": 0.7256913607140663,
+        "GYPB": 0.7213331769358379,
+        "BLVRB": 0.7446364037513057
+      }
+    },
+    {
+      "pert": "SLC38A2",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3871577112511908,
+      "minimum_omission_auc": 0.4265318118247968,
+      "individual_auc": {
+        "HBZ": 0.3871577112511908,
+        "ALAS2": 0.49178709690495975,
+        "HBG1": 0.4924985305146239,
+        "HBG2": 0.4745505401625555,
+        "HBA1": 0.48019336400672924,
+        "SLC25A37": 0.4507631189573748,
+        "GYPB": 0.4774489733871131,
+        "BLVRB": 0.4641546912053834
+      },
+      "omission_auc": {
+        "HBZ": 0.4531365911993028,
+        "ALAS2": 0.4307233921803109,
+        "HBG1": 0.4265318118247968,
+        "HBG2": 0.4299288566390336,
+        "HBA1": 0.4300261467053124,
+        "SLC25A37": 0.4412428805967124,
+        "GYPB": 0.4305713764517502,
+        "BLVRB": 0.4355878954942538
+      }
+    },
+    {
+      "pert": "SLC4A1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3068087033036926,
+      "minimum_omission_auc": 0.315539226717369,
+      "individual_auc": {
+        "HBZ": 0.3068087033036926,
+        "ALAS2": 0.4627419961218635,
+        "HBG1": 0.44965833859985527,
+        "HBG2": 0.38509706795093446,
+        "HBA1": 0.4383426154378939,
+        "SLC25A37": 0.4573014206807895,
+        "GYPB": 0.3271534235536828,
+        "BLVRB": 0.4679379983263914
+      },
+      "omission_auc": {
+        "HBZ": 0.3485997340013394,
+        "ALAS2": 0.3240925524417572,
+        "HBG1": 0.3181486816626668,
+        "HBG2": 0.32816809929538654,
+        "HBA1": 0.3279787740075919,
+        "SLC25A37": 0.3262984278589803,
+        "GYPB": 0.35173269694883097,
+        "BLVRB": 0.315539226717369
+      }
+    },
+    {
+      "pert": "SLC6A9",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.43498962568512456,
+      "minimum_omission_auc": 0.613029659746459,
+      "individual_auc": {
+        "HBZ": 0.7093884551265907,
+        "ALAS2": 0.5470885954496936,
+        "HBG1": 0.6011669605056429,
+        "HBG2": 0.628976121085645,
+        "HBA1": 0.6159296705405438,
+        "SLC25A37": 0.5163746267045659,
+        "GYPB": 0.43498962568512456,
+        "BLVRB": 0.5496228067019273
+      },
+      "omission_auc": {
+        "HBZ": 0.613029659746459,
+        "ALAS2": 0.6418210820470382,
+        "HBG1": 0.6360570407416736,
+        "HBG2": 0.6320464385516736,
+        "HBA1": 0.625701915350388,
+        "SLC25A37": 0.6473332613727677,
+        "GYPB": 0.6704493937322348,
+        "BLVRB": 0.6440638530085513
+      }
+    },
+    {
+      "pert": "SNAI1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.29004459582329084,
+      "minimum_omission_auc": 0.3399529506848129,
+      "individual_auc": {
+        "HBZ": 0.3226529463551213,
+        "ALAS2": 0.6558833292441801,
+        "HBG1": 0.3952676471012715,
+        "HBG2": 0.29004459582329084,
+        "HBA1": 0.42594784164874655,
+        "SLC25A37": 0.5287852328652456,
+        "GYPB": 0.4645398259463984,
+        "BLVRB": 0.4610688565284533
+      },
+      "omission_auc": {
+        "HBZ": 0.4370924677798785,
+        "ALAS2": 0.3399529506848129,
+        "HBG1": 0.421215488750018,
+        "HBG2": 0.45363766254383814,
+        "HBA1": 0.4174688623013754,
+        "SLC25A37": 0.392066561791915,
+        "GYPB": 0.4012397350228752,
+        "BLVRB": 0.403932803186653
+      }
+    },
+    {
+      "pert": "SPI1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 5,
+      "n_passing_omissions": 5,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4522907935620048,
+      "minimum_omission_auc": 0.5369183975807262,
+      "individual_auc": {
+        "HBZ": 0.5619764103326065,
+        "ALAS2": 0.5694678122091168,
+        "HBG1": 0.5537158751731642,
+        "HBG2": 0.5575014530500941,
+        "HBA1": 0.4522907935620048,
+        "SLC25A37": 0.5184078504035765,
+        "GYPB": 0.46976126277700814,
+        "BLVRB": 0.6031676492053017
+      },
+      "omission_auc": {
+        "HBZ": 0.5509441548055535,
+        "ALAS2": 0.5452892771458163,
+        "HBG1": 0.5497751596170066,
+        "HBG2": 0.5538273120976799,
+        "HBA1": 0.5666349107849092,
+        "SLC25A37": 0.5578892972481635,
+        "GYPB": 0.5711983620957134,
+        "BLVRB": 0.5369183975807262
+      }
+    },
+    {
+      "pert": "STIL",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4729235184813616,
+      "minimum_omission_auc": 0.4859634124000035,
+      "individual_auc": {
+        "HBZ": 0.4843451482609113,
+        "ALAS2": 0.5103834980676792,
+        "HBG1": 0.4973305184551902,
+        "HBG2": 0.5187321707421333,
+        "HBA1": 0.4729235184813616,
+        "SLC25A37": 0.473830793254761,
+        "GYPB": 0.5310545324481588,
+        "BLVRB": 0.48352074954854357
+      },
+      "omission_auc": {
+        "HBZ": 0.49866525922759514,
+        "ALAS2": 0.49490966509347545,
+        "HBG1": 0.49576459709148646,
+        "HBG2": 0.49254115450714914,
+        "HBA1": 0.5005714086313237,
+        "SLC25A37": 0.5008767414877562,
+        "GYPB": 0.4859634124000035,
+        "BLVRB": 0.49795426986190233
+      }
+    },
+    {
+      "pert": "TBX2",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 6,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3371919765185424,
+      "minimum_omission_auc": 0.5345815171283972,
+      "individual_auc": {
+        "HBZ": 0.38300714780251394,
+        "ALAS2": 0.5239817063062536,
+        "HBG1": 0.6275058752401291,
+        "HBG2": 0.7055163872880281,
+        "HBA1": 0.5058664638368,
+        "SLC25A37": 0.6055232132931574,
+        "GYPB": 0.3371919765185424,
+        "BLVRB": 0.6444421691094013
+      },
+      "omission_auc": {
+        "HBZ": 0.6215487230494691,
+        "ALAS2": 0.5786775102633863,
+        "HBG1": 0.5537372378082672,
+        "HBG2": 0.5345815171283972,
+        "HBA1": 0.5847721577002214,
+        "SLC25A37": 0.5595100878604374,
+        "GYPB": 0.629285512291685,
+        "BLVRB": 0.5494036996947801
+      }
+    },
+    {
+      "pert": "TBX3",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3066723612243429,
+      "minimum_omission_auc": 0.43155245446461754,
+      "individual_auc": {
+        "HBZ": 0.3772748233746675,
+        "ALAS2": 0.4928338077717092,
+        "HBG1": 0.5457931941604192,
+        "HBG2": 0.5593599265285315,
+        "HBA1": 0.4630628807586863,
+        "SLC25A37": 0.5802971547317688,
+        "GYPB": 0.3066723612243429,
+        "BLVRB": 0.5057769277018179
+      },
+      "omission_auc": {
+        "HBZ": 0.4857775503413816,
+        "ALAS2": 0.45802728328738124,
+        "HBG1": 0.43595665650337295,
+        "HBG2": 0.43254186764628627,
+        "HBA1": 0.46449495175516253,
+        "SLC25A37": 0.43155245446461754,
+        "GYPB": 0.5074998881194533,
+        "BLVRB": 0.45025596323313377
+      }
+    },
+    {
+      "pert": "TGFBR2",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 5,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5157819030559626,
+      "minimum_omission_auc": 0.6012091908525714,
+      "individual_auc": {
+        "HBZ": 0.6327855231128313,
+        "ALAS2": 0.5818865632006814,
+        "HBG1": 0.5594678892187441,
+        "HBG2": 0.5775034551292489,
+        "HBA1": 0.5173601977461284,
+        "SLC25A37": 0.5157819030559626,
+        "GYPB": 0.5676130171733493,
+        "BLVRB": 0.5356504620061044
+      },
+      "omission_auc": {
+        "HBZ": 0.6012091908525714,
+        "ALAS2": 0.6031236038563835,
+        "HBG1": 0.6138376360652863,
+        "HBG2": 0.6124514089829185,
+        "HBA1": 0.6207562453287905,
+        "SLC25A37": 0.6179712650157203,
+        "GYPB": 0.6112384602858467,
+        "BLVRB": 0.6198648011056413
+      }
+    },
+    {
+      "pert": "TMSB4X",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 2,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.45897568148623885,
+      "minimum_omission_auc": 0.5146439260748922,
+      "individual_auc": {
+        "HBZ": 0.5459614206753242,
+        "ALAS2": 0.49867087556072437,
+        "HBG1": 0.550810493139883,
+        "HBG2": 0.5755121220612339,
+        "HBA1": 0.4978773684327986,
+        "SLC25A37": 0.4988841306013544,
+        "GYPB": 0.45897568148623885,
+        "BLVRB": 0.493758570496909
+      },
+      "omission_auc": {
+        "HBZ": 0.5254207447560337,
+        "ALAS2": 0.5322349872170961,
+        "HBG1": 0.5218970771660885,
+        "HBG2": 0.5146439260748922,
+        "HBA1": 0.532557349487816,
+        "SLC25A37": 0.5345126006452204,
+        "GYPB": 0.5444029230818825,
+        "BLVRB": 0.5343204231376759
+      }
+    },
+    {
+      "pert": "TP73",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5530132077626192,
+      "minimum_omission_auc": 0.7859407200378452,
+      "individual_auc": {
+        "HBZ": 0.8588498534585416,
+        "ALAS2": 0.806393992615833,
+        "HBG1": 0.5530132077626192,
+        "HBG2": 0.6217191297775506,
+        "HBA1": 0.7368316594800632,
+        "SLC25A37": 0.6195957739509643,
+        "GYPB": 0.7681219311934837,
+        "BLVRB": 0.5577166720135721
+      },
+      "omission_auc": {
+        "HBZ": 0.7859407200378452,
+        "ALAS2": 0.7978434752347654,
+        "HBG1": 0.8328448618051515,
+        "HBG2": 0.8374586067958262,
+        "HBA1": 0.8043957000005437,
+        "SLC25A37": 0.8236608720712099,
+        "GYPB": 0.809180727215386,
+        "BLVRB": 0.8300010331308759
+      }
+    },
+    {
+      "pert": "TSC22D1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.4634895293322445,
+      "minimum_omission_auc": 0.48168130143962123,
+      "individual_auc": {
+        "HBZ": 0.4983346637672383,
+        "ALAS2": 0.5321016879689014,
+        "HBG1": 0.4886469640109983,
+        "HBG2": 0.47954954872293637,
+        "HBA1": 0.4890720911668364,
+        "SLC25A37": 0.5516804756530596,
+        "GYPB": 0.4634895293322445,
+        "BLVRB": 0.47589467857022705
+      },
+      "omission_auc": {
+        "HBZ": 0.49320561167845706,
+        "ALAS2": 0.4845837882805595,
+        "HBG1": 0.49705928229972385,
+        "HBG2": 0.49681307556558735,
+        "HBA1": 0.49660051198766825,
+        "SLC25A37": 0.48168130143962123,
+        "GYPB": 0.49823985123608017,
+        "BLVRB": 0.4980563431112579
+      }
+    },
+    {
+      "pert": "UBASH3A",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.47062996431685583,
+      "minimum_omission_auc": 0.4956639971361526,
+      "individual_auc": {
+        "HBZ": 0.5196002765320517,
+        "ALAS2": 0.5063828983646184,
+        "HBG1": 0.49876430897366214,
+        "HBG2": 0.5098239489236762,
+        "HBA1": 0.47062996431685583,
+        "SLC25A37": 0.5265152199365816,
+        "GYPB": 0.47221542569350594,
+        "BLVRB": 0.5066029416835941
+      },
+      "omission_auc": {
+        "HBZ": 0.49586761931192125,
+        "ALAS2": 0.49977585139522246,
+        "HBG1": 0.5009039839335535,
+        "HBG2": 0.4981008947880934,
+        "HBA1": 0.5078090746521592,
+        "SLC25A37": 0.4956639971361526,
+        "GYPB": 0.5100390658996898,
+        "BLVRB": 0.4985064970253099
+      }
+    },
+    {
+      "pert": "UBASH3B",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.553175825808549,
+      "minimum_omission_auc": 0.6838249997486463,
+      "individual_auc": {
+        "HBZ": 0.7025955339478279,
+        "ALAS2": 0.6095086538278931,
+        "HBG1": 0.5864852153765893,
+        "HBG2": 0.6544920253856045,
+        "HBA1": 0.5833008435429474,
+        "SLC25A37": 0.6175257190670198,
+        "GYPB": 0.553175825808549,
+        "BLVRB": 0.6091846868635864
+      },
+      "omission_auc": {
+        "HBZ": 0.6838249997486463,
+        "ALAS2": 0.6907254960883782,
+        "HBG1": 0.7007204355009702,
+        "HBG2": 0.6913505289039974,
+        "HBA1": 0.6969702386072548,
+        "SLC25A37": 0.6876723867316537,
+        "GYPB": 0.7055944626225907,
+        "BLVRB": 0.6964708826312374
+      }
+    },
+    {
+      "pert": "ZBTB1",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6043770420578682,
+      "minimum_omission_auc": 0.791590764297084,
+      "individual_auc": {
+        "HBZ": 0.7740541509422935,
+        "ALAS2": 0.6498035143365369,
+        "HBG1": 0.6862795142508119,
+        "HBG2": 0.7624023660108052,
+        "HBA1": 0.7227915576432631,
+        "SLC25A37": 0.6043770420578682,
+        "GYPB": 0.7204760077074595,
+        "BLVRB": 0.7413383625350449
+      },
+      "omission_auc": {
+        "HBZ": 0.7995553988259567,
+        "ALAS2": 0.8003542002341852,
+        "HBG1": 0.80472422842603,
+        "HBG2": 0.7962939511250436,
+        "HBA1": 0.7942794129394138,
+        "SLC25A37": 0.8065731614416612,
+        "GYPB": 0.7977064658103256,
+        "BLVRB": 0.791590764297084
+      }
+    },
+    {
+      "pert": "ZBTB10",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 1,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.2610072853975293,
+      "minimum_omission_auc": 0.33411133154393746,
+      "individual_auc": {
+        "HBZ": 0.2610072853975293,
+        "ALAS2": 0.4921811179834286,
+        "HBG1": 0.40937015487721523,
+        "HBG2": 0.3777028491405898,
+        "HBA1": 0.3908982545054432,
+        "SLC25A37": 0.528445559575213,
+        "GYPB": 0.7575688111631629,
+        "BLVRB": 0.3978752313155394
+      },
+      "omission_auc": {
+        "HBZ": 0.49965823650034175,
+        "ALAS2": 0.4325975693113049,
+        "HBG1": 0.459088408382375,
+        "HBG2": 0.4781521431072137,
+        "HBA1": 0.4629645066102062,
+        "SLC25A37": 0.43290599003050867,
+        "GYPB": 0.33411133154393746,
+        "BLVRB": 0.4625810646349799
+      }
+    },
+    {
+      "pert": "ZBTB25",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 8,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.6036548260233785,
+      "minimum_omission_auc": 0.7274248190297999,
+      "individual_auc": {
+        "HBZ": 0.7751855114849093,
+        "ALAS2": 0.6248272041125875,
+        "HBG1": 0.6048918720084286,
+        "HBG2": 0.6507016285047366,
+        "HBA1": 0.6254148463683346,
+        "SLC25A37": 0.6479150961389997,
+        "GYPB": 0.6036548260233785,
+        "BLVRB": 0.6475309034432022
+      },
+      "omission_auc": {
+        "HBZ": 0.7274248190297999,
+        "ALAS2": 0.7467307290578651,
+        "HBG1": 0.7565798675761346,
+        "HBG2": 0.7557424546552711,
+        "HBA1": 0.7481330778103741,
+        "SLC25A37": 0.7357262876813108,
+        "GYPB": 0.7555953170270933,
+        "BLVRB": 0.7471249125802673
+      }
+    },
+    {
+      "pert": "ZC3HAV1",
+      "updated_primary_call": false,
+      "n_individual_transcript_increases": 0,
+      "n_passing_omissions": 0,
+      "all_omissions_pass": false,
+      "minimum_individual_gene_auc": 0.3965793679300777,
+      "minimum_omission_auc": 0.41182150870124257,
+      "individual_auc": {
+        "HBZ": 0.4002962014378003,
+        "ALAS2": 0.4705490398180105,
+        "HBG1": 0.4865108615869942,
+        "HBG2": 0.49561293916157817,
+        "HBA1": 0.4811815782487155,
+        "SLC25A37": 0.4638233410897506,
+        "GYPB": 0.3965793679300777,
+        "BLVRB": 0.47948063238226124
+      },
+      "omission_auc": {
+        "HBZ": 0.43816079209157777,
+        "ALAS2": 0.4281021764819182,
+        "HBG1": 0.4160537014768427,
+        "HBG2": 0.41182150870124257,
+        "HBA1": 0.4230735193832347,
+        "SLC25A37": 0.42805011999021336,
+        "GYPB": 0.44083259152832655,
+        "BLVRB": 0.42151703028126125
+      }
+    },
+    {
+      "pert": "ZNF318",
+      "updated_primary_call": true,
+      "n_individual_transcript_increases": 4,
+      "n_passing_omissions": 8,
+      "all_omissions_pass": true,
+      "minimum_individual_gene_auc": 0.5034009953125322,
+      "minimum_omission_auc": 0.5679755095298078,
+      "individual_auc": {
+        "HBZ": 0.5577043797881347,
+        "ALAS2": 0.5034009953125322,
+        "HBG1": 0.5933983108596445,
+        "HBG2": 0.6453311169388978,
+        "HBA1": 0.5305284242261549,
+        "SLC25A37": 0.5224038243128833,
+        "GYPB": 0.5538150205463894,
+        "BLVRB": 0.5056053441262106
+      },
+      "omission_auc": {
+        "HBZ": 0.593913519317736,
+        "ALAS2": 0.6012534330022508,
+        "HBG1": 0.5779110826604993,
+        "HBG2": 0.5679755095298078,
+        "HBA1": 0.5940797489004068,
+        "SLC25A37": 0.5945071963987032,
+        "GYPB": 0.5905486608710017,
+        "BLVRB": 0.601250335556611
+      }
+    }
+  ],
+  "scope": "The signature was historically selected on the same data. Nominal p/q values and these correction families do not account for that historical selection process. Shared cells, correlated genes and technical strata are not independent biological replications. Marginal multi-gene changes do not prove simultaneous within-cell coactivation, a causal regulon, pathway specificity or novelty. No SAE superiority follows."
+}

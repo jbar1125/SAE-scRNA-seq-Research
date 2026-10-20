@@ -1,0 +1,31 @@
+{
+  "unit": "R2 L0-band sensitivity (mouse, 5 seeds/point)",
+  "points": [
+    {
+      "l1": 1.0,
+      "mean_l0": 27.7,
+      "in_qc_band": true,
+      "median_ery_n_real": 2.0,
+      "median_gran_n_real": 3.0,
+      "supported": false
+    },
+    {
+      "l1": 0.7,
+      "mean_l0": 42.2,
+      "in_qc_band": true,
+      "median_ery_n_real": 2.0,
+      "median_gran_n_real": 3.0,
+      "supported": false
+    },
+    {
+      "l1": 0.6,
+      "mean_l0": 52.0,
+      "in_qc_band": false,
+      "median_ery_n_real": 1.0,
+      "median_gran_n_real": 3.0,
+      "supported": false
+    }
+  ],
+  "verdict_holds_across_band": true,
+  "note": "l1=0.6 lands L0 ~52 (just outside the 20-50 band) and is included to show the direction even holds at the boundary."
+}

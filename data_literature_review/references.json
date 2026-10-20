@@ -1,0 +1,2258 @@
+{
+  "retrieved_utc": "2026-10-19T01:59:59.991087+00:00",
+  "references": [
+    {
+      "DOI": "10.1111/j.2517-6161.1995.tb02031.x",
+      "title": [
+        "Controlling the False Discovery Rate: A Practical and Powerful Approach to Multiple Testing"
+      ],
+      "author": [
+        {
+          "given": "Yoav",
+          "family": "Benjamini",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yosef",
+          "family": "Hochberg",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Tel Aviv University , Israel"
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Journal of the Royal Statistical Society Series B: Statistical Methodology"
+      ],
+      "volume": "57",
+      "issue": "1",
+      "page": "289-300",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            1995,
+            1,
+            1
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2018,
+            12,
+            5
+          ]
+        ]
+      },
+      "source": {
+        "url": "https://api.crossref.org/works/10.1111/j.2517-6161.1995.tb02031.x",
+        "cached_response_sha256": "6b64ac852ccf29482b9b8e098a27f3379416e79817f7aeb7a3b9d9f107ab6072",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1093/bioinformatics/btag379",
+      "title": [
+        "Causal circuit tracing reveals distinct computational architectures in single-cell foundation models: inhibitory dominance, biological coherence, and cross-model convergence"
+      ],
+      "author": [
+        {
+          "given": "Ihor",
+          "family": "Kendiukhov",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Computer Science, University of T\u00fcbingen , T\u00fcbingen,",
+              "place": [
+                "72076, Germany"
+              ]
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Bioinformatics"
+      ],
+      "volume": "42",
+      "issue": "7",
+      "page": null,
+      "article-number": "btag379",
+      "published-print": {
+        "date-parts": [
+          [
+            2026,
+            7,
+            2
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2026,
+            6,
+            15
+          ]
+        ]
+      },
+      "source": {
+        "url": "https://api.crossref.org/works/10.1093/bioinformatics/btag379",
+        "cached_response_sha256": "78f9323d5d7bf31e50d242f7bd892e6e03b01869aba817d5a455c1b0dd4ff659",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1126/science.aax4438",
+      "title": [
+        "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-3755-4379",
+          "authenticated-orcid": true,
+          "given": "Thomas M.",
+          "family": "Norman",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Department of Cellular and Molecular Pharmacology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "California Institute for Quantitative Biomedical Research, University of California, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-3875-871X",
+          "authenticated-orcid": true,
+          "given": "Max A.",
+          "family": "Horlbeck",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Cellular and Molecular Pharmacology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "California Institute for Quantitative Biomedical Research, University of California, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-1832-919X",
+          "authenticated-orcid": true,
+          "given": "Joseph M.",
+          "family": "Replogle",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Cellular and Molecular Pharmacology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "California Institute for Quantitative Biomedical Research, University of California, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-6595-1822",
+          "authenticated-orcid": true,
+          "given": "Alex Y.",
+          "family": "Ge",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Urology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Helen Diller Family Comprehensive Cancer Center, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Albert",
+          "family": "Xu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Cellular and Molecular Pharmacology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "California Institute for Quantitative Biomedical Research, University of California, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0002-1369-4908",
+          "authenticated-orcid": true,
+          "given": "Marco",
+          "family": "Jost",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Cellular and Molecular Pharmacology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "California Institute for Quantitative Biomedical Research, University of California, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0001-5854-0825",
+          "authenticated-orcid": true,
+          "given": "Luke A.",
+          "family": "Gilbert",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Urology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Helen Diller Family Comprehensive Cancer Center, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-2445-670X",
+          "authenticated-orcid": true,
+          "given": "Jonathan S.",
+          "family": "Weissman",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Cellular and Molecular Pharmacology, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, University of California, San Francisco, CA 94158, USA."
+            },
+            {
+              "name": "California Institute for Quantitative Biomedical Research, University of California, San Francisco, CA 94158, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Science"
+      ],
+      "volume": "365",
+      "issue": "6455",
+      "page": "786-793",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2019,
+            8,
+            23
+          ]
+        ]
+      },
+      "published-online": null,
+      "source": {
+        "url": "https://api.crossref.org/works/10.1126/science.aax4438",
+        "cached_response_sha256": "2b5478cb2060c7450318d4ec1715ab7c8b2a3e816e3e5e5a37dec6b770d39edf",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1016/j.cell.2015.11.013",
+      "title": [
+        "Transcriptional Heterogeneity and Lineage Commitment in Myeloid Progenitors"
+      ],
+      "author": [
+        {
+          "given": "Franziska",
+          "family": "Paul",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ya\u2019ara",
+          "family": "Arkin",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Amir",
+          "family": "Giladi",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Diego\u00a0Adhemar",
+          "family": "Jaitin",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ephraim",
+          "family": "Kenigsberg",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hadas",
+          "family": "Keren-Shaul",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Deborah",
+          "family": "Winter",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "David",
+          "family": "Lara-Astiaso",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Meital",
+          "family": "Gury",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Assaf",
+          "family": "Weiner",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eyal",
+          "family": "David",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Nadav",
+          "family": "Cohen",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Felicia\u00a0Kathrine\u00a0Bratt",
+          "family": "Lauridsen",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Simon",
+          "family": "Haas",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Andreas",
+          "family": "Schlitzer",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alexander",
+          "family": "Mildner",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Florent",
+          "family": "Ginhoux",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Steffen",
+          "family": "Jung",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Andreas",
+          "family": "Trumpp",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Bo\u00a0Torben",
+          "family": "Porse",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Amos",
+          "family": "Tanay",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ido",
+          "family": "Amit",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Cell"
+      ],
+      "volume": "163",
+      "issue": "7",
+      "page": "1663-1677",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2015,
+            12
+          ]
+        ]
+      },
+      "published-online": null,
+      "source": {
+        "url": "https://api.crossref.org/works/10.1016/j.cell.2015.11.013",
+        "cached_response_sha256": "06dad80a4276429dfcba4277f2b91e286c39adabbbf0a19222ef54a640548ab7",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1016/j.cell.2022.05.013",
+      "title": [
+        "Mapping information-rich genotype-phenotype landscapes with genome-scale Perturb-seq"
+      ],
+      "author": [
+        {
+          "given": "Joseph M.",
+          "family": "Replogle",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Reuben A.",
+          "family": "Saunders",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Angela N.",
+          "family": "Pogson",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jeffrey A.",
+          "family": "Hussmann",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alexander",
+          "family": "Lenail",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alina",
+          "family": "Guna",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Lauren",
+          "family": "Mascibroda",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eric J.",
+          "family": "Wagner",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Karen",
+          "family": "Adelman",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Gila",
+          "family": "Lithwick-Yanai",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Nika",
+          "family": "Iremadze",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Florian",
+          "family": "Oberstrass",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Doron",
+          "family": "Lipson",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jessica L.",
+          "family": "Bonnar",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Marco",
+          "family": "Jost",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Thomas M.",
+          "family": "Norman",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "ORCID": "https://orcid.org/0000-0003-2445-670X",
+          "authenticated-orcid": false,
+          "given": "Jonathan S.",
+          "family": "Weissman",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Cell"
+      ],
+      "volume": "185",
+      "issue": "14",
+      "page": "2559-2575.e28",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2022,
+            7
+          ]
+        ]
+      },
+      "published-online": null,
+      "source": {
+        "url": "https://api.crossref.org/works/10.1016/j.cell.2022.05.013",
+        "cached_response_sha256": "f2574975021e58efaeef16538594c71bcf4c6e9826edb58618f3df60b8f699d2",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1186/s13059-017-1382-0",
+      "title": [
+        "SCANPY: large-scale single-cell gene expression data analysis"
+      ],
+      "author": [
+        {
+          "ORCID": "https://orcid.org/0000-0002-8760-7838",
+          "authenticated-orcid": false,
+          "given": "F. Alexander",
+          "family": "Wolf",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Philipp",
+          "family": "Angerer",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Fabian J.",
+          "family": "Theis",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Genome Biology"
+      ],
+      "volume": "19",
+      "issue": "1",
+      "page": null,
+      "article-number": "15",
+      "published-print": {
+        "date-parts": [
+          [
+            2018,
+            12
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2018,
+            2,
+            6
+          ]
+        ]
+      },
+      "source": {
+        "url": "https://api.crossref.org/works/10.1186/s13059-017-1382-0",
+        "cached_response_sha256": "29f2eade56fba3d4af943beca5a04fe5928ce0ccfcc5ae73a99cbd0a727a850f",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1038/s41587-019-0068-4",
+      "title": [
+        "Characterization of cell fate probabilities in single-cell data with Palantir"
+      ],
+      "author": [
+        {
+          "given": "Manu",
+          "family": "Setty",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Vaidotas",
+          "family": "Kiseliovas",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jacob",
+          "family": "Levine",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Adam",
+          "family": "Gayoso",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Linas",
+          "family": "Mazutis",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dana",
+          "family": "Pe\u2019er",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Nature Biotechnology"
+      ],
+      "volume": "37",
+      "issue": "4",
+      "page": "451-460",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2019,
+            4
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2019,
+            3,
+            21
+          ]
+        ]
+      },
+      "source": {
+        "url": "https://api.crossref.org/works/10.1038/s41587-019-0068-4",
+        "cached_response_sha256": "3bc593d211cc433ed61b482816e7824e6f266fe9eebbb1767b5cefa59d9aa505",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1093/nar/gkx1013",
+      "title": [
+        "TRRUST v2: an expanded reference database of human and mouse transcriptional regulatory interactions"
+      ],
+      "author": [
+        {
+          "given": "Heonjong",
+          "family": "Han",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jae-Won",
+          "family": "Cho",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sangyoung",
+          "family": "Lee",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ayoung",
+          "family": "Yun",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hyojin",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dasom",
+          "family": "Bae",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sunmo",
+          "family": "Yang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chan Yeong",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Muyoung",
+          "family": "Lee",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eunbeen",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sungho",
+          "family": "Lee",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Byunghee",
+          "family": "Kang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dabin",
+          "family": "Jeong",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yaeji",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Hyeon-Nae",
+          "family": "Jeon",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Haein",
+          "family": "Jung",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sunhwee",
+          "family": "Nam",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Michael",
+          "family": "Chung",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jong-Hoon",
+          "family": "Kim",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Insuk",
+          "family": "Lee",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Nucleic Acids Research"
+      ],
+      "volume": "46",
+      "issue": "D1",
+      "page": "D380-D386",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2018,
+            1,
+            4
+          ]
+        ]
+      },
+      "published-online": {
+        "date-parts": [
+          [
+            2017,
+            10,
+            26
+          ]
+        ]
+      },
+      "source": {
+        "url": "https://api.crossref.org/works/10.1093/nar/gkx1013",
+        "cached_response_sha256": "c5bc284544725436ccc8043704379a14b5e9820d0dda205b935bc35a16576828",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1186/s12885-024-12075-2",
+      "title": [
+        "FLI1 induces erythroleukemia through opposing effects on UBASH3A and UBASH3B expression"
+      ],
+      "author": [
+        {
+          "given": "Jie",
+          "family": "Wang",
+          "sequence": "first",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Chunlin",
+          "family": "Wang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Anling",
+          "family": "Hu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Kunlin",
+          "family": "Yu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yi",
+          "family": "Kuang",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Babu",
+          "family": "Gajendran",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eldad",
+          "family": "Zacksenhaus",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Klarke Michael",
+          "family": "Sample",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Xiao",
+          "family": "Xiao",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Wuling",
+          "family": "Liu",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Yaacov",
+          "family": "Ben-David",
+          "sequence": "additional",
+          "affiliation": [],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "BMC Cancer"
+      ],
+      "volume": "24",
+      "issue": "1",
+      "page": null,
+      "article-number": "326",
+      "published-print": null,
+      "published-online": {
+        "date-parts": [
+          [
+            2024,
+            3,
+            9
+          ]
+        ]
+      },
+      "source": {
+        "url": "https://api.crossref.org/works/10.1186/s12885-024-12075-2",
+        "cached_response_sha256": "168ace2d94929ae464cda4862e22d8eefb6003eca7085c47a214c070c2fb0a88",
+        "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
+      }
+    },
+    {
+      "DOI": "10.1126/science.aad0501",
+      "title": [
+        "Dissecting the multicellular ecosystem of metastatic melanoma by single-cell RNA-seq"
+      ],
+      "author": [
+        {
+          "given": "Itay",
+          "family": "Tirosh",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Benjamin",
+          "family": "Izar",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sanjay M.",
+          "family": "Prakadan",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "suffix": "II",
+          "given": "Marc H.",
+          "family": "Wadsworth",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Daniel",
+          "family": "Treacy",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "John J.",
+          "family": "Trombetta",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Asaf",
+          "family": "Rotem",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christopher",
+          "family": "Rodman",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christine",
+          "family": "Lian",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Pathology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "George",
+          "family": "Murphy",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Pathology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Mohammad",
+          "family": "Fallahi-Sichani",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Program in Therapeutic Sciences, Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ken",
+          "family": "Dutton-Regester",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Department of Genetics and Computational Biology, QIMR Berghofer Medical Research Institute, Brisbane, Queensland, Australia."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jia-Ren",
+          "family": "Lin",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "HMS LINCS Center and Laboratory of Systems Pharmacology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ofir",
+          "family": "Cohen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Parin",
+          "family": "Shah",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Diana",
+          "family": "Lu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alex S.",
+          "family": "Genshaft",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Travis K.",
+          "family": "Hughes",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Division of Health Sciences and Technology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Carly G. K.",
+          "family": "Ziegler",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Division of Health Sciences and Technology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Samuel W.",
+          "family": "Kazer",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aleth",
+          "family": "Gaillard",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Kellie E.",
+          "family": "Kolb",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alexandra-Chlo\u00e9",
+          "family": "Villani",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Cory M.",
+          "family": "Johannessen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aleksandr Y.",
+          "family": "Andreev",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eliezer M.",
+          "family": "Van Allen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Monica",
+          "family": "Bertagnolli",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Surgical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Department of Surgical Oncology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Peter K.",
+          "family": "Sorger",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Program in Therapeutic Sciences, Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA."
+            },
+            {
+              "name": "HMS LINCS Center and Laboratory of Systems Pharmacology, Harvard Medical School, Boston, MA 02115, USA."
+            },
+            {
+              "name": "Ludwig Center at Harvard, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ryan J.",
+          "family": "Sullivan",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Division of Medical Oncology, Massachusetts General Hospital Cancer Center, Boston, MA 02114, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Keith T.",
+          "family": "Flaherty",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Division of Medical Oncology, Massachusetts General Hospital Cancer Center, Boston, MA 02114, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dennie T.",
+          "family": "Frederick",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Division of Medical Oncology, Massachusetts General Hospital Cancer Center, Boston, MA 02114, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Judit",
+          "family": "Jan\u00e9-Valbuena",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Charles H.",
+          "family": "Yoon",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Surgical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Department of Surgical Oncology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Orit",
+          "family": "Rozenblatt-Rosen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alex K.",
+          "family": "Shalek",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Division of Health Sciences and Technology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aviv",
+          "family": "Regev",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Biology and Koch Institute, MIT, Boston, MA 02142, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, Chevy Chase, MD 20815, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Levi A.",
+          "family": "Garraway",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Ludwig Center at Harvard, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Science"
+      ],
+      "volume": "352",
+      "issue": "6282",
+      "page": "189-196",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2016,
+            4,
+            8
+          ]
+        ]
+      },
+      "published-online": null,
+      "source": {
+        "provider": "Crossref",
+        "url": "https://api.crossref.org/works/10.1126/science.aad0501",
+        "raw_response_sha256": "0a0c853b3a69e998c4c4bea31485713ceb2a1d659471ed5d6138056ea0d1ea5d",
+        "review_scope": "Metadata only; full primary paper not read. External list provenance is separately pinned."
+      }
+    }
+  ],
+  "updated_utc": "2026-10-20T17:15:30.748489+00:00"
+}

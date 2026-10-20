@@ -1,0 +1,31 @@
+{
+  "unit": "R4 HVG-count sensitivity (mouse, 5 seeds/point; 2012=frozen 10-seed)",
+  "points": [
+    {
+      "n_hvg": 1023,
+      "mean_l0": 90.1,
+      "in_qc_band": false,
+      "median_ery_n_real": 1.0,
+      "median_gran_n_real": 3.0,
+      "supported": false
+    },
+    {
+      "n_hvg": 2012,
+      "mean_l0": 35.75,
+      "in_qc_band": true,
+      "median_ery_n_real": 1.5,
+      "median_gran_n_real": 3.0,
+      "supported": false
+    },
+    {
+      "n_hvg": 3006,
+      "mean_l0": 18.1,
+      "in_qc_band": false,
+      "median_ery_n_real": 2.0,
+      "median_gran_n_real": 3.0,
+      "supported": false
+    }
+  ],
+  "verdict_holds_across_hvg": true,
+  "caveat": "At fixed l1=0.8, L0 leaves the 20-50 band at 1000 genes (too dense ~90) and 3000 genes (too sparse ~18) because L0 depends on gene count; per-count l1 retuning would recenter L0. The NOT-SUPPORTED verdict and granulocyte>=erythroid direction are stable regardless."
+}

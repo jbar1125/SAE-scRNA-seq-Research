@@ -1,0 +1,232 @@
+{
+  "scope": "Marker-score cell-level associations; exploratory sensitivities; no SAE advantage, novelty, mechanism, or biological replication claim",
+  "cells": 111445,
+  "single_perturbations": 105,
+  "primary_family": 945,
+  "control_reference_family": 3780,
+  "control_split": {
+    "n_discovery": 5926,
+    "n_inference": 5929
+  },
+  "programs": {
+    "Ery_TF": {
+      "eligible_markers": [
+        "GATA1",
+        "KLF1",
+        "TAL1",
+        "LMO2",
+        "ZFPM1",
+        "STAT5A",
+        "MYB"
+      ],
+      "low_power": false,
+      "primary": 7,
+      "target_omission": 6,
+      "depth_matched": 6,
+      "all_references": 3,
+      "all_sensitivities": 3,
+      "robust_candidates": [
+        "PTPN12",
+        "SET",
+        "SLC6A9"
+      ],
+      "identity_holm_p": 0.009000000000000001
+    },
+    "Ery_Heme": {
+      "eligible_markers": [
+        "ALAS2",
+        "FECH",
+        "HMBS",
+        "PPOX",
+        "CPOX",
+        "UROD",
+        "ALAD"
+      ],
+      "low_power": false,
+      "primary": 37,
+      "target_omission": 37,
+      "depth_matched": 38,
+      "all_references": 29,
+      "all_sensitivities": 29,
+      "robust_candidates": [
+        "ARID1A",
+        "ATL1",
+        "BPGM",
+        "C3orf72",
+        "CBL",
+        "CDKN1A",
+        "CDKN1B",
+        "CDKN1C",
+        "CKS1B",
+        "CLDN6",
+        "CNN1",
+        "DUSP9",
+        "EGR1",
+        "FEV",
+        "IER5L",
+        "IGDCC3",
+        "IKZF3",
+        "KLF1",
+        "MAML2",
+        "POU3F2",
+        "PRDM1",
+        "PRTG",
+        "PTPN1",
+        "PTPN12",
+        "RHOXF2",
+        "SAMD1",
+        "TP73",
+        "ZBTB1",
+        "ZBTB25"
+      ],
+      "identity_holm_p": 0.009000000000000001
+    },
+    "Ery_Membrane": {
+      "eligible_markers": [
+        "GYPC",
+        "ANK1",
+        "RHAG",
+        "AQP1",
+        "EPOR",
+        "TSPO",
+        "ERMAP"
+      ],
+      "low_power": false,
+      "primary": 25,
+      "target_omission": 25,
+      "depth_matched": 25,
+      "all_references": 20,
+      "all_sensitivities": 20,
+      "robust_candidates": [
+        "ATL1",
+        "BPGM",
+        "CBL",
+        "CDKN1A",
+        "CKS1B",
+        "CLDN6",
+        "CNN1",
+        "DUSP9",
+        "FEV",
+        "IKZF3",
+        "IRF1",
+        "KLF1",
+        "PRDM1",
+        "PRTG",
+        "PTPN1",
+        "PTPN12",
+        "SET",
+        "SPI1",
+        "TP73",
+        "ZBTB1"
+      ],
+      "identity_holm_p": 0.009000000000000001
+    },
+    "Ery_Effector": {
+      "eligible_markers": [
+        "HBA1",
+        "HBA2"
+      ],
+      "low_power": true,
+      "primary": 0,
+      "target_omission": 0,
+      "depth_matched": 0,
+      "all_references": 0,
+      "all_sensitivities": 0,
+      "robust_candidates": [],
+      "identity_holm_p": 1.0
+    },
+    "Gran_TF": {
+      "eligible_markers": [
+        "CEBPA",
+        "CEBPE",
+        "RUNX1"
+      ],
+      "low_power": false,
+      "primary": 6,
+      "target_omission": 4,
+      "depth_matched": 4,
+      "all_references": 4,
+      "all_sensitivities": 4,
+      "robust_candidates": [
+        "CEBPB",
+        "CELF2",
+        "FOSB",
+        "OSR2"
+      ],
+      "identity_holm_p": 0.009000000000000001
+    },
+    "Gran_Primary": {
+      "eligible_markers": [
+        "PRTN3"
+      ],
+      "low_power": true,
+      "primary": 0,
+      "target_omission": 0,
+      "depth_matched": 0,
+      "all_references": 0,
+      "all_sensitivities": 0,
+      "robust_candidates": [],
+      "identity_holm_p": 1.0
+    },
+    "Gran_Secondary": {
+      "eligible_markers": [
+        "LCN2",
+        "MMP9"
+      ],
+      "low_power": true,
+      "primary": 0,
+      "target_omission": 0,
+      "depth_matched": 0,
+      "all_references": 0,
+      "all_sensitivities": 0,
+      "robust_candidates": [],
+      "identity_holm_p": 1.0
+    },
+    "Progenitor": {
+      "eligible_markers": [
+        "KIT",
+        "MLLT3",
+        "EIF4EBP1"
+      ],
+      "low_power": false,
+      "primary": 3,
+      "target_omission": 3,
+      "depth_matched": 3,
+      "all_references": 2,
+      "all_sensitivities": 2,
+      "robust_candidates": [
+        "AHR",
+        "COL1A1"
+      ],
+      "identity_holm_p": 0.009000000000000001
+    },
+    "Cycling": {
+      "eligible_markers": [
+        "TOP2A",
+        "PCNA",
+        "MCM2",
+        "MCM3",
+        "MCM4",
+        "MCM5",
+        "MCM6",
+        "MCM7",
+        "CDK1",
+        "CDK4",
+        "CDK6",
+        "CENPE",
+        "CENPF",
+        "AURKB",
+        "BIRC5",
+        "CCNB2"
+      ],
+      "low_power": false,
+      "primary": 0,
+      "target_omission": 0,
+      "depth_matched": 0,
+      "all_references": 0,
+      "all_sensitivities": 0,
+      "robust_candidates": [],
+      "identity_holm_p": 0.009000000000000001
+    }
+  }
+}

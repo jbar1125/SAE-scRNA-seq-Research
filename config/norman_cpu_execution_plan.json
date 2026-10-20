@@ -1,0 +1,37 @@
+{
+  "name": "Norman CPU continuation",
+  "date": "2026-10-18",
+  "scope": "Full-data, full-size SAE fits on the user-selected CPU environment; record partial completion honestly and resume epoch-boundary checkpoints. No GPU execution or biological novelty is implied.",
+  "chronology": "The original architecture and training settings are retained from program_modulation_spec v1.1. The separate conditional inference follows the documented simulation audit. Raw duplicate-symbol summation was selected from metadata before marker-baseline outcomes; the baseline has now been observed, so this is an exploratory continuation, not an independent prospective study.",
+  "source": "Norman raw observed SHA256 32cc993abad41336eb0f3635f97e802e13fe5721dd9277c1c55e7c13853782e0; prepared symbol file SHA256 d9195d5d51b70a5f7f7d8ca22425e79bdba743700da837f1ef3fd93fac46b697",
+  "duplicate_policy": "Sum all duplicate raw-count columns by symbol, preserving every cell's library total, then use exact float32 counts. Keep original source and prepared file. New unique input has 33660 genes and observed SHA256 a09744916427b08d75dade996d059f717e4812463292a1e5a4e5450589cf2c6a. No duplicate affects the 59 external markers or 105 single-target symbols.",
+  "primary_training": {
+    "n_cells": 111445,
+    "train_on": "all",
+    "seeds": [0, 1, 2],
+    "latent_dim": 2048,
+    "k": 32,
+    "epochs": 200,
+    "batch": 1024,
+    "n_hvg": 4000,
+    "marker_and_tested_target_force_keep": true,
+    "lr": 0.0004,
+    "device": "cpu",
+    "threads": 4,
+    "checkpoint_every_epochs": 5,
+    "precision": "original float32 training, no mixed-precision shortcut"
+  },
+  "analysis": {
+    "marker_panels": "All nine config/human_markers.json panels",
+    "legacy_full_label_shuffle_replicates": 0,
+    "why_skip_legacy_shuffle": "The audit established that this fixed-selection full-label shuffle is exploratory and does not calibrate specificity; avoid spending CPU on an invalid discovery gate. This does not reproduce the historical three-part positive rule.",
+    "random_feature_background": 100,
+    "marker_match_bonferroni_alpha": 0.05,
+    "identity_permutations": 999,
+    "identity_strata": "gemgroup, eight technical partitions with control/intervention overlap",
+    "multiplicity": "Holm across all nine planned programs per seed; use all 27 raw program-by-seed p-values for joint inferential statements. Unmatched programs retain p=1.",
+    "scope": "Conditional cell-level identity heterogeneity, not mechanism, pathway specificity, SAE superiority or biological replication"
+  },
+  "resource_preflight": "Four CPU quota cores, 32 GiB RAM, no CUDA. Short-profile median .609s per 2048-latent step projected about 3.7h/seed for 21800 steps, excluding analysis/I/O. Timing was variable; this is not a completion guarantee.",
+  "artifacts": "Save model/optimizer/input-hash/RNG checkpoints, encoded activations, complete JSON outputs, logs, exact commands, input/source/package hashes, and actual completed epochs. Resume only matching data/parameters. Large files remain outside Git; compact evidence is committed. Do not describe running or partial seeds as completed."
+}

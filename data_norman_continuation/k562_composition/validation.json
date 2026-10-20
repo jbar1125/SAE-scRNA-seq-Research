@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "complete_unique_comparisons": 11025,
+  "original_945_comparisons_recovered": 945,
+  "joint_BH_reproduced": true,
+  "all_source_hashes_verified": true,
+  "fixed_discovery_parameters": true,
+  "raw_result_sha256": "01cd61141a00abcbe535cc8ab18216025af3f8645d4d8f8c617ff92341af2461"
+}

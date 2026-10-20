@@ -1,0 +1,3720 @@
+{
+  "original_program_calls": 57,
+  "outside_program_calls": 57,
+  "control_signature_fraction_quartiles": [
+    0.001156677181913775,
+    0.0017152658662092624,
+    0.0026246719160104987
+  ],
+  "preidentified_cases": [
+    {
+      "pert": "CBL",
+      "original_program_auc": 0.7483884438245978,
+      "outside_program_auc": 0.7484147963155163,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7692160336663207,
+        "ALAS2": 0.653494137584328,
+        "HBG1": 0.6204998053969901,
+        "HBG2": 0.683293737026466,
+        "HBA1": 0.6251864945511157,
+        "SLC25A37": 0.6287086063181111,
+        "GYPB": 0.6030027649844317,
+        "BLVRB": 0.6104169369486248
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7692515081733264,
+        "ALAS2": 0.6536238729242345,
+        "HBG1": 0.620844414893617,
+        "HBG2": 0.6835846279839128,
+        "HBA1": 0.6253912331344058,
+        "SLC25A37": 0.6293805948365335,
+        "GYPB": 0.6038389497924235,
+        "BLVRB": 0.6108791190970421
+      },
+      "signature_fraction_quartiles": [
+        0.002032097216117122,
+        0.0035855743172816344,
+        0.006073422423575717
+      ]
+    },
+    {
+      "pert": "KLF1",
+      "original_program_auc": 0.8610815750010633,
+      "outside_program_auc": 0.8612009389967662,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.872307278596938,
+        "ALAS2": 0.5624630417513306,
+        "HBG1": 0.7786672529679789,
+        "HBG2": 0.8504969383821103,
+        "HBA1": 0.786607359682135,
+        "SLC25A37": 0.6150315628588637,
+        "GYPB": 0.5190845193129573,
+        "BLVRB": 0.7609506176057778
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.872378279594382,
+        "ALAS2": 0.5627655677404395,
+        "HBG1": 0.779093944952618,
+        "HBG2": 0.8506608923762079,
+        "HBA1": 0.7869846596685522,
+        "SLC25A37": 0.6164532978076813,
+        "GYPB": 0.5209795942447346,
+        "BLVRB": 0.7616273565814151
+      },
+      "signature_fraction_quartiles": [
+        0.0036603477975821544,
+        0.005879083333567947,
+        0.009131080691688566
+      ]
+    },
+    {
+      "pert": "PTPN12",
+      "original_program_auc": 0.7531685678073511,
+      "outside_program_auc": 0.7532590983161326,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8038520731486511,
+        "ALAS2": 0.6011889673486631,
+        "HBG1": 0.5757302794375038,
+        "HBG2": 0.6551013941698353,
+        "HBA1": 0.6316630454463155,
+        "SLC25A37": 0.6639266099342145,
+        "GYPB": 0.5892977850202185,
+        "BLVRB": 0.6768513489045809
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8038958295612288,
+        "ALAS2": 0.6013368338463395,
+        "HBG1": 0.5762553563884363,
+        "HBG2": 0.6556853159514756,
+        "HBA1": 0.6319331281308468,
+        "SLC25A37": 0.6647323314623694,
+        "GYPB": 0.5902845675659364,
+        "BLVRB": 0.6772149797815197
+      },
+      "signature_fraction_quartiles": [
+        0.002242152466367713,
+        0.0038305414213023843,
+        0.007064641469445425
+      ]
+    },
+    {
+      "pert": "UBASH3B",
+      "original_program_auc": 0.6977455250666645,
+      "outside_program_auc": 0.6977924444201159,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7025955339478279,
+        "ALAS2": 0.6095086538278931,
+        "HBG1": 0.5864852153765893,
+        "HBG2": 0.6544920253856045,
+        "HBA1": 0.5833008435429474,
+        "SLC25A37": 0.6175257190670198,
+        "GYPB": 0.553175825808549,
+        "BLVRB": 0.6091846868635864
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7026307234629164,
+        "ALAS2": 0.6095885284415067,
+        "HBG1": 0.5867248392174299,
+        "HBG2": 0.6546266392449112,
+        "HBA1": 0.5834913137754104,
+        "SLC25A37": 0.6179033081495565,
+        "GYPB": 0.5537399751774278,
+        "BLVRB": 0.6094779328226572
+      },
+      "signature_fraction_quartiles": [
+        0.0017866711114191004,
+        0.0029294601234194934,
+        0.004735802045127179
+      ]
+    }
+  ],
+  "all_105_summaries": [
+    {
+      "pert": "AHR",
+      "original_program_auc": 0.6920921875908026,
+      "outside_program_auc": 0.6920921875908026,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.6041275206787672,
+        "ALAS2": 0.622493849640664,
+        "HBG1": 0.5979190477112915,
+        "HBG2": 0.6452102260620266,
+        "HBA1": 0.5534863336109873,
+        "SLC25A37": 0.6601224260504039,
+        "GYPB": 0.6891949809193576,
+        "BLVRB": 0.5109217306239466
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6043272862871201,
+        "ALAS2": 0.622559227476125,
+        "HBG1": 0.5981502915367182,
+        "HBG2": 0.6453070821145613,
+        "HBA1": 0.5536110357786258,
+        "SLC25A37": 0.6604541580303354,
+        "GYPB": 0.68935842550801,
+        "BLVRB": 0.5112498305019081
+      },
+      "signature_fraction_quartiles": [
+        0.0017133804337258608,
+        0.0026848656456471918,
+        0.004609832504300155
+      ]
+    },
+    {
+      "pert": "ARID1A",
+      "original_program_auc": 0.6914333934702904,
+      "outside_program_auc": 0.6914624919979049,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 6,
+      "outside_individual_calls": 6,
+      "original_gene_auc": {
+        "HBZ": 0.5791101670255485,
+        "ALAS2": 0.7113891637083164,
+        "HBG1": 0.6139061863469708,
+        "HBG2": 0.6703835185939592,
+        "HBA1": 0.4725513589012396,
+        "SLC25A37": 0.5159285340161788,
+        "GYPB": 0.598713845079439,
+        "BLVRB": 0.588820345690508
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5792440202525753,
+        "ALAS2": 0.7114037129721236,
+        "HBG1": 0.6140545888378048,
+        "HBG2": 0.6704882732933714,
+        "HBA1": 0.4726037362509457,
+        "SLC25A37": 0.5162544375254612,
+        "GYPB": 0.5991648722574637,
+        "BLVRB": 0.5889338299482046
+      },
+      "signature_fraction_quartiles": [
+        0.0017657901075272561,
+        0.0027111617505127636,
+        0.004186460473626588
+      ]
+    },
+    {
+      "pert": "ARRDC3",
+      "original_program_auc": 0.5469474155121102,
+      "outside_program_auc": 0.5469337763338434,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.5585775428202002,
+        "ALAS2": 0.5329413433499458,
+        "HBG1": 0.514598012498943,
+        "HBG2": 0.5216740181837525,
+        "HBA1": 0.4847923162325316,
+        "SLC25A37": 0.5511782886104678,
+        "GYPB": 0.47416739636270394,
+        "BLVRB": 0.5443532438057672
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5585761789023735,
+        "ALAS2": 0.532961802117346,
+        "HBG1": 0.51462801869113,
+        "HBG2": 0.5216999326224594,
+        "HBA1": 0.48483732552081205,
+        "SLC25A37": 0.5512819463652954,
+        "GYPB": 0.4743774397080125,
+        "BLVRB": 0.5444064366010076
+      },
+      "signature_fraction_quartiles": [
+        0.0012610622988802065,
+        0.001946282600233554,
+        0.0029935999546332626
+      ]
+    },
+    {
+      "pert": "ATL1",
+      "original_program_auc": 0.8517709069872084,
+      "outside_program_auc": 0.8517923335690257,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8330922842878875,
+        "ALAS2": 0.8573311049688244,
+        "HBG1": 0.6698110175483705,
+        "HBG2": 0.7490875847242756,
+        "HBA1": 0.5837511516787727,
+        "SLC25A37": 0.6667613007363602,
+        "GYPB": 0.7839825587624006,
+        "BLVRB": 0.6254758486711948
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8331369230000072,
+        "ALAS2": 0.85744895116882,
+        "HBG1": 0.6704252462271361,
+        "HBG2": 0.7496250348181954,
+        "HBA1": 0.5840796925999728,
+        "SLC25A37": 0.6678969095726826,
+        "GYPB": 0.7845700042138944,
+        "BLVRB": 0.6264204038196454
+      },
+      "signature_fraction_quartiles": [
+        0.003166547144928435,
+        0.005968169761273209,
+        0.010024619440134351
+      ]
+    },
+    {
+      "pert": "BAK1",
+      "original_program_auc": 0.49136061812681714,
+      "outside_program_auc": 0.4913569132190184,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4814092357794061,
+        "ALAS2": 0.4976047771081157,
+        "HBG1": 0.5074288032499451,
+        "HBG2": 0.49950585792234325,
+        "HBA1": 0.5037841002029363,
+        "SLC25A37": 0.4849460333867766,
+        "GYPB": 0.49840920521391674,
+        "BLVRB": 0.4967183779172676
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4814296127722991,
+        "ALAS2": 0.4976200598527855,
+        "HBG1": 0.5074200040939231,
+        "HBG2": 0.49950030056064515,
+        "HBA1": 0.5037641863235182,
+        "SLC25A37": 0.48494279159245274,
+        "GYPB": 0.4984110576678161,
+        "BLVRB": 0.49671698857684304
+      },
+      "signature_fraction_quartiles": [
+        0.0011620475277438847,
+        0.0016702457647339538,
+        0.0024591171769334807
+      ]
+    },
+    {
+      "pert": "BCL2L11",
+      "original_program_auc": 0.5552254953407569,
+      "outside_program_auc": 0.5551861963424191,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.5234326056854092,
+        "ALAS2": 0.5118636740864717,
+        "HBG1": 0.5072206130181399,
+        "HBG2": 0.5284582540610891,
+        "HBA1": 0.48886913664724063,
+        "SLC25A37": 0.5284050848280437,
+        "GYPB": 0.5914580159553934,
+        "BLVRB": 0.5358753620709185
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5234615020077165,
+        "ALAS2": 0.5118509597046564,
+        "HBG1": 0.5072552886049086,
+        "HBG2": 0.5284594099139814,
+        "HBA1": 0.48887607176459436,
+        "SLC25A37": 0.5285218259701652,
+        "GYPB": 0.5913909764876405,
+        "BLVRB": 0.5358822971882723
+      },
+      "signature_fraction_quartiles": [
+        0.001322002234786174,
+        0.0019531065814066824,
+        0.0029461360115801767
+      ]
+    },
+    {
+      "pert": "BCORL1",
+      "original_program_auc": 0.47469495565746145,
+      "outside_program_auc": 0.4746823296499061,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.40291484010424033,
+        "ALAS2": 0.5642487020464233,
+        "HBG1": 0.4960114442132482,
+        "HBG2": 0.5352808529120624,
+        "HBA1": 0.4458584170016767,
+        "SLC25A37": 0.47210283630633726,
+        "GYPB": 0.4968081452899941,
+        "BLVRB": 0.46773802549443444
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.402967869335973,
+        "ALAS2": 0.5642095614230016,
+        "HBG1": 0.49601018161249266,
+        "HBG2": 0.5352038342659744,
+        "HBA1": 0.4458319023858104,
+        "SLC25A37": 0.4720687460859377,
+        "GYPB": 0.4967904688794166,
+        "BLVRB": 0.4677253994868791
+      },
+      "signature_fraction_quartiles": [
+        0.001076889941847943,
+        0.0016458196181698486,
+        0.0025482344375682563
+      ]
+    },
+    {
+      "pert": "BPGM",
+      "original_program_auc": 0.8238134713824428,
+      "outside_program_auc": 0.8239352112186158,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8649948695354756,
+        "ALAS2": 0.7291723430280755,
+        "HBG1": 0.6504110168754601,
+        "HBG2": 0.7125751453631616,
+        "HBA1": 0.6575154058864109,
+        "SLC25A37": 0.5983556426414066,
+        "GYPB": 0.6899431301051021,
+        "BLVRB": 0.6891750097102012
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8649426953199729,
+        "ALAS2": 0.729472344767216,
+        "HBG1": 0.6513298627818133,
+        "HBG2": 0.7134708027292912,
+        "HBA1": 0.6581617864451388,
+        "SLC25A37": 0.599784636432675,
+        "GYPB": 0.6912634276140731,
+        "BLVRB": 0.6901025513191381
+      },
+      "signature_fraction_quartiles": [
+        0.003196217758358404,
+        0.006122527869511189,
+        0.00975278989728371
+      ]
+    },
+    {
+      "pert": "C19orf26",
+      "original_program_auc": 0.6804688161775464,
+      "outside_program_auc": 0.6804534148576533,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 6,
+      "outside_individual_calls": 6,
+      "original_gene_auc": {
+        "HBZ": 0.6179864314371741,
+        "ALAS2": 0.6533517122417392,
+        "HBG1": 0.5728852062621766,
+        "HBG2": 0.6379942861103196,
+        "HBA1": 0.5123464680923155,
+        "SLC25A37": 0.523684149731632,
+        "GYPB": 0.7080402590502006,
+        "BLVRB": 0.5530375253159195
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6180626679706451,
+        "ALAS2": 0.6534133175213116,
+        "HBG1": 0.5730107270193056,
+        "HBG2": 0.6380682124458066,
+        "HBA1": 0.5124180842298185,
+        "SLC25A37": 0.5239844754695477,
+        "GYPB": 0.7081419077614952,
+        "BLVRB": 0.5532700852463056
+      },
+      "signature_fraction_quartiles": [
+        0.0018186367055908728,
+        0.002596339681383777,
+        0.003897528272074859
+      ]
+    },
+    {
+      "pert": "C3orf72",
+      "original_program_auc": 0.5457445014081915,
+      "outside_program_auc": 0.5456933873779014,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.38101676029053216,
+        "ALAS2": 0.7269590729959466,
+        "HBG1": 0.45902443761788175,
+        "HBG2": 0.5055254266743678,
+        "HBA1": 0.46864665382000703,
+        "SLC25A37": 0.4066811148992287,
+        "GYPB": 0.6247744593413446,
+        "BLVRB": 0.5072684151072628
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.38110876554505446,
+        "ALAS2": 0.7269002918611129,
+        "HBG1": 0.4590142148118237,
+        "HBG2": 0.5054666455395341,
+        "HBA1": 0.4686645437306086,
+        "SLC25A37": 0.4067501188401204,
+        "GYPB": 0.6246722312807642,
+        "BLVRB": 0.5072633037042338
+      },
+      "signature_fraction_quartiles": [
+        0.0011550370278425647,
+        0.0017296143407983546,
+        0.002800542089123502
+      ]
+    },
+    {
+      "pert": "CBFA2T3",
+      "original_program_auc": 0.23266786474131582,
+      "outside_program_auc": 0.23267398430535807,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.29910695162076656,
+        "ALAS2": 0.4364238491649855,
+        "HBG1": 0.3314284490372906,
+        "HBG2": 0.27325587325158956,
+        "HBA1": 0.39651919197276386,
+        "SLC25A37": 0.3798749977051635,
+        "GYPB": 0.33173952687610536,
+        "BLVRB": 0.44887818191832013
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.2990294371428979,
+        "ALAS2": 0.436427928874347,
+        "HBG1": 0.33138765194367553,
+        "HBG2": 0.27319569753850736,
+        "HBA1": 0.3965038930626582,
+        "SLC25A37": 0.379681211510492,
+        "GYPB": 0.33156715915558177,
+        "BLVRB": 0.4486711366682238
+      },
+      "signature_fraction_quartiles": [
+        0.0005460301594582274,
+        0.0008547539499758202,
+        0.0013452322403312339
+      ]
+    },
+    {
+      "pert": "CBL",
+      "original_program_auc": 0.7483884438245978,
+      "outside_program_auc": 0.7484147963155163,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7692160336663207,
+        "ALAS2": 0.653494137584328,
+        "HBG1": 0.6204998053969901,
+        "HBG2": 0.683293737026466,
+        "HBA1": 0.6251864945511157,
+        "SLC25A37": 0.6287086063181111,
+        "GYPB": 0.6030027649844317,
+        "BLVRB": 0.6104169369486248
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7692515081733264,
+        "ALAS2": 0.6536238729242345,
+        "HBG1": 0.620844414893617,
+        "HBG2": 0.6835846279839128,
+        "HBA1": 0.6253912331344058,
+        "SLC25A37": 0.6293805948365335,
+        "GYPB": 0.6038389497924235,
+        "BLVRB": 0.6108791190970421
+      },
+      "signature_fraction_quartiles": [
+        0.002032097216117122,
+        0.0035855743172816344,
+        0.006073422423575717
+      ]
+    },
+    {
+      "pert": "CDKN1A",
+      "original_program_auc": 0.7510551040190888,
+      "outside_program_auc": 0.7510774737156066,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7135187532622475,
+        "ALAS2": 0.7033629110431735,
+        "HBG1": 0.6489877712325702,
+        "HBG2": 0.7363414361345164,
+        "HBA1": 0.6507493848333458,
+        "SLC25A37": 0.6574975766162106,
+        "GYPB": 0.6259768100812766,
+        "BLVRB": 0.5931026769070167
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7135877264931773,
+        "ALAS2": 0.7034393408396092,
+        "HBG1": 0.6492543434494072,
+        "HBG2": 0.7364495563343524,
+        "HBA1": 0.6509674893743942,
+        "SLC25A37": 0.6580456341808962,
+        "GYPB": 0.6265658787562449,
+        "BLVRB": 0.5936171799269256
+      },
+      "signature_fraction_quartiles": [
+        0.002009705641211854,
+        0.0036128370758654743,
+        0.00655027622801109
+      ]
+    },
+    {
+      "pert": "CDKN1B",
+      "original_program_auc": 0.6807893223718819,
+      "outside_program_auc": 0.6807795353616912,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.6763019781994348,
+        "ALAS2": 0.6747238228061805,
+        "HBG1": 0.6093991999119169,
+        "HBG2": 0.6633097221712482,
+        "HBA1": 0.6364260285536022,
+        "SLC25A37": 0.6392324537257924,
+        "GYPB": 0.5894655069059591,
+        "BLVRB": 0.5414479881577177
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6763129885858994,
+        "ALAS2": 0.6748363734233739,
+        "HBG1": 0.6097845634381767,
+        "HBG2": 0.6634210494121677,
+        "HBA1": 0.6366376726489766,
+        "SLC25A37": 0.6399163210628693,
+        "GYPB": 0.5901811820261558,
+        "BLVRB": 0.5421355256236161
+      },
+      "signature_fraction_quartiles": [
+        0.0014885959913481272,
+        0.003127210294133617,
+        0.007349787612112781
+      ]
+    },
+    {
+      "pert": "CDKN1C",
+      "original_program_auc": 0.7152837815734748,
+      "outside_program_auc": 0.715260415449681,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.6855591513423838,
+        "ALAS2": 0.7125528658550833,
+        "HBG1": 0.6380587424352174,
+        "HBG2": 0.6921571605486366,
+        "HBA1": 0.6065436829684324,
+        "SLC25A37": 0.6229583849335234,
+        "GYPB": 0.643380377129238,
+        "BLVRB": 0.5921939621936118
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.685670140430404,
+        "ALAS2": 0.7127222702525878,
+        "HBG1": 0.6383595812790617,
+        "HBG2": 0.6922038927962241,
+        "HBA1": 0.606783185737318,
+        "SLC25A37": 0.6235863495104798,
+        "GYPB": 0.6438243334813187,
+        "BLVRB": 0.5929124705002687
+      },
+      "signature_fraction_quartiles": [
+        0.001684378593862337,
+        0.0032500189059555765,
+        0.006473730554984524
+      ]
+    },
+    {
+      "pert": "CEBPA",
+      "original_program_auc": 0.172474610150061,
+      "outside_program_auc": 0.17249812607475123,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.2806625611781478,
+        "ALAS2": 0.4078440306294919,
+        "HBG1": 0.2900601125824895,
+        "HBG2": 0.21828510119196343,
+        "HBA1": 0.3774100148444275,
+        "SLC25A37": 0.37347697643998296,
+        "GYPB": 0.2002278105204368,
+        "BLVRB": 0.37229971046017724
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.2805920134040771,
+        "ALAS2": 0.40785284910125075,
+        "HBG1": 0.29001748996898835,
+        "HBG2": 0.21825423654080747,
+        "HBA1": 0.3773820896838578,
+        "SLC25A37": 0.37329619776892664,
+        "GYPB": 0.20015726274636605,
+        "BLVRB": 0.37218654007260543
+      },
+      "signature_fraction_quartiles": [
+        0.0002913917535844194,
+        0.0005882505827525543,
+        0.0011302068527443477
+      ]
+    },
+    {
+      "pert": "CEBPB",
+      "original_program_auc": 0.27195098854587824,
+      "outside_program_auc": 0.27197020226557206,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4923076500797369,
+        "ALAS2": 0.4360141961940366,
+        "HBG1": 0.3388037538118647,
+        "HBG2": 0.2722350771156364,
+        "HBA1": 0.4704314577998095,
+        "SLC25A37": 0.35672054742632225,
+        "GYPB": 0.307973968154632,
+        "BLVRB": 0.3668722534673902
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4921511955050875,
+        "ALAS2": 0.4359936100657933,
+        "HBG1": 0.3388325743914054,
+        "HBG2": 0.2722831114148709,
+        "HBA1": 0.4704053820373679,
+        "SLC25A37": 0.356702706115178,
+        "GYPB": 0.3080123955940196,
+        "BLVRB": 0.36683245361945305
+      },
+      "signature_fraction_quartiles": [
+        0.0005817388629888629,
+        0.0010858177920009759,
+        0.0019437932102138475
+      ]
+    },
+    {
+      "pert": "CEBPE",
+      "original_program_auc": 0.19570284909567617,
+      "outside_program_auc": 0.19569519552681702,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.28086629652549844,
+        "ALAS2": 0.42062866414609135,
+        "HBG1": 0.339352136329742,
+        "HBG2": 0.2550256613230178,
+        "HBA1": 0.4214853171748272,
+        "SLC25A37": 0.36206956875419577,
+        "GYPB": 0.23966604198966548,
+        "BLVRB": 0.34852056513952456
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.2807722669652287,
+        "ALAS2": 0.4206155437423328,
+        "HBG1": 0.3392756006411504,
+        "HBG2": 0.25499614041456103,
+        "HBA1": 0.4214224485734841,
+        "SLC25A37": 0.36188260300063635,
+        "GYPB": 0.23961028027369163,
+        "BLVRB": 0.3484101350745567
+      },
+      "signature_fraction_quartiles": [
+        0.00037064492216456633,
+        0.0006795456751771673,
+        0.001282051282051282
+      ]
+    },
+    {
+      "pert": "CELF2",
+      "original_program_auc": 0.37225248680542783,
+      "outside_program_auc": 0.3722553167404808,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.44235988284068883,
+        "ALAS2": 0.46345421872568027,
+        "HBG1": 0.42632830076549744,
+        "HBG2": 0.40039336097236566,
+        "HBA1": 0.47974615482574673,
+        "SLC25A37": 0.44907531872143536,
+        "GYPB": 0.3764620151967512,
+        "BLVRB": 0.4300425905225475
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4423273385875794,
+        "ALAS2": 0.46344572892052127,
+        "HBG1": 0.4262801918695966,
+        "HBG2": 0.40035232691409733,
+        "HBA1": 0.4797093656700579,
+        "SLC25A37": 0.44904277446832597,
+        "GYPB": 0.3764422056513803,
+        "BLVRB": 0.42997184214622275
+      },
+      "signature_fraction_quartiles": [
+        0.0007743051020551225,
+        0.0012968967114404817,
+        0.002011185809208134
+      ]
+    },
+    {
+      "pert": "CITED1",
+      "original_program_auc": 0.49600755667506297,
+      "outside_program_auc": 0.49606423173803527,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4795654911838791,
+        "ALAS2": 0.5182777078085642,
+        "HBG1": 0.47381297229219144,
+        "HBG2": 0.469845717884131,
+        "HBA1": 0.4619993702770781,
+        "SLC25A37": 0.5383564231738035,
+        "GYPB": 0.5130321158690176,
+        "BLVRB": 0.5392695214105794
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.47963790931989925,
+        "ALAS2": 0.5182651133501259,
+        "HBG1": 0.4737814861460957,
+        "HBG2": 0.46994332493702773,
+        "HBA1": 0.46201511335012596,
+        "SLC25A37": 0.5383564231738035,
+        "GYPB": 0.5130510075566751,
+        "BLVRB": 0.5392222921914358
+      },
+      "signature_fraction_quartiles": [
+        0.001041496634070968,
+        0.0017363522711487706,
+        0.002723091586635524
+      ]
+    },
+    {
+      "pert": "CKS1B",
+      "original_program_auc": 0.7173820535504317,
+      "outside_program_auc": 0.7173204627151479,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 6,
+      "outside_individual_calls": 6,
+      "original_gene_auc": {
+        "HBZ": 0.6592822987939395,
+        "ALAS2": 0.6781626893918185,
+        "HBG1": 0.5329818922944266,
+        "HBG2": 0.5620835619659794,
+        "HBA1": 0.5030879405144515,
+        "SLC25A37": 0.6990363833861521,
+        "GYPB": 0.6112974389410856,
+        "BLVRB": 0.6921410094177987
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6593550879629111,
+        "ALAS2": 0.6782270798105242,
+        "HBG1": 0.5332366543858273,
+        "HBG2": 0.5623215265568483,
+        "HBA1": 0.5031579301000011,
+        "SLC25A37": 0.6991791621406734,
+        "GYPB": 0.6115941947838162,
+        "BLVRB": 0.6921774040022844
+      },
+      "signature_fraction_quartiles": [
+        0.001723543605653223,
+        0.0028335492227979276,
+        0.0042335508908096665
+      ]
+    },
+    {
+      "pert": "CLDN6",
+      "original_program_auc": 0.8579144563266257,
+      "outside_program_auc": 0.8579144563266257,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8309255518655203,
+        "ALAS2": 0.8640876800565419,
+        "HBG1": 0.6667523361671198,
+        "HBG2": 0.7932175858067055,
+        "HBA1": 0.7066007011513178,
+        "SLC25A37": 0.6550243154136833,
+        "GYPB": 0.7791403467205313,
+        "BLVRB": 0.6299117738003928
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8309586818676487,
+        "ALAS2": 0.8641639794553829,
+        "HBG1": 0.6674159401491453,
+        "HBG2": 0.7935217794626113,
+        "HBA1": 0.7069621193563543,
+        "SLC25A37": 0.6561888851854678,
+        "GYPB": 0.7800760182957927,
+        "BLVRB": 0.6310914026640537
+      },
+      "signature_fraction_quartiles": [
+        0.003060267031359726,
+        0.006188720707157589,
+        0.01060205777190221
+      ]
+    },
+    {
+      "pert": "CNN1",
+      "original_program_auc": 0.8580122595021686,
+      "outside_program_auc": 0.8580948564921234,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8615911695030825,
+        "ALAS2": 0.7056832001237198,
+        "HBG1": 0.6394869848232424,
+        "HBG2": 0.7199013053839178,
+        "HBA1": 0.7465757396824058,
+        "SLC25A37": 0.842734452434678,
+        "GYPB": 0.5990979354267277,
+        "BLVRB": 0.6683678131831825
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.86156568745299,
+        "ALAS2": 0.7060373127508663,
+        "HBG1": 0.6403481023780904,
+        "HBG2": 0.7207580294818533,
+        "HBA1": 0.7469272162354049,
+        "SLC25A37": 0.8431869784966645,
+        "GYPB": 0.6010828992597904,
+        "BLVRB": 0.6694609052630099
+      },
+      "signature_fraction_quartiles": [
+        0.0033404915294679076,
+        0.006315156375300722,
+        0.011266565082883132
+      ]
+    },
+    {
+      "pert": "CNNM4",
+      "original_program_auc": 0.6676372867435696,
+      "outside_program_auc": 0.6684097624852469,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.887286025655384,
+        "ALAS2": 0.5266561564019286,
+        "HBG1": 0.41334774905163524,
+        "HBG2": 0.34625578997849127,
+        "HBA1": 0.4693192162673628,
+        "SLC25A37": 0.5327670425665721,
+        "GYPB": 0.7614299129026422,
+        "BLVRB": 0.50877147640503
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8871855176592549,
+        "ALAS2": 0.5269131697063156,
+        "HBG1": 0.41411448147924795,
+        "HBG2": 0.3474188110765555,
+        "HBA1": 0.46971406910929814,
+        "SLC25A37": 0.5339602160634751,
+        "GYPB": 0.7620186025942549,
+        "BLVRB": 0.5098124520792233
+      },
+      "signature_fraction_quartiles": [
+        0.0031494118665513367,
+        0.0049508786735504365,
+        0.00806045236961236
+      ]
+    },
+    {
+      "pert": "COL1A1",
+      "original_program_auc": 0.30115616711832666,
+      "outside_program_auc": 0.30112316912707937,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.2809655212238955,
+        "ALAS2": 0.5292485944918103,
+        "HBG1": 0.3645123103131097,
+        "HBG2": 0.2767190922252608,
+        "HBA1": 0.4000862072521335,
+        "SLC25A37": 0.43911664377431026,
+        "GYPB": 0.42504506288179705,
+        "BLVRB": 0.44781367684242224
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.28091602423702455,
+        "ALAS2": 0.5292052846282983,
+        "HBG1": 0.3644380648328033,
+        "HBG2": 0.2766860942340135,
+        "HBA1": 0.40004702213752735,
+        "SLC25A37": 0.4388815330866733,
+        "GYPB": 0.42478314132627176,
+        "BLVRB": 0.44759918989931485
+      },
+      "signature_fraction_quartiles": [
+        0.000602461170558719,
+        0.0009971382554317216,
+        0.0016518378053901497
+      ]
+    },
+    {
+      "pert": "COL2A1",
+      "original_program_auc": 0.3112619788509767,
+      "outside_program_auc": 0.311241699582923,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.242906199372244,
+        "ALAS2": 0.48325833759573505,
+        "HBG1": 0.3626800630009261,
+        "HBG2": 0.3196204171670764,
+        "HBA1": 0.41302785244804563,
+        "SLC25A37": 0.48940182918997843,
+        "GYPB": 0.4284829079569088,
+        "BLVRB": 0.49670461894128703
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.24293323839631548,
+        "ALAS2": 0.48324256483169337,
+        "HBG1": 0.36263499796080695,
+        "HBG2": 0.31957535212695726,
+        "HBA1": 0.4130143329360099,
+        "SLC25A37": 0.48924184829755546,
+        "GYPB": 0.42826772239033983,
+        "BLVRB": 0.4965333717888342
+      },
+      "signature_fraction_quartiles": [
+        0.0006433756726251633,
+        0.0009654452179871634,
+        0.001592483822453945
+      ]
+    },
+    {
+      "pert": "CSRNP1",
+      "original_program_auc": 0.4132928845660912,
+      "outside_program_auc": 0.41329851809913326,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4506727846835504,
+        "ALAS2": 0.442477402490585,
+        "HBG1": 0.502543540168499,
+        "HBG2": 0.4659269837782416,
+        "HBA1": 0.5139176433804579,
+        "SLC25A37": 0.45536692609086327,
+        "GYPB": 0.3658050177878806,
+        "BLVRB": 0.4726632809133084
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.45062912480247425,
+        "ALAS2": 0.4425027533892743,
+        "HBG1": 0.5024886132213386,
+        "HBG2": 0.4659185334786785,
+        "HBA1": 0.5138810254156844,
+        "SLC25A37": 0.4553176326767451,
+        "GYPB": 0.36591487168220116,
+        "BLVRB": 0.4726618725300479
+      },
+      "signature_fraction_quartiles": [
+        0.0009494268726583138,
+        0.0014567494760319615,
+        0.0022978814221055596
+      ]
+    },
+    {
+      "pert": "DLX2",
+      "original_program_auc": 0.26335827898941516,
+      "outside_program_auc": 0.263323248134607,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.20815333927014135,
+        "ALAS2": 0.46378454918055456,
+        "HBG1": 0.32511030109941574,
+        "HBG2": 0.2574961419966481,
+        "HBA1": 0.39817175812485367,
+        "SLC25A37": 0.5344168929844261,
+        "GYPB": 0.46558218515097377,
+        "BLVRB": 0.4067533956882549
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.20814043316573835,
+        "ALAS2": 0.46373569035674317,
+        "HBG1": 0.32505867668180366,
+        "HBG2": 0.25745097063123756,
+        "HBA1": 0.3981311960824442,
+        "SLC25A37": 0.5341265056353584,
+        "GYPB": 0.4652973289895073,
+        "BLVRB": 0.4065745539558132
+      },
+      "signature_fraction_quartiles": [
+        0.0006292388424570684,
+        0.0009037830517190879,
+        0.0013500166750648487
+      ]
+    },
+    {
+      "pert": "DUSP9",
+      "original_program_auc": 0.8934560070338504,
+      "outside_program_auc": 0.89351880926961,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8958942114809876,
+        "ALAS2": 0.8356714851989907,
+        "HBG1": 0.6660186337927748,
+        "HBG2": 0.8028683997620903,
+        "HBA1": 0.6196391826843153,
+        "SLC25A37": 0.6938584954800862,
+        "GYPB": 0.8765585113653576,
+        "BLVRB": 0.672628569106472
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8959071413530557,
+        "ALAS2": 0.8359393182632596,
+        "HBG1": 0.6669458903325194,
+        "HBG2": 0.8035813898504198,
+        "HBA1": 0.6201388298835203,
+        "SLC25A37": 0.6954895064852544,
+        "GYPB": 0.8770830947464082,
+        "BLVRB": 0.6738125759629984
+      },
+      "signature_fraction_quartiles": [
+        0.004791828607525175,
+        0.007728638900815801,
+        0.011807863307859962
+      ]
+    },
+    {
+      "pert": "EGR1",
+      "original_program_auc": 0.6910166666666666,
+      "outside_program_auc": 0.691075,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.7169333333333333,
+        "ALAS2": 0.6100395833333333,
+        "HBG1": 0.56193125,
+        "HBG2": 0.6085166666666667,
+        "HBA1": 0.5637145833333334,
+        "SLC25A37": 0.5471375,
+        "GYPB": 0.5753979166666666,
+        "BLVRB": 0.6381041666666667
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7169479166666667,
+        "ALAS2": 0.6101354166666667,
+        "HBG1": 0.5621791666666667,
+        "HBG2": 0.6086791666666667,
+        "HBA1": 0.5638895833333334,
+        "SLC25A37": 0.5476791666666667,
+        "GYPB": 0.57591875,
+        "BLVRB": 0.6383791666666667
+      },
+      "signature_fraction_quartiles": [
+        0.001743098990722332,
+        0.002829255720639211,
+        0.004699219789751455
+      ]
+    },
+    {
+      "pert": "ELMSAN1",
+      "original_program_auc": 0.6470355021511014,
+      "outside_program_auc": 0.6471360544706279,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.6092156200846076,
+        "ALAS2": 0.5063132492045593,
+        "HBG1": 0.6633752540741645,
+        "HBG2": 0.7282875221753776,
+        "HBA1": 0.5279477989815486,
+        "SLC25A37": 0.48733759004819327,
+        "GYPB": 0.5100415855664328,
+        "BLVRB": 0.5789012504399164
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6093161724041342,
+        "ALAS2": 0.506419547370916,
+        "HBG1": 0.6635138726289403,
+        "HBG2": 0.7282702846348873,
+        "HBA1": 0.528087853998032,
+        "SLC25A37": 0.4876988601676351,
+        "GYPB": 0.5104940710043022,
+        "BLVRB": 0.5791418577759263
+      },
+      "signature_fraction_quartiles": [
+        0.0017682597377081388,
+        0.002640845070422535,
+        0.004039238315060588
+      ]
+    },
+    {
+      "pert": "ETS2",
+      "original_program_auc": 0.23943479752723917,
+      "outside_program_auc": 0.2394010473795823,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.26134876840086174,
+        "ALAS2": 0.4650275344954634,
+        "HBG1": 0.3128728688188011,
+        "HBG2": 0.21592275716206258,
+        "HBA1": 0.3997013111932365,
+        "SLC25A37": 0.45527711683738614,
+        "GYPB": 0.3945060384639183,
+        "BLVRB": 0.41786507815971696
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.26128689313015746,
+        "ALAS2": 0.46500559689948645,
+        "HBG1": 0.31281886858255004,
+        "HBG2": 0.21589069452178852,
+        "HBA1": 0.39964393594221975,
+        "SLC25A37": 0.45500542814874817,
+        "GYPB": 0.394237162287585,
+        "BLVRB": 0.41767157731315074
+      },
+      "signature_fraction_quartiles": [
+        0.0005239717055279015,
+        0.0008182349503214494,
+        0.001264500522293694
+      ]
+    },
+    {
+      "pert": "FEV",
+      "original_program_auc": 0.8397073941662958,
+      "outside_program_auc": 0.8397284918601261,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.723864752274715,
+        "ALAS2": 0.6769866355699447,
+        "HBG1": 0.764768385681187,
+        "HBG2": 0.8470561045218111,
+        "HBA1": 0.5630207294431743,
+        "SLC25A37": 0.5810266521412242,
+        "GYPB": 0.7672866831356543,
+        "BLVRB": 0.7280708652356037
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7243241066085649,
+        "ALAS2": 0.6772273410768263,
+        "HBG1": 0.7649438801344115,
+        "HBG2": 0.8470685713408928,
+        "HBA1": 0.5633745953078729,
+        "SLC25A37": 0.5820230386816626,
+        "GYPB": 0.7680078406702162,
+        "BLVRB": 0.7286031025117764
+      },
+      "signature_fraction_quartiles": [
+        0.0033104077803090765,
+        0.005177355829331862,
+        0.007780033694862158
+      ]
+    },
+    {
+      "pert": "FOSB",
+      "original_program_auc": 0.3238072658691255,
+      "outside_program_auc": 0.32381794531695535,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4090281916063812,
+        "ALAS2": 0.4345680910914182,
+        "HBG1": 0.44165176883694407,
+        "HBG2": 0.40917556798643284,
+        "HBA1": 0.47310274269579167,
+        "SLC25A37": 0.39203398627477365,
+        "GYPB": 0.2836205036854774,
+        "BLVRB": 0.41473101674751006
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.40893634835504467,
+        "ALAS2": 0.4345670231466352,
+        "HBG1": 0.4415962357082289,
+        "HBG2": 0.4090634337842196,
+        "HBA1": 0.47306002490447235,
+        "SLC25A37": 0.39193359946517325,
+        "GYPB": 0.2836397266915711,
+        "BLVRB": 0.4146594644470502
+      },
+      "signature_fraction_quartiles": [
+        0.0007374461247526551,
+        0.0012062751451618996,
+        0.001901635187436101
+      ]
+    },
+    {
+      "pert": "FOXA1",
+      "original_program_auc": 0.5964001805116812,
+      "outside_program_auc": 0.5963686225254594,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.5288795021412094,
+        "ALAS2": 0.6183353477847872,
+        "HBG1": 0.48182417783556397,
+        "HBG2": 0.4976142162416332,
+        "HBA1": 0.4972520883497382,
+        "SLC25A37": 0.4907866459225504,
+        "GYPB": 0.7295764602669175,
+        "BLVRB": 0.5327635012954554
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5289465628619306,
+        "ALAS2": 0.6183266693385762,
+        "HBG1": 0.481957510327351,
+        "HBG2": 0.49777437302170874,
+        "HBA1": 0.4973049479766597,
+        "SLC25A37": 0.49096337064539236,
+        "GYPB": 0.7294731078620411,
+        "BLVRB": 0.5329055122334534
+      },
+      "signature_fraction_quartiles": [
+        0.0013932298477329253,
+        0.002047447367249744,
+        0.003178268444777854
+      ]
+    },
+    {
+      "pert": "FOXA3",
+      "original_program_auc": 0.5852848740137717,
+      "outside_program_auc": 0.585243951678907,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.4971599899603872,
+        "ALAS2": 0.6410429193448062,
+        "HBG1": 0.4772171721029715,
+        "HBG2": 0.48162177941224615,
+        "HBA1": 0.478465303316346,
+        "SLC25A37": 0.5207080655193863,
+        "GYPB": 0.6641326647533201,
+        "BLVRB": 0.546429117059703
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4972036404509096,
+        "ALAS2": 0.6410197300217161,
+        "HBG1": 0.4773058371618451,
+        "HBG2": 0.4816736143697415,
+        "HBA1": 0.47850076933989544,
+        "SLC25A37": 0.5208867597149623,
+        "GYPB": 0.6640549123170771,
+        "BLVRB": 0.546452306382793
+      },
+      "signature_fraction_quartiles": [
+        0.0013077803491472555,
+        0.0020355056853664957,
+        0.0031160706892533036
+      ]
+    },
+    {
+      "pert": "FOXF1",
+      "original_program_auc": 0.4586251393585503,
+      "outside_program_auc": 0.4585820229009985,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.3910608804380632,
+        "ALAS2": 0.5732794993563329,
+        "HBG1": 0.45402399738837457,
+        "HBG2": 0.461537810053526,
+        "HBA1": 0.4384042907034758,
+        "SLC25A37": 0.4549494613522553,
+        "GYPB": 0.5314888728742047,
+        "BLVRB": 0.49760780654261444
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.39108320860358115,
+        "ALAS2": 0.573237152835523,
+        "HBG1": 0.45397857112059675,
+        "HBG2": 0.4614762151141662,
+        "HBA1": 0.43839120177886187,
+        "SLC25A37": 0.45492790312347936,
+        "GYPB": 0.5313726124261631,
+        "BLVRB": 0.4975916378710325
+      },
+      "signature_fraction_quartiles": [
+        0.0010086538105308494,
+        0.0014916045941914683,
+        0.002170824600104823
+      ]
+    },
+    {
+      "pert": "FOXL2",
+      "original_program_auc": 0.43380894940348325,
+      "outside_program_auc": 0.4337139363495158,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.29946049109355893,
+        "ALAS2": 0.6321476668098748,
+        "HBG1": 0.4120065517697214,
+        "HBG2": 0.4133873393040087,
+        "HBA1": 0.4385967811229717,
+        "SLC25A37": 0.46350569252123336,
+        "GYPB": 0.5567930202584355,
+        "BLVRB": 0.459979882018573
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.2994987028652632,
+        "ALAS2": 0.6320784725205724,
+        "HBG1": 0.4119786675038831,
+        "HBG2": 0.41335635678641064,
+        "HBA1": 0.4385709623583066,
+        "SLC25A37": 0.4633621401896956,
+        "GYPB": 0.5565751098846624,
+        "BLVRB": 0.45987970521167254
+      },
+      "signature_fraction_quartiles": [
+        0.0009091970394917283,
+        0.0013545144634649806,
+        0.0020842736450781218
+      ]
+    },
+    {
+      "pert": "FOXO4",
+      "original_program_auc": 0.5815706937648978,
+      "outside_program_auc": 0.581545602810187,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 3,
+      "outside_individual_calls": 3,
+      "original_gene_auc": {
+        "HBZ": 0.604105507464559,
+        "ALAS2": 0.6615606573830134,
+        "HBG1": 0.4410738928616234,
+        "HBG2": 0.4054384644335717,
+        "HBA1": 0.591936394429808,
+        "SLC25A37": 0.5398350269727763,
+        "GYPB": 0.5421747584995609,
+        "BLVRB": 0.47055890101618364
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6040333709697654,
+        "ALAS2": 0.6615198845816084,
+        "HBG1": 0.44115543846443356,
+        "HBG2": 0.4056391920712583,
+        "HBA1": 0.5918862125203864,
+        "SLC25A37": 0.5398475724501317,
+        "GYPB": 0.5422876677957597,
+        "BLVRB": 0.4707564922845314
+      },
+      "signature_fraction_quartiles": [
+        0.0012541250508062937,
+        0.001968503937007874,
+        0.0033025309650949607
+      ]
+    },
+    {
+      "pert": "GLB1L2",
+      "original_program_auc": 0.5229236150891385,
+      "outside_program_auc": 0.5228887215290358,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.5119902995902914,
+        "ALAS2": 0.546853327827905,
+        "HBG1": 0.48928913094680765,
+        "HBG2": 0.4938122086751206,
+        "HBA1": 0.47043497730464695,
+        "SLC25A37": 0.5175427373416341,
+        "GYPB": 0.5006600698452761,
+        "BLVRB": 0.53762398118074
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5119801223019281,
+        "ALAS2": 0.5468489661328921,
+        "HBG1": 0.4893269323035856,
+        "HBG2": 0.49383692494686,
+        "HBA1": 0.470416076626258,
+        "SLC25A37": 0.5175325600532709,
+        "GYPB": 0.5007865590006484,
+        "BLVRB": 0.5375978110106628
+      },
+      "signature_fraction_quartiles": [
+        0.001193646480638835,
+        0.0017509989673595834,
+        0.0027362589032728073
+      ]
+    },
+    {
+      "pert": "HES7",
+      "original_program_auc": 0.293631455222679,
+      "outside_program_auc": 0.29364218932815234,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.3789300243664194,
+        "ALAS2": 0.45458936679511813,
+        "HBG1": 0.3442588636875946,
+        "HBG2": 0.30848745719775444,
+        "HBA1": 0.40341451895106323,
+        "SLC25A37": 0.4409946222131579,
+        "GYPB": 0.4662090359699874,
+        "BLVRB": 0.3737186161591224
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3788924549972628,
+        "ALAS2": 0.4545517974259615,
+        "HBG1": 0.34417299084380804,
+        "HBG2": 0.30851429246143774,
+        "HBA1": 0.4033769495819066,
+        "SLC25A37": 0.4410107233713679,
+        "GYPB": 0.4660963278625176,
+        "BLVRB": 0.3736756797372291
+      },
+      "signature_fraction_quartiles": [
+        0.0006675592268997189,
+        0.001159175820041553,
+        0.001941747480817714
+      ]
+    },
+    {
+      "pert": "HK2",
+      "original_program_auc": 0.5680310253466001,
+      "outside_program_auc": 0.5680220894748835,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 3,
+      "outside_individual_calls": 3,
+      "original_gene_auc": {
+        "HBZ": 0.5303417524138023,
+        "ALAS2": 0.554989120576185,
+        "HBG1": 0.531293422751623,
+        "HBG2": 0.537148652693942,
+        "HBA1": 0.4696872891692767,
+        "SLC25A37": 0.5797682928463879,
+        "GYPB": 0.5653524977995416,
+        "BLVRB": 0.48118328813271555
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5303439863817315,
+        "ALAS2": 0.5549734828006809,
+        "HBG1": 0.5312956567195521,
+        "HBG2": 0.537148652693942,
+        "HBA1": 0.4697073948806391,
+        "SLC25A37": 0.5797392512633088,
+        "GYPB": 0.5654284527091329,
+        "BLVRB": 0.481261477010236
+      },
+      "signature_fraction_quartiles": [
+        0.0013270039814079356,
+        0.0020008575103615837,
+        0.002825753683771164
+      ]
+    },
+    {
+      "pert": "HNF4A",
+      "original_program_auc": 0.495059799437516,
+      "outside_program_auc": 0.4952359307974205,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 3,
+      "outside_individual_calls": 3,
+      "original_gene_auc": {
+        "HBZ": 0.6961194284253288,
+        "ALAS2": 0.5978296071134342,
+        "HBG1": 0.31403653305303825,
+        "HBG2": 0.2489361097696088,
+        "HBA1": 0.5116246697537001,
+        "SLC25A37": 0.5260958495497287,
+        "GYPB": 0.5530126985028835,
+        "BLVRB": 0.4681770404249879
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6959887503195932,
+        "ALAS2": 0.5978523337405187,
+        "HBG1": 0.31421550524132835,
+        "HBG2": 0.24920882929462232,
+        "HBA1": 0.5117297804039658,
+        "SLC25A37": 0.5262918667083322,
+        "GYPB": 0.5532768955427403,
+        "BLVRB": 0.4683531717848925
+      },
+      "signature_fraction_quartiles": [
+        0.0011524056467876692,
+        0.0021847373234427396,
+        0.0040118611547182974
+      ]
+    },
+    {
+      "pert": "HOXA13",
+      "original_program_auc": 0.6510944942128772,
+      "outside_program_auc": 0.6511438513363441,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.3515016904814787,
+        "ALAS2": 0.6482169739147603,
+        "HBG1": 0.6364477678240912,
+        "HBG2": 0.7122380987636041,
+        "HBA1": 0.4355642753140347,
+        "SLC25A37": 0.4756743416993658,
+        "GYPB": 0.798615532686755,
+        "BLVRB": 0.4675526270328965
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.35191135460625356,
+        "ALAS2": 0.6482021667777202,
+        "HBG1": 0.6365168677969448,
+        "HBG2": 0.7122331630512574,
+        "HBA1": 0.4356210360060216,
+        "SLC25A37": 0.47611362009822067,
+        "GYPB": 0.7986328076799684,
+        "BLVRB": 0.46784630191752424
+      },
+      "signature_fraction_quartiles": [
+        0.0017425136401666885,
+        0.0029854490370490082,
+        0.004973760471721857
+      ]
+    },
+    {
+      "pert": "HOXB9",
+      "original_program_auc": 0.49211675228706747,
+      "outside_program_auc": 0.4921823174588482,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.3497236620848182,
+        "ALAS2": 0.5173979111707626,
+        "HBG1": 0.5290849030406812,
+        "HBG2": 0.6414501087610497,
+        "HBA1": 0.4067682541151787,
+        "SLC25A37": 0.4499689529627744,
+        "GYPB": 0.5449111784761111,
+        "BLVRB": 0.4956331667206615
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3498499714598664,
+        "ALAS2": 0.517385376652628,
+        "HBG1": 0.5290569414233042,
+        "HBG2": 0.6413594745529998,
+        "HBA1": 0.40677982443961064,
+        "SLC25A37": 0.45003451813455514,
+        "GYPB": 0.54488900202095,
+        "BLVRB": 0.49558688542293394
+      },
+      "signature_fraction_quartiles": [
+        0.0012347584503781448,
+        0.0018802293879853342,
+        0.0028896723111599145
+      ]
+    },
+    {
+      "pert": "HOXC13",
+      "original_program_auc": 0.6523495751690653,
+      "outside_program_auc": 0.6523703832148431,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.42303970868735913,
+        "ALAS2": 0.6417149297728455,
+        "HBG1": 0.6311114964452922,
+        "HBG2": 0.7102028784463326,
+        "HBA1": 0.4722004508409918,
+        "SLC25A37": 0.48821744407837697,
+        "GYPB": 0.741447893185365,
+        "BLVRB": 0.474787584532686
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.42337090341598754,
+        "ALAS2": 0.6417357378186233,
+        "HBG1": 0.6312380787237732,
+        "HBG2": 0.7102098144615918,
+        "HBA1": 0.4723357031385469,
+        "SLC25A37": 0.488678689093116,
+        "GYPB": 0.7415501994104386,
+        "BLVRB": 0.47502514305531474
+      },
+      "signature_fraction_quartiles": [
+        0.0016794780698921258,
+        0.003068869031501038,
+        0.004931714719271623
+      ]
+    },
+    {
+      "pert": "IER5L",
+      "original_program_auc": 0.8275906496115016,
+      "outside_program_auc": 0.8275972567260426,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7949779322374333,
+        "ALAS2": 0.7583513927797453,
+        "HBG1": 0.6473270918124636,
+        "HBG2": 0.7172683545641947,
+        "HBA1": 0.5883519874200539,
+        "SLC25A37": 0.6894078043236957,
+        "GYPB": 0.8266623500185,
+        "BLVRB": 0.5927622363761298
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7950720836196417,
+        "ALAS2": 0.7585281330937154,
+        "HBG1": 0.6477350811353666,
+        "HBG2": 0.717545853374914,
+        "HBA1": 0.5885551561921878,
+        "SLC25A37": 0.6901246762513875,
+        "GYPB": 0.8269249828215022,
+        "BLVRB": 0.5934543316242931
+      },
+      "signature_fraction_quartiles": [
+        0.0027362816151456884,
+        0.004247503156928022,
+        0.006757738700770237
+      ]
+    },
+    {
+      "pert": "IGDCC3",
+      "original_program_auc": 0.807197149018989,
+      "outside_program_auc": 0.807243175003945,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8130084775480863,
+        "ALAS2": 0.8253467290866692,
+        "HBG1": 0.6345405291673242,
+        "HBG2": 0.6772931899075973,
+        "HBA1": 0.6086640629109463,
+        "SLC25A37": 0.5507830992583241,
+        "GYPB": 0.6887361264531061,
+        "BLVRB": 0.5629657391334841
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8129986148370242,
+        "ALAS2": 0.825466177476198,
+        "HBG1": 0.6349920221626076,
+        "HBG2": 0.6776920817772167,
+        "HBA1": 0.6090114495116862,
+        "SLC25A37": 0.5518833394701314,
+        "GYPB": 0.6896029491697789,
+        "BLVRB": 0.5636681833324566
+      },
+      "signature_fraction_quartiles": [
+        0.0025842266462480857,
+        0.00428380187416332,
+        0.006984585741811176
+      ]
+    },
+    {
+      "pert": "IKZF3",
+      "original_program_auc": 0.9262753657222583,
+      "outside_program_auc": 0.9263128605173887,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.9198686892806327,
+        "ALAS2": 0.828255090905144,
+        "HBG1": 0.8881500660105736,
+        "HBG2": 0.9148404399126174,
+        "HBA1": 0.8660123496014698,
+        "SLC25A37": 0.7448252249194355,
+        "GYPB": 0.8794927151559883,
+        "BLVRB": 0.8136636953686034
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.9198864499730629,
+        "ALAS2": 0.8291381920009788,
+        "HBG1": 0.8887430757967151,
+        "HBG2": 0.914992392503409,
+        "HBA1": 0.8663734836808837,
+        "SLC25A37": 0.749414390502371,
+        "GYPB": 0.8810408555128203,
+        "BLVRB": 0.8163524668615081
+      },
+      "signature_fraction_quartiles": [
+        0.01011804384485666,
+        0.02226503960608007,
+        0.042482452899889174
+      ]
+    },
+    {
+      "pert": "IRF1",
+      "original_program_auc": 0.5533055859250694,
+      "outside_program_auc": 0.5533024351974088,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.49423101765352706,
+        "ALAS2": 0.598895039809444,
+        "HBG1": 0.5653854757756304,
+        "HBG2": 0.5773535147942417,
+        "HBA1": 0.4564175596353978,
+        "SLC25A37": 0.484986782697464,
+        "GYPB": 0.4095678146868019,
+        "BLVRB": 0.6160349982828535
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.49427827856843537,
+        "ALAS2": 0.598969081909467,
+        "HBG1": 0.5654248598713872,
+        "HBG2": 0.5773330350644481,
+        "HBA1": 0.45652783510351713,
+        "SLC25A37": 0.485226237999666,
+        "GYPB": 0.4098309004464581,
+        "BLVRB": 0.6160523272849865
+      },
+      "signature_fraction_quartiles": [
+        0.0011853454984294635,
+        0.0018242973604697566,
+        0.0032937470274432305
+      ]
+    },
+    {
+      "pert": "ISL2",
+      "original_program_auc": 0.4093252841732037,
+      "outside_program_auc": 0.4092997925912193,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.35060194894731356,
+        "ALAS2": 0.47002885183597326,
+        "HBG1": 0.4458130076590617,
+        "HBG2": 0.40622573954555463,
+        "HBA1": 0.4375305609306745,
+        "SLC25A37": 0.4561046545311287,
+        "GYPB": 0.5765431097412604,
+        "BLVRB": 0.4763774144583618
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.35064829727819424,
+        "ALAS2": 0.46999756671262877,
+        "HBG1": 0.4457515961206447,
+        "HBG2": 0.40617591508985784,
+        "HBA1": 0.43748537130806575,
+        "SLC25A37": 0.4559760379129347,
+        "GYPB": 0.5763160029199449,
+        "BLVRB": 0.4762754481304242
+      },
+      "signature_fraction_quartiles": [
+        0.0009494187609750283,
+        0.001418236216372727,
+        0.0019998361443688993
+      ]
+    },
+    {
+      "pert": "JUN",
+      "original_program_auc": 0.5055035453834313,
+      "outside_program_auc": 0.5054732645285018,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.33785863887557094,
+        "ALAS2": 0.5173256958288123,
+        "HBG1": 0.557884377602261,
+        "HBG2": 0.6396174518660577,
+        "HBA1": 0.4405107370864771,
+        "SLC25A37": 0.5624946377652729,
+        "GYPB": 0.5713820686870726,
+        "BLVRB": 0.4115824270105226
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3379393878220495,
+        "ALAS2": 0.5173055085921926,
+        "HBG1": 0.5579600797395846,
+        "HBG2": 0.6395291327058468,
+        "HBA1": 0.44050064346816725,
+        "SLC25A37": 0.5624593101011885,
+        "GYPB": 0.571329077190946,
+        "BLVRB": 0.4116379419112266
+      },
+      "signature_fraction_quartiles": [
+        0.001346758711630321,
+        0.0018670476411335006,
+        0.002638673180673347
+      ]
+    },
+    {
+      "pert": "KIAA1804",
+      "original_program_auc": 0.6332585161034413,
+      "outside_program_auc": 0.6332681907452377,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 6,
+      "outside_individual_calls": 6,
+      "original_gene_auc": {
+        "HBZ": 0.5624135328889448,
+        "ALAS2": 0.5746471174404768,
+        "HBG1": 0.5988313032709964,
+        "HBG2": 0.7004827646256397,
+        "HBA1": 0.5285063320530557,
+        "SLC25A37": 0.5500904579007962,
+        "GYPB": 0.5664962317270203,
+        "BLVRB": 0.48241875719551486
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5625538151949924,
+        "ALAS2": 0.5746858160076623,
+        "HBG1": 0.5989111190658166,
+        "HBG2": 0.7004779273047416,
+        "HBA1": 0.5286175904337141,
+        "SLC25A37": 0.5503492545688495,
+        "GYPB": 0.5668106575854029,
+        "BLVRB": 0.4827041591285083
+      },
+      "signature_fraction_quartiles": [
+        0.001613301445803857,
+        0.0025318229295848505,
+        0.003913719747066115
+      ]
+    },
+    {
+      "pert": "KIF18B",
+      "original_program_auc": 0.5797443283160916,
+      "outside_program_auc": 0.5798028953407269,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.5602015770502452,
+        "ALAS2": 0.5677753581905984,
+        "HBG1": 0.5133186738295913,
+        "HBG2": 0.5514750903795675,
+        "HBA1": 0.5197104659273023,
+        "SLC25A37": 0.5409942551073108,
+        "GYPB": 0.560393250949052,
+        "BLVRB": 0.5205437149596154
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5602654683498475,
+        "ALAS2": 0.5678206145278166,
+        "HBG1": 0.5133932136791273,
+        "HBG2": 0.5514830767920178,
+        "HBA1": 0.5197503979895538,
+        "SLC25A37": 0.5411433348063828,
+        "GYPB": 0.5605609656105079,
+        "BLVRB": 0.5205330664096817
+      },
+      "signature_fraction_quartiles": [
+        0.0013265490802269395,
+        0.0022020129224823207,
+        0.0031924404575008045
+      ]
+    },
+    {
+      "pert": "KIF2C",
+      "original_program_auc": 0.4898409489866482,
+      "outside_program_auc": 0.4898494600776637,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4656939198893558,
+        "ALAS2": 0.5297749880312782,
+        "HBG1": 0.4829980318102027,
+        "HBG2": 0.49972445342837385,
+        "HBA1": 0.48480983031012287,
+        "SLC25A37": 0.532902813979467,
+        "GYPB": 0.47999468056811534,
+        "BLVRB": 0.483025692856003
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.46569179211660194,
+        "ALAS2": 0.5297898824405554,
+        "HBG1": 0.4829810096281717,
+        "HBG2": 0.49971487845098145,
+        "HBA1": 0.4847896164689611,
+        "SLC25A37": 0.5329155806159902,
+        "GYPB": 0.4799978722272461,
+        "BLVRB": 0.48299484015107186
+      },
+      "signature_fraction_quartiles": [
+        0.001100589598263796,
+        0.0016054659138913753,
+        0.0025937491033759513
+      ]
+    },
+    {
+      "pert": "KLF1",
+      "original_program_auc": 0.8610815750010633,
+      "outside_program_auc": 0.8612009389967662,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.872307278596938,
+        "ALAS2": 0.5624630417513306,
+        "HBG1": 0.7786672529679789,
+        "HBG2": 0.8504969383821103,
+        "HBA1": 0.786607359682135,
+        "SLC25A37": 0.6150315628588637,
+        "GYPB": 0.5190845193129573,
+        "BLVRB": 0.7609506176057778
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.872378279594382,
+        "ALAS2": 0.5627655677404395,
+        "HBG1": 0.779093944952618,
+        "HBG2": 0.8506608923762079,
+        "HBA1": 0.7869846596685522,
+        "SLC25A37": 0.6164532978076813,
+        "GYPB": 0.5209795942447346,
+        "BLVRB": 0.7616273565814151
+      },
+      "signature_fraction_quartiles": [
+        0.0036603477975821544,
+        0.005879083333567947,
+        0.009131080691688566
+      ]
+    },
+    {
+      "pert": "KMT2A",
+      "original_program_auc": 0.5959676386576613,
+      "outside_program_auc": 0.5960121828315618,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 5,
+      "outside_individual_calls": 5,
+      "original_gene_auc": {
+        "HBZ": 0.594678641625417,
+        "ALAS2": 0.5114005245076477,
+        "HBG1": 0.5543800842998491,
+        "HBG2": 0.5717912882731894,
+        "HBA1": 0.5523004281808717,
+        "SLC25A37": 0.5173638757885711,
+        "GYPB": 0.5737595839574158,
+        "BLVRB": 0.49782011948974647
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5946730736036794,
+        "ALAS2": 0.5114311486272043,
+        "HBG1": 0.5545304208867632,
+        "HBG2": 0.5718386164579586,
+        "HBA1": 0.5523366203221657,
+        "SLC25A37": 0.5175058603428788,
+        "GYPB": 0.5739878728486556,
+        "BLVRB": 0.4979509680005791
+      },
+      "signature_fraction_quartiles": [
+        0.0014013683950210205,
+        0.0021755279634935796,
+        0.003710103679609677
+      ]
+    },
+    {
+      "pert": "LHX1",
+      "original_program_auc": 0.4351211754339463,
+      "outside_program_auc": 0.4350961021842382,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.21348439369300312,
+        "ALAS2": 0.5906433795875092,
+        "HBG1": 0.520049645034422,
+        "HBG2": 0.5743386034916291,
+        "HBA1": 0.39339391508048516,
+        "SLC25A37": 0.43882485260511067,
+        "GYPB": 0.46057589672686633,
+        "BLVRB": 0.4874114377001383
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.2135631953349428,
+        "ALAS2": 0.590568159838385,
+        "HBG1": 0.5199654705532591,
+        "HBG2": 0.5741702545293035,
+        "HBA1": 0.3933634689915539,
+        "SLC25A37": 0.43866008553560043,
+        "GYPB": 0.4604720218352186,
+        "BLVRB": 0.4872717438803361
+      },
+      "signature_fraction_quartiles": [
+        0.0010325174578993902,
+        0.0015210282150733897,
+        0.0022985565970862236
+      ]
+    },
+    {
+      "pert": "LYL1",
+      "original_program_auc": 0.5598498956568937,
+      "outside_program_auc": 0.5599185219151717,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.6580119596851927,
+        "ALAS2": 0.5045246539832864,
+        "HBG1": 0.5046884211905408,
+        "HBG2": 0.5185524850503935,
+        "HBA1": 0.5285610009451708,
+        "SLC25A37": 0.5602460563296805,
+        "GYPB": 0.5051922003138092,
+        "BLVRB": 0.45733630297869154
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6579308559254095,
+        "ALAS2": 0.5045558477370491,
+        "HBG1": 0.5047804427641409,
+        "HBG2": 0.518716252257648,
+        "HBA1": 0.528609351263503,
+        "SLC25A37": 0.560455054479891,
+        "GYPB": 0.5053856015871382,
+        "BLVRB": 0.45747667487062393
+      },
+      "signature_fraction_quartiles": [
+        0.0015242745373790021,
+        0.0021799787923666176,
+        0.0032672700869642783
+      ]
+    },
+    {
+      "pert": "MAML2",
+      "original_program_auc": 0.5447714518640573,
+      "outside_program_auc": 0.5448016460124314,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.5414824464161703,
+        "ALAS2": 0.5154292098191371,
+        "HBG1": 0.5303073764304478,
+        "HBG2": 0.5744339675542308,
+        "HBA1": 0.5163296424581487,
+        "SLC25A37": 0.5102433648358948,
+        "GYPB": 0.5081146773755246,
+        "BLVRB": 0.4836175177821967
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5415342078133829,
+        "ALAS2": 0.5154701875919304,
+        "HBG1": 0.5303537460154508,
+        "HBG2": 0.5744425944537663,
+        "HBA1": 0.5163792471304776,
+        "SLC25A37": 0.5103749250538103,
+        "GYPB": 0.5082408457812304,
+        "BLVRB": 0.4836930031531318
+      },
+      "signature_fraction_quartiles": [
+        0.0013407791091113084,
+        0.0019606882062696658,
+        0.0029144331692896614
+      ]
+    },
+    {
+      "pert": "MAP2K3",
+      "original_program_auc": 0.4890824206258698,
+      "outside_program_auc": 0.48920809730167525,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.532409454609774,
+        "ALAS2": 0.4809739476905747,
+        "HBG1": 0.5455077570437122,
+        "HBG2": 0.5802573579038992,
+        "HBA1": 0.5591099298537962,
+        "SLC25A37": 0.42579606864739317,
+        "GYPB": 0.335290243300735,
+        "BLVRB": 0.5066015164985547
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5323919995159121,
+        "ALAS2": 0.4809786023822712,
+        "HBG1": 0.545542667231436,
+        "HBG2": 0.5802212840432514,
+        "HBA1": 0.559108766180872,
+        "SLC25A37": 0.42583446985388923,
+        "GYPB": 0.33560094397147605,
+        "BLVRB": 0.5066818099303193
+      },
+      "signature_fraction_quartiles": [
+        0.001178036786187035,
+        0.0018453061648820044,
+        0.002972518269978252
+      ]
+    },
+    {
+      "pert": "MAP2K6",
+      "original_program_auc": 0.4541728026528914,
+      "outside_program_auc": 0.4541406222464682,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.3979321790272629,
+        "ALAS2": 0.49924452664920754,
+        "HBG1": 0.5055059142989805,
+        "HBG2": 0.5231062980120171,
+        "HBA1": 0.472880345586917,
+        "SLC25A37": 0.42899853042810665,
+        "GYPB": 0.4884778821001853,
+        "BLVRB": 0.4850713562202427
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3979521002312392,
+        "ALAS2": 0.4992345660472194,
+        "HBG1": 0.5054890578956159,
+        "HBG2": 0.5230702866048292,
+        "HBA1": 0.47287268358538764,
+        "SLC25A37": 0.42897324582305985,
+        "GYPB": 0.4884196508885623,
+        "BLVRB": 0.48498094460219654
+      },
+      "signature_fraction_quartiles": [
+        0.0010263895054865185,
+        0.0015816321523237902,
+        0.002358555138139493
+      ]
+    },
+    {
+      "pert": "MAP4K3",
+      "original_program_auc": 0.5610301978787867,
+      "outside_program_auc": 0.5610338972391673,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 3,
+      "outside_individual_calls": 3,
+      "original_gene_auc": {
+        "HBZ": 0.5526363491752276,
+        "ALAS2": 0.5694221969021556,
+        "HBG1": 0.49417165772038013,
+        "HBG2": 0.5235186836196022,
+        "HBA1": 0.5037178571824932,
+        "SLC25A37": 0.537814861810393,
+        "GYPB": 0.5554497127446665,
+        "BLVRB": 0.49055183358797266
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5526418982157985,
+        "ALAS2": 0.5694129485012042,
+        "HBG1": 0.4942215990855181,
+        "HBG2": 0.5235667753045499,
+        "HBA1": 0.5037456023853476,
+        "SLC25A37": 0.5379221432614301,
+        "GYPB": 0.5555273993126588,
+        "BLVRB": 0.49066651375977094
+      },
+      "signature_fraction_quartiles": [
+        0.0012877188956156777,
+        0.0018378887841658813,
+        0.0030841049008933264
+      ]
+    },
+    {
+      "pert": "MAP4K5",
+      "original_program_auc": 0.591945675334921,
+      "outside_program_auc": 0.5919346157532681,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.5865283235886131,
+        "ALAS2": 0.5859790310331862,
+        "HBG1": 0.5375896747745689,
+        "HBG2": 0.5616663840329134,
+        "HBA1": 0.518355219016582,
+        "SLC25A37": 0.5243624151177109,
+        "GYPB": 0.5862665801561613,
+        "BLVRB": 0.5063703190320654
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.586539383170266,
+        "ALAS2": 0.5860140530417536,
+        "HBG1": 0.5376947408002714,
+        "HBG2": 0.5617382713136571,
+        "HBA1": 0.5183515324893644,
+        "SLC25A37": 0.5245154059972424,
+        "GYPB": 0.5864029816632136,
+        "BLVRB": 0.5064901311666384
+      },
+      "signature_fraction_quartiles": [
+        0.0014023660476918133,
+        0.0021493543060276303,
+        0.0032221244720016555
+      ]
+    },
+    {
+      "pert": "MAP7D1",
+      "original_program_auc": 0.49280761095592107,
+      "outside_program_auc": 0.49280939588929845,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.47299395800051763,
+        "ALAS2": 0.5055680996706798,
+        "HBG1": 0.5050683183250185,
+        "HBG2": 0.5165516872082749,
+        "HBA1": 0.5017144285089559,
+        "SLC25A37": 0.4628635686173014,
+        "GYPB": 0.5051415005934904,
+        "BLVRB": 0.5219368312077751
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.47300556006747047,
+        "ALAS2": 0.5055573900704157,
+        "HBG1": 0.5050888450588582,
+        "HBG2": 0.5165017090737088,
+        "HBA1": 0.501736740176173,
+        "SLC25A37": 0.4628858802845184,
+        "GYPB": 0.5051843389945471,
+        "BLVRB": 0.5219439709412846
+      },
+      "signature_fraction_quartiles": [
+        0.0011257434587984834,
+        0.0016733239771132462,
+        0.0026203150902557523
+      ]
+    },
+    {
+      "pert": "MAPK1",
+      "original_program_auc": 0.1803178743346693,
+      "outside_program_auc": 0.18029490142856133,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.22039322546670342,
+        "ALAS2": 0.46148503933668383,
+        "HBG1": 0.2642255303207018,
+        "HBG2": 0.1726846844936418,
+        "HBA1": 0.3834584473142906,
+        "SLC25A37": 0.42765036650620974,
+        "GYPB": 0.3108728997462377,
+        "BLVRB": 0.397583250277442
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.22031723816188475,
+        "ALAS2": 0.4614744364569417,
+        "HBG1": 0.2641840023750451,
+        "HBG2": 0.17266789660071674,
+        "HBA1": 0.3834301729683115,
+        "SLC25A37": 0.4273278622473864,
+        "GYPB": 0.310683815057503,
+        "BLVRB": 0.3974091863350086
+      },
+      "signature_fraction_quartiles": [
+        0.00036358347876672484,
+        0.0005879470847623714,
+        0.0009948928831995756
+      ]
+    },
+    {
+      "pert": "MEIS1",
+      "original_program_auc": 0.586125850157239,
+      "outside_program_auc": 0.5861241155849585,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 3,
+      "outside_individual_calls": 3,
+      "original_gene_auc": {
+        "HBZ": 0.46652795870330316,
+        "ALAS2": 0.5186986891837276,
+        "HBG1": 0.5694965057041409,
+        "HBG2": 0.6294936263141553,
+        "HBA1": 0.4696640653864367,
+        "SLC25A37": 0.5332500160447936,
+        "GYPB": 0.6442288178369536,
+        "BLVRB": 0.5260966399600354
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.46666498991346217,
+        "ALAS2": 0.5187221059095143,
+        "HBG1": 0.5695259934329093,
+        "HBG2": 0.6294910244557346,
+        "HBA1": 0.469717837127132,
+        "SLC25A37": 0.5333818435381111,
+        "GYPB": 0.6442175431171304,
+        "BLVRB": 0.5262050507275663
+      },
+      "signature_fraction_quartiles": [
+        0.0014610360821787995,
+        0.0020598441321925875,
+        0.0032512743862414123
+      ]
+    },
+    {
+      "pert": "MIDN",
+      "original_program_auc": 0.483807351330719,
+      "outside_program_auc": 0.48384824759507244,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.4566226956091044,
+        "ALAS2": 0.5402192039769345,
+        "HBG1": 0.4310488983000786,
+        "HBG2": 0.4307262722146236,
+        "HBA1": 0.44077766518682776,
+        "SLC25A37": 0.5030990280321171,
+        "GYPB": 0.6031040264644271,
+        "BLVRB": 0.4798040614534532
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.456627239638477,
+        "ALAS2": 0.5401987558447577,
+        "HBG1": 0.4310148180797841,
+        "HBG2": 0.43076262444960445,
+        "HBA1": 0.4407753931721415,
+        "SLC25A37": 0.5029899713271747,
+        "GYPB": 0.6029995137888571,
+        "BLVRB": 0.47972908496880523
+      },
+      "signature_fraction_quartiles": [
+        0.0010861618693815043,
+        0.0017387533517529824,
+        0.002631901664159729
+      ]
+    },
+    {
+      "pert": "NCL",
+      "original_program_auc": 0.4836246633082012,
+      "outside_program_auc": 0.4835852182439057,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4798182146036898,
+        "ALAS2": 0.5207227462780765,
+        "HBG1": 0.4688581217387384,
+        "HBG2": 0.4643726544274267,
+        "HBA1": 0.46664919813819294,
+        "SLC25A37": 0.5007325511940585,
+        "GYPB": 0.5416286303546675,
+        "BLVRB": 0.4891835998692678
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4798097620899122,
+        "ALAS2": 0.5206945712321511,
+        "HBG1": 0.46882431168362804,
+        "HBG2": 0.46434166187690884,
+        "HBA1": 0.4666238405968602,
+        "SLC25A37": 0.5007156461665032,
+        "GYPB": 0.5416286303546675,
+        "BLVRB": 0.48918923487845284
+      },
+      "signature_fraction_quartiles": [
+        0.0010716472749540723,
+        0.0016123998751690419,
+        0.002571174793137301
+      ]
+    },
+    {
+      "pert": "NIT1",
+      "original_program_auc": 0.39702552563110893,
+      "outside_program_auc": 0.397004430068209,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.3433689613951199,
+        "ALAS2": 0.5227515645875818,
+        "HBG1": 0.39955347725195134,
+        "HBG2": 0.4187680191266437,
+        "HBA1": 0.46190492932986427,
+        "SLC25A37": 0.44638914281696085,
+        "GYPB": 0.5027459391041418,
+        "BLVRB": 0.46289642078616133
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.34337599324941986,
+        "ALAS2": 0.5226953097531819,
+        "HBG1": 0.39949722241755153,
+        "HBG2": 0.41873989170944376,
+        "HBA1": 0.4618697700583644,
+        "SLC25A37": 0.44632585612826103,
+        "GYPB": 0.5026123338724422,
+        "BLVRB": 0.46268194923001194
+      },
+      "signature_fraction_quartiles": [
+        0.0009049432563763646,
+        0.0013993807270431808,
+        0.001985946533372249
+      ]
+    },
+    {
+      "pert": "OSR2",
+      "original_program_auc": 0.27490259753341095,
+      "outside_program_auc": 0.27489588243747237,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.30265407451876264,
+        "ALAS2": 0.4517553932293031,
+        "HBG1": 0.3785756207098931,
+        "HBG2": 0.31297719150513503,
+        "HBA1": 0.4343169605864159,
+        "SLC25A37": 0.4513343567139544,
+        "GYPB": 0.34394519944506446,
+        "BLVRB": 0.3879042319877624
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.30261714149110047,
+        "ALAS2": 0.4517392769990505,
+        "HBG1": 0.3785044406929442,
+        "HBG2": 0.3129046684689984,
+        "HBA1": 0.434264582838095,
+        "SLC25A37": 0.45114633402767423,
+        "GYPB": 0.34378067959456937,
+        "BLVRB": 0.3877558283675199
+      },
+      "signature_fraction_quartiles": [
+        0.0006098354964399204,
+        0.000959646849959215,
+        0.0015232200644589846
+      ]
+    },
+    {
+      "pert": "PLK4",
+      "original_program_auc": 0.5272675188885309,
+      "outside_program_auc": 0.5272913906494312,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.523555460068512,
+        "ALAS2": 0.5343037204139364,
+        "HBG1": 0.546794619305093,
+        "HBG2": 0.550727491913441,
+        "HBA1": 0.5369176782325348,
+        "SLC25A37": 0.4992659433523114,
+        "GYPB": 0.485014502094747,
+        "BLVRB": 0.47478545254890725
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.523555460068512,
+        "ALAS2": 0.5342977524737113,
+        "HBG1": 0.5468125231257683,
+        "HBG2": 0.5507871713156921,
+        "HBA1": 0.5368460629498335,
+        "SLC25A37": 0.4992002960098352,
+        "GYPB": 0.4850622456165479,
+        "BLVRB": 0.47488690753273416
+      },
+      "signature_fraction_quartiles": [
+        0.0011342155009451795,
+        0.001934640522875817,
+        0.0036596523330283625
+      ]
+    },
+    {
+      "pert": "POU3F2",
+      "original_program_auc": 0.6761193525242014,
+      "outside_program_auc": 0.6761080829291931,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 6,
+      "outside_individual_calls": 6,
+      "original_gene_auc": {
+        "HBZ": 0.525628937314756,
+        "ALAS2": 0.6180302250538123,
+        "HBG1": 0.5896759240128774,
+        "HBG2": 0.6678249305980775,
+        "HBA1": 0.4889276229043249,
+        "SLC25A37": 0.5581717711671168,
+        "GYPB": 0.7371705052159442,
+        "BLVRB": 0.5749709807928536
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5258374248224099,
+        "ALAS2": 0.6180170771929693,
+        "HBG1": 0.5898618723305147,
+        "HBG2": 0.6678418349905899,
+        "HBA1": 0.4890553449810859,
+        "SLC25A37": 0.558412189193961,
+        "GYPB": 0.7372287314568206,
+        "BLVRB": 0.5751362681863089
+      },
+      "signature_fraction_quartiles": [
+        0.0017356182607768736,
+        0.0025933609958506223,
+        0.003771999256220183
+      ]
+    },
+    {
+      "pert": "PRDM1",
+      "original_program_auc": 0.9164115719096717,
+      "outside_program_auc": 0.9165693624810087,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.9310883491950427,
+        "ALAS2": 0.8217327208053631,
+        "HBG1": 0.7696280199988278,
+        "HBG2": 0.8632181161609103,
+        "HBA1": 0.8149206764256378,
+        "SLC25A37": 0.7266413600645589,
+        "GYPB": 0.60734717983166,
+        "BLVRB": 0.8377123973797749
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.9310658076848517,
+        "ALAS2": 0.8220708434582283,
+        "HBG1": 0.7704259894595898,
+        "HBG2": 0.8636644380626924,
+        "HBA1": 0.8153444568172289,
+        "SLC25A37": 0.728350006537038,
+        "GYPB": 0.6101716310585944,
+        "BLVRB": 0.8383210181549323
+      },
+      "signature_fraction_quartiles": [
+        0.0059193488716241215,
+        0.010476978218913703,
+        0.0202219857077695
+      ]
+    },
+    {
+      "pert": "PRTG",
+      "original_program_auc": 0.8718797548231353,
+      "outside_program_auc": 0.8720153962893212,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.893609910869796,
+        "ALAS2": 0.8644872949160006,
+        "HBG1": 0.709970040928338,
+        "HBG2": 0.7551691193526954,
+        "HBA1": 0.640188404030714,
+        "SLC25A37": 0.5730802800897986,
+        "GYPB": 0.7521555198213464,
+        "BLVRB": 0.6515301930040457
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.893591235595466,
+        "ALAS2": 0.864658321112496,
+        "HBG1": 0.7107445733584434,
+        "HBG2": 0.7557824546780579,
+        "HBA1": 0.6407820811725713,
+        "SLC25A37": 0.5748347729676387,
+        "GYPB": 0.7533743271986695,
+        "BLVRB": 0.6526045127326054
+      },
+      "signature_fraction_quartiles": [
+        0.003993196775863344,
+        0.006593665371482397,
+        0.010574778792892597
+      ]
+    },
+    {
+      "pert": "PTPN1",
+      "original_program_auc": 0.8459990355248352,
+      "outside_program_auc": 0.8462272946471628,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8995322295450893,
+        "ALAS2": 0.6974843272785726,
+        "HBG1": 0.649864973476933,
+        "HBG2": 0.705002411187912,
+        "HBA1": 0.7439254139205915,
+        "SLC25A37": 0.6907426458768686,
+        "GYPB": 0.6359411670149494,
+        "BLVRB": 0.6941826072978621
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8994904356212827,
+        "ALAS2": 0.6977784922038257,
+        "HBG1": 0.650654235653432,
+        "HBG2": 0.7061485291753737,
+        "HBA1": 0.7443079890692814,
+        "SLC25A37": 0.6920045008841023,
+        "GYPB": 0.6374827198199646,
+        "BLVRB": 0.6951776241761775
+      },
+      "signature_fraction_quartiles": [
+        0.0035629599099292397,
+        0.006262146404664219,
+        0.010862130855227
+      ]
+    },
+    {
+      "pert": "PTPN12",
+      "original_program_auc": 0.7531685678073511,
+      "outside_program_auc": 0.7532590983161326,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8038520731486511,
+        "ALAS2": 0.6011889673486631,
+        "HBG1": 0.5757302794375038,
+        "HBG2": 0.6551013941698353,
+        "HBA1": 0.6316630454463155,
+        "SLC25A37": 0.6639266099342145,
+        "GYPB": 0.5892977850202185,
+        "BLVRB": 0.6768513489045809
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8038958295612288,
+        "ALAS2": 0.6013368338463395,
+        "HBG1": 0.5762553563884363,
+        "HBG2": 0.6556853159514756,
+        "HBA1": 0.6319331281308468,
+        "SLC25A37": 0.6647323314623694,
+        "GYPB": 0.5902845675659364,
+        "BLVRB": 0.6772149797815197
+      },
+      "signature_fraction_quartiles": [
+        0.002242152466367713,
+        0.0038305414213023843,
+        0.007064641469445425
+      ]
+    },
+    {
+      "pert": "PTPN13",
+      "original_program_auc": 0.5597962594189991,
+      "outside_program_auc": 0.5598613042999669,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.5734131550770031,
+        "ALAS2": 0.5101169807166945,
+        "HBG1": 0.5113703455384215,
+        "HBG2": 0.5456715133442075,
+        "HBA1": 0.5612147381693369,
+        "SLC25A37": 0.4730238864816724,
+        "GYPB": 0.5139371166104613,
+        "BLVRB": 0.508773553752089
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5733656222793728,
+        "ALAS2": 0.5101495031571784,
+        "HBG1": 0.5116005043480001,
+        "HBG2": 0.5458841600704486,
+        "HBA1": 0.5612322502526743,
+        "SLC25A37": 0.4731464710650349,
+        "GYPB": 0.5141322512533648,
+        "BLVRB": 0.5088060761925729
+      },
+      "signature_fraction_quartiles": [
+        0.0013386228570447867,
+        0.002135878598667715,
+        0.0035257452164775436
+      ]
+    },
+    {
+      "pert": "PTPN9",
+      "original_program_auc": 0.6634067424477409,
+      "outside_program_auc": 0.663421947318165,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.6228249432858333,
+        "ALAS2": 0.5331846297005857,
+        "HBG1": 0.5670382736998315,
+        "HBG2": 0.6292961361383278,
+        "HBA1": 0.5579062285231206,
+        "SLC25A37": 0.5925307594528679,
+        "GYPB": 0.623477232227027,
+        "BLVRB": 0.5720558809397827
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6229222544565475,
+        "ALAS2": 0.5332515311304518,
+        "HBG1": 0.5672465804246416,
+        "HBG2": 0.6293706400034059,
+        "HBA1": 0.557982252875241,
+        "SLC25A37": 0.592739066177678,
+        "GYPB": 0.6237281125890245,
+        "BLVRB": 0.5721668764938785
+      },
+      "signature_fraction_quartiles": [
+        0.0016588749811491479,
+        0.0025605852766346594,
+        0.004057023722319265
+      ]
+    },
+    {
+      "pert": "RHOXF2",
+      "original_program_auc": 0.8206345735749735,
+      "outside_program_auc": 0.8207170821661806,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.7356486619169221,
+        "ALAS2": 0.7313417134559136,
+        "HBG1": 0.7464758517980685,
+        "HBG2": 0.8335698579614602,
+        "HBA1": 0.6035152785283767,
+        "SLC25A37": 0.6022240190759863,
+        "GYPB": 0.7639222934088012,
+        "BLVRB": 0.4711343693662103
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7358549333949398,
+        "ALAS2": 0.7314572254836035,
+        "HBG1": 0.7468306387402588,
+        "HBG2": 0.8336709309856889,
+        "HBA1": 0.6038164348862826,
+        "SLC25A37": 0.6032306238887124,
+        "GYPB": 0.764749442035652,
+        "BLVRB": 0.47200277228866455
+      },
+      "signature_fraction_quartiles": [
+        0.0029226250075869934,
+        0.0050150127944089806,
+        0.008354296588736106
+      ]
+    },
+    {
+      "pert": "RREB1",
+      "original_program_auc": 0.6751795528606864,
+      "outside_program_auc": 0.6752970931080884,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.7668042022665003,
+        "ALAS2": 0.593655258507482,
+        "HBG1": 0.5268234950795221,
+        "HBG2": 0.5400913571440151,
+        "HBA1": 0.660181011980999,
+        "SLC25A37": 0.5156024545646147,
+        "GYPB": 0.5475875877498744,
+        "BLVRB": 0.5560829104586501
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7667798835946239,
+        "ALAS2": 0.5937221348551418,
+        "HBG1": 0.5272024610495939,
+        "HBG2": 0.5406810849370146,
+        "HBA1": 0.6602478883286588,
+        "SLC25A37": 0.5161577309057894,
+        "GYPB": 0.5483495728019974,
+        "BLVRB": 0.5564922747685673
+      },
+      "signature_fraction_quartiles": [
+        0.0017256523859215801,
+        0.0031911203607353452,
+        0.0059137285094404135
+      ]
+    },
+    {
+      "pert": "RUNX1T1",
+      "original_program_auc": 0.356755046903926,
+      "outside_program_auc": 0.3567429471256977,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.38779184232951847,
+        "ALAS2": 0.45414529759404554,
+        "HBG1": 0.4354312620241546,
+        "HBG2": 0.3975874770752416,
+        "HBA1": 0.4487280540272383,
+        "SLC25A37": 0.45485659169989784,
+        "GYPB": 0.36941487201027445,
+        "BLVRB": 0.47157762094160477
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3877797425512901,
+        "ALAS2": 0.45412455511708266,
+        "HBG1": 0.43537681302212705,
+        "HBG2": 0.3975036428975166,
+        "HBA1": 0.4486805191841984,
+        "SLC25A37": 0.4547226298695125,
+        "GYPB": 0.3692722674811546,
+        "BLVRB": 0.471461808778562
+      },
+      "signature_fraction_quartiles": [
+        0.0008122446002341009,
+        0.0012346767792574302,
+        0.001852475610556233
+      ]
+    },
+    {
+      "pert": "S1PR2",
+      "original_program_auc": 0.7733735448159456,
+      "outside_program_auc": 0.7735051009010351,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 7,
+      "outside_individual_calls": 7,
+      "original_gene_auc": {
+        "HBZ": 0.7770000248219029,
+        "ALAS2": 0.5646523692506268,
+        "HBG1": 0.6932112095713258,
+        "HBG2": 0.7526695956512026,
+        "HBA1": 0.7555166679077618,
+        "SLC25A37": 0.5592014793854096,
+        "GYPB": 0.5532603569389629,
+        "BLVRB": 0.5368406682056246
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7770409809616006,
+        "ALAS2": 0.5649055526596669,
+        "HBG1": 0.6936815846302777,
+        "HBG2": 0.7529798694367911,
+        "HBA1": 0.7555849281405913,
+        "SLC25A37": 0.5603172239183856,
+        "GYPB": 0.5547583587757837,
+        "BLVRB": 0.5376957827587063
+      },
+      "signature_fraction_quartiles": [
+        0.00242787774921451,
+        0.00451524961662975,
+        0.007883639919330197
+      ]
+    },
+    {
+      "pert": "SAMD1",
+      "original_program_auc": 0.7633143785540211,
+      "outside_program_auc": 0.7634172759274302,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7822840509071216,
+        "ALAS2": 0.6400609260763607,
+        "HBG1": 0.6163769293257514,
+        "HBG2": 0.6786081776333605,
+        "HBA1": 0.6694760357432982,
+        "SLC25A37": 0.5685093419983753,
+        "GYPB": 0.6195261305171947,
+        "BLVRB": 0.5902694286487951
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.782315190901706,
+        "ALAS2": 0.6402450582182507,
+        "HBG1": 0.616871107500677,
+        "HBG2": 0.6791998375304631,
+        "HBA1": 0.6696547522339561,
+        "SLC25A37": 0.5694002166260492,
+        "GYPB": 0.6205117790414297,
+        "BLVRB": 0.5911359328459247
+      },
+      "signature_fraction_quartiles": [
+        0.0023271513728865107,
+        0.004518062149464416,
+        0.008019654215037612
+      ]
+    },
+    {
+      "pert": "SET",
+      "original_program_auc": 0.547782864688923,
+      "outside_program_auc": 0.5476789695792385,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.3840318684578548,
+        "ALAS2": 0.5267611929892674,
+        "HBG1": 0.4158716184534119,
+        "HBG2": 0.4402534767268119,
+        "HBA1": 0.47091757153383357,
+        "SLC25A37": 0.7268310487801211,
+        "GYPB": 0.3466084398372128,
+        "BLVRB": 0.778939230930121
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3841022710650753,
+        "ALAS2": 0.5267400038550554,
+        "HBG1": 0.4159133132013774,
+        "HBG2": 0.44023638871535065,
+        "HBA1": 0.4709086857678737,
+        "SLC25A37": 0.7267134832612675,
+        "GYPB": 0.3466986645377283,
+        "BLVRB": 0.7787116186174569
+      },
+      "signature_fraction_quartiles": [
+        0.001081370024465657,
+        0.001609384210020121,
+        0.0025175601930360596
+      ]
+    },
+    {
+      "pert": "SGK1",
+      "original_program_auc": 0.7306639632242461,
+      "outside_program_auc": 0.7307337835346951,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 6,
+      "outside_individual_calls": 6,
+      "original_gene_auc": {
+        "HBZ": 0.5852827164010702,
+        "ALAS2": 0.6591456228250974,
+        "HBG1": 0.6759499751439695,
+        "HBG2": 0.7825558143561729,
+        "HBA1": 0.5265540604699744,
+        "SLC25A37": 0.5972890169858851,
+        "GYPB": 0.6550974412252627,
+        "BLVRB": 0.5464737950410823
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5855494299869854,
+        "ALAS2": 0.6591763437616949,
+        "HBG1": 0.6760630840468969,
+        "HBG2": 0.7825083365450676,
+        "HBA1": 0.5266964939032905,
+        "SLC25A37": 0.5977512274410577,
+        "GYPB": 0.6555680301176892,
+        "BLVRB": 0.5469415911210908
+      },
+      "signature_fraction_quartiles": [
+        0.0020680159190856855,
+        0.003311019938098323,
+        0.005062465524441234
+      ]
+    },
+    {
+      "pert": "SLC38A2",
+      "original_program_auc": 0.43291647242434683,
+      "outside_program_auc": 0.43288404240225387,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.3871577112511908,
+        "ALAS2": 0.49178709690495975,
+        "HBG1": 0.4924985305146239,
+        "HBG2": 0.4745505401625555,
+        "HBA1": 0.48019336400672924,
+        "SLC25A37": 0.4507631189573748,
+        "GYPB": 0.4774489733871131,
+        "BLVRB": 0.4641546912053834
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3871840606441413,
+        "ALAS2": 0.49178507002857896,
+        "HBG1": 0.4924579929870077,
+        "HBG2": 0.4744654113545615,
+        "HBA1": 0.48014674584997064,
+        "SLC25A37": 0.45072866205890105,
+        "GYPB": 0.47730911891683725,
+        "BLVRB": 0.46412428805967126
+      },
+      "signature_fraction_quartiles": [
+        0.0009530298294641761,
+        0.001413290638293078,
+        0.0022127765999970803
+      ]
+    },
+    {
+      "pert": "SLC4A1",
+      "original_program_auc": 0.3254036805913956,
+      "outside_program_auc": 0.32537673037249243,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.3068087033036926,
+        "ALAS2": 0.4627419961218635,
+        "HBG1": 0.44965833859985527,
+        "HBG2": 0.38509706795093446,
+        "HBA1": 0.4383426154378939,
+        "SLC25A37": 0.4573014206807895,
+        "GYPB": 0.3271534235536828,
+        "BLVRB": 0.4679379983263914
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.30678444810667976,
+        "ALAS2": 0.46273795358902803,
+        "HBG1": 0.4495498639687701,
+        "HBG2": 0.3850155435387524,
+        "HBA1": 0.4383069063978472,
+        "SLC25A37": 0.45711344290394,
+        "GYPB": 0.3270745941633911,
+        "BLVRB": 0.4678045947428208
+      },
+      "signature_fraction_quartiles": [
+        0.0006714544252588864,
+        0.0010610747229799402,
+        0.0017834447277394548
+      ]
+    },
+    {
+      "pert": "SLC6A9",
+      "original_program_auc": 0.6419362189520142,
+      "outside_program_auc": 0.642056153228031,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.7093884551265907,
+        "ALAS2": 0.5470885954496936,
+        "HBG1": 0.6011669605056429,
+        "HBG2": 0.628976121085645,
+        "HBA1": 0.6159296705405438,
+        "SLC25A37": 0.5163746267045659,
+        "GYPB": 0.43498962568512456,
+        "BLVRB": 0.5496228067019273
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7093704649851881,
+        "ALAS2": 0.5472181244677916,
+        "HBG1": 0.6013624533755502,
+        "HBG2": 0.629104450760983,
+        "HBA1": 0.6159932357068326,
+        "SLC25A37": 0.5169023375190396,
+        "GYPB": 0.43548375490231356,
+        "BLVRB": 0.549871070653282
+      },
+      "signature_fraction_quartiles": [
+        0.0016035611586081083,
+        0.0025318896515380616,
+        0.004589144845558643
+      ]
+    },
+    {
+      "pert": "SNAI1",
+      "original_program_auc": 0.4044826740175208,
+      "outside_program_auc": 0.4044018531079969,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.3226529463551213,
+        "ALAS2": 0.6558833292441801,
+        "HBG1": 0.3952676471012715,
+        "HBG2": 0.29004459582329084,
+        "HBA1": 0.42594784164874655,
+        "SLC25A37": 0.5287852328652456,
+        "GYPB": 0.4645398259463984,
+        "BLVRB": 0.4610688565284533
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3226298546666859,
+        "ALAS2": 0.6558039515651835,
+        "HBG1": 0.39522579341598235,
+        "HBG2": 0.29008933596963443,
+        "HBA1": 0.42591031765503906,
+        "SLC25A37": 0.5286957525725584,
+        "GYPB": 0.46433344398100707,
+        "BLVRB": 0.46100535438525597
+      },
+      "signature_fraction_quartiles": [
+        0.0007421644917819262,
+        0.0011447040603326376,
+        0.001786226586990214
+      ]
+    },
+    {
+      "pert": "SPI1",
+      "original_program_auc": 0.5549384037862334,
+      "outside_program_auc": 0.5549799195032098,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 5,
+      "outside_individual_calls": 5,
+      "original_gene_auc": {
+        "HBZ": 0.5619764103326065,
+        "ALAS2": 0.5694678122091168,
+        "HBG1": 0.5537158751731642,
+        "HBG2": 0.5575014530500941,
+        "HBA1": 0.4522907935620048,
+        "SLC25A37": 0.5184078504035765,
+        "GYPB": 0.46976126277700814,
+        "BLVRB": 0.6031676492053017
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5620233886439219,
+        "ALAS2": 0.569504957850622,
+        "HBG1": 0.5538076467580595,
+        "HBG2": 0.5575538939557486,
+        "HBA1": 0.45234104942992365,
+        "SLC25A37": 0.5186449269978892,
+        "GYPB": 0.4700933885128196,
+        "BLVRB": 0.603308584139248
+      },
+      "signature_fraction_quartiles": [
+        0.001224889759921607,
+        0.0020535714285714285,
+        0.004030119843037438
+      ]
+    },
+    {
+      "pert": "STIL",
+      "original_program_auc": 0.49647558645717926,
+      "outside_program_auc": 0.49647558645717926,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4843451482609113,
+        "ALAS2": 0.5103834980676792,
+        "HBG1": 0.4973305184551902,
+        "HBG2": 0.5187321707421333,
+        "HBA1": 0.4729235184813616,
+        "SLC25A37": 0.473830793254761,
+        "GYPB": 0.5310545324481588,
+        "BLVRB": 0.48352074954854357
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4843320625670642,
+        "ALAS2": 0.5103769552207557,
+        "HBG1": 0.4973348803531393,
+        "HBG2": 0.5187278088441842,
+        "HBA1": 0.47291479468546355,
+        "SLC25A37": 0.47384387894860813,
+        "GYPB": 0.5311003323766237,
+        "BLVRB": 0.48355564473213586
+      },
+      "signature_fraction_quartiles": [
+        0.001165609847071988,
+        0.0017730496453900709,
+        0.002870693959061408
+      ]
+    },
+    {
+      "pert": "TBX2",
+      "original_program_auc": 0.5782718505299905,
+      "outside_program_auc": 0.5782874528274289,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.38300714780251394,
+        "ALAS2": 0.5239817063062536,
+        "HBG1": 0.6275058752401291,
+        "HBG2": 0.7055163872880281,
+        "HBA1": 0.5058664638368,
+        "SLC25A37": 0.6055232132931574,
+        "GYPB": 0.3371919765185424,
+        "BLVRB": 0.6444421691094013
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3832528839871671,
+        "ALAS2": 0.523977805731894,
+        "HBG1": 0.6275146515324381,
+        "HBG2": 0.7053574388828755,
+        "HBA1": 0.5058898672829574,
+        "SLC25A37": 0.605646081385484,
+        "GYPB": 0.33757520794937057,
+        "BLVRB": 0.6444148650888843
+      },
+      "signature_fraction_quartiles": [
+        0.0013263146185399088,
+        0.002187964697396132,
+        0.0034351568844882283
+      ]
+    },
+    {
+      "pert": "TBX3",
+      "original_program_auc": 0.456655530498637,
+      "outside_program_auc": 0.4566847167281847,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.3772748233746675,
+        "ALAS2": 0.4928338077717092,
+        "HBG1": 0.5457931941604192,
+        "HBG2": 0.5593599265285315,
+        "HBA1": 0.4630628807586863,
+        "SLC25A37": 0.5802971547317688,
+        "GYPB": 0.3066723612243429,
+        "BLVRB": 0.5057769277018179
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.3773215213419439,
+        "ALAS2": 0.4928386721433005,
+        "HBG1": 0.5457571978106436,
+        "HBG2": 0.5592499917305683,
+        "HBA1": 0.46310860585164443,
+        "SLC25A37": 0.580222243409263,
+        "GYPB": 0.30683677698412853,
+        "BLVRB": 0.5057924936909101
+      },
+      "signature_fraction_quartiles": [
+        0.001003584250019075,
+        0.0015818992378121854,
+        0.0025724798637259075
+      ]
+    },
+    {
+      "pert": "TGFBR2",
+      "original_program_auc": 0.6153658261621134,
+      "outside_program_auc": 0.6153950538415609,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 5,
+      "outside_individual_calls": 5,
+      "original_gene_auc": {
+        "HBZ": 0.6327855231128313,
+        "ALAS2": 0.5818865632006814,
+        "HBG1": 0.5594678892187441,
+        "HBG2": 0.5775034551292489,
+        "HBA1": 0.5173601977461284,
+        "SLC25A37": 0.5157819030559626,
+        "GYPB": 0.5676130171733493,
+        "BLVRB": 0.5356504620061044
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.6327949177240824,
+        "ALAS2": 0.5819210101086018,
+        "HBG1": 0.5595263445776392,
+        "HBG2": 0.5776255850755118,
+        "HBA1": 0.5174520561672491,
+        "SLC25A37": 0.5159938037319571,
+        "GYPB": 0.5677716817189216,
+        "BLVRB": 0.5358874149787681
+      },
+      "signature_fraction_quartiles": [
+        0.0015115346376798574,
+        0.0022651077014583824,
+        0.0036189104788873104
+      ]
+    },
+    {
+      "pert": "TMSB4X",
+      "original_program_auc": 0.5311215975282253,
+      "outside_program_auc": 0.5311612728846216,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 2,
+      "outside_individual_calls": 2,
+      "original_gene_auc": {
+        "HBZ": 0.5459614206753242,
+        "ALAS2": 0.49867087556072437,
+        "HBG1": 0.550810493139883,
+        "HBG2": 0.5755121220612339,
+        "HBA1": 0.4978773684327986,
+        "SLC25A37": 0.4988841306013544,
+        "GYPB": 0.45897568148623885,
+        "BLVRB": 0.493758570496909
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5459936569023961,
+        "ALAS2": 0.49868575381937297,
+        "HBG1": 0.5508228916887568,
+        "HBG2": 0.5754749264146124,
+        "HBA1": 0.4978835677072355,
+        "SLC25A37": 0.4990143153645297,
+        "GYPB": 0.45911330537873846,
+        "BLVRB": 0.49378708715931885
+      },
+      "signature_fraction_quartiles": [
+        0.0013201033316117237,
+        0.0019296964639616146,
+        0.0028676976800343186
+      ]
+    },
+    {
+      "pert": "TP73",
+      "original_program_auc": 0.8198981006704475,
+      "outside_program_auc": 0.8203059154898944,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.8588498534585416,
+        "ALAS2": 0.806393992615833,
+        "HBG1": 0.5530132077626192,
+        "HBG2": 0.6217191297775506,
+        "HBA1": 0.7368316594800632,
+        "SLC25A37": 0.6195957739509643,
+        "GYPB": 0.7681219311934837,
+        "BLVRB": 0.5577166720135721
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.8589096662987271,
+        "ALAS2": 0.8066060563219454,
+        "HBG1": 0.554424247037905,
+        "HBG2": 0.6238887046170075,
+        "HBA1": 0.7370627545444165,
+        "SLC25A37": 0.6214418157003267,
+        "GYPB": 0.7692502188606197,
+        "BLVRB": 0.5592718058583959
+      },
+      "signature_fraction_quartiles": [
+        0.0038284623642987478,
+        0.010970359215337327,
+        0.020657677064182776
+      ]
+    },
+    {
+      "pert": "TSC22D1",
+      "original_program_auc": 0.4928875309287652,
+      "outside_program_auc": 0.49292423255372964,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.4983346637672383,
+        "ALAS2": 0.5321016879689014,
+        "HBG1": 0.4886469640109983,
+        "HBG2": 0.47954954872293637,
+        "HBA1": 0.4890720911668364,
+        "SLC25A37": 0.5516804756530596,
+        "GYPB": 0.4634895293322445,
+        "BLVRB": 0.47589467857022705
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.49831937142350313,
+        "ALAS2": 0.5321123926095161,
+        "HBG1": 0.4886943702765773,
+        "HBG2": 0.47955413642605693,
+        "HBA1": 0.48906750346371586,
+        "SLC25A37": 0.5517385865592532,
+        "GYPB": 0.4635445817696912,
+        "BLVRB": 0.4759115001483357
+      },
+      "signature_fraction_quartiles": [
+        0.0010697729704029478,
+        0.0016534722918128068,
+        0.002684277801448658
+      ]
+    },
+    {
+      "pert": "UBASH3A",
+      "original_program_auc": 0.5014557343453137,
+      "outside_program_auc": 0.5014852924030865,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.5196002765320517,
+        "ALAS2": 0.5063828983646184,
+        "HBG1": 0.49876430897366214,
+        "HBG2": 0.5098239489236762,
+        "HBA1": 0.47062996431685583,
+        "SLC25A37": 0.5265152199365816,
+        "GYPB": 0.47221542569350594,
+        "BLVRB": 0.5066029416835941
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5195748237600806,
+        "ALAS2": 0.506393572107703,
+        "HBG1": 0.4987799090597089,
+        "HBG2": 0.5098436542955247,
+        "HBA1": 0.47065870131746834,
+        "SLC25A37": 0.5265406727085526,
+        "GYPB": 0.47223513106535453,
+        "BLVRB": 0.5065955521691509
+      },
+      "signature_fraction_quartiles": [
+        0.0011880669871936248,
+        0.0017588652482269504,
+        0.002712600032670403
+      ]
+    },
+    {
+      "pert": "UBASH3B",
+      "original_program_auc": 0.6977455250666645,
+      "outside_program_auc": 0.6977924444201159,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7025955339478279,
+        "ALAS2": 0.6095086538278931,
+        "HBG1": 0.5864852153765893,
+        "HBG2": 0.6544920253856045,
+        "HBA1": 0.5833008435429474,
+        "SLC25A37": 0.6175257190670198,
+        "GYPB": 0.553175825808549,
+        "BLVRB": 0.6091846868635864
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7026307234629164,
+        "ALAS2": 0.6095885284415067,
+        "HBG1": 0.5867248392174299,
+        "HBG2": 0.6546266392449112,
+        "HBA1": 0.5834913137754104,
+        "SLC25A37": 0.6179033081495565,
+        "GYPB": 0.5537399751774278,
+        "BLVRB": 0.6094779328226572
+      },
+      "signature_fraction_quartiles": [
+        0.0017866711114191004,
+        0.0029294601234194934,
+        0.004735802045127179
+      ]
+    },
+    {
+      "pert": "ZBTB1",
+      "original_program_auc": 0.8024486185606378,
+      "outside_program_auc": 0.8024622566334612,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7740541509422935,
+        "ALAS2": 0.6498035143365369,
+        "HBG1": 0.6862795142508119,
+        "HBG2": 0.7624023660108052,
+        "HBA1": 0.7227915576432631,
+        "SLC25A37": 0.6043770420578682,
+        "GYPB": 0.7204760077074595,
+        "BLVRB": 0.7413383625350449
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.774145720859822,
+        "ALAS2": 0.6499808092832413,
+        "HBG1": 0.6866399490325735,
+        "HBG2": 0.7625621262924509,
+        "HBA1": 0.7229328091117913,
+        "SLC25A37": 0.6055927788352696,
+        "GYPB": 0.7211900582345709,
+        "BLVRB": 0.7418079018993939
+      },
+      "signature_fraction_quartiles": [
+        0.0024449877750611247,
+        0.004471700523827776,
+        0.00904906778999922
+      ]
+    },
+    {
+      "pert": "ZBTB10",
+      "original_program_auc": 0.4422919827284397,
+      "outside_program_auc": 0.4422753113382125,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 1,
+      "outside_individual_calls": 1,
+      "original_gene_auc": {
+        "HBZ": 0.2610072853975293,
+        "ALAS2": 0.4921811179834286,
+        "HBG1": 0.40937015487721523,
+        "HBG2": 0.3777028491405898,
+        "HBA1": 0.3908982545054432,
+        "SLC25A37": 0.528445559575213,
+        "GYPB": 0.7575688111631629,
+        "BLVRB": 0.3978752313155394
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.26114482436690395,
+        "ALAS2": 0.492172782288315,
+        "HBG1": 0.40938682626744244,
+        "HBG2": 0.37778203824416917,
+        "HBA1": 0.3908940866578864,
+        "SLC25A37": 0.5283872097094177,
+        "GYPB": 0.7574062651084474,
+        "BLVRB": 0.3979127419435507
+      },
+      "signature_fraction_quartiles": [
+        0.0012195387005966805,
+        0.0017863790195335426,
+        0.002858149573765651
+      ]
+    },
+    {
+      "pert": "ZBTB25",
+      "original_program_auc": 0.7512011698349698,
+      "outside_program_auc": 0.7512320505717478,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 8,
+      "outside_individual_calls": 8,
+      "original_gene_auc": {
+        "HBZ": 0.7751855114849093,
+        "ALAS2": 0.6248272041125875,
+        "HBG1": 0.6048918720084286,
+        "HBG2": 0.6507016285047366,
+        "HBA1": 0.6254148463683346,
+        "SLC25A37": 0.6479150961389997,
+        "GYPB": 0.6036548260233785,
+        "BLVRB": 0.6475309034432022
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.7752118509368671,
+        "ALAS2": 0.624954360087556,
+        "HBG1": 0.6052769729611902,
+        "HBG2": 0.6510086193585889,
+        "HBA1": 0.6256010390459669,
+        "SLC25A37": 0.6484945640820701,
+        "GYPB": 0.6043169453501784,
+        "BLVRB": 0.6478978392566825
+      },
+      "signature_fraction_quartiles": [
+        0.002163612360169765,
+        0.0034755864641796133,
+        0.005283657613964542
+      ]
+    },
+    {
+      "pert": "ZC3HAV1",
+      "original_program_auc": 0.423901217601341,
+      "outside_program_auc": 0.4239064232505115,
+      "original_program_called": false,
+      "outside_program_called": false,
+      "original_individual_calls": 0,
+      "outside_individual_calls": 0,
+      "original_gene_auc": {
+        "HBZ": 0.4002962014378003,
+        "ALAS2": 0.4705490398180105,
+        "HBG1": 0.4865108615869942,
+        "HBG2": 0.49561293916157817,
+        "HBA1": 0.4811815782487155,
+        "SLC25A37": 0.4638233410897506,
+        "GYPB": 0.3965793679300777,
+        "BLVRB": 0.47948063238226124
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.4003248325082379,
+        "ALAS2": 0.4705347242827917,
+        "HBG1": 0.4863833231823175,
+        "HBG2": 0.4955634854944586,
+        "HBA1": 0.4811477415291074,
+        "SLC25A37": 0.4637309408169746,
+        "GYPB": 0.3965845735792482,
+        "BLVRB": 0.4793609024513402
+      },
+      "signature_fraction_quartiles": [
+        0.0009740121510821353,
+        0.00144286163439244,
+        0.0022248218638304847
+      ]
+    },
+    {
+      "pert": "ZNF318",
+      "original_program_auc": 0.5923431143783426,
+      "outside_program_auc": 0.5923906085448201,
+      "original_program_called": true,
+      "outside_program_called": true,
+      "original_individual_calls": 4,
+      "outside_individual_calls": 4,
+      "original_gene_auc": {
+        "HBZ": 0.5577043797881347,
+        "ALAS2": 0.5034009953125322,
+        "HBG1": 0.5933983108596445,
+        "HBG2": 0.6453311169388978,
+        "HBA1": 0.5305284242261549,
+        "SLC25A37": 0.5224038243128833,
+        "GYPB": 0.5538150205463894,
+        "BLVRB": 0.5056053441262106
+      },
+      "outside_gene_auc": {
+        "HBZ": 0.5577694261465711,
+        "ALAS2": 0.5034040927581721,
+        "HBG1": 0.5934509674355215,
+        "HBG2": 0.6453610589134161,
+        "HBA1": 0.5306182501497099,
+        "SLC25A37": 0.5226227104714313,
+        "GYPB": 0.5540060296941789,
+        "BLVRB": 0.5057364693249633
+      },
+      "signature_fraction_quartiles": [
+        0.0014757396035024,
+        0.002267461926936916,
+        0.003571239032906884
+      ]
+    }
+  ],
+  "scope": "Neither denominator identifies absolute transcription without additional calibration such as spike-ins. The remaining genes may also respond to perturbation. The signature was historically selected from these same data, and nominal p/q values do not account for that selection. This is a score-normalization sensitivity, not independent biological replication, regulator mechanism, pathway specificity, novelty or a method ranking."
+}

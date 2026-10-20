@@ -1,0 +1,11 @@
+{
+  "list_url": "https://raw.githubusercontent.com/broadinstitute/2020_scWorkshop/e6a168f7a130af9150167c0b68b54aaca875e4da/data/resources/regev_lab_cell_cycle_genes.txt",
+  "list_blob_sha1": "03f53c933b98215052bde2cb3d1ecbe48d65e378",
+  "list_sha256": "eb666ba4f7b7a8b2845e1586d42687feaf813e9fa1fdadba89dacd4093411ac0",
+  "notebook_source": "https://github.com/scverse/scanpy/blob/main/docs/how-to/cell-cycle.ipynb",
+  "notebook_blob_sha1": "d39a54735c00ba219c3cefcfe8d94d7436add72d",
+  "notebook_rule": "First43 genes S, remaining54 G2M",
+  "canonical_archive_sha256_from_notebook": "6557fe2a2761d1550d41edf61b26c6d5ec9b42b4933d56c3161164a595f145ab",
+  "canonical_archive_access": "HTTP403; canonical archive bytes not retrieved/verified. Institutional Git copy pinned, observedSHA and blob verified; this does not verify canonical ZIP identity.",
+  "notebook_git_blob_url": "https://api.github.com/repos/scverse/scanpy/git/blobs/d39a54735c00ba219c3cefcfe8d94d7436add72d"
+}

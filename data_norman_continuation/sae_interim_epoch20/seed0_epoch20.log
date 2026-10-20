@@ -1,0 +1,37 @@
+loaded 111445 cells x 4081 genes; 102 single-gene perts; 9 named programs
+TopK SAE checkpoint: epoch 20/20 -> /workspace/research-runs/norman-sae-interim/seed0_epoch20_analysis.pt
+trained SAE {'latent_dim': 2048, 'k': 32, 'd': 4081, 'device': 'cpu', 'epochs_completed': 20, 'checkpoint_path': '/workspace/research-runs/norman-sae-interim/seed0_epoch20_analysis.pt', 'trained_on': 'all', 'n_train_cells': 111445, 'epochs': 20, 'batch': 1024, 'mean_active_features': 32.0, 'features_ever_active': 474}
+
+[/workspace/research-runs/norman-sae-interim/seed0_epoch20.json] 105 perturbations x 461 eligible features
+  FEATURE-BACKGROUND (random features): mean 2.4 median 0.0 max 17 modulators
+
+  program          mkrs   feat  modul  bg pct   shufP  top genes
+  Ery_TF              8      3      1     53%     nan  FTH1, ARGLU1, RP11-174O3.6, HOXB2, MEF2C, AC079466.1
+  Ery_Heme            7   1550      7     86%     nan  PTPN12, SQLE, ACP5, TMEM54, COL18A1, GYPB
+  Ery_Membrane        7   UNSCORED: no_significant_program_match
+  Ery_Effector        3   1753      2     71%     nan  PNMT, TMSB10, KLF1, EMP3, S100A10, HBZ
+  Gran_TF             3   UNSCORED: no_significant_program_match
+  Gran_Primary        4   UNSCORED: no_significant_program_match
+  Gran_Secondary      7   UNSCORED: no_significant_program_match
+  Progenitor          4   UNSCORED: no_significant_program_match
+  Cycling            16   1905      1     53%     nan  UBC, CENPF, CCNB2, CCNB1, CALM2, CENPE
+
+  Shuffle p and feature percentile are exploratory; they do not establish specificity.
+  Ery_TF: conditional identity heterogeneity Holm p=0.009; tested
+  Ery_Heme: conditional identity heterogeneity Holm p=0.009; tested
+  Ery_Membrane: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Ery_Effector: conditional identity heterogeneity Holm p=0.009; tested
+  Gran_TF: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Gran_Primary: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Gran_Secondary: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Progenitor: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Cycling: conditional identity heterogeneity Holm p=0.009; tested
+  Identity heterogeneity is conditional cell-level evidence, not pathway specificity or independent biological replication.
+
+  Ery_TF modulators (1): PRDM1
+
+  Ery_Heme modulators (7): PTPN12, PRDM1, TBX2, HNF4A, DUSP9, PTPN1, CKS1B
+
+  Ery_Effector modulators (2): KLF1, CDKN1C
+
+  Cycling modulators (1): CNNM4

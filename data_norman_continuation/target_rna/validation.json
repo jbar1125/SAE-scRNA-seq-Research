@@ -1,0 +1,9 @@
+{
+  "status": "PASS",
+  "complete_comparisons": 109,
+  "missing_direct_symbols_retained": 3,
+  "joint_BH_reproduced": true,
+  "original_control_split_reproduced": true,
+  "all_source_hashes_verified": true,
+  "result_sha256": "04f61d29fa5ce3f673d2afdd13d241800438fee98ddc00310c43bf47bc099e81"
+}

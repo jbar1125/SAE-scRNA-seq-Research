@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "family_size": 10080,
+  "unique_comparisons": 10080,
+  "new_comparisons": 1680,
+  "all_sources_verified": true,
+  "joint_BH_reproduced": true,
+  "primary_reproduced_exactly": true,
+  "raw_result_sha256": "ab999d49b2a6c771796a68a1e2c0ed83c9be49bbc9aedb2d4b7a191d2a92097b"
+}

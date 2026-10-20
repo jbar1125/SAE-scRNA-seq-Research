@@ -1,0 +1,32 @@
+{
+  "date_utc": "2026-10-20",
+  "chronology": "Fixed after observing all original three all-cell SAE outputs, the one control-only SAE output, and the marker/PCA/capped-NMF/phase results. New discovery-only SAE annotation and jointly corrected outcomes have not been inspected. This is an exploratory harmonization, not prospective biological confirmation.",
+  "question": "Which annotated perturbation associations survive a common annotation/control-splitting/test protocol across the six completed factor representations? Does agreement on a Cycling label imply agreement with external S and G2M score directions?",
+  "input_sha256": "a09744916427b08d75dade996d059f717e4812463292a1e5a4e5450589cf2c6a",
+  "representations": [
+    "all_cell_sae_seed0",
+    "all_cell_sae_seed1",
+    "all_cell_sae_seed2",
+    "control_only_sae_seed0",
+    "direct_pca_seed0",
+    "capped_direct_nmf_seed0"
+  ],
+  "fitting": "No new SAE or NMF optimization. Verify and use the four completed SAE activation files and actual saved NMF factors. Recompute the original randomized PCA fit_transform with exactly its archived settings, software and one-thread execution solely because original cell scores were not retained. Save recovered scores outside Git. Require all945 old PCA AUCs and p-values, feature selections and split to reproduce (absolute tolerance1e-7 for AUC and1e-10 for p) before using regenerated scores; abort on mismatch. Reuse the archived PCA/NMF association records after validating score provenance, then recompute their identity permutations at the new declared resolution. NMF retains its nonconvergence qualification.",
+  "common_inference": {
+    "implementation": "src/norman_direct_pca.py:analyze, called on each saved SAE activation matrix and identical 111445 x 4081 expression input",
+    "controls": "Fixed split_controls seed0 within gemgroup, reproducing the archived 5926 discovery and 5929 inference cell IDs exactly in every arm. Discovery controls determine gene associations and feature selection; only inference controls are used for perturbation association tests.",
+    "annotation": "All existing nine human marker panels; top50 associated genes; minimum3 markers present; existing hypergeometric match with Bonferroni over all eligible orientations and fixed .05 threshold. Positive and negative orientations searched without outcome-dependent sign changes. Negative orientations of nonnegative SAE/NMF factors are ineligible because they have no positive discovery-control cells. At least50 positive discovery controls per eligible orientation.",
+    "single_tests": "Every105 sufficiently sampled single perturbation, stratified one-sided Mann-Whitney within gemgroup using existing _compare_up. Joint BH over all6 x 9 x 105 = 5670 hypotheses including unmatched p=1. Association requires joint q<.05 and AUC>=.55. Retain original within-arm q-values separately for provenance; joint values control reported cross-arm flags.",
+    "identity_tests": "Existing controls-fixed within-gemgroup identity permutation test,9999 permutations, seed0 for every arm. Joint Holm over all54 arm-by-panel hypotheses including unmatched p=1. Minimum corrected p=.0054. These remain conditional cell-level rank-heterogeneity tests, not biological replication or pathway specificity. Preserve old999-permutation outputs and retain all new raw p-values and statuses."
+  },
+  "descriptive_comparisons": "Report every panel and arm, match failures, eligible orientation counts and all5670 perturbation records. Descriptively list candidates shared across at least2/3 all-cell SAE seeds, explicitly computational agreement only. For every matched Cycling feature pair its 105 AUCs with archived S/G2M AUCs; report counts for feature AUC>=.55 with each external phase AUC<=.45, without additional selected gene tests or mechanism claims. AUC direction comparison is descriptive, not a new significance test.",
+  "limits": [
+    "All-cell SAE/PCA/NMF fits used inference-control and perturbation expression. This split holds out annotation and reference-score inference conditional on fitted representations, not model training.",
+    "The control-only SAE also trained on inference controls, and HVG selection used all cells. It is one sensitivity seed, not an independent test set or completed three-seed control analysis.",
+    "Six model fits share cells and marker definitions. Their agreement is not independent biological evidence. Rank64 PCA/NMF and2048 SAE features have unequal capacity and different training objectives. Harmonizing downstream inference does not establish method superiority.",
+    "Marker presence and direct-marker detection eligibility differ; an effector feature match cannot establish a gain over an unscorable direct marker panel.",
+    "Retrospective joint families do not erase the history of outcome-informed choices. Perturbation severity, compositional effects, cell dependence, construct effects and confounding remain. No novel regulatory mechanism is established."
+  ],
+  "outputs": "Fresh run directory outside frozen artifacts, complete six-arm JSON with source/input/activation/archive hashes, all5670 comparison rows and a summary. Preserve old outputs. Exclusive creation; refuse overwriting. Archive only compact complete evidence in Git.",
+  "pre_execution_resolution_amendment": "Before implementing or running any new annotation, noticed that999 permutations yield minimum p=.001 and a54-test Holm family cannot reject even its first hypothesis (.054). Therefore fix9999 permutations for all6 identity analyses, before any new outcomes; this is a finite-resolution design correction, not outcome-driven p-value refinement. Preserve the original999-permutation results."
+}

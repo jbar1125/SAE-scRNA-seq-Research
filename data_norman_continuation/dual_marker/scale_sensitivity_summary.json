@@ -1,0 +1,263 @@
+{
+  "scope": "Report the knownCBL+CNN1 contrast on both scales regardless of outcome, plus complete panel counts and effect tables. Score-scale additivity is not molecular/count-scale additivity. Even stable deviations can reflect cell-state mixtures, composition or construct effects. No causal mechanism, novelty, valid biological independence or universal calibration is inferred.",
+  "primary_reproduced_exactly": true,
+  "joint_family_size": 2358,
+  "uncompressed_source_sha256": "dbe8051b5c6a58cbcd3192f281f11578a00946934ef10717d0be33dc90b5dfbf",
+  "programs": {
+    "Ery_TF": {
+      "two_scale_consistent": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "pairs": [],
+      "known_CBL_CNN1": {
+        "program": "Ery_TF",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          },
+          "target_omission": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          }
+        },
+        "log_primary_contrast": -0.12672275880225906,
+        "linear_primary_contrast": 0.0019460564143795184,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Ery_Heme": {
+      "two_scale_consistent": 21,
+      "above_additive": 14,
+      "below_additive": 7,
+      "pairs": [
+        "CBL+CNN1",
+        "CBL+PTPN12",
+        "CBL+UBASH3B",
+        "CEBPA+CEBPE",
+        "CEBPE+RUNX1T1",
+        "CEBPE+ZC3HAV1",
+        "CNN1+MAPK1",
+        "CNN1+UBASH3A",
+        "CNN1+UBASH3B",
+        "DUSP9+MAPK1",
+        "DUSP9+SNAI1",
+        "FOSB+IKZF3",
+        "IGDCC3+PRTG",
+        "IKZF3+MAPK1",
+        "MAPK1+PRTG",
+        "PTPN12+UBASH3A",
+        "PTPN12+UBASH3B",
+        "PTPN12+ZBTB25",
+        "PTPN9+UBASH3B",
+        "SAMD1+UBASH3B",
+        "UBASH3B+ZBTB25"
+      ],
+      "known_CBL_CNN1": {
+        "program": "Ery_Heme",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 9.213564970171843e-09,
+            "linear_joint_holm_p": 6.144763220371402e-18
+          },
+          "target_omission": {
+            "log_joint_holm_p": 9.253176169527699e-09,
+            "linear_joint_holm_p": 6.170989269113917e-18
+          }
+        },
+        "log_primary_contrast": 0.8769520587813634,
+        "linear_primary_contrast": 1.994740520640931,
+        "two_scale_same_sign_consistent": true
+      }
+    },
+    "Ery_Membrane": {
+      "two_scale_consistent": 6,
+      "above_additive": 4,
+      "below_additive": 2,
+      "pairs": [
+        "CEBPA+CEBPE",
+        "CEBPE+ZC3HAV1",
+        "CNN1+UBASH3A",
+        "DUSP9+MAPK1",
+        "DUSP9+SNAI1",
+        "PTPN12+UBASH3A"
+      ],
+      "known_CBL_CNN1": {
+        "program": "Ery_Membrane",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 0.8210497216185714
+          },
+          "target_omission": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 0.82787600105928
+          }
+        },
+        "log_primary_contrast": 0.19120466647506465,
+        "linear_primary_contrast": 0.46614079335392483,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Ery_Effector": {
+      "two_scale_consistent": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "pairs": [],
+      "known_CBL_CNN1": {
+        "program": "Ery_Effector",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          },
+          "target_omission": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          }
+        },
+        "log_primary_contrast": null,
+        "linear_primary_contrast": null,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Gran_TF": {
+      "two_scale_consistent": 6,
+      "above_additive": 1,
+      "below_additive": 5,
+      "pairs": [
+        "CEBPB+MAPK1",
+        "CEBPB+PTPN12",
+        "DUSP9+MAPK1",
+        "FOSB+OSR2",
+        "FOSB+PTPN12",
+        "OSR2+PTPN12"
+      ],
+      "known_CBL_CNN1": {
+        "program": "Gran_TF",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          },
+          "target_omission": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          }
+        },
+        "log_primary_contrast": -0.0001544924617985534,
+        "linear_primary_contrast": 0.018772521191840093,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Gran_Primary": {
+      "two_scale_consistent": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "pairs": [],
+      "known_CBL_CNN1": {
+        "program": "Gran_Primary",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          },
+          "target_omission": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          }
+        },
+        "log_primary_contrast": null,
+        "linear_primary_contrast": null,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Gran_Secondary": {
+      "two_scale_consistent": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "pairs": [],
+      "known_CBL_CNN1": {
+        "program": "Gran_Secondary",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          },
+          "target_omission": {
+            "log_joint_holm_p": 1.0,
+            "linear_joint_holm_p": 1.0
+          }
+        },
+        "log_primary_contrast": null,
+        "linear_primary_contrast": null,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Progenitor": {
+      "two_scale_consistent": 4,
+      "above_additive": 4,
+      "below_additive": 0,
+      "pairs": [
+        "CEBPE+ETS2",
+        "CEBPE+KLF1",
+        "CEBPE+RUNX1T1",
+        "DUSP9+MAPK1"
+      ],
+      "known_CBL_CNN1": {
+        "program": "Progenitor",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 0.007139647439615445,
+            "linear_joint_holm_p": 0.144595847843082
+          },
+          "target_omission": {
+            "log_joint_holm_p": 0.007183934131753069,
+            "linear_joint_holm_p": 0.14577248674958085
+          }
+        },
+        "log_primary_contrast": -0.3955484841332977,
+        "linear_primary_contrast": -0.3340183456766117,
+        "two_scale_same_sign_consistent": false
+      }
+    },
+    "Cycling": {
+      "two_scale_consistent": 6,
+      "above_additive": 5,
+      "below_additive": 1,
+      "pairs": [
+        "CEBPA+CEBPE",
+        "CEBPE+KLF1",
+        "CEBPE+SET",
+        "CEBPE+ZC3HAV1",
+        "DUSP9+SNAI1",
+        "MAP2K6+SPI1"
+      ],
+      "known_CBL_CNN1": {
+        "program": "Cycling",
+        "pair": "CBL+CNN1",
+        "joint": {
+          "primary": {
+            "log_joint_holm_p": 0.40258880794832375,
+            "linear_joint_holm_p": 1.0
+          },
+          "target_omission": {
+            "log_joint_holm_p": 0.40590229607958567,
+            "linear_joint_holm_p": 1.0
+          }
+        },
+        "log_primary_contrast": -0.36324867657398907,
+        "linear_primary_contrast": -0.26858009358934715,
+        "two_scale_same_sign_consistent": false
+      }
+    }
+  }
+}

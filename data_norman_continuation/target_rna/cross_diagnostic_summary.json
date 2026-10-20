@@ -1,0 +1,15 @@
+{
+  "analysis": "posthoc_pairing_of_previously_archived_diagnostics",
+  "n_rows": 105,
+  "effect_direction_discordant": 20,
+  "discordant_with_direct_target_RNA_increase": 19,
+  "discordant_with_direct_or_alternative_RNA_increase": 19,
+  "uncalled_discordant_labels": [
+    "C3orf72"
+  ],
+  "scope": "Descriptive post hoc cross-tabulation of fixed published comparisons; all105 rows retained. No new significance test, exclusion, protein activity or independent validation.",
+  "source_sha256": {
+    "data_norman_continuation/target_rna/results.json": "04f61d29fa5ce3f673d2afdd13d241800438fee98ddc00310c43bf47bc099e81",
+    "data_norman_continuation/phase_diagnostic/comparisons.csv": "1f7a403212cb27ab6251482c8940bd03b16fa11408762e20600cae76cf772bb3"
+  }
+}

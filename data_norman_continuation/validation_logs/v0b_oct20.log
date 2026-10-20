@@ -1,0 +1,66 @@
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_assignment_recovers_engineered_modules
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_supported_when_ery_distributed_gran_unified
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_not_supported_when_ery_unified
+
+Marker coverage (present / requested):
+  Ery_TF          8/ 8  OK
+  Ery_Heme        7/ 7  OK
+  Ery_Membrane    7/ 7  OK
+  Ery_Effector    0/ 2  DROPPED (low coverage)
+     missing from HVG set: ['Hba-a2', 'Hbb-b1']
+  Gran_TF         3/ 3  OK
+  Gran_Primary    4/ 4  OK
+  Gran_Secondary  0/ 8  DROPPED (low coverage)
+     missing from HVG set: ['Ltf', 'Lcn2', 'Camp', 'Ngp', 'S100a8', 'S100a9', 'Mmp8', 'Mmp9']
+  Progenitor      4/ 4  OK
+  Cycling        16/16  OK
+
+WARNING: lineage submodules dropped for low HVG coverage: ['Ery_Effector', 'Gran_Secondary']. This changes the submodule counts used in the asymmetry metric and must be reported.
+PASS test_metrics_bounds
+
+ALL V0b LOGIC TESTS PASSED

@@ -1,0 +1,1842 @@
+[
+  {
+    "query": "CBL AND (erythroid OR erythropoiesis OR K562)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=CBL+AND+%28erythroid+OR+erythropoiesis+OR+K562%29&format=json&resultType=core&pageSize=30",
+    "source_sha256": "c4d4dacd49a1bf41e516ed065b9d1b43c5d2abfca19d674dcb903250aa5492b7",
+    "retrieved_utc": "2026-10-19T01:55:30Z",
+    "hit_count": 2081,
+    "returned_metadata": [
+      {
+        "id": "42647298",
+        "source": "MED",
+        "pmcid": "PMC13511014",
+        "title": "Subacute-Onset Anemia Following COVID-19 Vaccine Combination with ChAdOx (AstraZeneca) and BNT162b2 (BioNTech, Pfizer)-A Case Report.",
+        "authorString": "Salveridou K, Tzamalis T, Haase S, Giagounidis A.",
+        "doi": "10.3390/reports9030254",
+        "firstPublicationDate": "2026-08-04",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42591473",
+        "source": "MED",
+        "pmcid": "PMC13462225",
+        "title": "Diagnosis and treatment of vitamin B12 deficiency in children.",
+        "authorString": "Kanvinde P, Khurana R, Mudaliar S.",
+        "doi": "10.3389/fnut.2026.1883501",
+        "firstPublicationDate": "2026-07-29",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40772034",
+        "source": "MED",
+        "pmcid": "PMC12327088",
+        "title": "Case Report: Myelodysplastic/myeloproliferative neoplasm with concurrent SF3B1, ASXL1, JAK2 and CBL mutations and &lt;15% bone marrow ringed sideroblasts.",
+        "authorString": "Wang Y, Jin S.",
+        "doi": "10.3389/fonc.2025.1622820",
+        "firstPublicationDate": "2025-07-23",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41748789",
+        "source": "MED",
+        "pmcid": "PMC13046760",
+        "title": "FBXO22 targets ubiquitination and degradation of c-Cbl in leukemia.",
+        "authorString": "Li J, Ma L, Wang J, Xu W, Cheng Y, Zhang J, Cao H, Wang Y, Wang Z, Xu H, Li Y, Zhang Y.",
+        "doi": "10.1038/s41598-026-41123-z",
+        "firstPublicationDate": "2026-02-26",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41526614",
+        "source": "MED",
+        "pmcid": "PMC12875879",
+        "title": "Modulation of the clonal burden in patients with lower-risk myelodysplastic neoplasms treated with imetelstat.",
+        "authorString": "Santini V, Zeidan AM, Van Eygen K, Fenaux P, Germing U, Madanat YF, Raza A, Savona MR, Sekeres MA, Th\u00e9pot S, Raddi MG, Boyer T, Sun L, Wan Y, Berry T, Xia Q, Huang F, Dougherty S, Navada S, Feller F, Komrokji RS, Platzbecker U.",
+        "doi": "10.1038/s41375-025-02831-z",
+        "firstPublicationDate": "2026-01-12",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42450067",
+        "source": "MED",
+        "pmcid": "PMC13360811",
+        "title": "The Mutational Landscape of Acute Myeloid Leukemia and Its Impact.",
+        "authorString": "Ratnayake T, Liongue C, Ward AC.",
+        "doi": "10.3390/ijms27135797",
+        "firstPublicationDate": "2026-06-26",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41300977",
+        "source": "MED",
+        "pmcid": "PMC12651532",
+        "title": "Molecular Insights and Therapeutic Advances in Low-Risk Myelodysplastic Neoplasms: A Clinical Review.",
+        "authorString": "Dhillon V, Maciejewski J, Balasubramanian SK.",
+        "doi": "10.3390/cancers17223610",
+        "firstPublicationDate": "2025-11-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39804099",
+        "source": "MED",
+        "pmcid": "PMC11726652",
+        "title": "Loss of FTH1 Induces Ferritinophagy-Mediated Ferroptosis in Anaemia of Myelodysplastic Syndromes.",
+        "authorString": "Yang L, Zhang M, Liu M, Yu Y, Zhang Y, Yang J, Xing L, Shao Z, Wang H.",
+        "doi": "10.1111/jcmm.70350",
+        "firstPublicationDate": "2025-01-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41665690",
+        "source": "MED",
+        "pmcid": "PMC12891010",
+        "title": "The Role and Impact of Non-driver Gene Mutations in Myelofibrosis.",
+        "authorString": "Boldrini V, Guglielmelli P, Vannucchi AM.",
+        "doi": "10.1007/s11899-026-00773-6",
+        "firstPublicationDate": "2026-02-10",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41378161",
+        "source": "MED",
+        "pmcid": "PMC12687300",
+        "title": "Atypical chronic myeloid leukemia: From diagnosis to molecular features and therapeutic options.",
+        "authorString": "Iurlo A, Cattaneo D, Gianelli U, Passamonti F.",
+        "doi": "10.1002/hem3.70270",
+        "firstPublicationDate": "2025-12-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41212396",
+        "source": "MED",
+        "pmcid": "PMC13313426",
+        "title": "The molecular management of classic myeloproliferative neoplasm.",
+        "authorString": "Soro CGS, Benchikh S, Hamouchi AE, Morjane I, Saile R, Lebrazi H, Nassereddine S.",
+        "doi": "10.1186/s43046-025-00325-8",
+        "firstPublicationDate": "2025-11-10",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41514688",
+        "source": "MED",
+        "pmcid": "PMC12784756",
+        "title": "Correction: Dhillon et al. Molecular Insights and Therapeutic Advances in Low-Risk Myelodysplastic Neoplasms: A Clinical Review. &lt;i&gt;Cancers&lt;/i&gt; 2025, &lt;i&gt;17&lt;/i&gt;, 3610.",
+        "authorString": "Dhillon V, Maciejewski J, Balasubramanian SK.",
+        "doi": "10.3390/cancers18010172",
+        "firstPublicationDate": "2026-01-04",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41785503",
+        "source": "MED",
+        "pmcid": "PMC13040416",
+        "title": "Evaluating Transcriptomic Biomarkers for rHuEPO Detection: Assessing the Impact of Exercise and Altitude Exposure.",
+        "authorString": "Obratov D, Sutehall S, Liu L, Zhongying Z, Pitsiladis Y.",
+        "doi": "10.1002/dta.70040",
+        "firstPublicationDate": "2026-03-05",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42797357",
+        "source": "MED",
+        "pmcid": "PMC13610490",
+        "title": "Advanced Ophthalmic Drug Delivery in Homocystinuria Type CblC: A Translational Review of Ophthalmic Pathologies and Therapeutic Opportunities.",
+        "authorString": "Cuello-Rodr\u00edguez S, Sanna M, Lecoeuche I, Sarmento B, Otero-Espinar FJ, D\u00edaz-Tom\u00e9 V.",
+        "doi": "10.3390/pharmaceutics18091182",
+        "firstPublicationDate": "2026-09-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42130187",
+        "source": "MED",
+        "pmcid": "PMC13267148",
+        "title": "Calreticulin Type 26 Mutation in Myelofibrosis: A Rare Variant With Diagnostic Challenges.",
+        "authorString": "Maltese T, Raffa G, Stagno F, Leanza R, Barone P, Allegra A, Pollicino T.",
+        "doi": "10.1002/jcla.70201",
+        "firstPublicationDate": "2026-05-13",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41717078",
+        "source": "MED",
+        "pmcid": "PMC12914295",
+        "title": "Protective effects of 3-(4-hydroxy-3-methoxyphenyl) propionic acid against dexamethasone-induced muscle atrophy: modulation of associated genes and oxidative stress in female mice.",
+        "authorString": "Ulla A, Ogura H, Rahman MM, Nakamura S, Ichiba Y, Tsuda H, Uchida T, Kayaki H, Nishitani Y, Yoshino S, Kuwahara H, Matsui T, Nikawa T.",
+        "doi": "10.1016/j.bbrep.2026.102483",
+        "firstPublicationDate": "2026-02-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41549790",
+        "source": "MED",
+        "pmcid": "PMC12868996",
+        "title": "Impact of Mutational Landscape and Burden on RBC Transfusion Response in Patients With Lower-Risk Myelodysplastic Syndromes (LR-MDS) in the COMMANDS Study.",
+        "authorString": "Komrokji RS, Hayati S, Ugidos M, Garcia-Manero G, Della Porta MG, Zeidan AM, Santini V, Platzbecker U, Gandhi AK, Suragani RNVS.",
+        "doi": "10.1002/ajh.70171",
+        "firstPublicationDate": "2026-01-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42218124",
+        "source": "MED",
+        "pmcid": "PMC13429735",
+        "title": "CLN7 suppression induces apoptosis via mTOR-regulated and chaperone-mediated autophagy in myeloid leukemia cells.",
+        "authorString": "Wu M, Li H, Li S, Xu Q, Liao Y, Qu L, Cang C, Wang X.",
+        "doi": "10.1038/s41419-026-08936-2",
+        "firstPublicationDate": "2026-05-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42193013",
+        "source": "MED",
+        "pmcid": "PMC13319944",
+        "title": "Molecular Advances in Juvenile Myelomonocytic Leukemia and Associated RASopathy.",
+        "authorString": "Monika F, Abu Mehsen S, Zhang L.",
+        "doi": "10.3390/cancers18101655",
+        "firstPublicationDate": "2026-05-20",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42488682",
+        "source": "MED",
+        "pmcid": "PMC13388049",
+        "title": "Balancing inflammatory signaling in hematopoiesis: roles of MIRC11 and miR-146a.",
+        "authorString": "Boucher AC, Payne TJ, Pulakanti K, Rao S, Dahl R.",
+        "doi": "10.3389/fimmu.2026.1828453",
+        "firstPublicationDate": "2026-07-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40481232",
+        "source": "MED",
+        "pmcid": "PMC12402439",
+        "title": "Biallelic SH2B3 germline variants are associated with a neonatal myeloproliferative disease and multisystemic involvement.",
+        "authorString": "Leardini D, Flex E, Stieglitz E, Cerasi S, Bertuccio SN, Baccelli F, K\u00e1llay K, Kjollerstrom P, Batalha S, Carpentieri G, Pedace L, Ciolfi A, Hammad M, Miranda M, Rojas M, Rao A, Innes AJ, Rudelius M, Santini V, Raddi M, Teh KH, De Vito R, Yoshimi A, Tartaglia M, Locatelli F, Niemeyer CM, Masetti R.",
+        "doi": "10.1038/s41431-025-01877-y",
+        "firstPublicationDate": "2025-06-06",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41332324",
+        "source": "MED",
+        "pmcid": "PMC12866797",
+        "title": "Targeting DESI2 as a Novel Therapeutic Strategy for JAK2-Mutant Leukemias.",
+        "authorString": "Mei H, Wen W, Zhang W, Zhang S, Sun T, Li G, Zhang J, Qi S, Zhou J, Li B, Zhao Y, Chen X, Li B, Xue Y, Lu W, Sun Y, Wang J, Shan H, Zhang S, Huang Y, Chen Y, Wang W, Liu Q, Lu W, Tan L, Ding Y, Fu J, Long J, Zhang L, Zhao B, Liang A, Jiang B, Yang J.",
+        "doi": "10.1002/advs.202515127",
+        "firstPublicationDate": "2025-12-03",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41884348",
+        "source": "MED",
+        "pmcid": "PMC13008643",
+        "title": "E3 ubiquitin ligases: structural diversity, dysregulation in disease, and their emerging role in targeted therapeutic strategies.",
+        "authorString": "Sriram S, Krishnakumar P, Sudandiradoss C.",
+        "doi": "10.3389/fmolb.2026.1745654",
+        "firstPublicationDate": "2026-03-10",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42739926",
+        "source": "MED",
+        "pmcid": "PMC13566509",
+        "title": "A Tarui Disease Phenotype with Compensated Hemolysis and a Homozygous &lt;i&gt;PFKM&lt;/i&gt; Variant of Uncertain Significance Mimicking Chronic Myelomonocytic Leukemia.",
+        "authorString": "Neculcea AC, Aanicai R, Massoto B, Nistor RI, Fierbin\u021beanu-Braticevici C, Mambet C, Mititelu A, Neagu AM, Paraschiv C, Popescu M, Severin E, Vl\u0103d\u0103reanu AM.",
+        "doi": "10.3390/jcm15176924",
+        "firstPublicationDate": "2026-09-07",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42220537",
+        "source": "MED",
+        "pmcid": "PMC13216497",
+        "title": "Connective tissue diseases combined with chronic myelomonocytic leukemia and myelofibrosis: a case report and literature review.",
+        "authorString": "Yin HQ, Jin S, Fu Y, Zhu HL, Li XF.",
+        "doi": "10.3389/fimmu.2026.1685536",
+        "firstPublicationDate": "2026-05-14",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41848209",
+        "source": "MED",
+        "pmcid": "PMC13357639",
+        "title": "AML, Myelodysplasia-Related With B/Myeloid MPAL Immunophenotype, Normal Karyotype, and SRSF2/ASXL1/FLT3 Co-Mutations.",
+        "authorString": "Xu Z, Hudoba M.",
+        "doi": "10.1111/ijlh.70092",
+        "firstPublicationDate": "2026-03-18",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "41107564",
+        "source": "MED",
+        "pmcid": "PMC12534240",
+        "title": "Practical diagnostic approach to assess myeloid and precursor cell neoplasms on trephine bone marrow biopsies: reflection of middle European reality.",
+        "authorString": "Menter T, Tzankov A.",
+        "doi": "10.1007/s12308-025-00663-5",
+        "firstPublicationDate": "2025-10-17",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41299171",
+        "source": "MED",
+        "pmcid": "PMC12823440",
+        "title": "Inhibitors supercharge kinase turnover through native proteolytic circuits.",
+        "authorString": "Scholes NS, Bertoni M, Comajuncosa-Creus A, Kladnik K, Guo X, Frommelt F, Hinterndorfer M, Razumkov H, Prokofeva P, Schwalm MP, Born F, Roehm S, Imrichova H, Santini BL, Barone E, Sch\u00e4tz C, Mu\u00f1oz I Ordo\u00f1o M, Lechner S, Rukavina A, Serrano I, Abele M, Koren A, Kubicek S, Knapp S, Gray NS, Superti-Furga G, Kuster B, Shi Y, Aloy P, Winter GE.",
+        "doi": "10.1038/s41586-025-09763-9",
+        "firstPublicationDate": "2025-11-26",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40188457",
+        "source": "MED",
+        "pmcid": "PMC12209948",
+        "title": "Distinct routes of clonal progression in SF3B1-mutant myelodysplastic syndromes.",
+        "authorString": "Sarchi M, Clough CA, Gall\u00ec A, Picone C, Ferrari B, Crosse EI, Baquero Galvis LD, Fiducioso C, Aydinyan N, Creamer JP, Pozzi S, Molteni E, Elena C, Bradley RK, Malcovati L, Doulatov S.",
+        "doi": "10.1182/bloodadvances.2024014965",
+        "firstPublicationDate": "2025-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42086539",
+        "source": "MED",
+        "pmcid": "PMC13287773",
+        "title": "Inhibition of Pellino-1 reverts the progression and tyrosine kinase inhibitor resistance in chronic myeloid leukemia.",
+        "authorString": "Zhou Q, Xu G, Li Z, Xu Y, Guan J, Li Z, Li M, Zu T, Li Y, Lu C, Ji C, Zhao B.",
+        "doi": "10.1038/s41419-026-08799-7",
+        "firstPublicationDate": "2026-05-05",
+        "isOpenAccess": "Y"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  },
+  {
+    "query": "EXT_ID:31395745 AND SRC:MED",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A31395745+AND+SRC%3AMED&format=json&resultType=core&pageSize=30",
+    "source_sha256": "1e0e80336fde3ee5ca1b96bfc8011abd3492f76ece35d9e3f88dbe1cc33ba732",
+    "retrieved_utc": "2026-10-19T01:55:34Z",
+    "hit_count": 1,
+    "returned_metadata": [
+      {
+        "id": "31395745",
+        "source": "MED",
+        "pmcid": "PMC6746554",
+        "title": "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes.",
+        "authorString": "Norman TM, Horlbeck MA, Replogle JM, Ge AY, Xu A, Jost M, Gilbert LA, Weissman JS.",
+        "doi": "10.1126/science.aax4438",
+        "firstPublicationDate": "2019-08-08",
+        "isOpenAccess": "N"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  },
+  {
+    "query": "(PTPN12 OR \"PTP-PEST\") AND (erythroid OR erythropoiesis OR K562)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28PTPN12+OR+%22PTP-PEST%22%29+AND+%28erythroid+OR+erythropoiesis+OR+K562%29&format=json&resultType=core&pageSize=30",
+    "source_sha256": "5b2d0d2fc10c3e47d9c950cad02dedbec1a52931bd7b921c04ecd13b96ec604e",
+    "retrieved_utc": "2026-10-19T01:55:31Z",
+    "hit_count": 91,
+    "returned_metadata": [
+      {
+        "id": "41131335",
+        "source": "MED",
+        "pmcid": "PMC12586646",
+        "title": "Redox regulation by sulfiredoxin-1: bridging cysteine oxidation and liver disease therapeutics.",
+        "authorString": "Kim JW, Ke M, Whitfield D, Yang B, Roh GS, Xie W.",
+        "doi": "10.1038/s12276-025-01563-5",
+        "firstPublicationDate": "2025-10-23",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42104016",
+        "source": "MED",
+        "pmcid": "PMC13234436",
+        "title": "Machine learning-based integration of transcriptome and digital pathology for predicting chemoresistance in muscle-invasive bladder cancer.",
+        "authorString": "Jeong J, Jeong G, Kim Y, Ju H, Im HJ, Kim HJ, Park JM, Jeong SU, Lee S, Jang MG, Nam YJ, Kwon H, Ha SW, Lee S, Lee D, Park E, Kim SJ, Park I, Lee JL, Hong B, Cho YM, Shin DM.",
+        "doi": "10.1038/s12276-026-01718-y",
+        "firstPublicationDate": "2026-05-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38992675",
+        "source": "MED",
+        "pmcid": "PMC11238376",
+        "title": "ESRP1-mediated biogenesis of circPTPN12 inhibits hepatocellular carcinoma progression by PDLIM2/ NF-\u03baB pathway.",
+        "authorString": "Ji Y, Ni C, Shen Y, Xu Z, Tang L, Yu F, Zhu L, Lu H, Zhang C, Yang S, Wang X.",
+        "doi": "10.1186/s12943-024-02056-1",
+        "firstPublicationDate": "2024-07-11",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37397251",
+        "source": "MED",
+        "pmcid": "PMC10312003",
+        "title": "Regulation, targets and functions of CSK.",
+        "authorString": "Zhu S, Wang H, Ranjan K, Zhang D.",
+        "doi": "10.3389/fcell.2023.1206539",
+        "firstPublicationDate": "2023-06-16",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41184550",
+        "source": "MED",
+        "pmcid": "PMC12872408",
+        "title": "Squidiff: predicting cellular development and responses to perturbations using a diffusion model.",
+        "authorString": "He S, Zhu Y, Tavakol DN, Ye H, Lao YH, Zhu Z, Xu C, Chauhan S, Garty G, Tomer R, Vunjak-Novakovic G, Zou J, Azizi E, Leong KW.",
+        "doi": "10.1038/s41592-025-02877-y",
+        "firstPublicationDate": "2025-11-03",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "37592036",
+        "source": "MED",
+        "pmcid": "PMC11180609",
+        "title": "Predicting transcriptional outcomes of novel multigene perturbations with GEARS.",
+        "authorString": "Roohani Y, Huang K, Leskovec J.",
+        "doi": "10.1038/s41587-023-01905-6",
+        "firstPublicationDate": "2023-08-17",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PMC13665413",
+        "source": "PMC",
+        "pmcid": "PMC13665413",
+        "title": "Beyond Integrin Activation: Kindlin-3 as an Organiser of Immune Receptor Signalling",
+        "authorString": null,
+        "doi": null,
+        "firstPublicationDate": "2026-09-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "31395745",
+        "source": "MED",
+        "pmcid": "PMC6746554",
+        "title": "Exploring genetic interaction manifolds constructed from rich single-cell phenotypes.",
+        "authorString": "Norman TM, Horlbeck MA, Replogle JM, Ge AY, Xu A, Jost M, Gilbert LA, Weissman JS.",
+        "doi": "10.1126/science.aax4438",
+        "firstPublicationDate": "2019-08-08",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "40484893",
+        "source": "MED",
+        "pmcid": "PMC12316717",
+        "title": "Pregnancy-associated thyroid disorders: the role of genetic, epigenetic, and oxidative stress factors.",
+        "authorString": "Buczy\u0144ska A, Sidorkiewicz I, Hryniewicka J, Zbucka-Kr\u0119towska M, Dzi\u0119cio\u0142 J, Szelachowska M, Kr\u0119towski AJ.",
+        "doi": "10.1007/s11154-025-09974-5",
+        "firstPublicationDate": "2025-06-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "34723439",
+        "source": "MED",
+        "pmcid": "PMC8693048",
+        "title": "ScaffComb: A Phenotype-Based Framework for Drug Combination Virtual Screening in Large-Scale Chemical Datasets.",
+        "authorString": "Ye Z, Chen F, Zeng J, Gao J, Zhang MQ.",
+        "doi": "10.1002/advs.202102092",
+        "firstPublicationDate": "2021-11-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42311680",
+        "source": "MED",
+        "pmcid": "PMC13269363",
+        "title": "Depression and breast cancer: research progress and prospects from an interdisciplinary perspective.",
+        "authorString": "He K, Tang H, Mai C, Li Y, Yu D.",
+        "doi": "10.3389/fimmu.2026.1760846",
+        "firstPublicationDate": "2026-06-02",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "36422902",
+        "source": "MED",
+        "pmcid": "PMC9693004",
+        "title": "Hematotoxic Effect of Respiratory Exposure to PHMG-p and Its Integrated Genetic Analysis.",
+        "authorString": "Sung HJ, Jeong SH, Kang JY, Kim C, Nam YJ, Kim JY, Choi JY, Lee HJ, Lee YS, Kim EY, Baek YW, Lee H, Lee JH.",
+        "doi": "10.3390/toxics10110694",
+        "firstPublicationDate": "2022-11-16",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "36578781",
+        "source": "MED",
+        "pmcid": "PMC9792154",
+        "title": "Apoptosis regulation by the tyrosine-protein kinase CSK.",
+        "authorString": "Fortner A, Chera A, Tanca A, Bucur O.",
+        "doi": "10.3389/fcell.2022.1078180",
+        "firstPublicationDate": "2022-12-12",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39061847",
+        "source": "MED",
+        "pmcid": "PMC11274344",
+        "title": "The Cancer Antioxidant Regulation System in Therapeutic Resistance.",
+        "authorString": "Gu X, Mu C, Zheng R, Zhang Z, Zhang Q, Liang T.",
+        "doi": "10.3390/antiox13070778",
+        "firstPublicationDate": "2024-06-27",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "29558404",
+        "source": "MED",
+        "pmcid": "PMC5876657",
+        "title": "The Roles of Protein Tyrosine Phosphatases in Hepatocellular Carcinoma.",
+        "authorString": "Huang Y, Zhang Y, Ge L, Lin Y, Kwok HF.",
+        "doi": "10.3390/cancers10030082",
+        "firstPublicationDate": "2018-03-20",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42075806",
+        "source": "MED",
+        "pmcid": "PMC13118490",
+        "title": "Bioactive Natural Compounds in Triple-Negative Breast Cancer: Molecular Targets and Therapeutic Perspectives.",
+        "authorString": "Jim\u00e9nez-Flores E, Reytor-Gonz\u00e1lez C, Jima Gavilanes D, Carrillo C, Horowitz R, Carrera JCC, Bigoni-Ord\u00f3\u00f1ez GD, Simancas-Racines D.",
+        "doi": "10.3390/ph19040550",
+        "firstPublicationDate": "2026-03-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "32027948",
+        "source": "MED",
+        "pmcid": "PMC7137739",
+        "title": "Phospho-PTM proteomic discovery of novel EPO- modulated kinases and phosphatases, including PTPN18 as a positive regulator of EPOR/JAK2 Signaling.",
+        "authorString": "Held MA, Greenfest-Allen E, Su S, Stoeckert CJ, Stokes MP, Wojchowski DM.",
+        "doi": "10.1016/j.cellsig.2020.109554",
+        "firstPublicationDate": "2020-02-03",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "40414839",
+        "source": "MED",
+        "pmcid": "PMC12105148",
+        "title": "The dual role of autophagy in cancer stem cells: implications for tumor progression and therapy resistance.",
+        "authorString": "Jia H, Wei J, Zheng W, Li Z.",
+        "doi": "10.1186/s12967-025-06595-z",
+        "firstPublicationDate": "2025-05-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "34925466",
+        "source": "MED",
+        "pmcid": "PMC8673831",
+        "title": "SNPs in miRNAs and Target Sequences: Role in Cancer and Diabetes.",
+        "authorString": "Chhichholiya Y, Suryan AK, Suman P, Munshi A, Singh S.",
+        "doi": "10.3389/fgene.2021.793523",
+        "firstPublicationDate": "2021-12-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40948748",
+        "source": "MED",
+        "pmcid": "PMC12426051",
+        "title": "Skin immune microenvironment in psoriasis: from bench to bedside.",
+        "authorString": "Yao Y, Chen LQ, Lv YB, Tang SL, Shen W, Sun H, Zhong HJ.",
+        "doi": "10.3389/fimmu.2025.1643418",
+        "firstPublicationDate": "2025-08-29",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "30804683",
+        "source": "MED",
+        "pmcid": "PMC6371942",
+        "title": "PTPN9 induces cell apoptosis by mitigating the activation of Stat3 and acts as a tumor suppressor in colorectal cancer.",
+        "authorString": "Wang D, Cheng Z, Zhao M, Jiao C, Meng Q, Pan H, Xie Y, Li L, Zhu Y, Wang W, Qu C, Liang D.",
+        "doi": "10.2147/cmar.s187001",
+        "firstPublicationDate": "2019-02-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "30521565",
+        "source": "MED",
+        "pmcid": "PMC6283526",
+        "title": "An efficient proteome-wide strategy for discovery and characterization of cellular nucleotide-protein interactions.",
+        "authorString": "Lim YT, Prabhu N, Dai L, Go KD, Chen D, Sreekumar L, Egeblad L, Eriksson S, Chen L, Veerappan S, Teo HL, Tan CSH, Lengqvist J, Larsson A, Sobota RM, Nordlund P.",
+        "doi": "10.1371/journal.pone.0208273",
+        "firstPublicationDate": "2018-12-06",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "31085323",
+        "source": "MED",
+        "pmcid": "PMC6974395",
+        "title": "Fumarate hydratase in cancer: A multifaceted tumour suppressor.",
+        "authorString": "Schmidt C, Sciacovelli M, Frezza C.",
+        "doi": "10.1016/j.semcdb.2019.05.002",
+        "firstPublicationDate": "2019-05-22",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "23345605",
+        "source": "MED",
+        "pmcid": "PMC3606285",
+        "title": "Acquisition of the metastatic phenotype is accompanied by H2O2-dependent activation of the p130Cas signaling complex.",
+        "authorString": "Hempel N, Bartling TR, Mian B, Melendez JA.",
+        "doi": "10.1158/1541-7786.mcr-12-0478",
+        "firstPublicationDate": "2013-01-23",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "33572742",
+        "source": "MED",
+        "pmcid": "PMC7911413",
+        "title": "Molecular Mechanisms of Epithelial to Mesenchymal Transition Regulated by ERK5 Signaling.",
+        "authorString": "Bhatt AB, Patel S, Matossian MD, Ucar DA, Miele L, Burow ME, Flaherty PT, Cavanaugh JE.",
+        "doi": "10.3390/biom11020183",
+        "firstPublicationDate": "2021-01-29",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PPR400222",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Screening key genes and signaling pathways in COVID-19 infection and its associated complications by integrated bioinformatics analysis",
+        "authorString": "Vastrad B, Vastrad C.",
+        "doi": "10.1101/2021.09.24.461631",
+        "firstPublicationDate": "2021-09-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "12370829",
+        "source": "MED",
+        "pmcid": null,
+        "title": "The transmembrane receptor protein tyrosine phosphatase DEP1 interacts with p120(ctn).",
+        "authorString": "Holsinger LJ, Ward K, Duffield B, Zachwieja J, Jallal B.",
+        "doi": "10.1038/sj.onc.1205858",
+        "firstPublicationDate": "2002-10-01",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "25004448",
+        "source": "MED",
+        "pmcid": "PMC4116502",
+        "title": "DNA damage modulates interactions between microRNAs and the 26S proteasome.",
+        "authorString": "Tsimokha AS, Kulichkova VA, Karpova EV, Zaykova JJ, Aksenov ND, Vasilishina AA, Kropotov AV, Antonov A, Barlev NA.",
+        "doi": "10.18632/oncotarget.1957",
+        "firstPublicationDate": "2014-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38916585",
+        "source": "MED",
+        "pmcid": "PMC11220744",
+        "title": "Circadian Control of the Response of Macrophages to Plasmodium Spp.-Infected Red Blood Cells.",
+        "authorString": "Carvalho Cabral P, Richard VR, Borchers CH, Olivier M, Cermakian N.",
+        "doi": "10.4049/immunohorizons.2400021",
+        "firstPublicationDate": "2024-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "29158353",
+        "source": "MED",
+        "pmcid": "PMC5730494",
+        "title": "Blood Pressure Control by a Secreted FGFBP1 (Fibroblast Growth Factor-Binding Protein).",
+        "authorString": "Tassi E, Lai EY, Li L, Solis G, Chen Y, Kietzman WE, Ray PE, Riegel AT, Welch WJ, Wilcox CS, Wellstein A.",
+        "doi": "10.1161/hypertensionaha.117.10268",
+        "firstPublicationDate": "2017-11-20",
+        "isOpenAccess": "N"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  },
+  {
+    "query": "PTPN12 AND (hematopoietic OR haematopoietic OR differentiation)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=PTPN12+AND+%28hematopoietic+OR+haematopoietic+OR+differentiation%29&format=json&resultType=core&pageSize=30",
+    "source_sha256": "f8a836a8e89d5922ab04c061563a208e29007faadfe1c7f8540cdc885edc5d41",
+    "retrieved_utc": "2026-10-19T01:55:36Z",
+    "hit_count": 713,
+    "returned_metadata": [
+      {
+        "id": "42232745",
+        "source": "MED",
+        "pmcid": "PMC13224031",
+        "title": "Curcuma-derived nanovesicle-loaded ROS-responsive hydrogels reprogram iron metabolism to enhance cartilage regeneration after microfracture.",
+        "authorString": "Mu Y, Li H, Zhang R, Li R, Ma K, Li F, Yang Y, Ren Y, Guo Z, Gao T, Wang C, Miao J, Yan Q, Guan J, Liu S, Guo Q.",
+        "doi": "10.1016/j.bioactmat.2026.05.026",
+        "firstPublicationDate": "2026-05-22",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41555448",
+        "source": "MED",
+        "pmcid": "PMC12895977",
+        "title": "miR-194-5p-mediated suppression of protein tyrosine phosphatase non-receptor type 12 (PTPN12) expression in the thymus enhances immunologic functional restoration in aged mice.",
+        "authorString": "Ai LY, Zhu MQ, Xu WM, Zou Y, Huang H, Chen K, Shuai X, Hu QH, Guo ZB.",
+        "doi": "10.1186/s40001-026-03865-4",
+        "firstPublicationDate": "2026-01-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42129167",
+        "source": "MED",
+        "pmcid": "PMC13376512",
+        "title": "ABL kinases regulate FGF signaling independent of CRK phosphorylation to prevent Peters anomaly type II.",
+        "authorString": "Wu H, Mao Y, Wang Q, Yu H, Bouaziz M, Makrides N, Wang E, Ding Z, Koleske AJ, Radice GL, Hsu J, Zhang X.",
+        "doi": "10.1038/s41467-026-72489-3",
+        "firstPublicationDate": "2026-05-13",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42437161",
+        "source": "MED",
+        "pmcid": "PMC13355635",
+        "title": "Hippo-YAP/TAZ Signaling in Hematological Malignancies: Molecular Mechanisms, Pathway Crosstalk and Therapeutic Potential.",
+        "authorString": "Jiang W, Zhu C, Xu L, Ma N.",
+        "doi": "10.2147/cmar.s618762",
+        "firstPublicationDate": "2026-07-07",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42793256",
+        "source": "MED",
+        "pmcid": "PMC13605290",
+        "title": "Transcriptomic Reprogramming of the Human Placenta Following Maternal Opioid Exposure: Identification of Altered Metabolic and Translational Pathways.",
+        "authorString": "Ng PK, Khadka VS, Howe C, Riel J, Lee MJ, Kendal-Wright CE.",
+        "doi": "10.3390/cimb48090900",
+        "firstPublicationDate": "2026-09-03",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PMC13665413",
+        "source": "PMC",
+        "pmcid": "PMC13665413",
+        "title": "Beyond Integrin Activation: Kindlin-3 as an Organiser of Immune Receptor Signalling",
+        "authorString": null,
+        "doi": null,
+        "firstPublicationDate": "2026-09-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41898428",
+        "source": "MED",
+        "pmcid": "PMC13027109",
+        "title": "Gene Expression Profiles Associated with Molecular Subtypes and Pathological Response to Neoadjuvant Treatment in Surgical Breast Cancer.",
+        "authorString": "Baulies S, Molina-Vila MA, Tresserra F, Rodr\u00edguez I, Hurni Y, Gim\u00e9nez-Capit\u00e1n A, Cabrera S, F\u00e1bregas R.",
+        "doi": "10.3390/ijms27062564",
+        "firstPublicationDate": "2026-03-11",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41020869",
+        "source": "MED",
+        "pmcid": "PMC12468441",
+        "title": "Integration of eQTL and GEO Datasets to Identify Genes Associated with Breast Ductal Carcinoma In Situ.",
+        "authorString": "Mo CQ, Xie RW, Li WW, Zhong MJ, Li YY, Lin JY, Zhang JS, Zheng SK, Lin W, Kong LJ, Xu SW, Chen XJ.",
+        "doi": "10.3390/cimb47090747",
+        "firstPublicationDate": "2025-09-11",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41787043",
+        "source": "MED",
+        "pmcid": "PMC12996449",
+        "title": "Landscape of circular RNAs in acute myeloid leukemia and their clinical significance.",
+        "authorString": "Nguyen TH, Nguyen MH, Nguyen HN, Erkers T, \u00d6stling P, Bohlin A, \u00d6sterroos A, Jafari R, Orre LM, Lehti\u00f6 J, Lehmann S, Kallioniemi O, Pawitan Y, Vu TN.",
+        "doi": "10.1038/s41698-026-01357-6",
+        "firstPublicationDate": "2026-03-05",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41449404",
+        "source": "MED",
+        "pmcid": "PMC12805731",
+        "title": "Histone phosphorylation analysis of two main TCM syndromes of chronic fatigue syndrome.",
+        "authorString": "Xu T, Gao S, Cheng X, Man W, Wang Y, Yin Y.",
+        "doi": "10.1186/s12967-025-07579-9",
+        "firstPublicationDate": "2025-12-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41429870",
+        "source": "MED",
+        "pmcid": "PMC12748909",
+        "title": "Peptidomics analysis of serum in patients suffered from generalized anxiety disorder.",
+        "authorString": "Zhang J, Dong S, Li W, Wang X, Jing X, Zhang Y, Guo X.",
+        "doi": "10.1038/s41598-025-32707-2",
+        "firstPublicationDate": "2025-12-22",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38886396",
+        "source": "MED",
+        "pmcid": "PMC11183067",
+        "title": "C-terminally phosphorylated p27 activates self-renewal driver genes to program cancer stem cell expansion, mammary hyperplasia and cancer.",
+        "authorString": "Razavipour SF, Yoon H, Jang K, Kim M, Nawara HM, Bagheri A, Huang WC, Shin M, Zhao D, Zhou Z, Van Boven D, Briegel K, Morey L, Ince TA, Johnson M, Slingerland JM.",
+        "doi": "10.1038/s41467-024-48742-y",
+        "firstPublicationDate": "2024-06-17",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38334623",
+        "source": "MED",
+        "pmcid": "PMC10854786",
+        "title": "Targeting Protein Tyrosine Phosphatases to Improve Cancer Immunotherapies.",
+        "authorString": "Salmond RJ.",
+        "doi": "10.3390/cells13030231",
+        "firstPublicationDate": "2024-01-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42649925",
+        "source": "MED",
+        "pmcid": "PMC13510552",
+        "title": "DSG2 Expression Marks a Stromal-Immune Organizational State in Head and Neck Squamous Cell Carcinoma.",
+        "authorString": "\u00c7i\u00e7ek \u00d6T, \u00c7ak\u0131r MO, Kurt B, Y\u0131lmaz BK, Ashrafi GH, \u00d6zdo\u011fan M.",
+        "doi": "10.3390/cancers18162611",
+        "firstPublicationDate": "2026-08-13",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40593243",
+        "source": "MED",
+        "pmcid": "PMC13086691",
+        "title": "Expression of PSTPIP1 in Renal Cell Carcinoma and Its Prognostic Value.",
+        "authorString": "Chen Y, Qin X, Sun L, Zhang P, Liu Z, Zheng B, Mou Y, Li H, Wang H, Zhang D.",
+        "doi": "10.1007/s10528-025-11163-7",
+        "firstPublicationDate": "2025-07-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41378102",
+        "source": "MED",
+        "pmcid": "PMC12686635",
+        "title": "Proteomic profiling of adipose-derived mesenchymal stromal cell response to novel compounds targeting the Laminin Receptor - PEDF interaction.",
+        "authorString": "Figueiredo ML, Figueiredo Neto M, Umbaugh CS, Sobreira TJP, Elsbury CE, Mulia GE, Harris GS, Lescun TB, Sintim HO.",
+        "doi": "10.1016/j.bbrep.2025.102377",
+        "firstPublicationDate": "2025-11-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42326659",
+        "source": "MED",
+        "pmcid": "PMC13280846",
+        "title": "Deciphering O\u2011GlcNAc-Dependent Signaling Via Integrated Proteomics and Phosphoproteomics.",
+        "authorString": "Wu C, Hou C, Wang X, Peng Y, Lin Y, Byers SW, Pei H, Ma J.",
+        "doi": "10.1021/acsomega.6c02310",
+        "firstPublicationDate": "2026-06-04",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42667124",
+        "source": "MED",
+        "pmcid": "PMC13525491",
+        "title": "An Integrated Proteomics and Genomics Approach to Identify Essential Protein Kinases During Human Trophoblast Development.",
+        "authorString": "Kumar R, Dasgupta P, Ray S, Paul S.",
+        "doi": "10.1096/fj.202600627rr",
+        "firstPublicationDate": "2026-09-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40839671",
+        "source": "MED",
+        "pmcid": "PMC12370121",
+        "title": "Integrative molecular network analysis of genetic risk factors to infer biomarkers and therapeutic targets for rheumatoid arthritis.",
+        "authorString": "Alsaedi S, Mineta K, Tamura N, Gao X, Gojobori T, Ogasawara M.",
+        "doi": "10.1371/journal.pone.0329101",
+        "firstPublicationDate": "2025-08-21",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PMC13664233",
+        "source": "PMC",
+        "pmcid": "PMC13664233",
+        "title": "Protein Tyrosine Phosphatases in Cancer: From Oncogenic Drivers to Therapeutic Targets",
+        "authorString": "Perla S, Pascale J, Liu M, Kumar A, Kuppuswamy S, Alladi C, Samara V.",
+        "doi": null,
+        "firstPublicationDate": "2026-09-29",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41239272",
+        "source": "MED",
+        "pmcid": "PMC12619527",
+        "title": "Anoikis resistance and cancer.",
+        "authorString": "Frisch SM, Hu G.",
+        "doi": "10.1186/s12885-025-15178-6",
+        "firstPublicationDate": "2025-11-14",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41184550",
+        "source": "MED",
+        "pmcid": "PMC12872408",
+        "title": "Squidiff: predicting cellular development and responses to perturbations using a diffusion model.",
+        "authorString": "He S, Zhu Y, Tavakol DN, Ye H, Lao YH, Zhu Z, Xu C, Chauhan S, Garty G, Tomer R, Vunjak-Novakovic G, Zou J, Azizi E, Leong KW.",
+        "doi": "10.1038/s41592-025-02877-y",
+        "firstPublicationDate": "2025-11-03",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "38612874",
+        "source": "MED",
+        "pmcid": "PMC11012486",
+        "title": "Identification of PTPN12 Phosphatase as a Novel Negative Regulator of Hippo Pathway Effectors YAP/TAZ in Breast Cancer.",
+        "authorString": "Sarmasti Emami S, Ge A, Zhang D, Hao Y, Ling M, Rubino R, Nicol CJB, Wang W, Yang X.",
+        "doi": "10.3390/ijms25074064",
+        "firstPublicationDate": "2024-04-05",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41654987",
+        "source": "MED",
+        "pmcid": "PMC12977406",
+        "title": "PTPN2 deficiency amplifies inflammatory signalling and impairs functional maturation of human stem cell-derived islets.",
+        "authorString": "Vandenbempt V, Negueruela J, Ribeiro-Costa F, Nunes M, Traini L, Eski SE, St-Pierre-Wijckmans W, Demine S, Baeyens N, Ibrahim H, Martelotto LG, Singh SP, Cardozo AK, Bansal M, Gurzov EN.",
+        "doi": "10.1186/s13287-025-04892-4",
+        "firstPublicationDate": "2026-02-07",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42687181",
+        "source": "MED",
+        "pmcid": "PMC13536820",
+        "title": "The role of classical protein tyrosine phosphatases in diabetic kidney disease and therapeutic implications.",
+        "authorString": "LeBleu G, Haj FG.",
+        "doi": "10.1186/s12929-026-01282-7",
+        "firstPublicationDate": "2026-09-02",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37333450",
+        "source": "MED",
+        "pmcid": "PMC10276617",
+        "title": "PTPN12 down-regulated by miR-146b-3p gene affects the malignant progression of laryngeal squamous cell carcinoma.",
+        "authorString": "Lan L, Cao H, Zhao L, Cui W, Wang B.",
+        "doi": "10.1515/med-2023-0727",
+        "firstPublicationDate": "2023-06-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42677834",
+        "source": "MED",
+        "pmcid": "PMC13528934",
+        "title": "Mechanosensitive phosphorylation of NFATC4 at S213/S217 drives fibroblast-to-myofibroblast transition and fibrosis.",
+        "authorString": "Kadri S, Mattner LF, Zeng Z, Prakki SRS, Verma AK, Cetin U, Mayr CH, Ansari M, Wei X, Asgharpour S, Wasik AA, Kneidinger N, Stoleriu MG, Behr J, Polleux J, Yildirim A\u00d6, De Sadeleer LJ, Wuyts WA, Burgstaller G, Mann M, M\u00fcck-H\u00e4usl M, Schiller HB.",
+        "doi": "10.1172/jci195121",
+        "firstPublicationDate": "2026-09-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42713082",
+        "source": "MED",
+        "pmcid": "PMC13552421",
+        "title": "Gut microbiota-derived metabolites and IL-22 signaling in inflammatory bowel disease: context-dependent regulation of mucosal repair and inflammation.",
+        "authorString": "Shi P, He X, Zhao L, Pan W, Zhou M, Zhang T.",
+        "doi": "10.3389/fimmu.2026.1891172",
+        "firstPublicationDate": "2026-08-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40419795",
+        "source": "MED",
+        "pmcid": "PMC12173946",
+        "title": "Dynamic regulation of integrin \u03b21 phosphorylation supports invasion of breast cancer cells.",
+        "authorString": "Conway JRW, Joshi O, Kaivola J, Follain G, Gounis M, K\u00fchl D, Ivaska J.",
+        "doi": "10.1038/s41556-025-01663-4",
+        "firstPublicationDate": "2025-05-26",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42029489",
+        "source": "MED",
+        "pmcid": "PMC13108085",
+        "title": "Computational Phosphosite-Specific Network Analysis of YES1 Y426 Reveals Cancer-Associated Phosphorylation Patterns.",
+        "authorString": "Khanum A, Dcunha L, Subair S, Gopalakrishnan AP, Palollathil A, Raju R.",
+        "doi": "10.3390/proteomes14020017",
+        "firstPublicationDate": "2026-04-16",
+        "isOpenAccess": "Y"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  },
+  {
+    "query": "(\"sparse autoencoder\" OR \"sparse autoencoders\") AND (\"single cell\" OR \"single-cell\") AND (perturbation OR CRISPR OR Perturb-seq)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28%22sparse+autoencoder%22+OR+%22sparse+autoencoders%22%29+AND+%28%22single+cell%22+OR+%22single-cell%22%29+AND+%28perturbation+OR+CRISPR+OR+Perturb-seq%29&format=json&resultType=core&pageSize=30",
+    "source_sha256": "4f4804ae5f5774bee5d0573a315801d9bc847192975edca179c7655ca3c8e340",
+    "retrieved_utc": "2026-10-19T01:55:35Z",
+    "hit_count": 26,
+    "returned_metadata": [
+      {
+        "id": "PPR1248964",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Regulatory Logic in Larger Single-Cell Foundation Models: A Sparse Autoencoder Comparison of scFoundation and Geneformer",
+        "authorString": "James C.",
+        "doi": "10.14293/pr2199.003544.v2",
+        "firstPublicationDate": "2026-05-18",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "PPR1207258",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Regulatory Logic in Larger Single-Cell Foundation Models: A Sparse Autoencoder Comparison of scFoundation and Geneformer",
+        "authorString": "James C.",
+        "doi": "10.14293/pr2199.003544.v1",
+        "firstPublicationDate": "2026-05-10",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "42296381",
+        "source": "MED",
+        "pmcid": "PMC13354606",
+        "title": "Causal circuit tracing reveals distinct computational architectures in single-cell foundation models: inhibitory dominance, biological coherence, and cross-model convergence.",
+        "authorString": "Kendiukhov I.",
+        "doi": "10.1093/bioinformatics/btag379",
+        "firstPublicationDate": "2026-07-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PPR1169938",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Sparse autoencoders reveal organized biological knowledge but minimal regulatory logic in single-cell foundation models: a comparative atlas of Geneformer and scGPT",
+        "authorString": "Kendiukhov I.",
+        "doi": "10.21203/rs.3.rs-9082479/v1",
+        "firstPublicationDate": "2026-03-25",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "42509463",
+        "source": "MED",
+        "pmcid": "PMC13407579",
+        "title": "Inflammation-linked aging signals in frozen single-cell foundation models: donor-aware detection and robustness testing.",
+        "authorString": "Kendiukhov I.",
+        "doi": "10.1007/s10522-026-10471-8",
+        "firstPublicationDate": "2026-07-28",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41174471",
+        "source": "MED",
+        "pmcid": "PMC12577141",
+        "title": "ESAE-SDA: ensemble sparse autoencoder framework for epigenomics-informed snoRNA-disease associations prediction.",
+        "authorString": "Jiang X, Chen X, Xu L, Zhang F, Chen J, Zhang W.",
+        "doi": "10.1186/s12859-025-06290-2",
+        "firstPublicationDate": "2025-10-31",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42171013",
+        "source": "MED",
+        "pmcid": "PMC13199844",
+        "title": "Computational modelling of cell identity.",
+        "authorString": "Shim WJ, Chow CSY, Bao SC, Zhao Q, Palpant NJ.",
+        "doi": "10.1042/bcj20250132",
+        "firstPublicationDate": "2026-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41971240",
+        "source": "MED",
+        "pmcid": "PMC13067145",
+        "title": "Black-box data: a new paradigm for biomedicine in the AI era.",
+        "authorString": "Naef L, Bronstein M.",
+        "doi": "10.1039/d6sc01189f",
+        "firstPublicationDate": "2026-04-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42116198",
+        "source": "MED",
+        "pmcid": "PMC13330362",
+        "title": "Foundation models in healthcare: a comprehensive review from technical advances to clinical translation.",
+        "authorString": "Wang Z, Fang Y, Li Q.",
+        "doi": "10.1186/s12967-026-08211-0",
+        "firstPublicationDate": "2026-05-11",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41387122",
+        "source": "MED",
+        "pmcid": "PMC12850002",
+        "title": "Artificial Intelligence Revolution in Transcriptomics: From Single Cells to Spatial Atlases.",
+        "authorString": "Li S, Xiao T, Lan Y, Wu C, Li Z, Liu R, Fang Q, Zhang C.",
+        "doi": "10.1002/advs.202518949",
+        "firstPublicationDate": "2025-12-12",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42514552",
+        "source": "MED",
+        "pmcid": "PMC13416058",
+        "title": "AI-Augmented Multi-Omics for Abiotic Stress Responses: A New Frontier in Plant Hormone Systems Biology.",
+        "authorString": "Zhang Y, Cao X, Yang L, Chen J, Hwarari D.",
+        "doi": "10.3390/plants15142185",
+        "firstPublicationDate": "2026-07-16",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37076856",
+        "source": "MED",
+        "pmcid": "PMC10114348",
+        "title": "PAUSE: principled feature attribution for unsupervised gene expression analysis.",
+        "authorString": "Janizek JD, Spiro A, Celik S, Blue BW, Russell JC, Lee TI, Kaeberlin M, Lee SI.",
+        "doi": "10.1186/s13059-023-02901-4",
+        "firstPublicationDate": "2023-04-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "34639231",
+        "source": "MED",
+        "pmcid": "PMC8509321",
+        "title": "A Survey of Autoencoder Algorithms to Pave the Diagnosis of Rare Diseases.",
+        "authorString": "Pratella D, Ait-El-Mkadem Saadi S, Bannwarth S, Paquis-Fluckinger V, Bottini S.",
+        "doi": "10.3390/ijms221910891",
+        "firstPublicationDate": "2021-10-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "35507559",
+        "source": "MED",
+        "pmcid": "PMC9067647",
+        "title": "Image-based cell profiling enhancement via data cleaning methods.",
+        "authorString": "Rezvani A, Bigverdi M, Rohban MH.",
+        "doi": "10.1371/journal.pone.0267280",
+        "firstPublicationDate": "2022-05-04",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39015651",
+        "source": "MED",
+        "pmcid": "PMC11249571",
+        "title": "Review: Cancer and neurodevelopmental disorders: multi-scale reasoning and computational guide.",
+        "authorString": "Nussinov R, Yavuz BR, Demirel HC, Arici MK, Jang H, Tuncbag N.",
+        "doi": "10.3389/fcell.2024.1376639",
+        "firstPublicationDate": "2024-07-02",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "36016717",
+        "source": "MED",
+        "pmcid": "PMC9396250",
+        "title": "Using genome-wide expression compendia to study microorganisms.",
+        "authorString": "Lee AJ, Reiter T, Doing G, Oh J, Hogan DA, Greene CS.",
+        "doi": "10.1016/j.csbj.2022.08.012",
+        "firstPublicationDate": "2022-08-10",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PMC13297213",
+        "source": "PMC",
+        "pmcid": "PMC13297213",
+        "title": "Reviewing the Computational Landscape of Drug Repurposing: Evolution from Structure-Based Methods to LLM-Based Methods",
+        "authorString": null,
+        "doi": null,
+        "firstPublicationDate": "2026-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "33026062",
+        "source": "MED",
+        "pmcid": "PMC7755413",
+        "title": "Style transfer with variational autoencoders is a promising approach to RNA-Seq data harmonization and analysis.",
+        "authorString": "Russkikh N, Antonets D, Shtokalo D, Makarov A, Vyatkin Y, Zakharov A, Terentyev E.",
+        "doi": "10.1093/bioinformatics/btaa624",
+        "firstPublicationDate": "2020-12-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39911715",
+        "source": "MED",
+        "pmcid": "PMC11794229",
+        "title": "Deep learning in microbiome analysis: a comprehensive review of neural network models.",
+        "authorString": "Przymus P, Rykaczewski K, Mart\u00edn-Segura A, Truu J, Carrillo De Santa Pau E, Kolev M, Naskinova I, Gruca A, Sampri A, Frohme M, Nechyporenko A.",
+        "doi": "10.3389/fmicb.2024.1516667",
+        "firstPublicationDate": "2025-01-22",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "29363432",
+        "source": "MED",
+        "pmcid": "PMC5780851",
+        "title": "A bioinformatics potpourri.",
+        "authorString": "Sch\u00f6nbach C, Li J, Ma L, Horton P, Sjaugi MF, Ranganathan S.",
+        "doi": "10.1186/s12864-017-4326-x",
+        "firstPublicationDate": "2018-01-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38660174",
+        "source": "MED",
+        "pmcid": "PMC11042005",
+        "title": "Optimized models and deep learning methods for drug response prediction in cancer treatments: a review.",
+        "authorString": "Hajim WI, Zainudin S, Mohd Daud K, Alheeti K.",
+        "doi": "10.7717/peerj-cs.1903",
+        "firstPublicationDate": "2024-03-25",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "29618526",
+        "source": "MED",
+        "pmcid": "PMC5938574",
+        "title": "Opportunities and obstacles for deep learning in biology and medicine.",
+        "authorString": "Ching T, Himmelstein DS, Beaulieu-Jones BK, Kalinin AA, Do BT, Way GP, Ferrero E, Agapow PM, Zietz M, Hoffman MM, Xie W, Rosen GL, Lengerich BJ, Israeli J, Lanchantin J, Woloszynek S, Carpenter AE, Shrikumar A, Xu J, Cofer EM, Lavender CA, Turaga SC, Alexandari AM, Lu Z, Harris DJ, DeCaprio D, Qi Y, Kundaje A, Peng Y, Wiley LK, Segler MHS, Boca SM, Swamidass SJ, Huang A, Gitter A, Greene CS.",
+        "doi": "10.1098/rsif.2017.0387",
+        "firstPublicationDate": "2018-04-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37508326",
+        "source": "MED",
+        "pmcid": "PMC10376033",
+        "title": "Deep Learning Techniques with Genomic Data in Cancer Prognosis: A Comprehensive Review of the 2021-2023 Literature.",
+        "authorString": "Lee M.",
+        "doi": "10.3390/biology12070893",
+        "firstPublicationDate": "2023-06-21",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38034587",
+        "source": "MED",
+        "pmcid": "PMC10684705",
+        "title": "Artificial intelligence-driven systems engineering for next-generation plant-derived biopharmaceuticals.",
+        "authorString": "Parthiban S, Vijeesh T, Gayathri T, Shanmugaraj B, Sharma A, Sathishkumar R.",
+        "doi": "10.3389/fpls.2023.1252166",
+        "firstPublicationDate": "2023-11-15",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37504166",
+        "source": "MED",
+        "pmcid": "PMC10807478",
+        "title": "A Comprehensive Review of Bio-Inspired Optimization Algorithms Including Applications in Microelectronics and Nanophotonics.",
+        "authorString": "Jak\u0161i\u0107 Z, Devi S, Jak\u0161i\u0107 O, Guha K.",
+        "doi": "10.3390/biomimetics8030278",
+        "firstPublicationDate": "2023-06-28",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "31722661",
+        "source": "MED",
+        "pmcid": "PMC6854655",
+        "title": "28th Annual Computational Neuroscience Meeting: CNS*2019.",
+        "authorString": null,
+        "doi": "10.1186/s12868-019-0538-0",
+        "firstPublicationDate": "2019-11-14",
+        "isOpenAccess": "Y"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  },
+  {
+    "query": "(UBASH3B OR STS1 OR \"STS-1\") AND (erythroid OR erythropoiesis OR K562)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=%28UBASH3B+OR+STS1+OR+%22STS-1%22%29+AND+%28erythroid+OR+erythropoiesis+OR+K562%29&format=json&resultType=core&pageSize=30",
+    "source_sha256": "bb39009f96b026e114823c7190888c3afa4a6396fa7b39387df5984d903009aa",
+    "retrieved_utc": "2026-10-19T01:55:32Z",
+    "hit_count": 140,
+    "returned_metadata": [
+      {
+        "id": "42790825",
+        "source": "MED",
+        "pmcid": null,
+        "title": "Trans-zeatin suppresses osteoclastogenesis and prevents estrogen deficiency-induced bone loss by modulating Nrf2-mediated redox homeostasis and AKT signaling.",
+        "authorString": "Xiao Y, Lu Q, Shi M, Liang H, Luo J, Wu Y, Wang L, Nan Y, Wei R, Miao J, Tu Y, Liu Y, Sheng S, Jin H.",
+        "doi": "10.1016/j.bcp.2026.118502",
+        "firstPublicationDate": "2026-09-25",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "38461240",
+        "source": "MED",
+        "pmcid": "PMC10925000",
+        "title": "FLI1 induces erythroleukemia through opposing effects on UBASH3A and UBASH3B expression.",
+        "authorString": "Wang J, Wang C, Hu A, Yu K, Kuang Y, Gajendran B, Zacksenhaus E, Sample KM, Xiao X, Liu W, Ben-David Y.",
+        "doi": "10.1186/s12885-024-12075-2",
+        "firstPublicationDate": "2024-03-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41977488",
+        "source": "MED",
+        "pmcid": "PMC13073760",
+        "title": "Mesenchymal Tissue-Driven Gene Programs Identify EMP3 as a Key Biomarker of Aggressiveness in Undifferentiated Sarcomas.",
+        "authorString": "Lee EY, Cho A, Park SY, Kim JH, Kang HG, Park JW, Lim JH, Kwon J, You HJ.",
+        "doi": "10.3390/ijms27073309",
+        "firstPublicationDate": "2026-04-06",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37298164",
+        "source": "MED",
+        "pmcid": "PMC10252698",
+        "title": "STS-1 and STS-2, Multi-Enzyme Proteins Equipped to Mediate Protein-Protein Interactions.",
+        "authorString": "Hayes B, van der Geer P.",
+        "doi": "10.3390/ijms24119214",
+        "firstPublicationDate": "2023-05-24",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41797878",
+        "source": "MED",
+        "pmcid": "PMC12960412",
+        "title": "Ubiquitin E3 ligase KLHL6 brings exhausted T-cells back into action.",
+        "authorString": "Chen Z, Bullock AN, Kessler BM.",
+        "doi": "10.1007/s44466-026-00032-6",
+        "firstPublicationDate": "2026-03-05",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42493680",
+        "source": "MED",
+        "pmcid": "PMC13395921",
+        "title": "Compartmental pH regulation in cancer and antitumor immunity: therapeutic opportunities and challenges.",
+        "authorString": "Chen F, Cai X, Zhou Q, Huang Z, Wang J, Kang R, Tang D, Liu J.",
+        "doi": "10.1007/s10495-026-02408-w",
+        "firstPublicationDate": "2026-07-23",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39774335",
+        "source": "MED",
+        "pmcid": "PMC11850608",
+        "title": "Schizophrenia-related Xpo7 haploinsufficiency leads to behavioral and nuclear transport pathologies.",
+        "authorString": "Toyoda S, Kikuchi M, Abe Y, Tashiro K, Handa T, Katayama S, Motokawa Y, Tanaka KF, Takahashi H, Shiwaku H.",
+        "doi": "10.1038/s44319-024-00362-9",
+        "firstPublicationDate": "2025-01-07",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38319998",
+        "source": "MED",
+        "pmcid": "PMC10897907",
+        "title": "Cbl-b mitigates the responsiveness of naive CD8<sup>+</sup> T cells that experience extensive tonic T cell receptor signaling.",
+        "authorString": "Eggert J, Zinzow-Kramer WM, Hu Y, Kolawole EM, Tsai YL, Weiss A, Evavold BD, Salaita K, Scharer CD, Au-Yeung BB.",
+        "doi": "10.1126/scisignal.adh0439",
+        "firstPublicationDate": "2024-02-06",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "36769312",
+        "source": "MED",
+        "pmcid": "PMC9917816",
+        "title": "STS1 and STS2 Phosphatase Inhibitor Baicalein Enhances the Expansion of Hematopoietic and Progenitor Stem Cells and Alleviates 5-Fluorouracil-Induced Myelosuppression.",
+        "authorString": "Li N, Wang Y, Wang A, Zhang J, Jia C, Yu C, Song Z, Wang S, Liu L, Yi J, Bao Y, Huang Y, Sun L.",
+        "doi": "10.3390/ijms24032987",
+        "firstPublicationDate": "2023-02-03",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "34281163",
+        "source": "MED",
+        "pmcid": "PMC8268974",
+        "title": "STAT5 as a Key Protein of Erythropoietin Signalization.",
+        "authorString": "T\u00f3thov\u00e1 Z, Tomc J, Debeljak N, Sol\u00e1r P.",
+        "doi": "10.3390/ijms22137109",
+        "firstPublicationDate": "2021-07-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38133636",
+        "source": "MED",
+        "pmcid": "PMC10929701",
+        "title": "Gene expression analysis revealed downregulation of complement receptor 1 in clonal B cells in cold agglutinin disease.",
+        "authorString": "Ma\u0142ecka A, \u00d8stlie I, Tr\u00f8en G, Ma\u0142ecki J, Delabie J, Tierens A, Munthe LA, Berentsen S, Tj\u00f8nnfjord GE.",
+        "doi": "10.1093/cei/uxad135",
+        "firstPublicationDate": "2024-03-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "36086954",
+        "source": "MED",
+        "pmcid": "PMC9807508",
+        "title": "Targeting the PTP1B-Bcr-Abl1 interaction for the degradation of T315I mutant Bcr-Abl1 in chronic myeloid leukemia.",
+        "authorString": "Elgehama A, Wang Y, Yu Y, Zhou L, Chen Z, Wang L, Sun L, Gao J, Yu B, Shen Y, Xu Q.",
+        "doi": "10.1111/cas.15580",
+        "firstPublicationDate": "2022-09-26",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "32027948",
+        "source": "MED",
+        "pmcid": "PMC7137739",
+        "title": "Phospho-PTM proteomic discovery of novel EPO- modulated kinases and phosphatases, including PTPN18 as a positive regulator of EPOR/JAK2 Signaling.",
+        "authorString": "Held MA, Greenfest-Allen E, Su S, Stoeckert CJ, Stokes MP, Wojchowski DM.",
+        "doi": "10.1016/j.cellsig.2020.109554",
+        "firstPublicationDate": "2020-02-03",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "26449661",
+        "source": "MED",
+        "pmcid": "PMC4775400",
+        "title": "UBASH3B/Sts-1-CBL axis regulates myeloid proliferation in human preleukemia induced by AML1-ETO.",
+        "authorString": "Goyama S, Schibler J, Gasilina A, Shrestha M, Lin S, Link KA, Chen J, Whitman SP, Bloomfield CD, Nicolet D, Assi SA, Ptasinska A, Heidenreich O, Bonifer C, Kitamura T, Nassar NN, Mulloy JC.",
+        "doi": "10.1038/leu.2015.275",
+        "firstPublicationDate": "2015-10-09",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "41999228",
+        "source": "MED",
+        "pmcid": "PMC13387357",
+        "title": "Derivation of functional early gestation decidual natural killer cell subtypes from induced pluripotent stem cells.",
+        "authorString": "Cheung VC, Jaimez J, DaCosta C, Arora H, Caron C, Slamecka J, Fierro M, Meads M, Fisch K, Morey RE, Cruz LS, Pant D, Kaufman DS, Horii M, Bui JD, Parast MM.",
+        "doi": "10.1093/stmcls/sxag020",
+        "firstPublicationDate": "2026-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "34736120",
+        "source": "MED",
+        "pmcid": "PMC8577445",
+        "title": "Embryonal erythropoiesis and aging exploit ferroptosis.",
+        "authorString": "Zheng H, Jiang L, Tsuduki T, Conrad M, Toyokuni S.",
+        "doi": "10.1016/j.redox.2021.102175",
+        "firstPublicationDate": "2021-10-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38409042",
+        "source": "MED",
+        "pmcid": "PMC10898143",
+        "title": "Updates on the role of epigenetics in familial mediterranean fever (FMF).",
+        "authorString": "Chaaban A, Salman Z, Karam L, Kobeissy PH, Ibrahim JN.",
+        "doi": "10.1186/s13023-024-03098-w",
+        "firstPublicationDate": "2024-02-26",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41590715",
+        "source": "MED",
+        "pmcid": "PMC12842986",
+        "title": "Can Fascaplysins Be Considered Analogs of Indolo[2,3-<i>a</i>]pyrrolo[3,4-<i>c</i>]carbazoles? Comparison of Biosynthesis, Biological Activity and Therapeutic Potential.",
+        "authorString": "Zhidkov ME, Popov AM, Soldatkina OA, Tryapkin OA, Kharchenko LN.",
+        "doi": "10.3390/md24010018",
+        "firstPublicationDate": "2025-12-29",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "37457748",
+        "source": "MED",
+        "pmcid": "PMC10345135",
+        "title": "The quest for the holy grail: overcoming challenges in expanding human hematopoietic stem cells for clinical use.",
+        "authorString": "Bastani S, Staal FJT, Cant\u00e9-Barrett K.",
+        "doi": "10.21037/sci-2023-016",
+        "firstPublicationDate": "2023-07-11",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "34065882",
+        "source": "MED",
+        "pmcid": "PMC8151247",
+        "title": "Current Views on the Interplay between Tyrosine Kinases and Phosphatases in Chronic Myeloid Leukemia.",
+        "authorString": "Boni C, Sorio C.",
+        "doi": "10.3390/cancers13102311",
+        "firstPublicationDate": "2021-05-12",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41490376",
+        "source": "MED",
+        "pmcid": "PMC12778002",
+        "title": "Advances in the clinical applications of sodium thiosulphate.",
+        "authorString": "Deng Y, Ke J, Zang H, Liu Y, Wang P.",
+        "doi": "10.1080/07853890.2025.2611464",
+        "firstPublicationDate": "2026-01-05",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "31820037",
+        "source": "MED",
+        "pmcid": "PMC11104816",
+        "title": "Elucidation of protein interactions necessary for the maintenance of the BCR-ABL signaling complex.",
+        "authorString": "Gregor T, Bosakova MK, Nita A, Abraham SP, Fafilek B, Cernohorsky NH, Rynes J, Foldynova-Trantirkova S, Zackova D, Mayer J, Trantirek L, Krejci P.",
+        "doi": "10.1007/s00018-019-03397-7",
+        "firstPublicationDate": "2019-12-09",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "39062673",
+        "source": "MED",
+        "pmcid": "PMC11276352",
+        "title": "Mechanisms and Future Research Perspectives on Mitochondrial Diseases Associated with Isoleucyl-tRNA Synthetase Gene Mutations.",
+        "authorString": "Watanabe M, Sasaki N.",
+        "doi": "10.3390/genes15070894",
+        "firstPublicationDate": "2024-07-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PPR683544",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Non-coding mutations at enhancer clusters contribute to pancreatic ductal adenocarcinoma",
+        "authorString": "Patel MB, Maniati E, Atanur SS, Pal D, Rio-Machin A, Heward J, Kocher HM, Fitzgibbon J, Pradeepa MM, Wang J.",
+        "doi": "10.1101/2023.06.28.546873",
+        "firstPublicationDate": "2023-06-29",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41519796",
+        "source": "MED",
+        "pmcid": "PMC12882595",
+        "title": "MSDC-0160, a novel clinical-stage mitochondrial pyruvate carrier inhibitor, suppresses osteoclast differentiation and alleviates type 2 diabetes-related bone loss.",
+        "authorString": "Wang C, Hai N, Chen L, Huang Q, Gui Y, Su Y, Lian H, Liang J, Zhao J, Xu J, Liu Q.",
+        "doi": "10.1186/s12967-026-07699-w",
+        "firstPublicationDate": "2026-01-10",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39512673",
+        "source": "MED",
+        "pmcid": "PMC11541772",
+        "title": "Investigating the causal association between heme oxygenase-1 and asthma: A bidirectional two-sample Mendelian randomization analysis in a European population.",
+        "authorString": "Liu W, Liu Z, Sun XD, Liu ZQ, Dong YY, Qiu S.",
+        "doi": "10.1016/j.waojou.2024.100987",
+        "firstPublicationDate": "2024-10-24",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "28111465",
+        "source": "MED",
+        "pmcid": "PMC5508078",
+        "title": "Differential signaling networks of Bcr-Abl p210 and p190 kinases in leukemia cells defined by functional proteomics.",
+        "authorString": "Reckel S, Hamelin R, Georgeon S, Armand F, Jolliet Q, Chiappe D, Moniatte M, Hantschel O.",
+        "doi": "10.1038/leu.2017.36",
+        "firstPublicationDate": "2017-01-23",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PPR687441",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Non-coding mutations at enhancer clusters contribute to pancreatic ductal adenocarcinoma",
+        "authorString": "Wang J, Patel M, Maniati E, Atanur S, Pal D, Rio-Machin A, Heward J, Kocher H, Fitzgibbon J, Pradeepa M.",
+        "doi": "10.21203/rs.3.rs-3120592/v1",
+        "firstPublicationDate": "2023-07-06",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40155813",
+        "source": "MED",
+        "pmcid": "PMC11954365",
+        "title": "Genetic and epigenetic regulation of Treg cell fitness by autism-related chromatin remodeler CHD8.",
+        "authorString": "Yang JQ, Wang C, Nayak RC, Kolla M, Cai M, Pujato M, Zheng Y, Lu QR, Guo F.",
+        "doi": "10.1186/s11658-025-00711-z",
+        "firstPublicationDate": "2025-03-28",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38328859",
+        "source": "MED",
+        "pmcid": "PMC11215397",
+        "title": "Phosphatase, Mg<sup>2+</sup>/Mn<sup>2+</sup> dependent 1B regulates the hematopoietic stem cells homeostasis via the Wnt/\u03b2-catenin signaling.",
+        "authorString": "Lu Z, Yu H, Li Y, Xu G, Li X, Liu Y, Shen Y, Cai Z, Zhao B.",
+        "doi": "10.3324/haematol.2023.284305",
+        "firstPublicationDate": "2024-07-01",
+        "isOpenAccess": "Y"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  },
+  {
+    "query": "UBASH3B AND (hematopoietic OR haematopoietic OR differentiation)",
+    "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=UBASH3B+AND+%28hematopoietic+OR+haematopoietic+OR+differentiation%29&format=json&resultType=core&pageSize=30",
+    "source_sha256": "7861d9f81cc85557546550f7813c09fecf7482c42636b82004a2a759edfada22",
+    "retrieved_utc": "2026-10-19T01:55:37Z",
+    "hit_count": 335,
+    "returned_metadata": [
+      {
+        "id": "42653405",
+        "source": "MED",
+        "pmcid": "PMC13513044",
+        "title": "The Proteome of Bone Marrow Multipotent Mesenchymal Stromal Cells Undergoes Significant Alterations in Acute Leukemia Patients at the Onset and During Treatment.",
+        "authorString": "Petinati NA, Sadovskaya AV, Shipounova IN, Drize NI, Vasilyeva AN, Aleshina OA, Paderina AS, Pokrovskaya OS, Kuzmina LA, Smirnov IP, Pobeguts OV, Arapidi GP, Lagarkova MA, Parovichnikova EN.",
+        "doi": "10.3390/ijms27167402",
+        "firstPublicationDate": "2026-08-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42594485",
+        "source": "MED",
+        "pmcid": "PMC13495088",
+        "title": "Hypoxia drives ferroptosis resistance and immunosuppression in hepatocellular carcinoma by inducing UBASH3B-mediated glutamine metabolism reprogramming and CXCL8 expression.",
+        "authorString": "Pan GQ, Zhang SP, Wang X, Qu Y, Liu XF, Yan YC, Li T, Dong ZR.",
+        "doi": "10.1016/j.redox.2026.104342",
+        "firstPublicationDate": "2026-08-06",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42220554",
+        "source": "MED",
+        "pmcid": "PMC13218669",
+        "title": "A novel &lt;i&gt;UBASH3B::PVT1&lt;/i&gt; fusion in B-cell acute lymphoblastic leukemia with &lt;i&gt;PAX5-PTD&lt;/i&gt;: a case report and literature review.",
+        "authorString": "Zhuang X, Wang Y, Yang Q, Shen H, Wang M, Gao M, Xiao B, Liu T, Zhou J, You T, Wang Q, Kong Y, Xu X, Cai M, Zhuo Y, Huang H, Chen S, Wang Q.",
+        "doi": "10.1097/bs9.0000000000000288",
+        "firstPublicationDate": "2026-05-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41884834",
+        "source": "MED",
+        "pmcid": "PMC13008902",
+        "title": "The role of disulfidptosis-driven tumor microenvironment remodeling in pancreatic cancer progression.",
+        "authorString": "Li W, Deng J, Zhang H, Zhang M, Kang C, Yu Z, Gu Y, He X, Wu Y.",
+        "doi": "10.3389/fimmu.2026.1747560",
+        "firstPublicationDate": "2026-03-10",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40885971",
+        "source": "MED",
+        "pmcid": "PMC12398026",
+        "title": "Investigating the role of UBASH3B in cancer: structural relevance, physiological functions, and therapeutic possibilities.",
+        "authorString": "Werner S, Westlake C, Ndahayo M, Gupta I, Gaykalova DA.",
+        "doi": "10.1186/s13046-025-03511-7",
+        "firstPublicationDate": "2025-08-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41132649",
+        "source": "MED",
+        "pmcid": "PMC12540082",
+        "title": "Bioinformatics identification of mitochondria and macrophage polarization-related genes in COPD and their potential mechanisms.",
+        "authorString": "Zhang C, Fu P, Yu J, Liu L, Wei X, Li X.",
+        "doi": "10.3389/fimmu.2025.1675292",
+        "firstPublicationDate": "2025-10-08",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40707988",
+        "source": "MED",
+        "pmcid": "PMC12291370",
+        "title": "Exploring UBASH3A: from immune regulation to autoimmune diseases.",
+        "authorString": "Zhou M, Sun F, Zhao Z, Qian H, Zhang Y, Song Y.",
+        "doi": "10.1186/s12967-025-06760-4",
+        "firstPublicationDate": "2025-07-24",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40486509",
+        "source": "MED",
+        "pmcid": "PMC12141296",
+        "title": "Innate immune cell barrier-related genes inform precision prognosis in pancreatic cancer.",
+        "authorString": "Luo Q, Jiang T, Xie D, Li X, Xie K.",
+        "doi": "10.3389/fimmu.2025.1559373",
+        "firstPublicationDate": "2025-05-23",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38674019",
+        "source": "MED",
+        "pmcid": "PMC11050124",
+        "title": "Role of Tula-Family Proteins in Cell Signaling and Activation: Advances and Challenges.",
+        "authorString": "Tsygankov AY.",
+        "doi": "10.3390/ijms25084434",
+        "firstPublicationDate": "2024-04-18",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42173965",
+        "source": "MED",
+        "pmcid": "PMC13221460",
+        "title": "The miR4261/PAMM axis in multiple myeloma promotes bone resorption.",
+        "authorString": "Cui J, Bian S, Hao Z, Zhang X, Zhang C, Zhao Y, Zhang X, Wang H.",
+        "doi": "10.1038/s41598-026-51665-x",
+        "firstPublicationDate": "2026-05-22",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "42193365",
+        "source": "MED",
+        "pmcid": "PMC13204194",
+        "title": "Effect of Osteoblast-Derived Extracellular Vesicles on Osteosarcoma Cells' Transcriptional Profile: Role of Shuttled miRNAs.",
+        "authorString": "Giacchi L, Ucci A, Zelli V, Compagnoni C, Pucci E, Tessitore A, Ponzetti M, Rucci N.",
+        "doi": "10.3390/biomedicines14051039",
+        "firstPublicationDate": "2026-05-03",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PPR1004254",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Rapid expansion of synaptic complexity as a key contributor to cognitive growth in early humans",
+        "authorString": "Lepski G, Ar\u00e9valo A, de Camargo PS, Nunes K, Lemes RB, Ferraz T, Strauss A, Miyagawa S.",
+        "doi": "10.1101/2025.04.09.648028",
+        "firstPublicationDate": "2025-04-15",
+        "isOpenAccess": "N"
+      },
+      {
+        "id": "40498723",
+        "source": "MED",
+        "pmcid": "PMC12157340",
+        "title": "Analysis of variant interactions in families with autism points to genes involved in the development of the central nervous system.",
+        "authorString": "Kaczy\u0144ski J, Pasenkiewicz-Gierula M.",
+        "doi": "10.1371/journal.pone.0326022",
+        "firstPublicationDate": "2025-06-11",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39343960",
+        "source": "MED",
+        "pmcid": "PMC11441236",
+        "title": "UBASH3B-mediated MRPL12 Y60 dephosphorylation inhibits LUAD development by driving mitochondrial metabolism reprogramming.",
+        "authorString": "Ji X, Zhang T, Sun J, Song X, Ma G, Xu L, Cao X, Jing Y, Xue F, Zhang W, Sun S, Wan Q, Liu Y.",
+        "doi": "10.1186/s13046-024-03181-x",
+        "firstPublicationDate": "2024-09-30",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39502232",
+        "source": "MED",
+        "pmcid": "PMC11535345",
+        "title": "Toe1 promotes proliferation and differentiation of neural progenitor cells.",
+        "authorString": "Deng T, Wu X, Wang Y, Fan X, Hu B.",
+        "doi": "10.1016/j.heliyon.2024.e39535",
+        "firstPublicationDate": "2024-10-18",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38339213",
+        "source": "MED",
+        "pmcid": "PMC10855836",
+        "title": "The Ubiquitin-Associated and SH3 Domain-Containing Proteins (UBASH3) Family in Mammalian Development and Immune Response.",
+        "authorString": "Vukojevi\u0107 K, \u0160olji\u0107 V, Martinovi\u0107 V, Ragu\u017e F, Filipovi\u0107 N.",
+        "doi": "10.3390/ijms25031932",
+        "firstPublicationDate": "2024-02-05",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38461240",
+        "source": "MED",
+        "pmcid": "PMC10925000",
+        "title": "FLI1 induces erythroleukemia through opposing effects on UBASH3A and UBASH3B expression.",
+        "authorString": "Wang J, Wang C, Hu A, Yu K, Kuang Y, Gajendran B, Zacksenhaus E, Sample KM, Xiao X, Liu W, Ben-David Y.",
+        "doi": "10.1186/s12885-024-12075-2",
+        "firstPublicationDate": "2024-03-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40205519",
+        "source": "MED",
+        "pmcid": "PMC11980310",
+        "title": "Multimodal sequencing of neoadjuvant nivolumab treatment in hepatocellular carcinoma reveals cellular and molecular immune landscape for drug response.",
+        "authorString": "Zeng F, Zhang Q, Tsui YM, Ma H, Tian L, Husain A, Lu J, Lee JM, Zhang VX, Li PM, Cheung GC, Cheung TT, Ho DW, Ng IO.",
+        "doi": "10.1186/s12943-025-02314-w",
+        "firstPublicationDate": "2025-04-09",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38133636",
+        "source": "MED",
+        "pmcid": "PMC10929701",
+        "title": "Gene expression analysis revealed downregulation of complement receptor 1 in clonal B cells in cold agglutinin disease.",
+        "authorString": "Ma\u0142ecka A, \u00d8stlie I, Tr\u00f8en G, Ma\u0142ecki J, Delabie J, Tierens A, Munthe LA, Berentsen S, Tj\u00f8nnfjord GE.",
+        "doi": "10.1093/cei/uxad135",
+        "firstPublicationDate": "2024-03-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41851628",
+        "source": "MED",
+        "pmcid": "PMC13112774",
+        "title": "A curated list of immune system associated genes related to cancer.",
+        "authorString": "Al-Mohannadi A, Awada Z, Lo B, Mifsud B, Deola S.",
+        "doi": "10.1186/s12863-026-01414-w",
+        "firstPublicationDate": "2026-03-18",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "41999228",
+        "source": "MED",
+        "pmcid": "PMC13387357",
+        "title": "Derivation of functional early gestation decidual natural killer cell subtypes from induced pluripotent stem cells.",
+        "authorString": "Cheung VC, Jaimez J, DaCosta C, Arora H, Caron C, Slamecka J, Fierro M, Meads M, Fisch K, Morey RE, Cruz LS, Pant D, Kaufman DS, Horii M, Bui JD, Parast MM.",
+        "doi": "10.1093/stmcls/sxag020",
+        "firstPublicationDate": "2026-06-01",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40657053",
+        "source": "MED",
+        "pmcid": "PMC12250994",
+        "title": "Topological Data Analysis Reveals a Subgroup of Luminal B Breast Cancer.",
+        "authorString": "Rostami Z, Fooshee D, Carlsson G, Subramaniam S.",
+        "doi": "10.1109/ojemb.2025.3558670",
+        "firstPublicationDate": "2025-05-21",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39911893",
+        "source": "MED",
+        "pmcid": "PMC11792714",
+        "title": "MicroRNA-219 in the central nervous system: a potential theranostic approach.",
+        "authorString": "Shamaeizadeh N, Mirian M.",
+        "doi": "10.4103/rps.rps_163_23",
+        "firstPublicationDate": "2024-12-15",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39425139",
+        "source": "MED",
+        "pmcid": "PMC11488381",
+        "title": "A transcriptomic analysis of dental pulp stem cell senescence in vitro.",
+        "authorString": "Xu J, Hu M, Liu L, Xu X, Xu L, Song Y.",
+        "doi": "10.1186/s12938-024-01298-w",
+        "firstPublicationDate": "2024-10-18",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40234727",
+        "source": "MED",
+        "pmcid": "PMC12000288",
+        "title": "Genetic associations of plasma proteins and breast cancer identify potential therapeutic drug candidates.",
+        "authorString": "Quan L, Luo X, Meng C, Liu J, Ju J, Yang Z, Shuai Y, Wei T, Meng J, Yuan P.",
+        "doi": "10.1038/s42003-025-08046-3",
+        "firstPublicationDate": "2025-04-15",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40353136",
+        "source": "MED",
+        "pmcid": "PMC12063729",
+        "title": "Advances in Prostate Cancer Biomarkers and Probes.",
+        "authorString": "Li K, Wang Q, Tang X, Akakuru OU, Li R, Wang Y, Zhang R, Jiang Z, Yang Z.",
+        "doi": "10.34133/cbsystems.0129",
+        "firstPublicationDate": "2024-06-27",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "38240347",
+        "source": "MED",
+        "pmcid": "PMC10987117",
+        "title": "RNF20 Regulates Oocyte Meiotic Spindle Assembly by Recruiting TPM3 to Centromeres and Spindle Poles.",
+        "authorString": "Wang L, Liu C, Li L, Wei H, Wei W, Zhou Q, Chen Y, Meng TG, Jiao R, Wang ZB, Sun QY, Li W.",
+        "doi": "10.1002/advs.202306986",
+        "firstPublicationDate": "2024-01-19",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "39774335",
+        "source": "MED",
+        "pmcid": "PMC11850608",
+        "title": "Schizophrenia-related Xpo7 haploinsufficiency leads to behavioral and nuclear transport pathologies.",
+        "authorString": "Toyoda S, Kikuchi M, Abe Y, Tashiro K, Handa T, Katayama S, Motokawa Y, Tanaka KF, Takahashi H, Shiwaku H.",
+        "doi": "10.1038/s44319-024-00362-9",
+        "firstPublicationDate": "2025-01-07",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "PPR846561",
+        "source": "PPR",
+        "pmcid": null,
+        "title": "Transient lagging chromosomes cause primary microcephaly",
+        "authorString": "Doria E, Ivanova D, Thomas A, Meraldi P.",
+        "doi": "10.1101/2024.05.02.592199",
+        "firstPublicationDate": "2024-05-02",
+        "isOpenAccess": "Y"
+      },
+      {
+        "id": "40428349",
+        "source": "MED",
+        "pmcid": "PMC12111210",
+        "title": "Competitive Endogenous RNA Network Involving Immune Subgroups, Infiltration, and lncRNAs in Prostate Cancer.",
+        "authorString": "Niu W, Zhang T, Ma L.",
+        "doi": "10.3390/genes16050527",
+        "firstPublicationDate": "2025-04-29",
+        "isOpenAccess": "Y"
+      }
+    ],
+    "scope": "First page, up to30 results; indexed metadata/full-text matching is not an exhaustive primary-text review or proof of novelty. Broad gene aliases can be ambiguous."
+  }
+]

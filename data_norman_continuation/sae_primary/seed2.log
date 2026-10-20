@@ -1,0 +1,72 @@
+loaded 111445 cells x 4081 genes; 102 single-gene perts; 9 named programs
+TopK SAE checkpoint: epoch 5/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 10/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 15/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 20/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 25/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 30/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 35/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 40/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 45/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 50/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 55/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 60/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 65/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 70/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 75/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 80/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 85/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 90/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 95/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 100/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 105/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 110/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 115/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 120/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 125/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 130/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 135/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 140/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 145/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 150/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 155/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 160/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 165/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 170/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 175/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 180/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 185/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 190/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 195/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+TopK SAE checkpoint: epoch 200/200 -> /workspace/research-runs/norman-sae-primary/seed2.pt
+trained SAE {'latent_dim': 2048, 'k': 32, 'd': 4081, 'device': 'cpu', 'epochs_completed': 200, 'checkpoint_path': '/workspace/research-runs/norman-sae-primary/seed2.pt', 'trained_on': 'all', 'n_train_cells': 111445, 'epochs': 200, 'batch': 1024, 'mean_active_features': 32.0, 'features_ever_active': 466}
+
+[/workspace/research-runs/norman-sae-primary/seed2.json] 105 perturbations x 464 eligible features
+  FEATURE-BACKGROUND (random features): mean 1.5 median 0.0 max 48 modulators
+
+  program          mkrs   feat  modul  bg pct   shufP  top genes
+  Ery_TF              8   1680     11     98%     nan  HBG1, HBG2, LMO2, HSPA8, LYL1, ODC1
+  Ery_Heme            7   UNSCORED: no_significant_program_match
+  Ery_Membrane        7   UNSCORED: no_significant_program_match
+  Ery_Effector        3     65      1     68%     nan  TMSB10, PNMT, KLF1, HBZ, GAL, EMP3
+  Gran_TF             3   UNSCORED: no_significant_program_match
+  Gran_Primary        4   UNSCORED: no_significant_program_match
+  Gran_Secondary      7   UNSCORED: no_significant_program_match
+  Progenitor          4   UNSCORED: no_significant_program_match
+  Cycling            16    915      0      0%     nan  CLSPN, ATAD2, KIAA0101, PTMA, PHF19, NCL
+
+  Shuffle p and feature percentile are exploratory; they do not establish specificity.
+  Ery_TF: conditional identity heterogeneity Holm p=0.009; tested
+  Ery_Heme: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Ery_Membrane: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Ery_Effector: conditional identity heterogeneity Holm p=0.009; tested
+  Gran_TF: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Gran_Primary: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Gran_Secondary: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Progenitor: conditional identity heterogeneity Holm p=1; low_power_marker_panel
+  Cycling: conditional identity heterogeneity Holm p=0.009; tested
+  Identity heterogeneity is conditional cell-level evidence, not pathway specificity or independent biological replication.
+
+  Ery_TF modulators (11): ZC3HAV1, SLC6A9, HOXB9, ZNF318, TBX3, MAML2, MEIS1, KIAA1804, RHOXF2, HOXA13, HOXC13
+
+  Ery_Effector modulators (1): KLF1

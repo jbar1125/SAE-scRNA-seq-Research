@@ -1,0 +1,14 @@
+{
+  "status": "PASS",
+  "association_family_size": 5670,
+  "identity_family_size": 54,
+  "arm_counts": 6,
+  "unique_csv_comparisons": 5670,
+  "all_control_splits_reproduced": true,
+  "all_sources_and_saved_score_hashes_verified": true,
+  "all_identity_permutations_completed": 9999,
+  "raw_result_sha256": "5a93066fe651c156dfebab77361958642675d737df5ac606a42e8f5d7a367262",
+  "compressed_result_sha256": "7fd6a50d316f995d4b2cbac6b589a433643a72b49e819fd06821bdccf1f90373",
+  "primary_pca_and_nmf_association_recovery": true,
+  "result_scope": "Exploratory conditional cell-level associations; no biological replication or superiority."
+}

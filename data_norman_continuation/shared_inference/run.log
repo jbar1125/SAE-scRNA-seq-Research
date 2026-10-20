@@ -1,0 +1,8 @@
+{"stage": "loaded", "shape": [111445, 4081]}
+{"stage": "arm_complete", "arm": "all_cell_sae_seed0", "elapsed_seconds": 39.30472534202272}
+{"stage": "arm_complete", "arm": "all_cell_sae_seed1", "elapsed_seconds": 39.38304012600565}
+{"stage": "arm_complete", "arm": "all_cell_sae_seed2", "elapsed_seconds": 112.48354850601754}
+{"stage": "arm_complete", "arm": "control_only_sae_seed0", "elapsed_seconds": 121.82116415799828}
+{"stage": "arm_complete", "arm": "direct_pca_seed0", "elapsed_seconds": 43.60153678400093}
+{"stage": "arm_complete", "arm": "capped_direct_nmf_seed0", "elapsed_seconds": 67.75143989999196}
+{"stage": "complete", "association_family": 5670, "identity_family": 54}

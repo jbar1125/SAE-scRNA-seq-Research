@@ -1,0 +1,18 @@
+{
+  "full_text_sources": [
+    {
+      "pmcid": "PMC10925000",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10925000/fullTextXML",
+      "cached_xml_sha256": "f4bdaee667bcfbcbb3e7a1d686ebcd2f03a7e995c0ea52f316b229fd42fc727c",
+      "review_scope": "Targeted methods/results/discussion passages supporting the literature-review statements, not independent reproduction of that paper."
+    },
+    {
+      "pmcid": "PMC13354606",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13354606/fullTextXML",
+      "cached_xml_sha256": "dab42293714727c6fb49ee8cf5729f904c48f15a3ec636a9512139ef853c2d56",
+      "review_scope": "Targeted methods/results/discussion passages supporting the literature-review statements, not independent reproduction of that paper."
+    }
+  ],
+  "norman_status": "Only the EuropePMC abstract was read. Later PMC HTTP200 content was a browser challenge; EuropePMC HTTP200 content was an application shell, not the article. REST fullTextXML returned500; no-JavaScript article route520. Full-text claims remain unchecked.",
+  "norman_code_review": "Original authors' pinned analysis notebooks reviewed on2026-10-20; separate metadata/source hashes in norman_original_code_review.json. Original article full text and supplements remain unread."
+}

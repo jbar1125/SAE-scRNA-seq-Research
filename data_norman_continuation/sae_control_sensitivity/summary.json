@@ -1,0 +1,70 @@
+{
+  "scope": "One exploratory control-only seed. No biological replication or three-seed sensitivity.",
+  "programs": {
+    "Ery_TF": {
+      "matched": false,
+      "candidate_count": null,
+      "candidates": [],
+      "feature_background_percentile": null,
+      "identity_holm_9": 1.0
+    },
+    "Ery_Heme": {
+      "matched": true,
+      "candidate_count": 1,
+      "candidates": [
+        "KLF1"
+      ],
+      "feature_background_percentile": 82.0,
+      "identity_holm_9": 0.009000000000000001
+    },
+    "Ery_Membrane": {
+      "matched": false,
+      "candidate_count": null,
+      "candidates": [],
+      "feature_background_percentile": null,
+      "identity_holm_9": 1.0
+    },
+    "Ery_Effector": {
+      "matched": true,
+      "candidate_count": 0,
+      "candidates": [],
+      "feature_background_percentile": 0.0,
+      "identity_holm_9": 0.009000000000000001
+    },
+    "Gran_TF": {
+      "matched": false,
+      "candidate_count": null,
+      "candidates": [],
+      "feature_background_percentile": null,
+      "identity_holm_9": 1.0
+    },
+    "Gran_Primary": {
+      "matched": false,
+      "candidate_count": null,
+      "candidates": [],
+      "feature_background_percentile": null,
+      "identity_holm_9": 1.0
+    },
+    "Gran_Secondary": {
+      "matched": false,
+      "candidate_count": null,
+      "candidates": [],
+      "feature_background_percentile": null,
+      "identity_holm_9": 1.0
+    },
+    "Progenitor": {
+      "matched": false,
+      "candidate_count": null,
+      "candidates": [],
+      "feature_background_percentile": null,
+      "identity_holm_9": 1.0
+    },
+    "Cycling": {
+      "matched": true,
+      "candidate_count": 0,
+      "candidates": [],
+      "feature_background_percentile": 0.0,
+      "identity_holm_9": 0.009000000000000001
+    }
+  }
+}

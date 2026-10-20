@@ -1,0 +1,9 @@
+{
+  "name": "Full-shape pipeline readiness diagnostic",
+  "date": "2026-10-18",
+  "timing": "Declared while full-size seed 0 is training, before inspecting any SAE program-modulation outcome. The marker baseline has already been observed.",
+  "checkpoint": "Use the first available seed-0 epoch-boundary checkpoint at or after epoch 20. Copy a stable open checkpoint file to a separate path; record its actual completed epoch and original 200-epoch target. Never modify or stop the primary training process for this diagnostic.",
+  "analysis": "Reconstruct inference from the copied model using identical input and training metadata, without optimizer steps. Run the same nine-panel match gate, descriptive feature background and gemgroup-conditioned 999-permutation identity analysis as planned for the final model. Save encoded activations, full outputs and source/input/checkpoint provenance separately.",
+  "purpose": "Catch full-data inference or analysis failures early, and measure runtime/resource needs. This is not a completed 200-epoch primary experiment, independent model seed, or criterion for changing thresholds, markers, training duration or the primary analysis.",
+  "reporting": "Label all outcomes interim and exploratory, retain every panel and no-match result, and report negative/low-power outcomes. The fixed 200-epoch fits and seeds 1 and 2 remain required; do not select the favorable training epoch as the result."
+}

@@ -1,0 +1,11 @@
+{
+  "artifacts": {
+    "provenance.json": "ef7c0ec19585439b1a171cf7b4801449cee1e51bc6d5591dc94486f2763be078",
+    "results.jsonl": "667176b9c4620610afaba56776018e971b22626a5f76f92058ee385194649dbe",
+    "run.log": "4f693ad4013617988f12bc5ecc819469f4c3a39d3134941b98662aeb20515427",
+    "summary.json": "37a800e5632f33be1d347cf401fb2f67d6a4310d3b71ef255b7dcf3741c66d0c",
+    "README.md": "b6b03d405924c84560bbd210ef4f8790308de616693b9ea0e8c72c524653f916"
+  },
+  "validation": "600 unique seed-analysis records, 100 per analysis, nine hypotheses each; summary counts recomputed, finite permutation bounds and source hashes verified.",
+  "render_source_sha256": "0c07227a438e0bff4071d3e36ede1fc13b63ba14a8a125e87fdd994e234d3ea1"
+}

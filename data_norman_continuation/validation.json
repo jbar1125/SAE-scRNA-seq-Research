@@ -1,0 +1,121 @@
+{
+  "completed_utc": "2026-10-19T01:29:07.673704+00:00",
+  "syntax": "PASS all src/*.py and tests/*.py",
+  "standalone_suites": 15,
+  "pass_markers": [
+    "ALL BASELINE LOGIC TESTS PASSED",
+    "ALL CAUSAL-GROUNDING TESTS PASSED",
+    "ALL MARKER-BASELINE SENSITIVITY TESTS PASSED",
+    "ALL MARKER-PROGRAM BASELINE TESTS PASSED (6 checks)",
+    "ALL NORMAN-UNIQUE TESTS PASSED",
+    "ALL PIPELINE-TRAINING TESTS PASSED",
+    "ALL PREP-NORMAN TESTS PASSED",
+    "ALL PROGRAM-MODULATION TESTS PASSED",
+    "ALL PROGRAM-MODULATION COUNTEREXAMPLE TESTS PASSED",
+    "ALL PROGRAM-MODULATION SPECIFICITY TESTS PASSED (6 checks)",
+    "ALL REGULON-RECOVERY TESTS PASSED",
+    "ALL TOPK CHECKPOINT TESTS PASSED",
+    "ALL V0b LOGIC TESTS PASSED",
+    "ALL V0b v3.1 LOGIC TESTS PASSED",
+    "ALL V0b v3 LOGIC TESTS PASSED"
+  ],
+  "skipped": 0,
+  "exit_status": 0,
+  "frozen_integrity_checks": [
+    "config/causal_grounding_spec.json",
+    "config/preregistration_spec.json",
+    "config/program_modulation_spec.json",
+    "config/regulon_recovery_spec.json",
+    "data_g0 frozen bundle",
+    "data_g0_human frozen bundle"
+  ],
+  "full_log_sha256": "26a8267698d6c564f552806ae29d3a01fa1c16806d3660e1b7242f7623a00a2b",
+  "additional_functional_checks": [
+    "actual two-epoch checkpoint/activation CLI",
+    "actual full-data heldout-control marker baseline",
+    "exact primary reproduction before full-data sensitivity analysis",
+    "deterministic PNG and SVG figure generation",
+    "CPU sequence syntax and dry-run seed paths/parameters/resume selection",
+    "Actual full-data direct signed PCA; 945 comparisons retained",
+    "PCA model/source hashes and exact existing discovery/inference control split verified",
+    "Actual full-data dual marker screen; exact baseline parameters/split reproduced, all1179 hypotheses retained",
+    "Actual dual log/linear sensitivity; every original estimate reproduced exactly and joint2358 families retained",
+    "Actual capped NMF fit and analysis; convergence warning retained, fitted factors/model/source hashes verified",
+    "Actual full-data phase diagnostic; control split reproduced and all1365 hypotheses retained",
+    "Four completed full-size SAE checkpoints and actual activation/input/source hashes validated, original primary Holm27 reproduced and control-only complete record archived",
+    "Actual six-model common inference; all5670 association and54 identity hypotheses,9999 permutations per arm, exact old PCA/NMF comparisons reproduced",
+    "Actual PCA mean attribution; all428505 contributions and105 partition sums checked, declared score-fidelity gate passed",
+    "New common-comparison PNG/SVG byte-identical across two generations; rendered image inspected",
+    "Actual bounded NMF warm restart: tolerance met after380 further iterations; factors and6615/63 family validated and pushed",
+    "Actual complete target-RNA109 and paired105-row diagnostics, including absent targets",
+    "Actual historical K562 programme across8arms:8400 associations and80 identity hypotheses, original945 direct records reproduced",
+    "Actual context sensitivity:4200 references,1050 depth,8400 technical partition records, primary reproduced exactly",
+    "Actual single-gene and omission diagnostics:10080 complete hypotheses,1680 new, jointBH independently reproduced",
+    "Actual composition sensitivity:11025 complete hypotheses,945 old records recovered, fixed weights, jointBH independently reproduced",
+    "Seven large model/count archives built and every member streamed back to its originalSHA256; locally verified, remote upload blocked",
+    "Actual PDF/Word internal review build: source and five figure hashes fixed, PDF content checked, Word CRC and five embedded images verified; final pages inspected",
+    "Robustness figure title limited to displayed sensitivity settings; PNG/SVG reproduced byte-identically twice without changing count calculations",
+    "Post hoc exact candidate-set check: all 57 direct calls identical in original context and both denominators under joint composition correction; no new inference",
+    "150 local Markdown references in consolidated review/evidence commit resolved"
+  ],
+  "sae_status": "PASS: all three declared all-cell seeds and one control-only sensitivity completed200 epochs. Separate historical K562 programme has positive conditional associations; no independent biological validation or novel regulator mechanism established.",
+  "additional_standalone_suites": [
+    {
+      "suite": "tests/test_norman_result_archive.py",
+      "status": "PASS",
+      "scope": "Executed separately after the fifteen-suite run; includes interrupted-archive recovery, not future full-run completion."
+    },
+    {
+      "suite": "tests/test_norman_direct_pca.py",
+      "status": "PASS",
+      "scope": "Separate run; signed-axis invariance, retained no-match records and discovery-only selection conditional on fixed scores."
+    },
+    {
+      "suite": "tests/test_norman_dual_marker.py",
+      "status": "PASS",
+      "scope": "Separate run; planted additivity, true interaction, batch-composition artifact and unavailable-arm/marker handling."
+    },
+    {
+      "suite": "tests/test_norman_phase_diagnostic.py",
+      "status": "PASS",
+      "scope": "Separate run; full PCA plus bidirectional phase correction families retained, omission family separate."
+    },
+    {
+      "suite": "tests/test_norman_shared_inference.py",
+      "status": "PASS",
+      "scope": "Separate run: complete six-arm families, finite permutation resolution and incompatible score-recovery rejection. Does not establish full-data execution."
+    },
+    {
+      "suite": "tests/test_norman_pca_attribution.py",
+      "status": "PASS",
+      "scope": "Separate run: exact signed mean decomposition and stratum-composition counterexample."
+    },
+    {
+      "suite": "tests/test_norman_nmf_convergence.py",
+      "status": "PASS",
+      "scope": "Separate run. Actual small warm fit preserves starting artifacts and retains seven-arm families."
+    },
+    {
+      "suite": "tests/test_norman_target_rna.py",
+      "status": "PASS",
+      "scope": "Separate run. Induced gene, absent target and noninduced author-alternative comparisons retained."
+    },
+    {
+      "suite": "tests/test_norman_k562_context.py",
+      "status": "PASS",
+      "scope": "Separate run. Complete eight-arm expanded family retained, including unscored hypotheses."
+    }
+  ],
+  "standalone_suites_executed_total": 24,
+  "updated_utc": "2026-10-20T19:19:20.290076+00:00",
+  "large_archive_upload": {
+    "status": "FAIL_NETWORK",
+    "stage": "CONNECT tunnel to uploads.github.com",
+    "http_status": 403,
+    "draft_release_id": 418693745,
+    "assets_uploaded": 0,
+    "network_host_saved_in_draft": true,
+    "runtime_policy_applied": false
+  },
+  "review_render_manifest": "docs/review/render_manifest.json"
+}

@@ -1,0 +1,1 @@
+{"status": "PASS", "outputs": {"manuscript-review.pdf": {"bytes": 798104, "sha256": "42895fee3e4f7d9f99ce2a686d03549f17f90df979db87086a6920624281e1d2"}, "manuscript-review.docx": {"bytes": 712969, "sha256": "641ce1fd844a472ee4bf6cfd3f1240b648c729935c65ca38be0d5e3768bb62b3"}}, "embedded_figures": 5}

@@ -1,0 +1,341 @@
+#!/usr/bin/env python3
+"""Design counterexamples for program_modulation, never biological evidence.
+
+Run with the research virtualenv. Sources are loaded from an immutable historical
+Git commit so implementation changes cannot alter a running benchmark. Each scenario
+uses the same predeclared dimensions and independent simulation seeds. The
+additional rank-dispersion test is a proposed identity-specific diagnostic and
+is not part of the frozen program-modulation specification.
+"""
+from __future__ import annotations
+
+import argparse
+import hashlib
+import json
+import os
+from pathlib import Path
+import platform
+import subprocess
+import sys
+import time
+import types
+
+# Set before importing the numerical stack.
+for variable in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS"):
+    os.environ[variable] = "1"
+
+import numpy as np
+import scipy
+from scipy.stats import beta, rankdata
+import statsmodels
+
+
+PARAMETERS = {
+    "n_controls": 500,
+    "n_perturbations": 20,
+    "cells_per_perturbation": 60,
+    "n_features": 40,
+    "genes_per_feature": 5,
+    "n_markers": 5,
+    "specific_responders": 4,
+    "activation_location": 0.5,
+    "activation_sd": 0.1,
+    "activation_shift": 2.0,
+    "expression_noise_sd": 0.02,
+    "marker_noise_sd": 0.005,
+    "top_k": 5,
+    "n_random_features": 30,
+    "auc_floor": 0.55,
+    "alpha": 0.05,
+    "min_cells": 20,
+    "min_active_cells": 50,
+}
+SCENARIOS = ("specific_subset", "generic_one_axis", "null", "absent_markers_last_feature")
+HISTORICAL_REF = "a08db6d5ef4440adb9f1e1613e96856ab6515533"
+
+
+def binomial_rate(successes, trials):
+    """Exact 95% Clopper-Pearson interval over independent simulation worlds.
+
+    This uncertainty concerns simulation detection frequency, not biology.
+    """
+    return {
+        "count": int(successes), "n": int(trials), "rate": successes / trials,
+        "interval_95_percent": [
+            float(beta.ppf(0.025, successes, trials - successes + 1)) if successes else 0.0,
+            float(beta.ppf(0.975, successes + 1, trials - successes)) if successes < trials else 1.0,
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only",
+    }
+
+
+def make_world(scenario: str, seed: int):
+    """Distinct perturbation labels carry no identity signal in generic/null worlds.
+
+    Every feature has five nonmarker expression reporters. In the first three
+    worlds, the marker genes are particularly clean reporters of feature 0.
+    In absent_markers_last_feature, markers have zero expression and no feature
+    has marker overlap among its five most associated genes. Feature 39 then has
+    a generic response, exposing any accidental fallback to Python index -1.
+    """
+    p = PARAMETERS
+    rng = np.random.default_rng(seed)
+    n = p["n_controls"] + p["n_perturbations"] * p["cells_per_perturbation"]
+    f = p["n_features"]
+    g = p["n_markers"] + f * p["genes_per_feature"]
+    labels = np.array(["control"] * p["n_controls"] + [
+        f"P{i:02d}" for i in range(p["n_perturbations"])
+        for _ in range(p["cells_per_perturbation"])
+    ])
+    acts = np.abs(rng.normal(p["activation_location"], p["activation_sd"], (n, f)))
+    if scenario == "specific_subset":
+        responsive = np.isin(labels, [f"P{i:02d}" for i in range(p["specific_responders"])])
+        acts[responsive, 0] += p["activation_shift"]
+    elif scenario == "generic_one_axis":
+        acts[labels != "control", 0] += p["activation_shift"]
+    elif scenario == "absent_markers_last_feature":
+        acts[labels != "control", -1] += p["activation_shift"]
+    elif scenario != "null":
+        raise ValueError(scenario)
+    expr = np.empty((n, g), dtype=np.float32)
+    for feature in range(f):
+        start = p["n_markers"] + feature * p["genes_per_feature"]
+        expr[:, start:start + p["genes_per_feature"]] = (
+            acts[:, feature, None]
+            + rng.normal(0, p["expression_noise_sd"], (n, p["genes_per_feature"]))
+        )
+    if scenario == "absent_markers_last_feature":
+        expr[:, :p["n_markers"]] = 0.0
+    else:
+        expr[:, :p["n_markers"]] = (
+            acts[:, 0, None] + rng.normal(0, p["marker_noise_sd"], (n, p["n_markers"]))
+        )
+    genes = [f"g{i}" for i in range(g)]
+    markers = {"EXTERNAL_PROGRAM": genes[:p["n_markers"]]}
+    return acts, expr, labels, genes, markers
+
+
+def rank_identity_test(acts_f, labels, n_shuffle, seed):
+    """Permutation test of rank dispersion across single-perturbation groups.
+
+    All control observations and all feature-selection choices remain fixed.
+    Only the included single-perturbation labels are exchangeable. This statistic
+    detects group heterogeneity rather than counting changes from controls.
+    No batches exist in these simulated worlds; real data require exchangeability
+    within experimental strata. Seed repetition is simulation, not replication.
+    """
+    included = (labels != "control") & np.array(["+" not in x for x in labels])
+    _, group = np.unique(labels[included], return_inverse=True)
+    n_group = np.bincount(group)
+    ranks = rankdata(acts_f[included], method="average")
+    ranks -= ranks.mean()
+
+    def statistic(codes):
+        sums = np.bincount(codes, weights=ranks, minlength=len(n_group))
+        return float(np.sum(sums * sums / n_group))
+
+    observed = statistic(group)
+    rng = np.random.default_rng(seed)
+    null = np.array([statistic(rng.permutation(group)) for _ in range(n_shuffle)])
+    return {
+        "statistic": observed,
+        "n_shuffle": n_shuffle,
+        "permutation_p": (1 + int(np.count_nonzero(null >= observed))) / (1 + n_shuffle),
+        "null_mean": float(null.mean()),
+        "null_max": float(null.max()),
+        "interpretation": "perturbation-identity heterogeneity, conditional on fixed controls and feature",
+    }
+
+
+def historical_module(repo, reference=HISTORICAL_REF):
+    """Load the actual historical module and dependency from trusted local Git.
+
+    Source hashes accompany every result. No implementation or BH substitute is
+    used. The temporary import binding is restored before returning.
+    """
+    sources = {}
+    source_text = {}
+    for filename in ("program_modulation.py", "causal_grounding.py"):
+        source = subprocess.check_output(["git", "show", f"{reference}:src/{filename}"], cwd=repo)
+        source_text[filename] = source
+        sources[filename] = {
+            "git_reference": reference,
+            "git_path": f"src/{filename}",
+            "sha256": hashlib.sha256(source).hexdigest(),
+        }
+    dependency = types.ModuleType("causal_grounding_historical")
+    exec(compile(source_text["causal_grounding.py"], f"{reference}:src/causal_grounding.py", "exec"), dependency.__dict__)
+    module = types.ModuleType("program_modulation_historical")
+    previous = sys.modules.get("causal_grounding")
+    try:
+        sys.modules["causal_grounding"] = dependency
+        exec(compile(source_text["program_modulation.py"], f"{reference}:src/program_modulation.py", "exec"), module.__dict__)
+    finally:
+        if previous is None:
+            sys.modules.pop("causal_grounding", None)
+        else:
+            sys.modules["causal_grounding"] = previous
+    return module, sources
+
+
+def reanalyse_specificity(summary_path, out_dir, n_shuffle):
+    """Exercise the current diagnostic on already recorded historical worlds.
+
+    The source summary remains untouched. Reconstructing simulation arrays uses
+    exactly its recorded seed and fixed generator parameters, avoiding another
+    expensive evaluation of the legacy full-shuffle metric.
+    """
+    import program_modulation_specificity as specificity
+    data = json.loads(summary_path.read_text())
+    if data["metadata"]["parameters_fixed_before_run"] != PARAMETERS:
+        raise ValueError("Recorded parameters do not match this generator")
+    out_dir.mkdir(parents=True, exist_ok=True)
+    destination = out_dir / "specificity_reanalysis.json"
+    if destination.exists():
+        raise FileExistsError(destination)
+    with (out_dir / ".specificity_claim").open("x") as stream:
+        stream.write("Output reserved by specificity reanalysis\n")
+    start = time.perf_counter()
+    runs = []
+    for row in data["runs"]:
+        acts, _, labels, _, _ = make_world(row["scenario"], row["seed"])
+        record = {key: row[key] for key in ("feature", "low_power", "enrich_p_bonf")}
+        diagnostic = specificity.program_modulation_specificity(
+            acts, labels, {"EXTERNAL_PROGRAM": record},
+            n_shuffle=n_shuffle, seed=row["seed"] + 10000,
+        )
+        runs.append({"scenario": row["scenario"], "seed": row["seed"],
+                     "diagnostic": diagnostic["programs"]["EXTERNAL_PROGRAM"]})
+    rates = {}
+    for scenario in SCENARIOS:
+        records = [row["diagnostic"] for row in runs if row["scenario"] == scenario]
+        rates[scenario] = {
+            "rejection_rate": binomial_rate(sum(r["conditional_heterogeneity"] for r in records), len(records)),
+            "matched_count": sum(r["matched"] for r in records),
+            "p_values": [r["empirical_p"] for r in records],
+        }
+    api = Path(specificity.__file__).resolve()
+    output = {
+        "purpose": "Simulation-only check of the current conditional identity diagnostic",
+        "input_summary_sha256": hashlib.sha256(summary_path.read_bytes()).hexdigest(),
+        "generator_sha256": hashlib.sha256(Path(__file__).read_bytes()).hexdigest(),
+        "specificity_source_sha256": hashlib.sha256(api.read_bytes()).hexdigest(),
+        "n_shuffle": n_shuffle, "n_planned_programs": 1,
+        "scenario_summary": rates, "runs": runs,
+        "elapsed_seconds": round(time.perf_counter() - start, 3),
+    }
+    with destination.open("x") as stream:
+        stream.write(json.dumps(output, indent=2) + "\n")
+    print(json.dumps({"specificity_reanalysis": str(destination), "scenario_summary": rates}), flush=True)
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument("--repo", type=Path, default=Path(__file__).resolve().parents[1])
+    parser.add_argument("--out-dir", type=Path, required=True)
+    parser.add_argument("--seeds", type=int, default=20)
+    parser.add_argument("--n-shuffle", type=int, default=99)
+    parser.add_argument("--reanalyse-summary", type=Path,
+                        help="reconstruct saved worlds and run the current specificity diagnostic")
+    args = parser.parse_args()
+    if args.seeds < 1 or args.n_shuffle < 1:
+        parser.error("--seeds and --n-shuffle must be positive")
+    if args.reanalyse_summary is not None:
+        reanalyse_specificity(args.reanalyse_summary, args.out_dir, args.n_shuffle)
+        return
+    args.out_dir.mkdir(parents=True, exist_ok=True)
+    for filename in ("metadata.json", "results.jsonl", "summary.json"):
+        if (args.out_dir / filename).exists():
+            raise FileExistsError(f"{args.out_dir / filename} exists; choose a fresh --out-dir")
+    # A persistent exclusive claim prevents concurrent writers from passing the
+    # preflight together. Incomplete output is kept for diagnosis, never replaced.
+    with (args.out_dir / ".benchmark_claim").open("x") as claim:
+        claim.write("Output reserved by benchmark_program_modulation.py\n")
+    module, source_metadata = historical_module(args.repo.resolve())
+    generator = Path(__file__).resolve()
+    repo_dirty = subprocess.check_output(["git", "status", "--porcelain", "--untracked-files=normal"], cwd=args.repo, text=True)
+    generator_status = subprocess.check_output(["git", "status", "--porcelain", "--untracked-files=all", "--", str(generator)], cwd=args.repo, text=True)
+    metadata = {
+        "purpose": "Simulation-only design audit, not biological discovery",
+        "parameters_fixed_before_run": PARAMETERS,
+        "scenarios": SCENARIOS,
+        "seeds": list(range(args.seeds)),
+        "n_shuffle": args.n_shuffle,
+        "quantitative_legacy_positive": "full-shuffle p<0.05 AND feature-background percentile>=90; coherence not scored",
+        "identity_diagnostic": "rank-dispersion permutation p<0.05; prospective diagnostic, not frozen-spec output",
+        "source": source_metadata,
+        "generator": {"path": str(generator),
+                      "sha256": hashlib.sha256(generator.read_bytes()).hexdigest(),
+                      "repository_working_tree_dirty": bool(repo_dirty),
+                      "generator_working_tree_status": generator_status.strip()},
+        "git_head": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=args.repo, text=True).strip(),
+        "versions": {"python": platform.python_version(), "numpy": np.__version__, "scipy": scipy.__version__, "statsmodels": statsmodels.__version__},
+        "threads": {k: os.environ[k] for k in ("OMP_NUM_THREADS", "MKL_NUM_THREADS", "OPENBLAS_NUM_THREADS", "NUMEXPR_NUM_THREADS")},
+    }
+    with (args.out_dir / "metadata.json").open("x") as stream:
+        stream.write(json.dumps(metadata, indent=2) + "\n")
+    start = time.perf_counter()
+    summaries = []
+    full_path = args.out_dir / "results.jsonl"
+    with full_path.open("x") as stream:
+        for seed in range(args.seeds):
+            for scenario in SCENARIOS:
+                t0 = time.perf_counter()
+                acts, expr, labels, genes, markers = make_world(scenario, seed)
+                result = module.program_modulation(
+                    acts, expr, labels, genes, markers,
+                    top_k=PARAMETERS["top_k"],
+                    auc_floor=PARAMETERS["auc_floor"], alpha=PARAMETERS["alpha"],
+                    min_cells=PARAMETERS["min_cells"],
+                    min_active_cells=PARAMETERS["min_active_cells"],
+                    n_shuffle=args.n_shuffle,
+                    n_random_features=PARAMETERS["n_random_features"],
+                    shuffle_mode="full", seed=seed,
+                )
+                record = result["programs"]["EXTERNAL_PROGRAM"]
+                feature = record.get("feature")
+                identity = None
+                if feature is not None:
+                    identity = rank_identity_test(acts[:, feature], labels, args.n_shuffle, seed + 10000)
+                positive = (not record.get("low_power", True)
+                            and record["shuffle_null"]["empirical_p"] < 0.05
+                            and record["feature_background_percentile"] >= 90)
+                summary = {
+                    "seed": seed, "scenario": scenario,
+                    "feature": feature, "low_power": record.get("low_power"),
+                    "enrich_p_bonf": record.get("enrich_p_bonf"),
+                    "n_modulators": record.get("n_modulators"),
+                    "full_shuffle_p": record.get("shuffle_null", {}).get("empirical_p"),
+                    "background_percentile": record.get("feature_background_percentile"),
+                    "passes_legacy_quantitative_positive": bool(positive),
+                    "identity_p": identity["permutation_p"] if identity else None,
+                    "identity_rejects": bool(identity and identity["permutation_p"] < 0.05),
+                    "elapsed_seconds": round(time.perf_counter() - t0, 3),
+                }
+                summaries.append(summary)
+                stream.write(json.dumps({"summary": summary, "legacy_result": result, "identity_diagnostic": identity}) + "\n")
+                stream.flush()
+                print(json.dumps(summary), flush=True)
+    rates = {}
+    for scenario in SCENARIOS:
+        rows = [r for r in summaries if r["scenario"] == scenario]
+        rates[scenario] = {
+            "n_runs": len(rows),
+            "legacy_positive_count": sum(r["passes_legacy_quantitative_positive"] for r in rows),
+            "identity_rejection_count": sum(r["identity_rejects"] for r in rows),
+            "invalid_feature_minus_one_count": sum(r["feature"] == -1 for r in rows),
+            "legacy_positive_rate": binomial_rate(sum(r["passes_legacy_quantitative_positive"] for r in rows), len(rows)),
+            "identity_rejection_rate": binomial_rate(sum(r["identity_rejects"] for r in rows), len(rows)),
+            "modulator_counts": [r["n_modulators"] for r in rows],
+            "legacy_p_values": [r["full_shuffle_p"] for r in rows],
+            "identity_p_values": [r["identity_p"] for r in rows],
+        }
+    final = {"metadata": metadata, "scenario_summary": rates,
+             "elapsed_seconds": round(time.perf_counter() - start, 3), "runs": summaries}
+    with (args.out_dir / "summary.json").open("x") as stream:
+        stream.write(json.dumps(final, indent=2) + "\n")
+    print(json.dumps({"scenario_summary": rates, "elapsed_seconds": final["elapsed_seconds"]}), flush=True)
+
+
+if __name__ == "__main__":
+    main()

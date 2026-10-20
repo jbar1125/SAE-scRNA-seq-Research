@@ -1,0 +1,358 @@
+{
+  "fit": {
+    "settings": {
+      "n_components": 64,
+      "init": "custom",
+      "solver": "mu",
+      "beta_loss": "frobenius",
+      "tol": 0.0001,
+      "max_iter": 800,
+      "random_state": 0
+    },
+    "iterations": 380,
+    "fit_elapsed_seconds": 2339.615656395006,
+    "convergence_warning_absent": true,
+    "warnings": [],
+    "reconstruction_frobenius_error": 3050.07861328125,
+    "stopping_reference": "New custom-initialization error; not bit-identical uninterrupted continuation.",
+    "original_capped_error": 3077.26953125,
+    "relative_reconstruction_error": 0.33099308609962463
+  },
+  "programs": {
+    "Ery_TF": {
+      "all_cell_sae_seed0": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "all_cell_sae_seed1": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "all_cell_sae_seed2": {
+        "matched": true,
+        "n_associations": 5,
+        "identity_holm_p": 0.0063
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": true,
+        "n_associations": 28,
+        "identity_holm_p": 0.0063
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": true,
+        "n_associations": 6,
+        "identity_holm_p": 0.0063
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": true,
+        "n_associations": 10,
+        "identity_holm_p": 0.0063
+      }
+    },
+    "Ery_Heme": {
+      "all_cell_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed1": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed2": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": true,
+        "n_associations": 21,
+        "identity_holm_p": 0.0063
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": true,
+        "n_associations": 35,
+        "identity_holm_p": 0.0063
+      }
+    },
+    "Ery_Membrane": {
+      "all_cell_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed1": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed2": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": true,
+        "n_associations": 27,
+        "identity_holm_p": 0.0063
+      }
+    },
+    "Ery_Effector": {
+      "all_cell_sae_seed0": {
+        "matched": true,
+        "n_associations": 1,
+        "identity_holm_p": 0.0063
+      },
+      "all_cell_sae_seed1": {
+        "matched": true,
+        "n_associations": 1,
+        "identity_holm_p": 0.0063
+      },
+      "all_cell_sae_seed2": {
+        "matched": true,
+        "n_associations": 1,
+        "identity_holm_p": 0.0063
+      },
+      "control_only_sae_seed0": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": true,
+        "n_associations": 54,
+        "identity_holm_p": 0.0063
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": true,
+        "n_associations": 52,
+        "identity_holm_p": 0.0063
+      }
+    },
+    "Gran_TF": {
+      "all_cell_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed1": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed2": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      }
+    },
+    "Gran_Primary": {
+      "all_cell_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed1": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed2": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      }
+    },
+    "Gran_Secondary": {
+      "all_cell_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed1": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed2": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      }
+    },
+    "Progenitor": {
+      "all_cell_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed1": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "all_cell_sae_seed2": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "control_only_sae_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "direct_pca_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": false,
+        "n_associations": null,
+        "identity_holm_p": 1.0
+      }
+    },
+    "Cycling": {
+      "all_cell_sae_seed0": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "all_cell_sae_seed1": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "all_cell_sae_seed2": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "control_only_sae_seed0": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "direct_pca_seed0": {
+        "matched": true,
+        "n_associations": 52,
+        "identity_holm_p": 0.0063
+      },
+      "capped_direct_nmf_seed0": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      },
+      "warm_restarted_nmf_seed0": {
+        "matched": true,
+        "n_associations": 0,
+        "identity_holm_p": 0.0063
+      }
+    }
+  },
+  "scope": "Numerical tolerance satisfaction is a solver stopping condition, not proof of a global optimum or biological fidelity. This is one warm-start sensitivity with shared cells, unequal capacities and existing cell-dependence limits. If tolerance remains unmet, report the unresolved cap rather than repeatedly tuning settings. No independent replication, mechanism or SAE/NMF superiority follows.",
+  "raw_result_sha256": "b71b980c97e52370a71b9c76c1e533b600be9fdfa95d0212cac519fb7d74b96f"
+}

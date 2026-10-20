@@ -1,0 +1,52 @@
+{
+  "started_utc": "2026-10-18T19:03:56.870691+00:00",
+  "argv": [
+    "src/calibrate_program_modulation_specificity.py",
+    "--out-dir",
+    "data_program_modulation_audit/calibration"
+  ],
+  "working_directory": "/workspace/SAE-scRNA-seq-Research",
+  "parameters": {
+    "n_simulations": 200,
+    "seed_start": 0,
+    "seed_end_inclusive": 199,
+    "n_permutations": 999,
+    "n_programs": 9,
+    "n_distinct_features": 9,
+    "n_controls": 100,
+    "n_perturbations": 10,
+    "cells_per_perturbation": 40,
+    "min_cells": 20,
+    "alpha": 0.05,
+    "match_alpha": 0.05,
+    "stipulated_marker_match_p_bonf": 1e-06,
+    "generator": "independent standard normal float64 features for every cell",
+    "generator_stream_salt": 20261018,
+    "generator_seed_sequence": "[simulation_seed, generator_stream_salt, 1]",
+    "permutation_seed": "simulation_seed (separate generator stream)",
+    "paired_generic_checks": 5,
+    "paired_generic_offset": 3.0,
+    "strata": null,
+    "multiplicity": "Holm over all nine planned programs",
+    "outcome": "any Holm-adjusted conditional_heterogeneity rejection in one simulation",
+    "confidence_interval": "two-sided exact Clopper-Pearson 95% interval for simulation familywise rejection frequency",
+    "anti_conservatism_diagnostic": "one-sided exact binomial test against nominal familywise rate 0.05; no tuning or reruns"
+  },
+  "sources": {
+    "calibration_generator": {
+      "path": "/workspace/SAE-scRNA-seq-Research/src/calibrate_program_modulation_specificity.py",
+      "sha256": "1a6ee1d85737d90aaf62f6ab9900e564cbad1c9e9f49971d80a843957deff4f0"
+    },
+    "executed_identity_module": {
+      "path": "/workspace/SAE-scRNA-seq-Research/src/program_modulation_specificity.py",
+      "sha256": "26ef91771d04d032ca9727672dc56811e32dfb22d4941f146faed03a7cc6b268"
+    }
+  },
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1"
+  },
+  "scope": "Synthetic calibration of conditional cell-level identity testing with stipulated matches. Not biological evidence, marker-enrichment calibration, SAE-learning validation, or discovery.",
+  "paired_generic_check_scope": "Paired rank-invariance checks share datasets with the null simulations and are not additional independent trials."
+}

@@ -1,0 +1,149 @@
+{
+  "complete_seeds": [
+    0,
+    1,
+    2
+  ],
+  "family_size": 27,
+  "multiplicity": "Holm over all 27 program-by-seed identity tests",
+  "scope": "Conditional cell-level identity heterogeneity. Seed agreement is computational robustness, not biological replication. Legacy per-program modulator lists remain exploratory: this correction does not repair their control-selection or per-gene inference.",
+  "programs": {
+    "Ery_TF": {
+      "matched_seeds": 3,
+      "joint_holm_p_by_seed": {
+        "0": 0.027,
+        "1": 0.027,
+        "2": 0.027
+      },
+      "joint_identity_rejections": 3,
+      "descriptive_modulator_counts_by_seed": {
+        "0": 0,
+        "1": 0,
+        "2": 11
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Ery_Heme": {
+      "matched_seeds": 0,
+      "joint_holm_p_by_seed": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0
+      },
+      "joint_identity_rejections": 0,
+      "descriptive_modulator_counts_by_seed": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Ery_Membrane": {
+      "matched_seeds": 0,
+      "joint_holm_p_by_seed": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0
+      },
+      "joint_identity_rejections": 0,
+      "descriptive_modulator_counts_by_seed": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Ery_Effector": {
+      "matched_seeds": 3,
+      "joint_holm_p_by_seed": {
+        "0": 0.027,
+        "1": 0.027,
+        "2": 0.027
+      },
+      "joint_identity_rejections": 3,
+      "descriptive_modulator_counts_by_seed": {
+        "0": 1,
+        "1": 1,
+        "2": 1
+      },
+      "descriptive_candidates_in_at_least_two_seeds": [
+        "KLF1"
+      ]
+    },
+    "Gran_TF": {
+      "matched_seeds": 0,
+      "joint_holm_p_by_seed": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0
+      },
+      "joint_identity_rejections": 0,
+      "descriptive_modulator_counts_by_seed": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Gran_Primary": {
+      "matched_seeds": 0,
+      "joint_holm_p_by_seed": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0
+      },
+      "joint_identity_rejections": 0,
+      "descriptive_modulator_counts_by_seed": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Gran_Secondary": {
+      "matched_seeds": 0,
+      "joint_holm_p_by_seed": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0
+      },
+      "joint_identity_rejections": 0,
+      "descriptive_modulator_counts_by_seed": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Progenitor": {
+      "matched_seeds": 0,
+      "joint_holm_p_by_seed": {
+        "0": 1.0,
+        "1": 1.0,
+        "2": 1.0
+      },
+      "joint_identity_rejections": 0,
+      "descriptive_modulator_counts_by_seed": {
+        "0": null,
+        "1": null,
+        "2": null
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    },
+    "Cycling": {
+      "matched_seeds": 3,
+      "joint_holm_p_by_seed": {
+        "0": 0.027,
+        "1": 0.027,
+        "2": 0.027
+      },
+      "joint_identity_rejections": 3,
+      "descriptive_modulator_counts_by_seed": {
+        "0": 0,
+        "1": 0,
+        "2": 0
+      },
+      "descriptive_candidates_in_at_least_two_seeds": []
+    }
+  }
+}

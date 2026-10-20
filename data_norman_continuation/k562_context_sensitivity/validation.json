@@ -1,0 +1,13 @@
+{
+  "status": "PASS",
+  "reference_family": 4200,
+  "depth_family": 1050,
+  "unique_comparisons": 5250,
+  "technical_group_records": 8400,
+  "original_direct_fit_reproduced_exactly": true,
+  "uncompressed_sha256": {
+    "results.json.gz": "4e0ce9790478774e854cf6e51581cdcc5a01f5b86158c989515086e90057898b",
+    "extracted_direct_fit.json.gz": "52cd8612d56fc82d065341ad4f74982984da8dfb3eb2e3db709169eb98276695"
+  },
+  "executed_adapter_sha256": "c3c3a2ceb7b3b2367fbf050d3b7305b0312b1157b62efc979ba5d35850e3edb3"
+}

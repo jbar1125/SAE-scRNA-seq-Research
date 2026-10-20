@@ -1,0 +1,2138 @@
+{
+  "family_size": 1179,
+  "pairs": 131,
+  "dual_cells": 41759,
+  "scope": "Keep all pairs and failed/low-power hypotheses, not only favorable interactions. Report CBL+CNN1 as a known-context comparison regardless of outcome, not biological novelty. Exact score-scale additivity need not hold under molecular/count-scale independence; RNA composition, nonlinear log transformation, cell-state mixtures and guide effects can create deviations. Gemgroups and cells are not independent biological samples. Independent experimental validation and full original-paper/supplement review remain required.",
+  "uncompressed_source_sha256": "8fe0ca5d869e971ecd896f2fca9530d059e9ebe011094ee4ba9cc458803e44c3",
+  "programs": {
+    "Ery_TF": {
+      "low_power": false,
+      "primary_flags": 1,
+      "same_sign_omission_robust": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "robust_pairs": [],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "tested",
+          "contrast": -0.12672275880225906,
+          "standard_error": 0.08489052215493853,
+          "df": 948.72744961662,
+          "interval_95": [
+            -0.29331765811401234,
+            0.039872140509494225
+          ],
+          "p": 0.13582759785411957,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.3700355868178833,
+              "variance_contributions": {
+                "dual": 0.054213100343726346,
+                "A": 0.01480646909515262,
+                "B": 0.010196024779546923,
+                "control": 0.0012774899021893787
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.1307809173255175,
+              "variance_contributions": {
+                "dual": 0.03613431115108211,
+                "A": 0.013195526919286564,
+                "B": 0.007418616274920703,
+                "control": 0.0013952696438903098
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": -0.015507595190622614,
+              "variance_contributions": {
+                "dual": 0.024363887317251753,
+                "A": 0.0129867169069054,
+                "B": 0.008755004970528875,
+                "control": 0.0012804515709142887
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.34546615841440426,
+              "variance_contributions": {
+                "dual": 0.024398783655209314,
+                "A": 0.011156137107767274,
+                "B": 0.01005976420220188,
+                "control": 0.0013591960803574343
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": 0.14958500423497184,
+              "variance_contributions": {
+                "dual": 0.02414408574555157,
+                "A": 0.016803879281439258,
+                "B": 0.015113393904747632,
+                "control": 0.0015499947115261872
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.18671163650556882,
+              "variance_contributions": {
+                "dual": 0.03625368028393942,
+                "A": 0.010170679487323532,
+                "B": 0.013596534736386836,
+                "control": 0.0011902391839573438
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": -0.4307647330400503,
+              "variance_contributions": {
+                "dual": 0.0326593101098315,
+                "A": 0.014634871392141237,
+                "B": 0.013543150109809771,
+                "control": 0.0014609373826153659
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": 0.14383131809379482,
+              "variance_contributions": {
+                "dual": 0.023532694479382988,
+                "A": 0.013537131162791585,
+                "B": 0.010031384983069484,
+                "control": 0.0014041754786690273
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "tested",
+          "contrast": -0.12672275880225906,
+          "standard_error": 0.08489052215493853,
+          "df": 948.72744961662,
+          "interval_95": [
+            -0.29331765811401234,
+            0.039872140509494225
+          ],
+          "p": 0.13582759785411957,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.3700355868178833,
+              "variance_contributions": {
+                "dual": 0.054213100343726346,
+                "A": 0.01480646909515262,
+                "B": 0.010196024779546923,
+                "control": 0.0012774899021893787
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.1307809173255175,
+              "variance_contributions": {
+                "dual": 0.03613431115108211,
+                "A": 0.013195526919286564,
+                "B": 0.007418616274920703,
+                "control": 0.0013952696438903098
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": -0.015507595190622614,
+              "variance_contributions": {
+                "dual": 0.024363887317251753,
+                "A": 0.0129867169069054,
+                "B": 0.008755004970528875,
+                "control": 0.0012804515709142887
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.34546615841440426,
+              "variance_contributions": {
+                "dual": 0.024398783655209314,
+                "A": 0.011156137107767274,
+                "B": 0.01005976420220188,
+                "control": 0.0013591960803574343
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": 0.14958500423497184,
+              "variance_contributions": {
+                "dual": 0.02414408574555157,
+                "A": 0.016803879281439258,
+                "B": 0.015113393904747632,
+                "control": 0.0015499947115261872
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.18671163650556882,
+              "variance_contributions": {
+                "dual": 0.03625368028393942,
+                "A": 0.010170679487323532,
+                "B": 0.013596534736386836,
+                "control": 0.0011902391839573438
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": -0.4307647330400503,
+              "variance_contributions": {
+                "dual": 0.0326593101098315,
+                "A": 0.014634871392141237,
+                "B": 0.013543150109809771,
+                "control": 0.0014609373826153659
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": 0.14383131809379482,
+              "variance_contributions": {
+                "dual": 0.023532694479382988,
+                "A": 0.013537131162791585,
+                "B": 0.010031384983069484,
+                "control": 0.0014041754786690273
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 7,
+        "same_sign_omission_robust": false
+      }
+    },
+    "Ery_Heme": {
+      "low_power": false,
+      "primary_flags": 25,
+      "same_sign_omission_robust": 25,
+      "above_additive": 17,
+      "below_additive": 8,
+      "robust_pairs": [
+        "CBL+CNN1",
+        "CBL+PTPN12",
+        "CBL+TGFBR2",
+        "CBL+UBASH3B",
+        "CEBPA+CEBPE",
+        "CEBPE+RUNX1T1",
+        "CEBPE+SET",
+        "CEBPE+ZC3HAV1",
+        "CNN1+MAPK1",
+        "CNN1+UBASH3A",
+        "CNN1+UBASH3B",
+        "DUSP9+MAPK1",
+        "DUSP9+PRTG",
+        "DUSP9+SNAI1",
+        "FOSB+IKZF3",
+        "IGDCC3+PRTG",
+        "IKZF3+MAPK1",
+        "KLF1+SET",
+        "MAPK1+PRTG",
+        "PTPN12+UBASH3A",
+        "PTPN12+UBASH3B",
+        "PTPN12+ZBTB25",
+        "PTPN9+UBASH3B",
+        "SAMD1+UBASH3B",
+        "UBASH3B+ZBTB25"
+      ],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "tested",
+          "contrast": 0.8769520587813634,
+          "standard_error": 0.12401008982908439,
+          "df": 651.1134349740272,
+          "interval_95": [
+            0.6334441030064996,
+            1.1204600145562273
+          ],
+          "p": 3.961119935585487e-12,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": 0.8330125657412076,
+              "variance_contributions": {
+                "dual": 0.12643144709083876,
+                "A": 0.01723401589820171,
+                "B": 0.015969421702498002,
+                "control": 0.0013042185274576529
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": 1.0377168908199508,
+              "variance_contributions": {
+                "dual": 0.12430024621544195,
+                "A": 0.016714442162998035,
+                "B": 0.012374472335139226,
+                "control": 0.0015665192567234545
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": 1.0163377197228136,
+              "variance_contributions": {
+                "dual": 0.07718194205078076,
+                "A": 0.017680994501397734,
+                "B": 0.017123931936600806,
+                "control": 0.0013500852241175784
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": 0.2491126487197852,
+              "variance_contributions": {
+                "dual": 0.08291746341560091,
+                "A": 0.027064290849501006,
+                "B": 0.019341378605099928,
+                "control": 0.0013009756412291444
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": 1.1809228002144574,
+              "variance_contributions": {
+                "dual": 0.06031491116153536,
+                "A": 0.016170068141963156,
+                "B": 0.02428783325542551,
+                "control": 0.0012672118700162288
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": 1.1224222302800926,
+              "variance_contributions": {
+                "dual": 0.05404623997937927,
+                "A": 0.014507128105013468,
+                "B": 0.01592323895676858,
+                "control": 0.0012023794900464931
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": 0.9198456606776352,
+              "variance_contributions": {
+                "dual": 0.13419433781615797,
+                "A": 0.017687430775225478,
+                "B": 0.013222869199105916,
+                "control": 0.0014488183870244309
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": 0.6595004815192798,
+              "variance_contributions": {
+                "dual": 0.0636445915873157,
+                "A": 0.02270766856260345,
+                "B": 0.017022957187568116,
+                "control": 0.0011620037556937446
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 4.6107436050215075e-09,
+          "flagged": true
+        },
+        "target_omission": {
+          "status": "tested",
+          "contrast": 0.8769520587813634,
+          "standard_error": 0.12401008982908439,
+          "df": 651.1134349740272,
+          "interval_95": [
+            0.6334441030064996,
+            1.1204600145562273
+          ],
+          "p": 3.961119935585487e-12,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": 0.8330125657412076,
+              "variance_contributions": {
+                "dual": 0.12643144709083876,
+                "A": 0.01723401589820171,
+                "B": 0.015969421702498002,
+                "control": 0.0013042185274576529
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": 1.0377168908199508,
+              "variance_contributions": {
+                "dual": 0.12430024621544195,
+                "A": 0.016714442162998035,
+                "B": 0.012374472335139226,
+                "control": 0.0015665192567234545
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": 1.0163377197228136,
+              "variance_contributions": {
+                "dual": 0.07718194205078076,
+                "A": 0.017680994501397734,
+                "B": 0.017123931936600806,
+                "control": 0.0013500852241175784
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": 0.2491126487197852,
+              "variance_contributions": {
+                "dual": 0.08291746341560091,
+                "A": 0.027064290849501006,
+                "B": 0.019341378605099928,
+                "control": 0.0013009756412291444
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": 1.1809228002144574,
+              "variance_contributions": {
+                "dual": 0.06031491116153536,
+                "A": 0.016170068141963156,
+                "B": 0.02428783325542551,
+                "control": 0.0012672118700162288
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": 1.1224222302800926,
+              "variance_contributions": {
+                "dual": 0.05404623997937927,
+                "A": 0.014507128105013468,
+                "B": 0.01592323895676858,
+                "control": 0.0012023794900464931
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": 0.9198456606776352,
+              "variance_contributions": {
+                "dual": 0.13419433781615797,
+                "A": 0.017687430775225478,
+                "B": 0.013222869199105916,
+                "control": 0.0014488183870244309
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": 0.6595004815192798,
+              "variance_contributions": {
+                "dual": 0.0636445915873157,
+                "A": 0.02270766856260345,
+                "B": 0.017022957187568116,
+                "control": 0.0011620037556937446
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 4.630549204699434e-09,
+          "flagged": true
+        },
+        "omitted_targets": [],
+        "markers_remaining": 7,
+        "same_sign_omission_robust": true
+      }
+    },
+    "Ery_Membrane": {
+      "low_power": false,
+      "primary_flags": 8,
+      "same_sign_omission_robust": 8,
+      "above_additive": 6,
+      "below_additive": 2,
+      "robust_pairs": [
+        "CEBPA+CEBPE",
+        "CEBPE+KLF1",
+        "CEBPE+RUNX1T1",
+        "CEBPE+ZC3HAV1",
+        "CNN1+UBASH3A",
+        "DUSP9+MAPK1",
+        "DUSP9+SNAI1",
+        "PTPN12+UBASH3A"
+      ],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "tested",
+          "contrast": 0.19120466647506465,
+          "standard_error": 0.10772746094152998,
+          "df": 721.4577922113384,
+          "interval_95": [
+            -0.020292087531505854,
+            0.40270142048163515
+          ],
+          "p": 0.07633721386334641,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": 0.8318994028788012,
+              "variance_contributions": {
+                "dual": 0.14809397703970212,
+                "A": 0.01309852189853516,
+                "B": 0.017465455204399776,
+                "control": 0.001343132268101719
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": 0.15564527321384933,
+              "variance_contributions": {
+                "dual": 0.06829093786475608,
+                "A": 0.01453511908806399,
+                "B": 0.013380249167803818,
+                "control": 0.0015443572396200114
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": 0.16520353745966304,
+              "variance_contributions": {
+                "dual": 0.0454438633603752,
+                "A": 0.013427057750395486,
+                "B": 0.020448401646514888,
+                "control": 0.001465406422714268
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": 0.10645041961444802,
+              "variance_contributions": {
+                "dual": 0.06130835995362141,
+                "A": 0.01496409787891932,
+                "B": 0.014761850916201268,
+                "control": 0.0015383814806988645
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": 0.18659009546744665,
+              "variance_contributions": {
+                "dual": 0.04507327245122929,
+                "A": 0.016912201310302997,
+                "B": 0.01551819090227428,
+                "control": 0.0016889820746265256
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": 0.05112923416950457,
+              "variance_contributions": {
+                "dual": 0.051872498978198865,
+                "A": 0.014984394876551696,
+                "B": 0.021019471750188295,
+                "control": 0.0013418908018204413
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": 0.37283480449578177,
+              "variance_contributions": {
+                "dual": 0.08221360744736879,
+                "A": 0.012267328555135558,
+                "B": 0.011761592731181174,
+                "control": 0.001326440881962609
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": -0.02603188651813144,
+              "variance_contributions": {
+                "dual": 0.030445188624269485,
+                "A": 0.014436371117581484,
+                "B": 0.017061886794503708,
+                "control": 0.0012945178309167382
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "tested",
+          "contrast": 0.19120466647506465,
+          "standard_error": 0.10772746094152998,
+          "df": 721.4577922113384,
+          "interval_95": [
+            -0.020292087531505854,
+            0.40270142048163515
+          ],
+          "p": 0.07633721386334641,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": 0.8318994028788012,
+              "variance_contributions": {
+                "dual": 0.14809397703970212,
+                "A": 0.01309852189853516,
+                "B": 0.017465455204399776,
+                "control": 0.001343132268101719
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": 0.15564527321384933,
+              "variance_contributions": {
+                "dual": 0.06829093786475608,
+                "A": 0.01453511908806399,
+                "B": 0.013380249167803818,
+                "control": 0.0015443572396200114
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": 0.16520353745966304,
+              "variance_contributions": {
+                "dual": 0.0454438633603752,
+                "A": 0.013427057750395486,
+                "B": 0.020448401646514888,
+                "control": 0.001465406422714268
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": 0.10645041961444802,
+              "variance_contributions": {
+                "dual": 0.06130835995362141,
+                "A": 0.01496409787891932,
+                "B": 0.014761850916201268,
+                "control": 0.0015383814806988645
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": 0.18659009546744665,
+              "variance_contributions": {
+                "dual": 0.04507327245122929,
+                "A": 0.016912201310302997,
+                "B": 0.01551819090227428,
+                "control": 0.0016889820746265256
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": 0.05112923416950457,
+              "variance_contributions": {
+                "dual": 0.051872498978198865,
+                "A": 0.014984394876551696,
+                "B": 0.021019471750188295,
+                "control": 0.0013418908018204413
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": 0.37283480449578177,
+              "variance_contributions": {
+                "dual": 0.08221360744736879,
+                "A": 0.012267328555135558,
+                "B": 0.011761592731181174,
+                "control": 0.001326440881962609
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": -0.02603188651813144,
+              "variance_contributions": {
+                "dual": 0.030445188624269485,
+                "A": 0.014436371117581484,
+                "B": 0.017061886794503708,
+                "control": 0.0012945178309167382
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 7,
+        "same_sign_omission_robust": false
+      }
+    },
+    "Ery_Effector": {
+      "low_power": true,
+      "primary_flags": 0,
+      "same_sign_omission_robust": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "robust_pairs": [],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "insufficient_marker_coverage",
+          "contrast": null,
+          "p": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "insufficient_marker_coverage",
+          "contrast": null,
+          "p": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 2,
+        "same_sign_omission_robust": false
+      }
+    },
+    "Gran_TF": {
+      "low_power": false,
+      "primary_flags": 14,
+      "same_sign_omission_robust": 6,
+      "above_additive": 1,
+      "below_additive": 5,
+      "robust_pairs": [
+        "CEBPB+MAPK1",
+        "CEBPB+PTPN12",
+        "DUSP9+MAPK1",
+        "FOSB+OSR2",
+        "FOSB+PTPN12",
+        "OSR2+PTPN12"
+      ],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "tested",
+          "contrast": -0.0001544924617985534,
+          "standard_error": 0.07749957876616148,
+          "df": 942.5059534924275,
+          "interval_95": [
+            -0.15224618724397687,
+            0.15193720232037977
+          ],
+          "p": 0.9984098703763713,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.08778699103879095,
+              "variance_contributions": {
+                "dual": 0.03909872155628853,
+                "A": 0.019957182098763286,
+                "B": 0.005085600694308297,
+                "control": 0.0013891323915235843
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.17818377590383416,
+              "variance_contributions": {
+                "dual": 0.032666090687879706,
+                "A": 0.016703725283539667,
+                "B": 0.01314527571767799,
+                "control": 0.0014812371381973956
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": 0.16403045263998167,
+              "variance_contributions": {
+                "dual": 0.03366712448587486,
+                "A": 0.01994164146841152,
+                "B": 0.007078048167620174,
+                "control": 0.0020289084100245896
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.21439928671339234,
+              "variance_contributions": {
+                "dual": 0.017000461465193337,
+                "A": 0.014115931281039487,
+                "B": 0.007029638007849584,
+                "control": 0.0018230035557636097
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": -0.022420478912153763,
+              "variance_contributions": {
+                "dual": 0.017218627341369978,
+                "A": 0.01051646626144476,
+                "B": 0.008323518669447753,
+                "control": 0.0015331108260041202
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.05326011586132594,
+              "variance_contributions": {
+                "dual": 0.01591655390378918,
+                "A": 0.005550523071107982,
+                "B": 0.008158102560352938,
+                "control": 0.001259983593833808
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": 0.15159730335755534,
+              "variance_contributions": {
+                "dual": 0.033580933652499735,
+                "A": 0.012113982092213153,
+                "B": 0.0046674882165016265,
+                "control": 0.0014159872299271809
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": 0.1498487883360779,
+              "variance_contributions": {
+                "dual": 0.02454057043627186,
+                "A": 0.009280264994723637,
+                "B": 0.008757148080912727,
+                "control": 0.0016000189020816714
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "tested",
+          "contrast": -0.0001544924617985534,
+          "standard_error": 0.07749957876616148,
+          "df": 942.5059534924275,
+          "interval_95": [
+            -0.15224618724397687,
+            0.15193720232037977
+          ],
+          "p": 0.9984098703763713,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.08778699103879095,
+              "variance_contributions": {
+                "dual": 0.03909872155628853,
+                "A": 0.019957182098763286,
+                "B": 0.005085600694308297,
+                "control": 0.0013891323915235843
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.17818377590383416,
+              "variance_contributions": {
+                "dual": 0.032666090687879706,
+                "A": 0.016703725283539667,
+                "B": 0.01314527571767799,
+                "control": 0.0014812371381973956
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": 0.16403045263998167,
+              "variance_contributions": {
+                "dual": 0.03366712448587486,
+                "A": 0.01994164146841152,
+                "B": 0.007078048167620174,
+                "control": 0.0020289084100245896
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.21439928671339234,
+              "variance_contributions": {
+                "dual": 0.017000461465193337,
+                "A": 0.014115931281039487,
+                "B": 0.007029638007849584,
+                "control": 0.0018230035557636097
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": -0.022420478912153763,
+              "variance_contributions": {
+                "dual": 0.017218627341369978,
+                "A": 0.01051646626144476,
+                "B": 0.008323518669447753,
+                "control": 0.0015331108260041202
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.05326011586132594,
+              "variance_contributions": {
+                "dual": 0.01591655390378918,
+                "A": 0.005550523071107982,
+                "B": 0.008158102560352938,
+                "control": 0.001259983593833808
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": 0.15159730335755534,
+              "variance_contributions": {
+                "dual": 0.033580933652499735,
+                "A": 0.012113982092213153,
+                "B": 0.0046674882165016265,
+                "control": 0.0014159872299271809
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": 0.1498487883360779,
+              "variance_contributions": {
+                "dual": 0.02454057043627186,
+                "A": 0.009280264994723637,
+                "B": 0.008757148080912727,
+                "control": 0.0016000189020816714
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 3,
+        "same_sign_omission_robust": false
+      }
+    },
+    "Gran_Primary": {
+      "low_power": true,
+      "primary_flags": 0,
+      "same_sign_omission_robust": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "robust_pairs": [],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "insufficient_marker_coverage",
+          "contrast": null,
+          "p": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "insufficient_marker_coverage",
+          "contrast": null,
+          "p": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 1,
+        "same_sign_omission_robust": false
+      }
+    },
+    "Gran_Secondary": {
+      "low_power": true,
+      "primary_flags": 0,
+      "same_sign_omission_robust": 0,
+      "above_additive": 0,
+      "below_additive": 0,
+      "robust_pairs": [],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "insufficient_marker_coverage",
+          "contrast": null,
+          "p": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "insufficient_marker_coverage",
+          "contrast": null,
+          "p": 1.0,
+          "holm_p": 1.0,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 2,
+        "same_sign_omission_robust": false
+      }
+    },
+    "Progenitor": {
+      "low_power": false,
+      "primary_flags": 11,
+      "same_sign_omission_robust": 11,
+      "above_additive": 8,
+      "below_additive": 3,
+      "robust_pairs": [
+        "CBL+CNN1",
+        "CBL+UBASH3B",
+        "CEBPA+CEBPE",
+        "CEBPE+CNN1",
+        "CEBPE+ETS2",
+        "CEBPE+KLF1",
+        "CEBPE+PTPN12",
+        "CEBPE+RUNX1T1",
+        "CEBPE+ZC3HAV1",
+        "DUSP9+MAPK1",
+        "FOXF1+FOXL2"
+      ],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "tested",
+          "contrast": -0.3955484841332977,
+          "standard_error": 0.08440188623850843,
+          "df": 1000.9293522947866,
+          "interval_95": [
+            -0.5611734176457982,
+            -0.22992355062079717
+          ],
+          "p": 3.1633351526873925e-06,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.4311038673413302,
+              "variance_contributions": {
+                "dual": 0.036260915834876714,
+                "A": 0.016324816195306676,
+                "B": 0.009481584795730894,
+                "control": 0.0013695500078686
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.39908093329293665,
+              "variance_contributions": {
+                "dual": 0.029683691289277517,
+                "A": 0.01261975773739841,
+                "B": 0.011779849042460206,
+                "control": 0.0012425780199538411
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": -0.04312990837988104,
+              "variance_contributions": {
+                "dual": 0.032572792764505705,
+                "A": 0.012971638796430793,
+                "B": 0.009867973838163768,
+                "control": 0.0012836701549910358
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.6264966547622589,
+              "variance_contributions": {
+                "dual": 0.028967066827960127,
+                "A": 0.018565308630158588,
+                "B": 0.012535492362837438,
+                "control": 0.0015238708672597066
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": -0.4228317099882527,
+              "variance_contributions": {
+                "dual": 0.024238087608022194,
+                "A": 0.011078102253803217,
+                "B": 0.018832501725414733,
+                "control": 0.0016432525023226778
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.2522286781903845,
+              "variance_contributions": {
+                "dual": 0.024762050388083337,
+                "A": 0.01059288070588493,
+                "B": 0.014834790916954561,
+                "control": 0.001205066758760709
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": -0.6221482840819799,
+              "variance_contributions": {
+                "dual": 0.0257181092053135,
+                "A": 0.010280001397080773,
+                "B": 0.007843578330445414,
+                "control": 0.0014262350314171233
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": -0.4315843068919014,
+              "variance_contributions": {
+                "dual": 0.030708776773825275,
+                "A": 0.013163973229092445,
+                "B": 0.010485854845431334,
+                "control": 0.0014401013967186098
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 0.003561915381926004,
+          "flagged": true
+        },
+        "target_omission": {
+          "status": "tested",
+          "contrast": -0.3955484841332977,
+          "standard_error": 0.08440188623850843,
+          "df": 1000.9293522947866,
+          "interval_95": [
+            -0.5611734176457982,
+            -0.22992355062079717
+          ],
+          "p": 3.1633351526873925e-06,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.4311038673413302,
+              "variance_contributions": {
+                "dual": 0.036260915834876714,
+                "A": 0.016324816195306676,
+                "B": 0.009481584795730894,
+                "control": 0.0013695500078686
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.39908093329293665,
+              "variance_contributions": {
+                "dual": 0.029683691289277517,
+                "A": 0.01261975773739841,
+                "B": 0.011779849042460206,
+                "control": 0.0012425780199538411
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": -0.04312990837988104,
+              "variance_contributions": {
+                "dual": 0.032572792764505705,
+                "A": 0.012971638796430793,
+                "B": 0.009867973838163768,
+                "control": 0.0012836701549910358
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.6264966547622589,
+              "variance_contributions": {
+                "dual": 0.028967066827960127,
+                "A": 0.018565308630158588,
+                "B": 0.012535492362837438,
+                "control": 0.0015238708672597066
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": -0.4228317099882527,
+              "variance_contributions": {
+                "dual": 0.024238087608022194,
+                "A": 0.011078102253803217,
+                "B": 0.018832501725414733,
+                "control": 0.0016432525023226778
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.2522286781903845,
+              "variance_contributions": {
+                "dual": 0.024762050388083337,
+                "A": 0.01059288070588493,
+                "B": 0.014834790916954561,
+                "control": 0.001205066758760709
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": -0.6221482840819799,
+              "variance_contributions": {
+                "dual": 0.0257181092053135,
+                "A": 0.010280001397080773,
+                "B": 0.007843578330445414,
+                "control": 0.0014262350314171233
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": -0.4315843068919014,
+              "variance_contributions": {
+                "dual": 0.030708776773825275,
+                "A": 0.013163973229092445,
+                "B": 0.010485854845431334,
+                "control": 0.0014401013967186098
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 0.003587222063147503,
+          "flagged": true
+        },
+        "omitted_targets": [],
+        "markers_remaining": 3,
+        "same_sign_omission_robust": true
+      }
+    },
+    "Cycling": {
+      "low_power": false,
+      "primary_flags": 10,
+      "same_sign_omission_robust": 10,
+      "above_additive": 9,
+      "below_additive": 1,
+      "robust_pairs": [
+        "CEBPA+CEBPB",
+        "CEBPA+CEBPE",
+        "CEBPE+ETS2",
+        "CEBPE+KLF1",
+        "CEBPE+RUNX1T1",
+        "CEBPE+SET",
+        "CEBPE+ZC3HAV1",
+        "DUSP9+SNAI1",
+        "MAP2K6+SPI1",
+        "OSR2+UBASH3B"
+      ],
+      "known_CBL_CNN1": {
+        "pair": "CBL+CNN1",
+        "primary": {
+          "status": "tested",
+          "contrast": -0.36324867657398907,
+          "standard_error": 0.09669792935689085,
+          "df": 846.6959955506181,
+          "interval_95": [
+            -0.5530444446865701,
+            -0.17345290846140807
+          ],
+          "p": 0.00018408267395899578,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.41823743440243977,
+              "variance_contributions": {
+                "dual": 0.06480993314578222,
+                "A": 0.01696550877796587,
+                "B": 0.012476218059103454,
+                "control": 0.0012474249228012946
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.3924371684014547,
+              "variance_contributions": {
+                "dual": 0.031698905680735884,
+                "A": 0.015467235116796148,
+                "B": 0.013371608636028785,
+                "control": 0.0012835701795585429
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": -0.07514669175560602,
+              "variance_contributions": {
+                "dual": 0.031700104951023114,
+                "A": 0.014762692173069102,
+                "B": 0.012062826208773612,
+                "control": 0.0014458759949595524
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.3995592210814048,
+              "variance_contributions": {
+                "dual": 0.040319069203214895,
+                "A": 0.026419908925771476,
+                "B": 0.011791553196986103,
+                "control": 0.0015421970560907919
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": -0.41210991652502454,
+              "variance_contributions": {
+                "dual": 0.05447893589540887,
+                "A": 0.01628625867379274,
+                "B": 0.017211216244526543,
+                "control": 0.0014292113206744524
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.24154891528648215,
+              "variance_contributions": {
+                "dual": 0.04164379237594429,
+                "A": 0.014803618451338981,
+                "B": 0.01207369455231423,
+                "control": 0.001391625638729104
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": -0.22569223059421106,
+              "variance_contributions": {
+                "dual": 0.04931548259356561,
+                "A": 0.016082444149440933,
+                "B": 0.01278237823947516,
+                "control": 0.0013580147782775653
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": -0.6993108740212253,
+              "variance_contributions": {
+                "dual": 0.03773495414769088,
+                "A": 0.012063453864099741,
+                "B": 0.009835989026032261,
+                "control": 0.0015234602078660925
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 0.20120236263718239,
+          "flagged": false
+        },
+        "target_omission": {
+          "status": "tested",
+          "contrast": -0.36324867657398907,
+          "standard_error": 0.09669792935689085,
+          "df": 846.6959955506181,
+          "interval_95": [
+            -0.5530444446865701,
+            -0.17345290846140807
+          ],
+          "p": 0.00018408267395899578,
+          "group_cells": {
+            "dual": 348,
+            "A": 663,
+            "B": 765,
+            "control": 5929
+          },
+          "strata": [
+            {
+              "stratum": "1",
+              "n": {
+                "dual": 29,
+                "A": 97,
+                "B": 107,
+                "control": 807
+              },
+              "contrast": -0.41823743440243977,
+              "variance_contributions": {
+                "dual": 0.06480993314578222,
+                "A": 0.01696550877796587,
+                "B": 0.012476218059103454,
+                "control": 0.0012474249228012946
+              },
+              "weight": 0.08333333333333333
+            },
+            {
+              "stratum": "2",
+              "n": {
+                "dual": 36,
+                "A": 85,
+                "B": 101,
+                "control": 736
+              },
+              "contrast": -0.3924371684014547,
+              "variance_contributions": {
+                "dual": 0.031698905680735884,
+                "A": 0.015467235116796148,
+                "B": 0.013371608636028785,
+                "control": 0.0012835701795585429
+              },
+              "weight": 0.10344827586206896
+            },
+            {
+              "stratum": "3",
+              "n": {
+                "dual": 45,
+                "A": 79,
+                "B": 91,
+                "control": 730
+              },
+              "contrast": -0.07514669175560602,
+              "variance_contributions": {
+                "dual": 0.031700104951023114,
+                "A": 0.014762692173069102,
+                "B": 0.012062826208773612,
+                "control": 0.0014458759949595524
+              },
+              "weight": 0.12931034482758622
+            },
+            {
+              "stratum": "4",
+              "n": {
+                "dual": 43,
+                "A": 71,
+                "B": 95,
+                "control": 704
+              },
+              "contrast": -0.3995592210814048,
+              "variance_contributions": {
+                "dual": 0.040319069203214895,
+                "A": 0.026419908925771476,
+                "B": 0.011791553196986103,
+                "control": 0.0015421970560907919
+              },
+              "weight": 0.1235632183908046
+            },
+            {
+              "stratum": "5",
+              "n": {
+                "dual": 44,
+                "A": 80,
+                "B": 79,
+                "control": 663
+              },
+              "contrast": -0.41210991652502454,
+              "variance_contributions": {
+                "dual": 0.05447893589540887,
+                "A": 0.01628625867379274,
+                "B": 0.017211216244526543,
+                "control": 0.0014292113206744524
+              },
+              "weight": 0.12643678160919541
+            },
+            {
+              "stratum": "6",
+              "n": {
+                "dual": 54,
+                "A": 94,
+                "B": 92,
+                "control": 779
+              },
+              "contrast": -0.24154891528648215,
+              "variance_contributions": {
+                "dual": 0.04164379237594429,
+                "A": 0.014803618451338981,
+                "B": 0.01207369455231423,
+                "control": 0.001391625638729104
+              },
+              "weight": 0.15517241379310345
+            },
+            {
+              "stratum": "7",
+              "n": {
+                "dual": 41,
+                "A": 77,
+                "B": 101,
+                "control": 749
+              },
+              "contrast": -0.22569223059421106,
+              "variance_contributions": {
+                "dual": 0.04931548259356561,
+                "A": 0.016082444149440933,
+                "B": 0.01278237823947516,
+                "control": 0.0013580147782775653
+              },
+              "weight": 0.11781609195402298
+            },
+            {
+              "stratum": "8",
+              "n": {
+                "dual": 56,
+                "A": 80,
+                "B": 99,
+                "control": 761
+              },
+              "contrast": -0.6993108740212253,
+              "variance_contributions": {
+                "dual": 0.03773495414769088,
+                "A": 0.012063453864099741,
+                "B": 0.009835989026032261,
+                "control": 0.0015234602078660925
+              },
+              "weight": 0.16091954022988506
+            }
+          ],
+          "dual_cell_coverage": 1.0,
+          "holm_p": 0.20285910670281335,
+          "flagged": false
+        },
+        "omitted_targets": [],
+        "markers_remaining": 16,
+        "same_sign_omission_robust": false
+      }
+    }
+  }
+}

@@ -1,0 +1,87 @@
+{
+  "scope": "Timing only. No loss, expression differences, or biological results were inspected or reported.",
+  "input": "/workspace/datasets/sae-scrna/norman_raw.h5ad",
+  "input_bytes": 828160302,
+  "profile_rows": 1024,
+  "profile_columns": 4081,
+  "column_selection": "First4081 raw genes, not data-selected HVGs; used only to profile full matrix shape",
+  "caveat": "Input is a small raw-count slice. Full workflow log-normalizes and chooses HVGs; arithmetic timing should be comparable, not a validated training run.",
+  "configuration": {
+    "latent": 2048,
+    "k": 32,
+    "batch": 1024,
+    "epochs": 200,
+    "warmup_steps": 3,
+    "timed_steps": 8,
+    "optimizer": "AdamW",
+    "lr": 0.0004
+  },
+  "n_all_cells": 111445,
+  "all_cell_steps": 21800,
+  "control_only_steps": 2400,
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "torch": "2.14.1+cpu"
+  },
+  "affinity_cpus": 5,
+  "cgroup_cpu_max": "400000 100000",
+  "cgroup_memory_max": "34359738368",
+  "profile_source_sha256": "4b0211b5f02cf390b9116bc5c42c0ec58972611840e0cb456b0caf1020d0994a",
+  "measurements": [
+    {
+      "threads": 1,
+      "step_seconds": [
+        1.0762680430000273,
+        1.1136221209999349,
+        1.1504716730000837,
+        1.1336406440000246,
+        1.2167938079999203,
+        1.1402987349999876,
+        1.1323789059999854,
+        1.1296550719998777
+      ],
+      "median_seconds": 1.133009775000005,
+      "min_seconds": 1.0762680430000273,
+      "max_seconds": 1.2167938079999203,
+      "all_cell_training_hours_estimate": 6.861003637500031,
+      "control_only_training_hours_estimate": 0.7553398500000034
+    },
+    {
+      "threads": 2,
+      "step_seconds": [
+        0.7568757460001052,
+        0.7676651259998835,
+        1.4171368689999326,
+        0.7523253659999227,
+        0.6650687020000987,
+        1.4313721339999574,
+        1.6243509690000337,
+        0.6309069369999634
+      ],
+      "median_seconds": 0.7622704359999943,
+      "min_seconds": 0.6309069369999634,
+      "max_seconds": 1.6243509690000337,
+      "all_cell_training_hours_estimate": 4.615970973555521,
+      "control_only_training_hours_estimate": 0.5081802906666629
+    },
+    {
+      "threads": 4,
+      "step_seconds": [
+        0.5490352549998079,
+        0.5438447369999722,
+        0.593197562000114,
+        0.6257809629998974,
+        0.5655632680000053,
+        0.6306166879999182,
+        0.8160543399999369,
+        0.9280424800001583
+      ],
+      "median_seconds": 0.6094892625000057,
+      "min_seconds": 0.5438447369999722,
+      "max_seconds": 0.9280424800001583,
+      "all_cell_training_hours_estimate": 3.690796089583368,
+      "control_only_training_hours_estimate": 0.4063261750000038
+    }
+  ]
+}

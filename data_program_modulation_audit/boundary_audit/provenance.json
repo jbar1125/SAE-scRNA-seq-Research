@@ -1,0 +1,40 @@
+{
+  "started_utc": "2026-10-19T02:04:41.659412+00:00",
+  "plan": {
+    "date": "2026-10-18",
+    "timing": "Declared after the first synthetic audit, null calibration and marker/PCA results, before running these new simulated worlds. Outcomes will not tune the deployed identity test or the running SAE.",
+    "purpose": "Quantify boundaries of conditional cell-level identity inference: generic severity can create real rank heterogeneity, complete identity/batch confounding is unidentifiable, and correlated cells violate independent-cell exchangeability.",
+    "fixed": {
+      "simulation_seeds": 100,
+      "seed_start": 0,
+      "n_programs": 9,
+      "n_controls": 100,
+      "n_perturbations": 10,
+      "cells_per_perturbation": 40,
+      "permutations": 999,
+      "alpha": 0.05,
+      "marker_matches": "Stipulated p=1e-6 for nine distinct generated features; no marker-gate calibration or SAE training",
+      "generator_salt": 20261019
+    },
+    "worlds": {
+      "identical_generic": "Independent standard normal baseline features; every perturbed cell gets the same+3 offset in every feature. Identity exchangeability holds.",
+      "graded_generic_severity": "Same baseline; group severity linearly spans0..4 and program coefficients span0.5..1.5. The complete group-effect matrix is rank1, with no separate pathway-specific factor. Rejecting is correct rank heterogeneity, not evidence of selective pathway regulation.",
+      "confounded_batch": "Same baseline; each perturbation occurs exclusively in its own technical stratum and receives that stratum's offset0..4 in all features. Compare pooled cell permutations to within-stratum permutations. The latter must report unidentifiable/no movable strata, p1, not evidence of no effect.",
+      "clustered_population_null": "Four independent clusters per perturbation, ten cells per cluster. Independent standard normal cluster-feature offsets plus cell noiseSD0.15; no population identity effect. Compare invalid independent-cell shuffling with a separate analysis of the40cluster means, minimum2units per group. The unit analysis changes the estimand and eligibility; it is not a general guide-aware remedy for Norman metadata."
+    },
+    "outcomes": "For each of six analyses retain all9 raw/adjusted p-values, number rejected, any familywise rejection and exchangeability diagnostics, across all100 seeds. Report exact95% Clopper-Pearson intervals within each analysis. Worlds share some draws; paired analyses are not independent experiments. No outcome-based tuning, favorable-world selection or silent rerun.",
+    "scope": "Synthetic scope and dependence audit only. Not biological discovery, actual SAE performance, universal calibration, proof of correct experimental units, or independent biological validation. Primary SAE architecture, epochs, markers and thresholds remain fixed."
+  },
+  "source_sha256": {
+    "src/audit_identity_boundaries.py": "9418ba44918d77667b23a3296f915eced8a99b7ddcbfb4ce060fa32a2d44d408",
+    "src/program_modulation_specificity.py": "26ef91771d04d032ca9727672dc56811e32dfb22d4941f146faed03a7cc6b268",
+    "config/identity_boundary_audit_plan.json": "3f502973a9b36056d6cd32a422f7e6daeedac42e4b866ac0c4d53e2132f3a2ed"
+  },
+  "git_commit": "7a3c2201eeb1b9b4910cb0aebc745769c6a40008",
+  "git_dirty": false,
+  "versions": {
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "statsmodels": "0.14.6"
+  }
+}

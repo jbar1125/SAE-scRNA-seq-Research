@@ -1,79 +1,144 @@
 # CLAUDE.md
 
-Operating manual for this repo. Read top to bottom before doing anything.
+Operating manual for this repository. Read this file before making changes.
 
-**Read [`README.md`](./README.md) for the repo map**, then **[`LAB_NOTEBOOK.md`](./LAB_NOTEBOOK.md)** for the dated day-to-day log (what was done, when, and why). Then the reference docs in [`docs/`](./docs/): **[`PROJECT_HANDOFF.md`](./docs/PROJECT_HANDOFF.md) first** (Phase-1-closeout snapshot), **then [`PROJECT_AUDIT.md`](./docs/PROJECT_AUDIT.md)** (verified inconsistencies, the V0b notebook trap, rigor upgrades, run results — sections J/K are the current findings), **then [`STRATEGY_AND_POSITIONING.md`](./docs/STRATEGY_AND_POSITIONING.md)** (field situating, novelty audit vs Kendiukhov et al., the reframe), **[`PREREGISTRATION.md`](./docs/PREREGISTRATION.md)** (the frozen analysis spec), **[`COMPONENT0_STATUS.md`](./docs/COMPONENT0_STATUS.md)** (Gate-0 state + the runner), and **[`COMPONENT0_RESULTS.md`](./docs/COMPONENT0_RESULTS.md)** (the EXECUTED Gate-0 numbers + frozen SHAs). Where they conflict, the audit wins on facts and the strategy doc wins on framing.
+## Start here
 
-**Repo layout:** `src/` = code, `tests/` = logic tests, `docs/` = narrative/reference docs, `config/` = frozen specs + marker panels (`preregistration_spec.*`, `human_markers.json`), `data/` = raw-input manifest (Drive/large, gitignored), `data_g0/` + `data_g0_human/` = the EXECUTED mouse/human run dirs (large binaries gitignored; small result artifacts committed). Run scripts as `python3 src/<script>.py`; run tests as `python3 tests/<test>.py` (they add `src/` to the path).
+Read [README.md](README.md), [NORMAN_CONTINUATION_RESULTS.md](docs/NORMAN_CONTINUATION_RESULTS.md),
+and [NORMAN_CPU_RUNS.md](docs/NORMAN_CPU_RUNS.md). Check existing CPU trainers and
+`continue_norman_cpu.sh` and `archive_norman_cpu_results.py` workers before
+starting another long job. All three 200-epoch primary SAE fits and one control-only
+fit completed; read [NORMAN_COMPLETED_MODELS.md](docs/NORMAN_COMPLETED_MODELS.md).
+Ordinary PCA and the capped NMF completed; a separate bounded NMF warm restart
+met tolerance after 380 further iterations. The historical K562 program,
+reference/depth, single-gene omission and composition checks also completed.
+Read [NORMAN_K562_CONTEXT.md](docs/NORMAN_K562_CONTEXT.md) for positive conditional
+associations and selection limits. Do not duplicate completed fits. Read
+[LITERATURE_REVIEW.md](docs/LITERATURE_REVIEW.md) before proposing novelty.
+Then read the
+current-state and limitations sections of
+[PROJECT_MASTER_SUMMARY.md](docs/PROJECT_MASTER_SUMMARY.md), and the latest
+[LAB_NOTEBOOK.md](LAB_NOTEBOOK.md) entries. Use
+[COMPONENT0_RESULTS.md](docs/COMPONENT0_RESULTS.md) and committed JSON/CSV artifacts
+for Gate-0 numbers. Use [COMPONENT2_RESULTS.md](docs/COMPONENT2_RESULTS.md) for the
+current causal interpretation and evidence gaps. Earlier strategy documents are
+historical plans, not authority for current findings.
 
----
+Cloud tasks already have isolated checkouts. Use the existing checkout; do not
+create a Git worktree unless the user explicitly requests one. Preserve user files
+and pre-existing changes. Keep new runs outside frozen result directories.
 
-## 1. CODE DELIVERY RULES (non-negotiable)
+## Code delivery
 
-**YOU MUST run code before you present it. Never send code you have not executed.** "Looks correct" is not a signal. The only signals are: it compiled, it ran, the test passed.
+Run code before presenting it as working. Before handing over a Python change:
 
-Before handing over any Python change in this repo, YOU MUST, in order:
-1. `python3 -m py_compile <files>` — syntax must pass.
-2. `python3 tests/test_v0b_logic.py` — must print `ALL V0b LOGIC TESTS PASSED`.
-3. For a script that takes data, do a dry-run or a synthetic-data run that actually executes the code path you changed.
-4. Output a verification table and do not claim done until every row says PASS:
+1. Run `python3 -m py_compile` on changed Python files.
+2. Run `python3 tests/test_v0b_logic.py`.
+3. Run relevant tests and an actual synthetic or real-data execution of the changed
+   path. A parser check or import is not an end-to-end run.
+4. Report a verification table with commands and PASS, FAIL, or UNVERIFIED.
 
-   | check | command | result |
-   |-------|---------|--------|
-   | syntax | py_compile | PASS/FAIL |
-   | logic tests | tests/test_v0b_logic.py | PASS/FAIL |
-   | executed on real/synthetic data | <command> | PASS/FAIL |
+If full training or private data is unavailable, state exactly what was verified.
+Never call an unexecuted command or a stand-in activation matrix a verified
+biological analysis. Do not promise identical regenerated GPU outputs merely
+because the random seed is fixed; record package versions, device, and determinism
+settings and compare the regenerated results.
 
-**NEVER** hand the user a command to run before you have run the equivalent yourself. The `torch.manual_seed` NameError shipped on 2026-06-30 happened because this rule was skipped: the refactor removed the top-level `torch` import but `main()` still called it, and it was sent without running. That is the exact failure this section exists to prevent.
+For code downloaded into another environment, pin the commit SHA and include a
+version guard. Avoid commands that leave a stale copy under the expected filename.
+Keep credentials out of code, outputs, saved instructions, and chat.
 
-If you genuinely cannot run it (missing private data, no GPU), SAY SO explicitly, state what you did verify, and label the rest UNVERIFIED. Do not imply it works.
+## Scientific reporting
 
-When code reaches the user's environment (Colab), give a paste that is self-verifying:
-- `rm -f <file> <file>.*` then `wget -qO <file> <raw-url>` (plain `wget` writes `<file>.1` and silently runs the stale copy).
-- Pin the **commit SHA** in raw GitHub URLs, not the branch, to dodge the ~5-min CDN cache.
-- Add a one-line guard that greps for the fix and prints OK/STALE before running.
+- Lead with failed hypotheses and important limitations. Do not invent a discovery
+  to satisfy a desired outcome.
+- Distinguish no detected effect from an underpowered test or an analysis whose
+  eligibility gates never fired.
+- State uncertainty, seed counts, effect sizes, multiple-testing families, and
+  what the permutation null actually randomizes.
+- A frozen hash establishes file integrity. It is not independent registration,
+  replication, or a reason to call exploratory analyses confirmatory.
+- Gate 0 followed exploratory metric/marker development and then a version-locked
+  final analysis. Causal amendments were informed by inspected results. Preserve
+  that chronology in publications.
+- Never silently revise frozen specifications or decision bundles. New analyses
+  need dated amendments and separate outputs. Preserve historical notebook entries
+  and append explicit corrections.
+- Original Component 2 result JSONs disappeared with ephemeral GPU instances.
+  Historical tables and notebook reports remain, but exact causal regeneration
+  has not been demonstrated. Archive reruns before treating these as submission
+  evidence.
+- Separate association, perturbation responsiveness, direct regulatory mechanism,
+  and biological novelty. One does not establish the next.
 
-## 2. HONESTY RULES (non-negotiable)
+## Data and implementation facts
 
-- **NEVER sugarcoat.** No "great news", no softening a failure into a win. State the result, then the caveat.
-- **Distinguish a result from an artifact.** A null caused by an underpowered or blind method is NOT a clean negative. Say which it is. (See PROJECT_AUDIT.md: V0b's per-feature-enrichment test is structurally blind to distributed signal — report that, do not report "erythroid is unified".)
-- **Lead with the bad news.** If a finding does not survive a rigorous test, the first sentence says so.
-- **Quantify uncertainty.** Provisional, heuristic, and not-yet-statistical numbers must be labeled as such every time.
-- **Do not freeze artifacts.** Never SHA-256 "pre-register" an assignment table that came out of a broken or inconclusive run. Diagnose first.
-- **Self-correct out loud.** When you ship a bug (you will), name it plainly and fix it. No burying it.
-- Prefer brutal constructive criticism over validation. The user's words: "BE AS HONEST AS POSSIBLE, CONSTRUCTIVE CRITICISM TO ALL HEAVENS."
+- The project is computational; there is no wet-bench validation.
+- Paul15's depth-adjusted source matrix has raw-scale values. The supported
+  `preprocess_paul15.py` policy applies `log1p` when appropriate; do not copy the
+  superseded blanket instruction that Paul15 is already log transformed. Human
+  Setty marrow counts are library-size normalized and then logged by their own
+  preprocessing script. Follow each source-specific pipeline.
+- Gate-0 matrices verify against `preprocess_report.json`: mouse MD5
+  `184ea5ddfca23db2bbb343b311688c45`, human
+  `627961897d52a50c7a81f5bbf7e04097`. MD5
+  `60183a17983c8b977d036e0f3a58da61` belongs to superseded Phase 1 data.
+- The canonical V0b implementation is `src/v0b_module_definitions.py`. Do not run
+  the historical Drive notebooks; their names do not reliably identify versions.
+- Core V0b logic deliberately works without Torch. Do not introduce top-level
+  Torch calls into that module's pure-logic paths.
+- SAE feature indices have no shared identity across seeds. Match or annotate
+  features separately within each seed; never compare feature index alone.
+- Use `V0B_MARKERS_JSON=config/human_markers.json` for human structural analyses.
+- All historical causal SAEs trained on **all cells**, without perturbation labels.
+  `--train-on all` preserves that mode. Control-only training is a sensitivity
+  analysis whose current synthetic training test recovers 0/8 planted regulators,
+  compared with 8/8 in the all-cell mode. This is a known limitation, not evidence
+  that every possible control-only method fails.
+- In the causal representation ladder, PCA/NMF transform the **input to an SAE**.
+  Every arm still trains an SAE. Do not describe that ladder as direct comparison
+  against plain PCA/NMF features.
+- Causal cross-fitting separates matching and testing cells; the SAE itself still
+  saw all cells. Any statement about generalization must disclose this scope.
+- For Norman data use raw counts. Pertpy's `norman_2019()` is processed;
+  `norman_2019_raw()` is the intended source. `prep_norman.py` guards against
+  non-count input. GATA1 is absent from the Norman perturbation library; it was
+  not tested and failed there.
+- Apply the analysis-specific seed rule. Frozen Gate 0 uses a 60% decision
+  majority over 10 seeds; program modulation specifies seeds 0,1,2 and stable
+  modulators in at least 2/3. Do not substitute a generic seed convention.
 
-## 3. NON-NEGOTIABLE PROJECT FACTS
+## Current evidence
 
-- Fully computational (SAEs on scRNA-seq hematopoiesis). No wet bench.
-- **Paul15 is pre-log-transformed**: skip `normalize_total`/`log1p`. **CELLxGENE requires both before HVG.** Never conflate the two pipelines.
-- Expression matrix MD5 `60183a17983c8b977d036e0f3a58da61` MUST be verified at load (the script asserts it).
-- SAEs do NOT preserve feature identity across seeds. Use **per-seed winner-take-all**, NEVER cross-seed feature-index matching.
-- Statistical conventions: BH-FDR per test family; Cohen's d with p-values; a finding needs >=3/5 mouse seeds or >=2/3 human seeds.
+Gate 0 is executed and frozen in two datasets: mouse Paul15, 2,730 cells by 2,012
+genes; human Setty CD34+ marrow, 4,142 by 2,032. Each has 10 SAE seeds. The original
+asymmetric-modularity hypothesis is supported in 0/10 SAE seeds in each dataset.
+Across five decomposition families and two datasets, it is supported only for
+mouse NMF. Marker leave-one-out changes 0/34 mouse and 0/36 human verdicts.
+The reversal seen in SAE counts is method-contingent, not established biological
+ground truth. Do not alter either frozen bundle to fix prose rounding.
 
-## 4. PROJECT DEBUG GOTCHAS (learned the hard way)
+Historical Replogle K562/RPE1 results identify primarily housekeeping/chromatin
+perturbation responses. The recorded effect-size control removed no seed-0 calls;
+the former 10-fold essential-enrichment claim used the wrong background. The
+recorded v4 comparison is 6/51 Hart-core-essential-tagged TFs versus 14/111 other
+tested TFs; the latter group is not a validated nonessential reference set.
+Column specificity failed to establish the proposed fix. The expression-versus-
+foundation-model embedding comparison was never run, and a published 6.2% rate is
+not a matched null for this pipeline.
 
-- **NEVER run the Drive notebooks.** `v0b_module_definitions.ipynb`/`_1`/`_2` — the canonically-named, latest one is v1 with every bug v2 fixed. Use `src/v0b_module_definitions.py` in the repo.
-- `torch` is imported lazily inside `load_checkpoints`/`submodule_dynamics`. Do not add a top-level `torch` call; the core logic must run without torch (tests rely on this).
-- Inputs live in **My Drive / SAE_scRNA** (consolidated 2026-06-30): `expression_matrix.npy`, `gene_names.csv`, `cell_metadata_palantir.csv`, `sae_seed0-4.pt`. See `data/README.md`.
-- The `expression_matrix.npy` is too large to pull through the Drive MCP (base64-into-context). Run where the data already is (Colab), or have the user link-share files for `curl`.
+Norman grounding and single-TF regulon recovery did not support their intended
+claims. Fresh full-size training and historical-program follow-ups are complete.
+The historically selected eight-gene K562 program has 63/61/61 all-cell SAE calls,
+57 direct-score calls and 38 surviving references, depth and every gene omission;
+PCA also recovers it. Historical selection used the same cells, so these are
+conditional exploratory associations, not independent confirmation, a new
+regulator mechanism or an SAE advantage. Read the complete archived outputs and
+NORMAN_K562_CONTEXT.md before proposing additional work. Model/data archives are
+verified locally; GitHub asset upload remains blocked by the network proxy.
 
-## 5. IMMEDIATE STATUS
+## Working style
 
-- **Gate 0 (Component 0) is EXECUTED end to end and FROZEN** (2026-07-02; see `docs/COMPONENT0_RESULTS.md` for every number and `LAB_NOTEBOOK.md` for the session log). It was run in-container on CPU (SAEs are ~2M params on 2-4k cells; no GPU needed). Both arms done:
-  - Mouse (Paul15, 2730x2012): 10-seed 512-latent SAE, l1=0.8, L0 mean 35.75 (in 20-50 band). Original asymmetric-modularity claim **NOT SUPPORTED** (0/10 seeds); the data show the REVERSE (granulocyte 3 real programs, erythroid 1 dominant hemoglobin program) and it is seed-robust. Frozen bundle sha256 `172861...`.
-  - Human (Setty 2019 CD34+ marrow, 4142x2032): 10-seed SAE, L0 mean 32.5. Claim NOT SUPPORTED (0/10); granulocyte-more-distributed direction replicates; human globin program not significant vs the abundance-matched null (CD34+ progenitor selection). Frozen bundle sha256 `cc8159c8...`.
-  - **The key finding is method-dependence:** PCA/NMF/SAE give different modularity answers on the identical matrix; the original claim survives in exactly 1 of 6 method x species combinations (mouse NMF). Marker leave-one-out: 0/34 (mouse), 0/36 (human) flips. Null calibrated (Progenitor non-significant both species).
-- The prior "erythroid undetected" runs (Audit F-I) were a marker-curation artifact (wrong globin symbols, missing Alas2), fixed. Do not cite them as the finding.
-- Reframe (STRATEGY_AND_POSITIONING.md): the novel contribution is the artifact-vs-signal framework + the causal CRISPRi test, NOT "SAEs on single-cell" (now published: Kendiukhov 2026 arXiv 2603.02952 and the 2025-2026 wave). Lead with the framework and the causal spine.
-- **Next: Component 2** (Replogle CRISPRi causal head-to-head vs the 6.2% embedding-space null) is the centerpiece; optional cheap hardening first (SCENIC as a 5th baseline, TRRUST/ChIP-Atlas cross-reference). Plan in `docs/STRATEGY_AND_POSITIONING.md` and `docs/phase2_research_plan_v6.md`. Do NOT re-freeze the frozen Gate-0 bundles; new work is new components.
-
-## 6. WORKING STYLE
-
-Extremely concise. No em-dashes. No filler. Per-bullet formatting. Code ready-to-run. First person fine in operational contexts. ROL voice: formal third-person. Methodology voice: imperative future. See handoff section 15.
-
----
-
-## SMART SUMMARY (read this if you read nothing else)
-
-This project's job is to find out whether SAE-derived gene programs in hematopoiesis are real and rigorous, not to confirm a story. The single most important behavior: **run the code, prove it works, then report the result without spin.** The headline claim ("asymmetric modularity": granulocyte unified, erythroid distributed) currently has **no valid quantitative support** — the v1 notebook that "supported" it used high-abundance markers v2 correctly drops, and the rigorous v2 test came back inconclusive because it cannot detect distributed signal at all. Treat every prior number as provisional until re-derived in version-controlled, executed, tested code. When you write code, debug it before sending; when you report findings, lead with what failed. If you are ever choosing between sounding helpful and being accurate, choose accurate.
+Be concise and direct. Use no em-dashes. Research prose should be formal and
+evidence-limited. Explain corrections plainly. Execute the work, then distinguish
+what passed, what failed, and what remains unverified.

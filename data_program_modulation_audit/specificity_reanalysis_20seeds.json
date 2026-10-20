@@ -1,0 +1,1393 @@
+{
+  "purpose": "Simulation-only check of the current conditional identity diagnostic",
+  "input_summary_sha256": "c9c3bb43d2451919726bdef60d1cbcd0da13531289895cdb210323cc02a258a8",
+  "generator_sha256": "4ddf38e4b20fb8a55ad174e94684e1e092ba422974a20eb0f8589aa067c2d142",
+  "specificity_source_sha256": "26ef91771d04d032ca9727672dc56811e32dfb22d4941f146faed03a7cc6b268",
+  "n_shuffle": 99,
+  "n_planned_programs": 1,
+  "scenario_summary": {
+    "specific_subset": {
+      "rejection_rate": {
+        "count": 20,
+        "n": 20,
+        "rate": 1.0,
+        "interval_95_percent": [
+          0.8315665290169146,
+          1.0
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "matched_count": 20,
+      "p_values": [
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01,
+        0.01
+      ]
+    },
+    "generic_one_axis": {
+      "rejection_rate": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "matched_count": 20,
+      "p_values": [
+        0.21,
+        0.99,
+        0.89,
+        0.69,
+        0.9,
+        0.98,
+        0.94,
+        0.16,
+        0.15,
+        0.88,
+        0.21,
+        0.56,
+        0.92,
+        0.2,
+        0.79,
+        0.37,
+        0.48,
+        0.33,
+        0.67,
+        0.26
+      ]
+    },
+    "null": {
+      "rejection_rate": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "matched_count": 20,
+      "p_values": [
+        0.21,
+        0.99,
+        0.89,
+        0.69,
+        0.9,
+        0.98,
+        0.94,
+        0.16,
+        0.15,
+        0.88,
+        0.21,
+        0.56,
+        0.92,
+        0.2,
+        0.79,
+        0.37,
+        0.48,
+        0.33,
+        0.67,
+        0.26
+      ]
+    },
+    "absent_markers_last_feature": {
+      "rejection_rate": {
+        "count": 0,
+        "n": 20,
+        "rate": 0.0,
+        "interval_95_percent": [
+          0.0,
+          0.1684334709830853
+        ],
+        "interval_method": "Clopper-Pearson; independent simulation seeds only"
+      },
+      "matched_count": 0,
+      "p_values": [
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0,
+        1.0
+      ]
+    }
+  },
+  "runs": [
+    {
+      "scenario": "specific_subset",
+      "seed": 0,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70649989.16666667,
+        "rank_eta_squared": 0.49062526548050844,
+        "null_mean": 2374954.353872053,
+        "null_max": 4194366.600000001
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 0,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.21,
+        "holm_p": 0.21,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2829894.5666666664,
+        "rank_eta_squared": 0.019652059249115218,
+        "null_mean": 2263682.671043771,
+        "null_max": 4961278.899999999
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 0,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.21,
+        "holm_p": 0.21,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2829894.5666666664,
+        "rank_eta_squared": 0.019652059249115218,
+        "null_mean": 2263682.671043771,
+        "null_max": 4961278.899999999
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 0,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 1,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69593143.53333333,
+        "rank_eta_squared": 0.48328605459679713,
+        "null_mean": 2300206.398653199,
+        "null_max": 4279957.966666667
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 1,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.99,
+        "holm_p": 0.99,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1056270.4333333333,
+        "rank_eta_squared": 0.007335216436492896,
+        "null_mean": 2285302.386868688,
+        "null_max": 4495466.9
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 1,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.99,
+        "holm_p": 0.99,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1056270.4333333333,
+        "rank_eta_squared": 0.007335216436492896,
+        "null_mean": 2285302.386868688,
+        "null_max": 4495466.9
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 1,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 2,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70045907.83333333,
+        "rank_eta_squared": 0.48643025330804623,
+        "null_mean": 2391348.411111111,
+        "null_max": 4746609.333333333
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 2,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.89,
+        "holm_p": 0.89,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1488319.8333333333,
+        "rank_eta_squared": 0.010335561575621464,
+        "null_mean": 2343932.9000000004,
+        "null_max": 4172823.633333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 2,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.89,
+        "holm_p": 0.89,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1488319.8333333333,
+        "rank_eta_squared": 0.010335561575621464,
+        "null_mean": 2343932.9000000004,
+        "null_max": 4172823.633333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 2,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 3,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69842310.66666669,
+        "rank_eta_squared": 0.48501638311322914,
+        "null_mean": 2290542.9461279456,
+        "null_max": 4566698.533333333
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 3,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.69,
+        "holm_p": 0.69,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1819152.9666666668,
+        "rank_eta_squared": 0.012633015485890384,
+        "null_mean": 2242518.2686868687,
+        "null_max": 4196000.733333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 3,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.69,
+        "holm_p": 0.69,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1819152.9666666668,
+        "rank_eta_squared": 0.012633015485890384,
+        "null_mean": 2242518.2686868687,
+        "null_max": 4196000.733333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 3,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 4,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69874563.10000001,
+        "rank_eta_squared": 0.48524035850024905,
+        "null_mean": 2208357.0265993266,
+        "null_max": 3838785.3
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 4,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.9,
+        "holm_p": 0.9,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1400235.5999999999,
+        "rank_eta_squared": 0.00972386508601742,
+        "null_mean": 2312671.5777777787,
+        "null_max": 4127521.5666666664
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 4,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.9,
+        "holm_p": 0.9,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1400235.5999999999,
+        "rank_eta_squared": 0.00972386508601742,
+        "null_mean": 2312671.5777777787,
+        "null_max": 4127521.5666666664
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 4,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 5,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69633511.56666666,
+        "rank_eta_squared": 0.4835663883562882,
+        "null_mean": 2312783.1962962956,
+        "null_max": 5390049.8
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 5,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.98,
+        "holm_p": 0.98,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 885652.1666666667,
+        "rank_eta_squared": 0.006150366539606393,
+        "null_mean": 2289255.1407407406,
+        "null_max": 3929567.1
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 5,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.98,
+        "holm_p": 0.98,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 885652.1666666667,
+        "rank_eta_squared": 0.006150366539606393,
+        "null_mean": 2289255.1407407406,
+        "null_max": 3929567.1
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 5,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 6,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69601300.26666665,
+        "rank_eta_squared": 0.4833426986176147,
+        "null_mean": 2190502.7053872054,
+        "null_max": 3872988.3333333335
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 6,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.94,
+        "holm_p": 0.94,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1232500.8333333333,
+        "rank_eta_squared": 0.00855903950859225,
+        "null_mean": 2239130.556902357,
+        "null_max": 4667479.433333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 6,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.94,
+        "holm_p": 0.94,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1232500.8333333333,
+        "rank_eta_squared": 0.00855903950859225,
+        "null_mean": 2239130.556902357,
+        "null_max": 4667479.433333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 6,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 7,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70852829.99999999,
+        "rank_eta_squared": 0.4920338833568633,
+        "null_mean": 2181259.7020202023,
+        "null_max": 3868439.8000000003
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 7,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.16,
+        "holm_p": 0.16,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2989261.6,
+        "rank_eta_squared": 0.02075877552692745,
+        "null_mean": 2269226.55993266,
+        "null_max": 4464666.933333334
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 7,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.16,
+        "holm_p": 0.16,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2989261.6,
+        "rank_eta_squared": 0.02075877552692745,
+        "null_mean": 2269226.55993266,
+        "null_max": 4464666.933333334
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 7,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 8,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70914088.63333333,
+        "rank_eta_squared": 0.49245929082821116,
+        "null_mean": 2197302.3956228956,
+        "null_max": 4623507.300000001
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 8,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.15,
+        "holm_p": 0.15,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 3012537.6333333333,
+        "rank_eta_squared": 0.020920414759547288,
+        "null_mean": 2258293.394276093,
+        "null_max": 4370565.633333334
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 8,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.15,
+        "holm_p": 0.15,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 3012537.6333333333,
+        "rank_eta_squared": 0.020920414759547288,
+        "null_mean": 2258293.394276093,
+        "null_max": 4370565.633333334
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 8,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 9,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69725684.33333333,
+        "rank_eta_squared": 0.4842064774582019,
+        "null_mean": 2260524.100673401,
+        "null_max": 4590336.799999999
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 9,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.88,
+        "holm_p": 0.88,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1501601.1666666665,
+        "rank_eta_squared": 0.010427793121152629,
+        "null_mean": 2170994.4232323244,
+        "null_max": 3950042.533333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 9,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.88,
+        "holm_p": 0.88,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1501601.1666666665,
+        "rank_eta_squared": 0.010427793121152629,
+        "null_mean": 2170994.4232323244,
+        "null_max": 3950042.533333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 9,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 10,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70651944.7,
+        "rank_eta_squared": 0.4906388455825317,
+        "null_mean": 2312670.827946128,
+        "null_max": 5420403.066666666
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 10,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.21,
+        "holm_p": 0.21,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2867028.633333334,
+        "rank_eta_squared": 0.01990993489115849,
+        "null_mean": 2333016.143097642,
+        "null_max": 4111815.366666666
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 10,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.21,
+        "holm_p": 0.21,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2867028.633333334,
+        "rank_eta_squared": 0.01990993489115849,
+        "null_mean": 2333016.143097642,
+        "null_max": 4111815.366666666
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 10,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 11,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70172482.16666667,
+        "rank_eta_squared": 0.4873092423443813,
+        "null_mean": 2206504.957239057,
+        "null_max": 4558641.5
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 11,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.56,
+        "holm_p": 0.56,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2135624.5666666664,
+        "rank_eta_squared": 0.014830736456529945,
+        "null_mean": 2246031.3936026935,
+        "null_max": 4416603.266666668
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 11,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.56,
+        "holm_p": 0.56,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2135624.5666666664,
+        "rank_eta_squared": 0.014830736456529945,
+        "null_mean": 2246031.3936026935,
+        "null_max": 4416603.266666668
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 11,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 12,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69781132.56666666,
+        "rank_eta_squared": 0.48459153490152884,
+        "null_mean": 2210021.0730639733,
+        "null_max": 4223963.366666666
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 12,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.92,
+        "holm_p": 0.92,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1299231.933333333,
+        "rank_eta_squared": 0.00902245024707193,
+        "null_mean": 2231165.675084176,
+        "null_max": 4292473.766666667
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 12,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.92,
+        "holm_p": 0.92,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1299231.933333333,
+        "rank_eta_squared": 0.00902245024707193,
+        "null_mean": 2231165.675084176,
+        "null_max": 4292473.766666667
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 12,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 13,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70985005.1,
+        "rank_eta_squared": 0.49295176663317125,
+        "null_mean": 2319762.2020202004,
+        "null_max": 5102166.833333333
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 13,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.2,
+        "holm_p": 0.2,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 3018704.066666667,
+        "rank_eta_squared": 0.020963237242988826,
+        "null_mean": 2354741.8966329964,
+        "null_max": 5087156.366666666
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 13,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.2,
+        "holm_p": 0.2,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 3018704.066666667,
+        "rank_eta_squared": 0.020963237242988826,
+        "null_mean": 2354741.8966329964,
+        "null_max": 5087156.366666666
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 13,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 14,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 69883985.20000002,
+        "rank_eta_squared": 0.4853057897956875,
+        "null_mean": 2316611.5949494955,
+        "null_max": 5479724.000000001
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 14,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.79,
+        "holm_p": 0.79,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1670070.4999999998,
+        "rank_eta_squared": 0.01159771985952768,
+        "null_mean": 2334631.526599326,
+        "null_max": 4540639.033333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 14,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.79,
+        "holm_p": 0.79,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1670070.4999999998,
+        "rank_eta_squared": 0.01159771985952768,
+        "null_mean": 2334631.526599326,
+        "null_max": 4540639.033333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 14,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 15,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70128023.3,
+        "rank_eta_squared": 0.4870005000003472,
+        "null_mean": 2297714.670033671,
+        "null_max": 4473502.2
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 15,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.37,
+        "holm_p": 0.37,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2401088.2666666675,
+        "rank_eta_squared": 0.016674235653404396,
+        "null_mean": 2237367.193602694,
+        "null_max": 4400456.300000001
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 15,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.37,
+        "holm_p": 0.37,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2401088.2666666675,
+        "rank_eta_squared": 0.016674235653404396,
+        "null_mean": 2237367.193602694,
+        "null_max": 4400456.300000001
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 15,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 16,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70002348.93333332,
+        "rank_eta_squared": 0.4861277607368708,
+        "null_mean": 2267644.524915825,
+        "null_max": 4889856.7
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 16,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.48,
+        "holm_p": 0.48,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2232827.8333333335,
+        "rank_eta_squared": 0.015505759610481212,
+        "null_mean": 2257712.4632996637,
+        "null_max": 4584631.933333334
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 16,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.48,
+        "holm_p": 0.48,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2232827.8333333335,
+        "rank_eta_squared": 0.015505759610481212,
+        "null_mean": 2257712.4632996637,
+        "null_max": 4584631.933333334
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 16,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 17,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70071377.5,
+        "rank_eta_squared": 0.48660712611605983,
+        "null_mean": 2138016.0494949496,
+        "null_max": 4696609.1
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 17,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.33,
+        "holm_p": 0.33,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2481970.9333333336,
+        "rank_eta_squared": 0.017235921228649004,
+        "null_mean": 2194844.5474747475,
+        "null_max": 4743689.133333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 17,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.33,
+        "holm_p": 0.33,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2481970.9333333336,
+        "rank_eta_squared": 0.017235921228649004,
+        "null_mean": 2194844.5474747475,
+        "null_max": 4743689.133333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 17,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 18,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70247540.56666666,
+        "rank_eta_squared": 0.48783048159524184,
+        "null_mean": 2192804.77138047,
+        "null_max": 3727304.7333333334
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 18,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.67,
+        "holm_p": 0.67,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1876013.0333333332,
+        "rank_eta_squared": 0.013027877334174074,
+        "null_mean": 2154703.5868686875,
+        "null_max": 4766313.833333333
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 18,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.67,
+        "holm_p": 0.67,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 1876013.0333333332,
+        "rank_eta_squared": 0.013027877334174074,
+        "null_mean": 2154703.5868686875,
+        "null_max": 4766313.833333333
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 18,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    },
+    {
+      "scenario": "specific_subset",
+      "seed": 19,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.01,
+        "holm_p": 0.01,
+        "conditional_heterogeneity": true,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 70850723.56666666,
+        "rank_eta_squared": 0.4920192553374458,
+        "null_mean": 2240346.846801347,
+        "null_max": 4510070.166666667
+      }
+    },
+    {
+      "scenario": "generic_one_axis",
+      "seed": 19,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.26,
+        "holm_p": 0.26,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2873131.566666667,
+        "rank_eta_squared": 0.01995231640207158,
+        "null_mean": 2282498.0666666673,
+        "null_max": 4366532.466666666
+      }
+    },
+    {
+      "scenario": "null",
+      "seed": 19,
+      "diagnostic": {
+        "matched": true,
+        "status": "tested",
+        "empirical_p": 0.26,
+        "holm_p": 0.26,
+        "conditional_heterogeneity": false,
+        "feature": 0,
+        "marker_match_p_bonf": 1.3925594478519334e-08,
+        "between_group_rank_ss": 2873131.566666667,
+        "rank_eta_squared": 0.01995231640207158,
+        "null_mean": 2282498.0666666673,
+        "null_max": 4366532.466666666
+      }
+    },
+    {
+      "scenario": "absent_markers_last_feature",
+      "seed": 19,
+      "diagnostic": {
+        "matched": false,
+        "status": "no_marker_match",
+        "empirical_p": 1.0,
+        "holm_p": 1.0,
+        "conditional_heterogeneity": false
+      }
+    }
+  ],
+  "elapsed_seconds": 1.329
+}

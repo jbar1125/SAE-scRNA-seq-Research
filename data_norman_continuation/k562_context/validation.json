@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "association_family": 8400,
+  "identity_family": 80,
+  "unique_csv_rows": 8400,
+  "all_actual_score_hashes_verified": true,
+  "all_sources_verified": true,
+  "joint_corrections_reproduced": true,
+  "original_945_direct_comparisons_reproduced": true,
+  "raw_result_sha256": "f2b6bc2e63c44ece860765d919a7df1d7bb2a1745aab7a2d1f68f544b4928c5f",
+  "compressed_result_sha256": "121ec40831704dfa1d43d30f1e8955403739022be0656fd49e6788352711c01b"
+}

@@ -1,0 +1,107 @@
+{
+  "species": "human",
+  "trrust": "config/trrust/trrust_rawdata.human.tsv",
+  "n_genes": 2032,
+  "results": {
+    "erythroid": {
+      "tfs_used": [
+        "GATA1",
+        "KLF1",
+        "TAL1",
+        "LMO2",
+        "STAT5A",
+        "BCL11A",
+        "MYB"
+      ],
+      "n_targets_in_panel": 31,
+      "top_k": 30,
+      "per_seed_overlap": [
+        5,
+        6,
+        4,
+        6,
+        4,
+        6,
+        5,
+        7,
+        5,
+        4
+      ],
+      "per_seed_p": [
+        6e-05,
+        0.0,
+        0.00092,
+        0.0,
+        0.00092,
+        0.0,
+        6e-05,
+        0.0,
+        6e-05,
+        0.00092
+      ],
+      "per_seed_q": [
+        9e-05,
+        1e-05,
+        0.00092,
+        1e-05,
+        0.00092,
+        1e-05,
+        9e-05,
+        0.0,
+        9e-05,
+        0.00092
+      ],
+      "median_p": 6.440626496841306e-05,
+      "frac_seeds_q_lt_0.05": 1.0,
+      "enriched_in_majority": true
+    },
+    "granulocyte": {
+      "tfs_used": [
+        "CEBPA",
+        "CEBPE",
+        "RUNX1"
+      ],
+      "n_targets_in_panel": 17,
+      "top_k": 30,
+      "per_seed_overlap": [
+        0,
+        0,
+        4,
+        2,
+        1,
+        4,
+        3,
+        0,
+        1,
+        2
+      ],
+      "per_seed_p": [
+        1.0,
+        1.0,
+        8e-05,
+        0.02498,
+        0.2242,
+        8e-05,
+        0.00172,
+        1.0,
+        0.2242,
+        0.02498
+      ],
+      "per_seed_q": [
+        1.0,
+        1.0,
+        0.0004,
+        0.04996,
+        0.32029,
+        0.0004,
+        0.00573,
+        1.0,
+        0.32029,
+        0.04996
+      ],
+      "median_p": 0.12459114471301035,
+      "frac_seeds_q_lt_0.05": 0.5,
+      "enriched_in_majority": true
+    }
+  }
+}

@@ -1,14 +1,32 @@
 # Research Plan (v6)
 
+> **CURRENT STATUS, 2026-10-18:** this is the historical Phase 2 proposal, with
+> factual corrections below. It is not a record that its five components ran, nor
+> proof that later experiments were pre-registered under this design. Gate 0 was
+> executed and frozen using Paul15 mouse and Setty 2019 CD34+ human marrow (4,142
+> cells), not the older 25,000-cell CELLxGENE sample. The structural result is
+> method-dependence; the reversed lineage direction is not invariant or causally
+> validated. Gate-0 dictionaries have 512 latents for 2,012/2,032 genes and are
+> undercomplete relative to the gene input.
+>
+> Component 2 was replaced by cross-fit matching/Mann-Whitney tests per perturbation,
+> not the original 24-TF annotated-feature/SD-drop design. Its causal SAEs trained
+> on all cells, without perturbation labels, despite the earlier control-only intent.
+> Replogle K562/RPE1 and Norman analyses ran; historical raw JSONs are missing.
+> PCA/NMF ladder rungs were inputs to an SAE, not direct factor causal baselines.
+> Components 1, 3, 4 and 5, including the embedding head-to-head, never ran.
+> The cited 6.2% is literature context from a different metric/panel, not a valid
+> common null. Current results and priorities: `PROJECT_MASTER_SUMMARY.md`
+> sections 8-10 and 18. All other objectives, thresholds and timelines below are
+> historical proposals unless explicitly identified as executed.
+
 **Causal Grounding of Expression-Space Sparse Autoencoder Features in Hematopoietic Lineage Commitment: A Head-to-Head Test Against Foundation-Model Interpretability, with Clinical Translation**
 
-> v6 supersedes v5. Changes: (1) the Phase 1 finding direction is corrected to the
-> locked result (erythroid commitment is captured as a single dominant program,
-> granulocyte commitment is distributed across multiple sub-modules — the reverse of
-> earlier drafts); (2) the central novelty is reframed as a controlled head-to-head
+> v6 originally superseded v5 by (1) reversing the proposed Phase 1 lineage direction
+> under the SAE analysis, now known to be method-dependent; (2) proposing a controlled head-to-head
 > between expression-space and foundation-model SAE features against the same CRISPRi
 > null; (3) an explicit differentiation from Kendiukhov (2026) is added; (4) Phase 1
-> inputs are the corrected/upgraded artifacts (overcomplete SAEs, log-normalized
+> intended inputs are corrected/upgraded artifacts (512-latent SAEs, log-normalized
 > marker-aware preprocessing, verified erythroid marker symbols, a pre-registered
 > control-referenced modularity metric). See PROJECT_AUDIT.md (section J) and
 > STRATEGY_AND_POSITIONING.md.
@@ -31,25 +49,25 @@ Sparse autoencoders (SAEs) address this by using L1-regularized sparse dictionar
 learning to recover interpretable features from dense representations (Makhzani &
 Frey, 2014; Rajamanoharan et al., 2024; Templeton et al., 2024).
 
-In Phase 1, overcomplete SAEs were trained directly on log-normalized scRNA-seq
+In the corrected Gate-0 analysis, 512-latent SAEs were trained directly on log-normalized scRNA-seq
 *expression* data — distinct from the recent wave of work that trains SAEs on the
 internal activations of single-cell foundation models (Cui et al., 2024; Theodoris
 et al., 2023; Kendiukhov, 2026a) — to isolate latent programs along the myeloid
-commitment trajectory. This analyzed the Paul et al. (2015) mouse atlas and a
-25,000-cell human bone marrow subsample from the CZ CELLxGENE Census (CZI Cell
-Science Program, 2023), mapping features to developmental timelines with Palantir
-(Setty et al., 2019) and CellRank (Lange et al., 2022; Weiler et al., 2024).
+commitment trajectory. The executed Gate 0 analyzed the Paul et al. (2015) mouse
+atlas and Setty et al. (2019) human CD34+ marrow, 4,142 cells. An earlier exploratory
+Phase 1 used a 25,000-cell CELLxGENE sample; it is not the frozen human arm.
+Palantir/CellRank trajectory analyses belong to that earlier exploration rather than
+establishing the Gate-0 cross-method result.
 Crucially, the finding was established through an adversarial, pre-registered
 framework that distinguishes real programs from measurement artifacts:
 control-referenced feature strengths, count-fair concentration metrics, calibrated
-permutation nulls, and a documented marker-curation audit. Under this framework,
-the data show an "asymmetric modularity": erythroid commitment is captured as a
-single dominant program anchored by the hemoglobin/heme effector module, whereas
-granulocyte commitment is distributed across multiple interacting sub-modules
-(primary granule, secondary granule, and transcription-factor programs). This
-suggests SAEs can bridge descriptive transcriptomics and structured biological
-concepts (Claye et al., 2025), but only when the recovered structure survives
-rigorous, metric-independent testing.
+permutation nulls, and a documented marker-curation audit. Under the frozen SAE
+analysis, fewer erythroid than granulocyte programs are detected. Across five
+decomposition families and two species the original erythroid-more-distributed
+claim survives only in mouse NMF (1/10 method-by-species cells). The defensible
+finding is that measured modularity depends on the decomposition. Neither direction
+has been established as a metric-independent biological organization or causally
+validated by the later perturbation tests.
 
 Recovering biologically plausible features does not, however, guarantee causal
 regulatory logic, and this is where the field's current frontier and this project's
@@ -64,8 +82,9 @@ concrete, published null — but it is a null about features living in a foundat
 model's internal representation. It remains untested whether features learned
 directly in *expression space*, annotated along a developmental trajectory, carry
 more causal grounding than foundation-model features against the same genome-scale
-perturbational data (Replogle et al., 2022). That head-to-head is the gap this
-project closes.
+perturbational data (Replogle et al., 2022). That head-to-head was proposed here
+but remains unexecuted. The published percentage does not substitute for a matched
+within-study comparison under the implemented metric.
 
 The importance of closing it is amplified by two unanswered questions about where
 these programs matter clinically and whether they are representation artifacts.
@@ -81,49 +100,39 @@ the asymmetry was itself corrected during Phase 1 (an earlier draft had it rever
 until a marker-curation and metric audit overturned it), the project treats every
 directional claim as a hypothesis to be re-tested, not assumed.
 
-Phase 2 systematically closes these gaps through three pillars: causal grounding,
-clinical translation, and representation invariance. First, expression-space SAE
-features are causally tested by projection onto the Replogle K562 Perturb-seq
-dataset, measuring target-specific suppression under transcription-factor knockdown,
-and — as the central controlled comparison — the same test is run on
-foundation-model-embedding SAE features within this pipeline, yielding a direct
-expression-vs-embedding contrast against the pre-registered Kendiukhov 6.2 percent
-null. Second, clinical translation projects the models onto the van Galen AML atlas
-and the Hegde tumor dataset to quantify differential activation and stratify
-mutational subtypes. Third, representation invariance is tested by training
-hyperparameter-matched SAEs on scGPT (and optionally Geneformer) embeddings and
-comparing modularity direction. Recent SAE advances (Bussmann et al., 2024;
-Bussmann et al., 2025; Rajamanoharan et al., 2024) are held constant to preserve a
-controlled comparison. All analyses use false-discovery-rate control (Benjamini &
-Hochberg, 1995) and power analysis (Cohen, 1988), with pre-specified thresholds and
-explicit null-result reporting.
+The original Phase 2 proposal had three pillars: causal grounding, clinical
+translation and representation invariance. It proposed projecting expression SAEs
+onto Replogle, comparing matched foundation-model SAEs, translating programs to
+van Galen AML/Hegde tumor data and comparing modularity across embedding spaces.
+Only the causal pillar was implemented, with a replacement metric and newly trained
+dataset-specific TopK SAEs. The other pillars remain unexecuted. The proposal's
+references to a "6.2 percent null" are superseded: that literature result used a
+different panel and analysis. A future controlled comparison must be designed and
+declared before its own execution, with appropriate uncertainty, multiplicity
+controls and explicit negative/mixed-result reporting.
 
 ### Differentiation from prior SAE / single-cell interpretability work
 
 The base technique (SAEs recover interpretable features from single-cell data) is
 established (Schuster, 2025; Kendiukhov, 2026a; Cunningham et al., 2023). This
-project does not claim it. Its differentiation is: (i) SAEs trained on **raw
-expression space along a developmental commitment trajectory**, not on
-foundation-model atlas embeddings; (ii) a **direct, controlled head-to-head** of
-expression-space vs foundation-model feature causal grounding against the same
-Replogle CRISPRi data and the same pre-registered 6.2 percent null; (iii)
-**clinical and tumor translation** (AML subtype stratification, tumor-driven
-reprogramming) of the recovered programs, which no prior SAE-single-cell work
-performs; and (iv) an **adversarial artifact-vs-signal validation framework** that
-overturned the project's own initial finding. Kendiukhov (2026a) is the primary
-comparator and is used as the pre-registered null, not as unacknowledged prior art.
+project does not claim it. Executed differentiation is direct expression-space
+analysis plus an artifact-vs-signal framework that overturned its initial finding
+and demonstrated structural method-dependence. A matched embedding head-to-head
+and clinical/tumor translation were proposed differentiators, not completed
+contributions. The reviewed abstracts do not establish that no prior work addresses
+these questions. Kendiukhov (2026a) supplies literature context, not a directly
+comparable statistical null; read its full methods before any numerical comparison.
 
 ---
 
 ## Research Question(s)
 
-1. Do expression-space SAE features causally validate against Replogle (2022)
-   CRISPRi K562 data at a rate exceeding the Kendiukhov 6.2 percent foundation-model
-   null — i.e., for the 24 canonical hematopoietic TFs, does knockdown of TF X
-   produce target-specific suppression (effect size > 0.5 SD, permutation FDR
-   q < 0.05) of the pre-registered feature annotated for X, and is that rate higher
-   than the rate obtained by the identical test on foundation-model-embedding SAE
-   features?
+1. Implemented replacement for the original 24-TF question: do testable
+   perturbations produce a held-out, correctly signed response in an SAE feature
+   matched to their differential-expression signature, beyond declared controls?
+   The implementation scores perturbations, not a fixed table of annotated feature
+   indices. A matched embedding arm under the same metric remains a future question;
+   the literature's 6.2 percent is not its statistical null.
 2. Within matched cell-type bins (HSC, MPP, GMP, MEP, granulocytic, erythroid,
    monocyte), do SAE activations differ between AML and healthy cells with BH-FDR
    q < 0.05 in at least 10 features at |d| > 0.3?
@@ -142,11 +151,10 @@ comparator and is used as the pre-registered null, not as unacknowledged prior a
 
 ## Objectives
 
-- To causally validate the transcription-factor annotations of expression-space SAE
-  features by projecting Phase 1 SAEs onto Replogle (2022) CRISPRi K562 data across
-  24 canonical hematopoietic transcription factors, with the null fixed at the
-  Kendiukhov 6.2 percent rate, and to benchmark this directly against the identical
-  test applied to foundation-model-embedding SAE features.
+- Revised implemented objective: test perturbation-specific responses with
+  dataset-specific TopK SAEs and cross-fit matching/Mann-Whitney analysis. The
+  Phase 1 projection, fixed 24-TF feature table and binomial-vs-6.2% design were
+  replaced. The within-study foundation-model comparison was not completed.
 - To apply Phase 1 SAEs to the van Galen (2019) AML atlas and quantify
   AML-versus-healthy differential activation within matched cell-type bins, with
   Benjamini-Hochberg FDR control across all (feature, cell-type) tests.
@@ -232,17 +240,17 @@ N/A. This is a scientific investigation rather than an engineering project.
 - scGPT whole-human pretrained model (12 layers, dim 512, ~33M cells; Cui et al., 2024).
 - Geneformer V2-316M (18 layers, dim 1,152, ~95M cells; Theodoris et al., 2023;
   Chen et al., 2024). Stretch goal.
-- **Phase 1 SAE checkpoints (corrected/upgraded — the locked Phase 2 inputs).**
+- **Executed Gate-0 checkpoints (not the causal pipeline's training inputs).**
   Mouse SAEs trained on marker-aware, log-normalized Paul15 (globins Hba-a2/Hbb-b1,
   Alas2, Ermap force-included; expression matrix MD5 recorded in
-  preprocess_report.json), overcomplete latent dimension (>=512, sparsity tuned to
-  L0 in 20-50), >=10 seeds. Human SAEs trained on the 25,000-cell CELLxGENE Census
-  healthy human BM subsample, hematopoietic lineage only, same regime. The earlier
+  preprocess_report.json), 512 latents (undercomplete relative to 2,012 genes,
+  sparsity tuned to L0 in 20-50), 10 seeds. Human SAEs trained on Setty 2019 CD34+
+  marrow, 4,142 cells x 2,032 genes, 512 latents and 10 seeds. The earlier
   128-latent, variance-only-HVG SAEs (MD5 60183a17983c8b977d036e0f3a58da61) are
   SUPERSEDED and retained only as a documented baseline.
-- CZ CELLxGENE Discover Census, stable release (CZI, 2023):
-  chanzuckerberg.github.io/cellxgene-census/. Census version pinned to the Phase 1
-  training date (recorded in the training notebook and reproducibility doc).
+- Legacy CZ CELLxGENE sample (CZI, 2023):
+  chanzuckerberg.github.io/cellxgene-census/. Its Census release was not pinned;
+  it was superseded for Gate 0 by the sourced Setty dataset. Do not invent a pin.
 - Paul et al. (2015) mouse hematopoiesis atlas via scanpy.datasets.paul15(). 2,730
   cells, 19 myeloid progenitor clusters. NOTE: this source is RAW-scale (max ~168);
   it is log1p-normalized in preprocessing (correcting an earlier "pre-log" error).
@@ -250,8 +258,9 @@ N/A. This is a scientific investigation rather than an engineering project.
   E-MTAB-8581 (~200,000 cells).
 - HCOP ortholog mapping (Human-Mouse): genenames.org/tools/hcop/. Ensembl Compara
   orthology table as backup.
-- Phase 1 pre-registered feature-to-TF annotation table (corrected marker sets),
-  SHA-256-frozen before Phase 2 begins, generated from the locked checkpoints.
+- Historical proposal: a frozen Phase 1 feature-to-TF annotation table. The
+  implemented causal analysis instead matches features separately in each fitted
+  dataset/seed; this document does not establish that the proposed table was frozen.
 
 ### Chemicals — N/A. Purely computational, public de-identified scRNA-seq.
 ### Kits — N/A. Purely computational, public de-identified scRNA-seq.
@@ -313,33 +322,27 @@ deliverables are the inputs.
   (continue with documented limitation). FAIL < 3 features (stop; debug transfer/
   scaling).
 
-### Component 2: Replogle CRISPRi causal grounding + the head-to-head (weeks 4-6)
-- Week 4 — acquisition/curation: download K562_gwps_normalized_singlecell_01.h5ad
-  (figshare+). Domain-shift/OOD calibration: project the human SAE onto held-out
-  healthy BM (5,000 cells) and K562 non-targeting (5,000 cells); compare L0 and MSE.
-  Document if K562 MSE shifts > 50 percent. Subset to the 24 TFs + non-targeting 1:3
-  (target 300k-500k cells). Harmonize human gene names (case, version suffixes,
-  Ensembl IDs). Match SAE input gene set (zero-impute if < 5 percent missing). QC;
-  verify sgRNA labels.
-- Week 5 — core validation (expression-space): project features onto non-targeting
-  baseline and each TF knockdown, per seed. Standardized effect d = (mean_KD -
-  mean_NT)/pooled_std per (TF, feature, seed); negative = suppression. Per TF, top-k
-  most-suppressed (k=1,3,5). Load the pre-registered annotation table; check whether
-  the annotated feature is in top-k (strict/tolerant/lenient).
-- Week 6 — extended + the controlled comparison: off-target vector per TF;
-  permutation test (10,000 NT-label shuffles) per pair; BH-FDR across 24x128 tests
-  per seed; causal validation table (TF, seed, annotated index, effect, perm p, BH q,
-  top-rank, status). Summary: fraction of TFs validated at top-1/3/5, mean/SD across
-  seeds, one-sided binomial vs 6.2 percent. **Head-to-head:** run the identical
-  pipeline on the foundation-model-embedding SAE features from Component 4 (same
-  cells, same CRISPRi data, same annotation procedure) and report the two validation
-  rates side by side. This is the project's central novel result.
-- Decision Gate 2: STRONG PASS >= 8/24 TFs at top-3, effect > 0.5 SD, q < 0.05, in
-  >= 2 seeds (>= 33 percent, > 5x null). MODEST PASS 3-7 TFs (12.5-29 percent; use
-  calibrated language). MATCH NULL 0-2 TFs (<= 8.3 percent; pre-registered fallback:
-  reframe as descriptive with explicit null reporting). Report whichever of
-  expression-space / embedding-space wins, and by how much — either ordering is a
-  publishable, honest result.
+### Component 2: implemented replacement and execution boundary
+
+- The original 24-TF projection, SD-drop/top-rank table and 8/24 gate were replaced,
+  not executed as this plan proposed. The historical text remains in Git history.
+- Implemented code: `src/causal_pipeline.py` trains a dataset-specific TopK SAE;
+  `src/causal_grounding.py` defines control-cell gene associations, cross-fit feature
+  matching and a held-out Mann-Whitney response test with direction/floor, FDR,
+  match-confidence and effect-size gates plus label-shuffle controls. Consult
+  `config/causal_grounding_spec.json` (v7 plus erratum, SHA prefix `aae1a9d9`) for
+  the complete rule and amendment chronology.
+- As executed, SAE training used all cells, with perturbation labels unseen.
+  Control-only training was intended but not implemented in the reported runs;
+  the subsequently exposed mode fails the synthetic pipeline self-test (0/8).
+- Reported data: Replogle K562 essential (162 tested TFs), RPE1, and later Norman
+  CRISPRa. These are not a completed matched embedding comparison. Historical raw
+  JSONs need recovery or regeneration before publication uses exact causal values.
+- PCA/NMF runs transform the SAE input, then train the same class of SAE. They do
+  not measure direct PCA/NMF causal-factor performance.
+- No superiority claim follows from comparison with the literature's 6.2 percent.
+  A future embedding arm needs matched cells, panel, training mode and settings,
+  independent controls and a declared paired comparison with uncertainty.
 
 ### Component 3: Hegde 2025 tumor bone marrow projection (week 7)
 - Download Hegde scRNA-seq (GSE270148); subset KP tumor-bearing + naive C57BL/6 BM
@@ -365,7 +368,7 @@ deliverables are the inputs.
   mouse -> human. Run scGPT inference; extract per-cell embeddings (n_cells, 512)
   from the best-silhouette layer on paul15_clusters. Validate embedding (Leiden
   res=1.0; report ARI vs paul15_clusters). Train an SAE on embeddings with matched
-  Phase 1 hyperparameters (overcomplete latent, lambda tuned to L0 20-50, AdamW
+  proposed hyperparameters (a declared dictionary size, lambda tuned to L0 20-50, AdamW
   lr=5e-4, cosine annealing 5-epoch warmup, weight_decay=1e-5, grad-clip 1.0,
   batch 256, 300 epochs, dead-neuron resampling every 500 steps, decoder
   unit-normalized, >=5 seeds). Verify training (MSE, L0 20-50, zero dead features).
@@ -443,11 +446,10 @@ modeling for hierarchical data, cross-seed validation.
   feature_activation ~ disease_status + cell_type + (1 | patient_id) via
   statsmodels.MixedLM; mutation stratification via Mann-Whitney U / Kruskal-Wallis
   on pseudobulk with Cohen (1988) power analysis; robustness >= 2/3 (or 3/5) seeds.
-- Component 2 (Replogle): standardized effect d per (TF, feature, seed); 10,000-shuffle
-  permutation p per pair; BH-FDR across 24x128 per seed; top-rank tolerance at
-  k=1,3,5 vs the pre-registered annotation table; one-sided exact binomial vs 6.2
-  percent; expression-space vs embedding-space rates compared with a two-proportion
-  test.
+- Component 2 (implemented replacement): cross-fit matching and held-out
+  Mann-Whitney AUC with the gates/nulls in the current causal spec. The 24x128
+  annotated-feature family and binomial test against 6.2 percent were not the
+  analysis that ran. See the corrected Component 2 section above.
 - Component 3 (Hegde): per-bin Wilcoxon tumor vs naive, BH-FDR; corrected-direction
   asymmetry chi-squared (Yates); Pearson concordance within module sets; per-module
   effect with 95% bootstrap CIs.
@@ -551,6 +553,7 @@ Wolf, F. A., Angerer, P., & Theis, F. J. (2018). SCANPY: Large-scale single-cell
 
 ## Addendum
 
-No addendums exist for this plan. (The differentiation from Kendiukhov (2026a) and
-the prior SAE-single-cell literature is integrated into the Review of Literature
-above and does not constitute a separate addendum under ISEF rules.)
+Repository-status correction dated 2026-10-18: the notices and implemented-method
+replacement above distinguish historical proposals from executed work. They do not
+retroactively pre-register results or assert the status of an official ISEF filing.
+The original version of this plan is preserved in Git history.

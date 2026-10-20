@@ -1,0 +1,61 @@
+{
+  "scope": "Actual trainer on synthetic random inputs; timing only, no biological analysis",
+  "shape": [
+    4096,
+    4081
+  ],
+  "k": 32,
+  "batch": 1024,
+  "projection_all_cells": 111445,
+  "projection_steps_per_epoch": 109,
+  "models": [
+    {
+      "threads": 2,
+      "latent": 2048,
+      "fit2epochs8steps_seconds": 5.176643013000103,
+      "fit4epochs16steps_seconds": 9.730169111999885,
+      "incremental_seconds_per_step": 0.5691907623749728,
+      "coarse_seconds_per_step": 0.6470803766250128,
+      "primary_200epochs_hours": 3.4467662832706685,
+      "pilot_50epochs_minutes": null,
+      "three_pilots_50epochs_minutes": null
+    },
+    {
+      "threads": 2,
+      "latent": 512,
+      "fit2epochs8steps_seconds": 1.2744234439999218,
+      "fit4epochs16steps_seconds": 2.6920718869998836,
+      "incremental_seconds_per_step": 0.17720605537499523,
+      "coarse_seconds_per_step": 0.15930293049999023,
+      "primary_200epochs_hours": null,
+      "pilot_50epochs_minutes": 16.096216696562067,
+      "three_pilots_50epochs_minutes": 48.28865008968621
+    },
+    {
+      "threads": 4,
+      "latent": 2048,
+      "fit2epochs8steps_seconds": 5.530548755000154,
+      "fit4epochs16steps_seconds": 18.99310903899982,
+      "incremental_seconds_per_step": 1.682820035499958,
+      "coarse_seconds_per_step": 0.6913185943750193,
+      "primary_200epochs_hours": 10.190410214971967,
+      "pilot_50epochs_minutes": null,
+      "three_pilots_50epochs_minutes": null
+    },
+    {
+      "threads": 4,
+      "latent": 512,
+      "fit2epochs8steps_seconds": 1.4717717829998946,
+      "fit4epochs16steps_seconds": 2.5286014030000388,
+      "incremental_seconds_per_step": 0.13210370250001802,
+      "coarse_seconds_per_step": 0.18397147287498683,
+      "primary_200epochs_hours": null,
+      "pilot_50epochs_minutes": 11.999419643751635,
+      "three_pilots_50epochs_minutes": 35.99825893125491
+    }
+  ],
+  "caveat": "Short fits and differences estimate arithmetic only; scheduler contention, loading, HVG, encoding, checkpoint IO, and permutations are excluded. Not a runtime guarantee.",
+  "torch": "2.14.1+cpu",
+  "trainer_source_sha256": "2114fc9abed69b6171e3c28cb295ce345e0e88447b2049b6dc5e5f84a1751760",
+  "profiler_source_sha256": "51af45a74e607dba7a38aee8d0a07b022808f821f50bb8e004b568eec9b57252"
+}

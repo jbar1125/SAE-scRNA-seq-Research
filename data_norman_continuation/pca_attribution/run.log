@@ -1,0 +1,16 @@
+{
+  "n_perturbations": 105,
+  "n_input_genes": 4081,
+  "requested_phase_genes": 97,
+  "phase_genes_in_pca_input": 32,
+  "normalized_score_rmse": 0.00015384090200636742,
+  "maximum_absolute_auc_difference": 3.77833753147927e-05,
+  "original_score_fidelity_gate_passed": true,
+  "interpretation_allowed": "Projected mean attribution can describe the original score approximately within the declared fidelity bounds.",
+  "direction_discordant_cases": 20,
+  "discordant_positive_projected_mean": 20,
+  "discordant_positive_mean_with_positive_negative_weight_sum": 20,
+  "all_105_positive_projected_mean": 85,
+  "all_105_positive_negative_weight_sum": 94,
+  "maximum_absolute_contribution_sum_error": 2.220446049250313e-16
+}

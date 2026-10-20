@@ -1,0 +1,1 @@
+{"out": "/workspace/research-runs/norman-phase-diagnostic-v1/results.json", "family_size": 1365, "counts": {"S": {"up": {"primary": 0, "omission_consistent": 0}, "down": {"primary": 52, "omission_consistent": 52}}, "G2M": {"up": {"primary": 0, "omission_consistent": 0}, "down": {"primary": 37, "omission_consistent": 37}}}}

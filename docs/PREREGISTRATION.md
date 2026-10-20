@@ -13,15 +13,18 @@ be locked; this is that lock.
   (also in `preregistration_spec.sha256`)
 
 The spec is generated from the live code constants, so it cannot silently drift
-from the implementation. To verify the freeze is intact, regenerate and compare:
+from the implementation. The recorded SHA is the hash of the canonical serialization
+`json.dumps(spec, indent=2)`, and the committed file is exactly those bytes. To verify
+the freeze is intact:
 
 ```bash
-python3 - <<'PY'
-import json, hashlib, v0b_module_definitions as v0b, v0b_v3_loading as v3, v0b_v3_1_decision as v31
-# (regenerate exactly as in the freeze commit) ...
-PY
-sha256sum preregistration_spec.json   # must match the SHA above
+sha256sum config/preregistration_spec.json
+# must print fc342829191da5a0bb5244975c3f61c8934943cb512818446e5b5f0984f6011a
 ```
+
+(See `REPRODUCIBILITY.md` for an audit note: the file originally carried a trailing
+newline that made this check fail; it was normalized to the canonical bytes with no
+change to spec content.)
 
 If any constant, marker set, or threshold changes, the SHA changes. After this
 freeze that is a NEW pre-registration with an explicit, dated amendment note in

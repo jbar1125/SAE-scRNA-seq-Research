@@ -1,0 +1,3 @@
+{"stage": "loaded", "shape": [111445, 4081], "n_components": 64}
+{"stage": "pca_fit", "explained_variance_sum": 0.3577125668525696}
+{"stage": "complete", "out": "/workspace/research-runs/norman-direct-pca-v1/seed0.json", "modulator_counts": {"Ery_TF": 28, "Ery_Heme": 0, "Ery_Membrane": 0, "Ery_Effector": 0, "Gran_TF": 0, "Gran_Primary": 0, "Gran_Secondary": 0, "Progenitor": 0, "Cycling": 52}}

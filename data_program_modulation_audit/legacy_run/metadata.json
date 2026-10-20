@@ -1,0 +1,79 @@
+{
+  "purpose": "Simulation-only design audit, not biological discovery",
+  "parameters_fixed_before_run": {
+    "n_controls": 500,
+    "n_perturbations": 20,
+    "cells_per_perturbation": 60,
+    "n_features": 40,
+    "genes_per_feature": 5,
+    "n_markers": 5,
+    "specific_responders": 4,
+    "activation_location": 0.5,
+    "activation_sd": 0.1,
+    "activation_shift": 2.0,
+    "expression_noise_sd": 0.02,
+    "marker_noise_sd": 0.005,
+    "top_k": 5,
+    "n_random_features": 30,
+    "auc_floor": 0.55,
+    "alpha": 0.05,
+    "min_cells": 20,
+    "min_active_cells": 50
+  },
+  "scenarios": [
+    "specific_subset",
+    "generic_one_axis",
+    "null",
+    "absent_markers_last_feature"
+  ],
+  "seeds": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15,
+    16,
+    17,
+    18,
+    19
+  ],
+  "n_shuffle": 99,
+  "quantitative_legacy_positive": "full-shuffle p<0.05 AND feature-background percentile>=90; coherence not scored",
+  "identity_diagnostic": "rank-dispersion permutation p<0.05; prospective diagnostic, not frozen-spec output",
+  "source": {
+    "program_modulation.py": {
+      "git_reference": "a08db6d5ef4440adb9f1e1613e96856ab6515533",
+      "git_path": "src/program_modulation.py",
+      "sha256": "1c22a2ffbb54f39670d331bb03926f0775b1bb4a33a1ca5cb79a42a2b6e8034b"
+    },
+    "causal_grounding.py": {
+      "git_reference": "a08db6d5ef4440adb9f1e1613e96856ab6515533",
+      "git_path": "src/causal_grounding.py",
+      "sha256": "c0defa7b6dcad9f54ca0850e68ecadb981eb0fa46bbe1c951b3feb7fa0787e7f"
+    }
+  },
+  "git_head": "a08db6d5ef4440adb9f1e1613e96856ab6515533",
+  "versions": {
+    "python": "3.12.14",
+    "numpy": "2.4.6",
+    "scipy": "1.17.1",
+    "statsmodels": "0.14.6"
+  },
+  "threads": {
+    "OMP_NUM_THREADS": "1",
+    "MKL_NUM_THREADS": "1",
+    "OPENBLAS_NUM_THREADS": "1",
+    "NUMEXPR_NUM_THREADS": "1"
+  }
+}

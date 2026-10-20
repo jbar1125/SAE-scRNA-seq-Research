@@ -1,0 +1,28 @@
+{
+  "unit": "R4h HVG-count sensitivity (human, 5 seeds/point)",
+  "points": [
+    {
+      "n_hvg": 1036,
+      "mean_l0": 97.6,
+      "median_ery_n_real": 1.0,
+      "median_gran_n_real": 1.0,
+      "asymmetric_modularity_supported": false
+    },
+    {
+      "n_hvg": 2032,
+      "mean_l0": 32.5,
+      "median_ery_n_real": 1.0,
+      "median_gran_n_real": 2.0,
+      "asymmetric_modularity_supported": false
+    },
+    {
+      "n_hvg": 3026,
+      "mean_l0": 12.9,
+      "median_ery_n_real": 1.0,
+      "median_gran_n_real": 2.0,
+      "asymmetric_modularity_supported": false
+    }
+  ],
+  "verdict_holds_across_hvg": true,
+  "caveat": "Fixed l1=0.8 pushes L0 out of band at 1000 genes (~98) and 3000 genes (~13); at 1000 genes both lineages collapse to 1 real program (tie, still not the claim). Verdict/direction stable."
+}
