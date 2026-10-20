@@ -7,9 +7,11 @@ Operating manual for this repository. Read this file before making changes.
 Read [README.md](README.md), [NORMAN_CONTINUATION_RESULTS.md](docs/NORMAN_CONTINUATION_RESULTS.md),
 and [NORMAN_CPU_RUNS.md](docs/NORMAN_CPU_RUNS.md). Check existing CPU trainers and
 `continue_norman_cpu.sh` and `archive_norman_cpu_results.py` workers before
-starting another long job. The ordinary PCA run completed; direct NMF was
-launched separately under `/workspace/research-runs/norman-direct-nmf-v2/`.
-Check its log/process before duplicating it. Read
+starting another long job. All three 200-epoch primary SAE fits and one control-only
+fit completed; read [NORMAN_COMPLETED_MODELS.md](docs/NORMAN_COMPLETED_MODELS.md).
+Ordinary PCA completed and direct NMF reached its cap without convergence.
+The six-model common-inference follow-up is separate; inspect its existing
+`/workspace/research-runs/norman-shared-inference-v1.log` before duplicating it. Read
 [LITERATURE_REVIEW.md](docs/LITERATURE_REVIEW.md) before proposing novelty.
 Then read the
 current-state and limitations sections of

@@ -1,8 +1,8 @@
 # Measured hematopoietic gene-program modularity depends on decomposition: a computational audit of sparse-autoencoder interpretation
 
-**Internal manuscript draft, 2026-10-18. Not ready for submission.** Primary numerical
+**Internal manuscript draft, updated 2026-10-20. Not ready for submission.** Primary numerical
 results below come from preserved Gate-0 artifacts and a fresh, archived Norman
-external-marker analysis. Historical causal analyses lack their original result
+external-marker analysis and completed full-size SAE fits. Historical causal analyses lack their original result
 JSONs and are excluded from the primary results. The program-modulation design audit uses synthetic data and tests statistical
 interpretation, not biological discovery. No novel biological mechanism is claimed.
 
@@ -12,33 +12,29 @@ and each mentor's role. No mentor approval is implied by this draft.
 
 ## Abstract
 
-Sparse autoencoders (SAEs) can describe single-cell expression as overlapping gene
-programs, but biologically recognizable features need not imply a method-independent
-program structure. We tested whether erythroid commitment is more distributed
-than granulocyte commitment. A version-locked analysis following exploratory
-development assessed mouse Paul15 data (2,730 cells,
-2,012 genes) and human Setty CD34+ marrow data (4,142 cells, 2,032 genes), with ten SAE
-seeds per dataset. A control-referenced decoder-loading measure combined a fixed
-effect floor with an abundance-matched permutation null. Comparisons included PCA,
-NMF, co-expression regulons, and ICA. No SAE seed supported the original hypothesis
-in either dataset. Median erythroid/granulocyte above-control program counts were
-1.5/3 in mouse and 1/2 in human. Only mouse NMF supported the decision rule among
-ten method-by-dataset combinations. Marker omissions changed none of 34 mouse or
-36 human decisions; additional sensitivity analyses also failed to restore support.
-This operational modularity measure depends on representation and preprocessing.
-It does not establish an invariant partition or causal lineage mechanism. In a separate synthetic audit,
-legacy quantitative modulation gates passed in 20/20 simulations of an identical
-generic response. A conditional identity test removed that failure but rejected
-all nine panels in 100/100 worlds containing only one variable-strength generic
-factor. Correlated-cell population nulls rejected in 100/100 under invalid cell
-shuffling, compared with 8/100 for independent cluster means. Rank heterogeneity
-therefore does not establish selective biological regulation.
-A fresh heldout-control marker baseline found 37 heme-panel associations among
-105 Norman perturbations; 29 survived target omission, RNA-depth matching and
-every negative-control reference. KLF1's TF-panel AUC fell from 0.615 to 0.425
-after its own transcript was removed, while heme and membrane associations
-persisted. These are conditional marker-score associations, not an SAE advantage
-or a new mechanism. Precise nulls and baselines are necessary for causal biological claims.
+Biologically recognizable sparse-autoencoder (SAE) features need not identify a
+method-independent program structure or preserve signature-response directions
+under perturbation. We tested whether erythroid commitment is more distributed
+than granulocyte commitment using a version-locked analysis following exploratory
+development. Mouse Paul15 data contained 2,730 cells and 2,012 genes; human Setty
+marrow data contained 4,142 cells and 2,032 genes. None of ten SAE seeds per dataset
+supported the original hypothesis. Only mouse NMF supported the decision rule
+among five decomposition families across two datasets. Marker omissions changed
+none of 34 mouse or 36 human decisions. A separate synthetic audit showed that
+legacy modulation gates accepted identical generic responses in 20/20 worlds.
+Conditional identity inference removed that failure but rejected all nine panels
+in 100/100 worlds containing only variable-strength generic effects. In fresh
+Norman CRISPRa data, a heldout-control marker baseline identified 37 heme-score
+associations; 29 survived target omission, depth matching and all control references.
+Three completed 200-epoch SAE fits produced no candidate combining the legacy
+background criterion with two-seed agreement. A common downstream protocol across
+six representations retained different response patterns under the same Cycling
+label. Twenty of 52 upward PCA associations had both external phase AUCs≤.45.
+Signed-weight attribution showed falling phase-gene contributions outweighed by
+other genes in all 20 cases, with explicit score-fidelity verification. These
+observations establish representation dependence and score-response discordance
+in the tested systems. They do not establish pathway-specific regulation,
+independent biological replication, a new mechanism or an SAE advantage.
 
 ## Introduction
 
@@ -85,8 +81,8 @@ Later causal metric amendments followed inspected outcomes. Historical Replogle
 Perturb-seq [5] and
 CRISPRa records are useful context, but original machine-readable outputs were lost
 with ephemeral compute instances. Their numerical claims are consequently excluded
-from the primary evidence presented here. This draft reports preserved-artifact analysis and a design audit, not repeated
-full-scale biological training.
+from the primary evidence presented here. Fresh Norman CPU fits and baselines
+are separately archived; they do not reconstruct the lost historical experiments.
 
 ### Data and preprocessing
 
@@ -255,6 +251,60 @@ within-gemgroup permutations and Holm across all nine panels. All-cell fitting
 still saw inference-control expression, so this split is not an independent
 representation-training holdout. Neither capacity nor all analysis choices are
 matched to the 2,048-feature primary SAE; no superiority test is asserted.
+
+An additional fixed rank 64 NMF fit used the same input and analysis routine, with
+NNDSVDa initialization, multiplicative updates, Frobenius loss, tolerance 1e-4 and
+a 200-iteration cap. Unlike PCA's signed scores, NMF's nonnegative scores make
+negative orientations ineligible under the positive-control-activation rule.
+Actual joint-fit cell factors were retained rather than recomputed with a later
+transform. The cap was reached with a convergence warning; this is a limited
+exploratory comparator, not a converged optimum or a definitive method ranking.
+
+### Completed Norman SAE fits and phase diagnostic
+
+Three all-cell TopK SAEs used seeds 0, 1 and 2, 2,048 features, k=32, 200 epochs,
+batch size 1,024 and the same 111,445 × 4,081 input. The original program
+analysis annotated features using all controls and retained per-panel legacy
+association/background diagnostics. Separate conditional identity inference used
+999 within-gemgroup permutations; all 27 panel-by-seed hypotheses entered joint
+Holm correction. A separately declared exploratory seed trained on only 11,855
+controls and encoded every cell; full-data HVG selection was retained. It is a
+one-seed training-population sensitivity, not an independent validation sample.
+Actual checkpoints, input/activation/model hashes, completed epochs and dimensions
+were verified before archiving compact outputs. Original inference differs from
+the discovery/inference split of the direct baselines.
+
+After observing PCA/marker score discordance, an exploratory phase diagnostic
+fixed the external 43 S and 54 G2M gene lists used in the maintained Scanpy
+tutorial, citing Tirosh et al. [10]. The actual list was downloaded from a pinned
+Broad Institute workshop commit; the tutorial's canonical ZIP could not be
+retrieved, so canonical archive identity was not verified. Discovery controls
+supplied eligibility, normalization parameters and scales as for the marker
+baseline. All 105 perturbations were tested in both directions for both phases,
+jointly corrected with all 945 original PCA hypotheses by Holm (1,365 tests).
+Target omission was a separate same-sized family. This outcome-informed diagnostic
+measures signature-score direction, not cell-cycle progression or proliferation.
+
+### Common inference and signed-weight attribution
+
+An exploratory harmonization was fixed after all original model/baseline/phase
+outcomes, before its own results. Three all-cell SAEs, one control-only SAE,
+direct PCA and capped NMF used discovery-only annotation and the same inference
+controls and stratified tests. Joint BH covered all 5,670 arm-panel-perturbation
+hypotheses; Holm covered all 54 arm-panel identity hypotheses, retaining unmatched
+p=1 records. A pre-execution amendment fixed 9,999 identity permutations because
+999 cannot resolve a first Holm rejection in 54 tests. PCA fit_transform scores
+were reconstructed with exact original settings; all 945 archived AUCs, p-values,
+annotations and control IDs had to reproduce within prespecified strict tolerances
+before use. NMF used its actual retained joint-fit factors. No SAE/NMF was refit.
+
+A separately declared descriptive diagnostic decomposed component-3 score means
+into every input gene's saved weight times its within-gemgroup mean expression
+change. Pair-count weights matched the stratified AUC, but the decomposition is of
+means, not ranks. The later linear projection was compared with recovered original
+scores using fixed fidelity bounds (normalized RMSE≤.01 and maximum AUC difference
+≤.005). All 105 perturbations and 4,081 genes were retained; requested external
+phase genes were separated from other genes and crossed with weight sign.
 
 ### Exploratory dual-construct marker contrasts
 
@@ -432,6 +482,21 @@ These results show that ordinary PCA can recover annotated identity-associated
 features; they do not rank its biological fidelity or demonstrate an SAE advantage.
 Complete comparisons and failures are archived alongside the marker baseline.
 
+The capped NMF fit matched Ery_TF, Ery_Heme, Ery_Effector and Cycling, with six,
+21, 54 and zero upward associations, respectively. Other panels remained unscored.
+All four matched panels rejected the identity null (Holm p=.009). Its relative
+uncentered Frobenius error was 0.334, which is not comparable to PCA's centered
+explained-variance ratio. Nonconvergence, unequal capacity and different marker
+eligibility prevent a superiority claim; in particular, effector matching beside
+an unscorable direct score is not evidence of better biological recovery.
+
+The phase diagnostic retained 42/43 S and 54/54 G2M markers. Neither signature
+had an upward call; 52 S and 37 G2M decreases passed correction and target omission.
+Fifty PCA Cycling-up calls remained after the new joint correction; 19 also had
+decreases in both phase scores (28 in S, 21 in G2M). A finer-phase upward response
+therefore did not explain the score disagreement under this rule. This is
+discordance between projections, not proof of cell-cycle arrest or PCA failure.
+
 ### Rank heterogeneity did not identify selective regulation or independent units
 
 In the boundary audit, unequal generic severity made all nine features reject
@@ -461,11 +526,61 @@ draws; the independent-cluster analysis uses different units and eligibility
 from the invalid cell shuffle. No model learning or biological replication is
 assessed by this experiment.
 
-The full-size 2,048-feature, 200-epoch SAE run is ongoing on CPU; no completed
-new SAE result is included. Its model, optimizer, means, input fingerprints and
-RNG states are checkpointed. Small tests verified exact uninterrupted/resumed
-training equivalence. See [the continuation record](NORMAN_CONTINUATION_RESULTS.md)
-for complete method details and actual run status.
+### Completed SAE seeds did not produce a stable candidate passing the legacy gates
+
+All three 200-epoch fits matched Ery_TF, Ery_Effector and Cycling. Each matched
+panel had raw identity p=.001 and joint Holm p=.027 across all 27 hypotheses.
+Heme and membrane, along with the remaining four panels, were unmatched in every
+seed and therefore unscored. This does not imply absence of their biological
+responses, which the direct marker baseline detects.
+
+Legacy candidate counts were 0/0/11 for TF, 1/1/1 for effector and 0/0/0 for
+Cycling. KLF1 was the sole repeated candidate, but its effector background
+percentiles 63/73/68 all failed the legacy 90th-percentile gate. The seed-2-only
+TF list reached percentile 98 without seed agreement. No candidate combined the
+background criterion and at-least-two-seed agreement; the background criterion
+would not itself establish specificity even if met. The interim epoch-20 heme
+annotation was absent at the declared 200-epoch endpoints; no epoch was selected
+to rescue it. The control-only seed instead matched heme, effector and Cycling,
+with KLF1 its sole heme candidate (background percentile 82). It demonstrates
+training-population sensitivity in one seed, without identifying the best model.
+All original outcomes, including annotation failures, are
+[archived](NORMAN_COMPLETED_MODELS.md). Computational agreement is not independent
+biological replication, and these counts do not establish an SAE advantage.
+
+### Shared labels retained different intervention responses under common inference
+
+Every representation matched a Cycling feature under discovery-only annotation.
+Only PCA had upward associations: 52, versus zero for all four SAE fits and the
+capped NMF fit. Among those 52, 20 had both external phase AUCs≤.45. These are
+descriptive effect directions; the separate directional Holm result above uses
+a different family. Each matched panel rejected identity heterogeneity at raw
+p=.0001, joint Holm p=.0054, which does not establish selective regulation.
+KLF1 remained the only association shared across at least two all-cell SAE seeds.
+Control-only heme matching failed the new annotation gate (adjusted p=.0990).
+All 5,670 records and annotation failures are archived.
+
+![Common downstream inference and paired score directions](figures/fig_norman_common_inference.png)
+
+**Figure 4. Program labels do not equate the measured responses.** Panel A counts
+joint BH association calls (q<.05, AUC≥.55), with U indicating an unscored panel.
+Models have unequal rank, and NMF reached its iteration cap without convergence;
+counts do not rank biological fidelity. Panels B and C show all 105 paired
+Cycling PCA and external phase AUCs. Red points meet PCA AUC≥.55 with both phase
+AUCs≤.45 (20 observations), a descriptive rule without a new significance claim.
+Cells and model fits share one experiment and are not biological replications.
+
+The saved linear projection approximated recovered PCA scores with normalized
+RMSE .000154 and maximum AUC difference .0000378, passing the fixed fidelity gate.
+All 428,505 gene contributions reconstructed the 105 projected mean changes
+(maximum absolute error 2.22e-16). Thirty-two of 97 external phase genes enter the
+PCA input. Their net weighted contribution was negative in all 20 direction-
+discordant cases, while other positive-weight and other negative-weight gene
+classes each contributed positively. The latter increases when its genes decrease.
+This post hoc partition summary explains score means without attributing ranks,
+phase progression, cellular mechanism or superiority to the result. Across all
+105 perturbations, 94 had positive negative-weight sums; this algebra is not unique
+to the selected cases. Complete partitions and every gene contribution are retained.
 
 ### Additive departures depended on the marker panel and score scale
 
@@ -511,6 +626,14 @@ in stress severity, guide quality, or cell-state composition. Establishing pathw
 specificity requires matched generic-response controls, appropriate gene-expression
 baselines, and independent evidence.
 
+Control-associated gene annotations also leave intervention directions unspecified.
+The Cycling example persists after downstream control/test procedures are
+harmonized, and its signed-weight explanation remains close to the original
+randomized-SVD scores. This does not identify a defective algorithm: covariance,
+gene coverage and different objectives can produce different valid projections.
+It does show why a named latent feature should not be treated as interchangeable
+with direct signature activation without checking the measured responses.
+
 Historical causal work in this project cannot settle those questions. All-cell
 SAE training included perturbed cells even when earlier text specified control-only
 training. Matching/test cross-fitting did not create an independent model-training
@@ -531,9 +654,9 @@ alone. Biological effect sizes and uncertainty across independent samples are no
 available from these summaries.
 
 The boundary audit now includes graded generic severity, nine programs and
-cluster dependence. Priority work is to finish the full-size SAE runs,
-compare them with the now-archived external-marker baseline and direct PCA/NMF
-features, and evaluate effects with defensible guide or sample structure. Norman
+cluster dependence. Full-size SAE fitting and the exploratory common-inference
+comparison are complete. Priority validation needs defensible guide or sample
+structure and independent datasets. Norman
 construct strings often reflect vector orientation rather than independent
 sgRNA reagents; they must not be treated as biological replicates.
 Independent dataset replication and primary-literature review are needed before
@@ -576,7 +699,10 @@ Fresh Norman baseline and sensitivity JSONs, a 945-row table, data fingerprints,
 source hashes and technical-overlap metadata are retained under
 [`data_norman_continuation/`](../data_norman_continuation/). Large source files and
 resumable SAE weights remain outside Git. Their source fingerprints and preparation
-policies are recorded; no unavailable full-SAE result is asserted.
+policies are recorded. Three completed all-cell SAE JSON/log pairs, their joint
+27-test summary and the one-seed control-only records are archived alongside
+complete capped-NMF, dual-marker and external-phase outputs. Full-size fits
+finished; durable large-model deposition remains outstanding.
 
 **TODO:** deposit durable run archives with machine-readable outputs, exact code
 revisions, environment manifests, and source-data access instructions; add archive
@@ -627,6 +753,9 @@ do not imply that every cited paper was read in full.
    architectures in single-cell foundation models: inhibitory dominance,
    biological coherence, and cross-model convergence. *Bioinformatics*.
    2026;42(7):btag379. https://doi.org/10.1093/bioinformatics/btag379
+10. Tirosh I, et al. Dissecting the multicellular ecosystem of metastatic melanoma
+    by single-cell RNA-seq. *Science*. 2016;352(6282):189–196.
+    https://doi.org/10.1126/science.aad0501
 
 ## Supplementary figure
 

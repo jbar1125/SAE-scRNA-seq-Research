@@ -39,9 +39,15 @@
     "Actual full-data direct signed PCA; 945 comparisons retained",
     "PCA model/source hashes and exact existing discovery/inference control split verified",
     "Actual full-data dual marker screen; exact baseline parameters/split reproduced, all1179 hypotheses retained",
-    "Actual dual log/linear sensitivity; every original estimate reproduced exactly and joint2358 families retained"
+    "Actual dual log/linear sensitivity; every original estimate reproduced exactly and joint2358 families retained",
+    "Actual capped NMF fit and analysis; convergence warning retained, fitted factors/model/source hashes verified",
+    "Actual full-data phase diagnostic; control split reproduced and all1365 hypotheses retained",
+    "Four completed full-size SAE checkpoints and actual activation/input/source hashes validated, original primary Holm27 reproduced and control-only complete record archived",
+    "Actual six-model common inference; all5670 association and54 identity hypotheses,9999 permutations per arm, exact old PCA/NMF comparisons reproduced",
+    "Actual PCA mean attribution; all428505 contributions and105 partition sums checked, declared score-fidelity gate passed",
+    "New common-comparison PNG/SVG byte-identical across two generations; rendered image inspected"
   ],
-  "sae_status": "Full-size seed 0 is running; no completed primary SAE result asserted.",
+  "sae_status": "PASS: all three all-cell seeds and one exploratory control-only seed completed200 epochs; exact input/model/activation/source hashes and completed dimensions validated on2026-10-20. Primary Holm27 summary reproduced. No new biological discovery established.",
   "additional_standalone_suites": [
     {
       "suite": "tests/test_norman_result_archive.py",
@@ -57,7 +63,23 @@
       "suite": "tests/test_norman_dual_marker.py",
       "status": "PASS",
       "scope": "Separate run; planted additivity, true interaction, batch-composition artifact and unavailable-arm/marker handling."
+    },
+    {
+      "suite": "tests/test_norman_phase_diagnostic.py",
+      "status": "PASS",
+      "scope": "Separate run; full PCA plus bidirectional phase correction families retained, omission family separate."
+    },
+    {
+      "suite": "tests/test_norman_shared_inference.py",
+      "status": "PASS",
+      "scope": "Separate run: complete six-arm families, finite permutation resolution and incompatible score-recovery rejection. Does not establish full-data execution."
+    },
+    {
+      "suite": "tests/test_norman_pca_attribution.py",
+      "status": "PASS",
+      "scope": "Separate run: exact signed mean decomposition and stratum-composition counterexample."
     }
   ],
-  "standalone_suites_executed_total": 18
+  "standalone_suites_executed_total": 21,
+  "updated_utc": "2026-10-20T17:28:46.491175+00:00"
 }

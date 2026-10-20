@@ -1,7 +1,7 @@
 # Norman continuation: fresh archived results
 
-The full-data external-marker baseline is complete. The full-size SAE experiment
-is running and has no completed result yet. These are separate analyses. All new
+The full-data external-marker baseline and all three full-size 200-epoch SAE
+seeds are complete. These are separate analyses. All new
 marker results below have machine-readable outputs in
 [`data_norman_continuation/`](../data_norman_continuation/), unlike the lost
 historical Component 2 outputs. No new biological mechanism or SAE advantage is claimed.
@@ -9,8 +9,19 @@ historical Component 2 outputs. No new biological mechanism or SAE advantage is 
 The ordinary PCA baseline and [dual-marker additivity screen](NORMAN_DUAL_MARKER_RESULTS.md)
 also completed. The latter retains all 131 observed pairs and explicitly tests
 log/linear score sensitivity. These are scale-dependent score contrasts, not
-validated molecular genetic interactions. Direct NMF and the primary SAE remain
-pending; a separate one-seed control-only sensitivity is queued behind NMF.
+validated molecular genetic interactions. Direct NMF finished its fixed cap with
+a convergence warning. The separate one-seed control-only SAE sensitivity also
+finished. See [the complete-model interpretation](NORMAN_COMPLETED_MODELS.md)
+and [external phase diagnostic](NORMAN_PHASE_DIAGNOSTIC.md).
+
+The [common six-model comparison](NORMAN_SHARED_INFERENCE.md) and
+[signed-weight diagnostic](NORMAN_PCA_ATTRIBUTION.md) also completed. All 5,670
+association hypotheses and 54 identity hypotheses were retained; every original
+PCA/NMF comparison reproduced before new identity inference. All six models
+match Cycling, but only PCA has upward associations. For 20 of its 52 calls both
+phase AUCs are ≤.45, and signed weights explain how the score mean rises despite
+a negative contribution from represented phase genes. This is a score-interpretation
+finding in these data, without a new mechanism or method-superiority claim.
 
 ## Dataset and design
 
@@ -143,17 +154,52 @@ in [`direct_pca/`](../data_norman_continuation/direct_pca/). The fitted PCA weig
 remain outside Git. Rank-64 PCA and 2,048 SAE features have unequal capacities, and
 the primary SAE's annotation/association procedures differ. No SAE advantage,
 PCA superiority, independent replication or new biological mechanism follows
-from comparing these counts. Direct NMF has not been run.
+from comparing these counts. The capped NMF analysis is reported below.
 
-## Full-size SAE status
+## Capped direct NMF comparison
 
-The user selected CPU execution. Seed 0 is training on all 111,445 cells with
-4,081 selected/force-kept genes, 2,048 latent features, k=32, batch=1,024 and a
-200-epoch target. Atomic checkpoints retain input hashes, weights, optimizer,
-means and RNG states; small tests verified exact uninterrupted/resumed equality.
-Seeds 1 and 2 remain pending. A running or partial seed is not a completed result.
-Use [the run instructions](NORMAN_CPU_RUNS.md) and timestamped progress records
-for current status rather than an old duration estimate.
+The [separate NMF plan](../config/norman_direct_nmf_plan.json) fixed 64 components,
+NNDSVDa initialization, multiplicative updates, Frobenius loss, tolerance 1e-4 and
+maximum 200 iterations before outcomes. On the identical input it reached that cap
+without satisfying the convergence tolerance. Actual fit time was 1,800 seconds
+with one CPU thread while the primary trainer was active. Relative Frobenius
+reconstruction error was 0.334; this uncentered quantity is not the PCA explained-
+variance ratio and should not be compared as if it were.
+
+Its completed capped-fit analysis matched Ery_TF (six associations), Ery_Heme (21),
+Ery_Effector (54) and Cycling (zero positive associations). All four reject the
+conditional identity null (Holm p=.009); the other five panels remain unscored.
+NMF scores are nonnegative, so the negative orientations of the reused analysis
+have no positive control cells and are ineligible. Complete 945-row results and
+the warning are archived in [`direct_nmf/`](../data_norman_continuation/direct_nmf/).
+Actual joint-fit cell factors and gene components are saved outside Git, and
+their hashes, shapes and nonnegativity were verified.
+
+This is an unconverged, capped exploratory fit. It cannot establish a definitive
+method comparison. The effector annotation also uses marker presence rather than
+the direct score's minimum-detection rule; 54 associations beside an unscorable
+direct panel do not establish an NMF advantage. Score definitions, capacities
+and annotation search sizes differ. No method superiority or biological novelty
+is inferred. Continued NMF optimization would be a separate convergence sensitivity
+with its original result preserved.
+
+## Completed full-size SAE fits
+
+The user selected CPU execution. Seeds 0, 1 and 2 all completed 200 epochs on
+111,445 cells, with 4,081 selected/force-kept genes, 2,048 latent features, k=32
+and batch=1,024. Actual checkpoint/activation hashes and completed training
+dimensions were verified. Each seed matched TF, effector and Cycling, with
+identity Holm p=.027 across the complete 27-test family. All other panels remain
+unmatched. The sole repeated legacy candidate is effector-associated KLF1, whose
+background percentiles 63/73/68 all fail the old 90th-percentile gate. No candidate
+combines that gate with two-seed agreement. This is not a positive discovery.
+
+The one control-only seed also completed: heme, effector and Cycling matched;
+only heme had a legacy candidate, KLF1 (background percentile 82). This is a
+single-seed training-population sensitivity. Complete outcomes, limits and
+the declared six-model common-inference follow-up are in
+[NORMAN_COMPLETED_MODELS.md](NORMAN_COMPLETED_MODELS.md). Run/resume commands
+remain [documented](NORMAN_CPU_RUNS.md); do not duplicate finished fits.
 
 ### Interim inference readiness check
 

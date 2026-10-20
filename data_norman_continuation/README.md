@@ -1,7 +1,8 @@
 # Fresh Norman continuation evidence
 
 This archive contains a completed full-data external-marker baseline and explicit
-exploratory sensitivities. It contains no completed full-size SAE result yet.
+exploratory sensitivities, three completed full-size SAE seeds and a separate
+one-seed control-only sensitivity.
 See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
 [run/resume instructions](../docs/NORMAN_CPU_RUNS.md).
 
@@ -18,6 +19,26 @@ See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
 - `direct_pca/`: a completed ordinary 64-component signed-PCA analysis, all 945
   comparisons, annotation failures and full source/model provenance. No SAE is
   trained in this baseline; unequal model capacities prevent a superiority claim.
+- `direct_nmf/`: a completed 200-iteration capped fit with an explicit convergence
+  warning, 945 comparisons and fitted-score/model hashes. Its nonconvergence and
+  unequal capacity preclude a definitive method ranking.
+- `sae_primary/`: all three completed 200-epoch primary JSON/log pairs and joint
+  Holm over all 27 panel-by-seed identity tests. Its own manifest was created by
+  the validated archive worker. No candidate combines the legacy background gate
+  with at-least-two-seed agreement.
+- `sae_control_sensitivity/`: one completed control-only 200-epoch seed, all nine
+  outcomes and a compact summary. It does not complete a three-seed sensitivity.
+- `phase_diagnostic/`: all 105 external S/G2M score comparisons with the Cycling
+  PCA feature, 420 directional hypotheses and all 945 original PCA hypotheses in
+  joint correction families. This post-primary diagnostic measures score directions,
+  not cell-cycle progression, arrest or independent biological replication.
+- `shared_inference/`: six representations using common discovery/inference
+  controls, all 5,670 association hypotheses and 54 identity hypotheses, 9,999
+  permutations, complete outputs and source/actual-score validation. Original
+  PCA/NMF inference was reproduced before interpreting the combined family.
+- `pca_attribution/`: all 105 comparison estimates and 428,505 gene contributions
+  to the saved component's projected mean. Explicit original-score fidelity
+  gates pass. This explains a score mean, not ranks or cellular causality.
 - `dual_marker/`: all 1,179 planned dual-marker contrasts and target-omission
   estimates, with exact compressed JSON, stratum counts, complete CSV and source
   fingerprints. These are scale-dependent additive departures, not validated
@@ -29,7 +50,9 @@ See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
   biological replicates. Timing estimates are variable preflight measurements.
 - `validation.json`: 15 standalone suites passed together, plus the completed-
   result archiver, direct-PCA and dual-marker suites passed separately; frozen integrity,
-  actual CLI/training checks and rendering checks.
+  phase, common-inference and attribution suites passed separately; actual CLI/training and
+  rendering checks are distinguished from biological claims. The completed-model
+  validator and its complete four-model record are in `provenance/`.
 - `sae_interim_epoch20/`: a separate copied partial model's full-data inference
   diagnostic, with all nine outcomes. Twenty of the planned 200 epochs had
   completed; this is not a completed primary seed or an independent replicate.

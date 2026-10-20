@@ -1,5 +1,14 @@
 # Running and resuming Norman on CPU
 
+**2026-10-20 status:** all three primary seeds and the separate control-only seed
+completed 200 epochs. The sequence and archive workers exited after completion.
+The six-model common-inference and signed-weight diagnostics also completed;
+their compact full evidence is archived. Original PCA scores were successfully
+recovered, with the complete old inference reproduced before their use.
+Read [the completed-fit interpretation](NORMAN_COMPLETED_MODELS.md); do not rerun
+these commands merely because no trainer is alive. Commands below preserve the
+executed configurations and support recovery if artifacts are independently lost.
+
 Use the existing isolated checkout. Do not create a Git worktree unless requested.
 The user selected this CPU environment. Cached raw/prepared inputs are under
 `/workspace/datasets/sae-scrna/`; models and activations are under
@@ -47,8 +56,8 @@ Seeds 1 and 2 use their corresponding seed number and distinct artifact paths.
 The command was exercised with a synthetic AnnData file, real two-epoch training,
 saved activations and checkpoint provenance before the full-data launch. The
 checkpoint suite also verifies exact five-epoch weights and RNG equality after
-two epochs plus a three-epoch resume. Full 200-epoch real-data completion has not
-yet been verified; inspect the checkpoint rather than inferring it from a PID.
+two epochs plus a three-epoch resume. Full 200-epoch real-data completion is now
+verified from actual checkpoints, complete outputs and model/activation hashes.
 
 The old full-label shuffle is disabled because it does not calibrate specificity.
 The separate identity test uses 999 within-gemgroup permutations and Holm over all
@@ -56,7 +65,7 @@ nine planned panels. Claims across seeds need the complete 27-hypothesis family,
 and agreement across seeds is not biological replication. Match failures and
 negative outcomes must remain in the report.
 
-A separate `src/archive_norman_cpu_results.py --watch --publish` worker is running.
+A separate `src/archive_norman_cpu_results.py --watch --publish` worker completed.
 It validates actual completion, configuration, the input fingerprint, the entire
 nine-panel family, 999-permutation execution, and large model/activation hashes
 before copying compact outputs. After all three seeds complete, it applies Holm

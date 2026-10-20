@@ -153,9 +153,11 @@ replication. If claiming findings across three seeds, correct over all 27 planne
 program-by-seed hypotheses rather than selecting promising seeds afterward.
 
 The fresh marker baseline, target omission, depth/reference sensitivities and
-ordinary signed-PCA comparison have now completed. The full primary SAE sequence,
-direct NMF, design-supported experimental-unit checks and independent validation
-remain outstanding. The earlier causal ladder trained an SAE on reduced
+ordinary signed-PCA comparison have now completed. All three primary SAE fits and
+one control-only sensitivity also completed; direct NMF reached its fixed cap
+without convergence. See [the interpretation](NORMAN_COMPLETED_MODELS.md).
+Design-supported experimental-unit checks and independent validation remain
+outstanding. The earlier causal ladder trained an SAE on reduced
 representations and is distinct from the newly completed ordinary PCA analysis.
 
 The Norman source and GitHub API initially returned network-policy 403 responses.
@@ -163,6 +165,7 @@ Access later recovered: the raw file was downloaded and fingerprinted, preparati
 completed, and PR #3 was updated through the REST API. A fresh full-data marker
 baseline and explicit sensitivities are now archived; see
 [NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md). The user selected
-CPU execution and full-size SAE training is running with checkpoints. No completed
-SAE result, biological novelty review or publication submission is claimed. See
+CPU execution; all three primary 200-epoch fits are now archived. Their repeated
+legacy candidate fails the background gate, and no biological discovery or
+publication submission is claimed. See
 the [manuscript draft](MANUSCRIPT_DRAFT.md) for the current bounded paper scope.

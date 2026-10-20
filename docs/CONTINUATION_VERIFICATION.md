@@ -1,6 +1,6 @@
 # CPU continuation verification record
 
-Snapshot: 2026-10-18 ET. PASS means the stated scope was executed; it does not
+Snapshot: 2026-10-20 ET. PASS means the stated scope was executed; it does not
 establish biological novelty or validate a different experimental design.
 Run commands from the checkout with `/workspace/.venvs/sae-scrna/bin/python`
 and the cache/thread settings in [NORMAN_CPU_RUNS.md](NORMAN_CPU_RUNS.md).
@@ -13,6 +13,9 @@ and the cache/thread settings in [NORMAN_CPU_RUNS.md](NORMAN_CPU_RUNS.md).
 | `python tests/test_norman_result_archive.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/result_archive.log): partial/incompatible runs rejected, complete family retained, interrupted publication recovered, existing evidence preserved. |
 | `python tests/test_norman_direct_pca.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/direct_pca.log): both signs, planted responses, no-match retention and discovery-only annotation conditional on fixed scores. |
 | `python tests/test_norman_dual_marker.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/dual_marker.log): additive null, planted interaction, technical-composition artifact and unavailable-arm handling. |
+| `python tests/test_norman_phase_diagnostic.py` | PASS | [Separate log](../data_norman_continuation/validation_logs/phase_diagnostic.log): original PCA plus both directions of phase hypotheses retained, separate omission family. |
+| `python tests/test_norman_shared_inference.py` | PASS | Complete six-arm families and no-match hypotheses retained; selected-arm and incompatible score-recovery inputs rejected. Actual six-arm execution is recorded separately below. |
+| `python tests/test_norman_pca_attribution.py` | PASS | Signed mean decomposition and a technical-composition counterexample exercised. |
 | Actual checkpointed small SAE/AnnData CLI | PASS | Real small training, saved factors, model/optimizer/RNG continuation and output provenance; see [validation record](../data_norman_continuation/validation.json). Not a completed full-size SAE. |
 | Full-data marker baseline and specified sensitivities | PASS | All 111,445 cells, 945 primary comparisons, 3,780 reference comparisons; original baseline reproduced before sensitivity. Complete outputs and hashes archived. |
 | Full-data ordinary PCA command | PASS | 64 components, all 945 comparisons and annotation failures; source/model fingerprints and exact existing control split verified. No SAE trained. |
@@ -20,12 +23,18 @@ and the cache/thread settings in [NORMAN_CPU_RUNS.md](NORMAN_CPU_RUNS.md).
 | `python src/audit_identity_boundaries.py --out-dir <fresh-directory>` | PASS | 100 seeds × six analyses, 600 unique complete records, all nine hypotheses; summary counts recomputed and source/output hashes verified. No biological model fitted. |
 | `python src/make_identity_boundary_figure.py` twice | PASS | PNG and SVG byte-identical after layout correction; rendered figure inspected. |
 | Four frozen spec hashes and both Gate-0 bundle hashes | PASS | Rechecked after new experiments; all match, with original evidence preserved. |
-| Full-data direct NMF command | UNVERIFIED | Running under the fixed plan. Actual iterations, convergence warnings and outputs must be checked before a result is reported. |
-| Three full-size 200-epoch SAE seeds | UNVERIFIED | Seed 0 is partial/running; seeds 1 and 2 are queued. Copied epoch 20 inference is an interim readiness check. The archive watcher validates actual completion rather than inferring it from a process. |
+| Full-data direct NMF command | PASS, capped | Actual 200-iteration execution completed; convergence tolerance was not met. The warning, complete 945 comparisons and actual fitted-score/model/source hashes are retained. No definitive method ranking follows. |
+| Full-data external S/G2M diagnostic | PASS | All 420 phase/direction tests plus all 945 original PCA tests retained in joint Holm families. Scores measure signature direction, not cell-cycle progression. |
+| `python data_norman_continuation/provenance/validate_completed_models.py` | PASS | [Validation record](../data_norman_continuation/provenance/completed_models_validation.json): source/input/checkpoint/activation hashes, exact completed training dimensions, original 27-test summary and all four complete nine-panel families verified. |
+| Control-only full-size SAE sensitivity | PASS, one seed | Actual 200 epochs on 11,855 controls; all 111,445 cells encoded. Complete output/log archived. This is not a three-seed sensitivity or an independent holdout. |
+| Three full-size 200-epoch SAE seeds | PASS | All three completed; actual artifacts checked twice, compact JSON/logs and joint Holm 27 archived and pushed. No candidate combines the old background gate with two-seed agreement. |
+| Six-representation common inference | PASS | All 5,670 comparisons and 54 identity hypotheses, 9,999 permutations per arm; original PCA/NMF inference and all splits reproduced. All source/score hashes verified; complete outputs archived. |
+| Signed PCA attribution | PASS | All 428,505 unique gene contributions and 105 partition sums recover score means; fixed fidelity gate passes (RMSE/SD=.000154, max AUC difference=.0000378). This is descriptive algebra, not mechanism or rank attribution. |
+| `python src/make_norman_comparison_figure.py` twice | PASS | Both PNG/SVG byte-identical; rendered figure inspected. Counts and paired directions use complete archived outputs. |
 | Independent biological replication, novel mechanism or SAE superiority | UNVERIFIED | Computational seeds, gemgroups, annotations and cell-level p-values do not establish these claims. |
 
-The three separately executed suites make 18 distinct standalone suites exercised;
-this is not a claim that a single 18-suite invocation was run. The 100-seed boundary
+Six separately executed additional suites make 21 distinct standalone suites exercised;
+this is not a claim that a single 21-suite invocation was run. The 100-seed boundary
 experiment is a research execution, not an additional unit-test suite. Source
 fingerprints in run provenance identify the executed code revision; later
 documentation commits do not change the underlying scientific outputs.

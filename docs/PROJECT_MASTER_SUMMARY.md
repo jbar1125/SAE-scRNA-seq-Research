@@ -1,11 +1,14 @@
 # PROJECT MASTER SUMMARY
 
-> **Fresh real-data continuation:** the heldout-control Norman marker baseline and
-> its explicit sensitivity checks, plus an ordinary signed-PCA comparison, are
-> now archived; see
-> [NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md). Full-size CPU
-> SAE seed 0 is training with checkpoints, and seeds 1 and 2 are queued. No
-> completed new SAE result or biological discovery is asserted.
+> **Continuation update, 2026-10-20:** all three 200-epoch primary Norman SAE fits
+> and one control-only sensitivity are complete and archived. No legacy candidate
+> combines the background gate with two-seed agreement. Read
+> [NORMAN_COMPLETED_MODELS.md](NORMAN_COMPLETED_MODELS.md) and
+> [NORMAN_CONTINUATION_RESULTS.md](NORMAN_CONTINUATION_RESULTS.md).
+> Marker sensitivities, direct PCA, capped nonconverged NMF, dual-marker contrasts
+> and the external S/G2M diagnostic are also archived. The historical narrative
+> below retains its original date; its pending-run instructions are superseded.
+> No new biological discovery is established.
 > A subsequent 600-record synthetic audit quantifies generic-severity and
 > correlated-cell limits. [The literature review](LITERATURE_REVIEW.md) records
 > prior CBL/erythroid biology and distinguishes abstract from full-text checks.

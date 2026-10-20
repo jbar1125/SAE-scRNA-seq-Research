@@ -28,9 +28,24 @@ includes ambiguous gene aliases, and did not exhaustively screen references or
 supplements. Its hit counts are retrieval diagnostics, not discovery evidence.
 
 Crossref verified bibliographic fields for Paul, Setty, Benjamini–Hochberg,
-Scanpy, Replogle, Norman, TRRUST v2, Wang and Kendiukhov. TRRUST v2 was online in 2017
-and appears in the 2018 print issue; the manuscript uses2018. Crossref metadata
+Scanpy, Replogle, Norman, TRRUST v2, Wang, Kendiukhov and Tirosh. The phase-diagnostic
+Tirosh citation is a 2016 paper, despite the tutorial's 2015 wording; its primary
+text was not read here. TRRUST v2 was online in 2017
+and appears in the 2018 print issue; the manuscript uses 2018. Crossref metadata
 checks do not substitute for primary-text verification of scientific claims.
+
+On 2026-10-20, the original authors' public
+[analysis repository](https://github.com/thomasmaxwellnorman/Perturbseq_GI) supplied
+additional primary-source code context. Exact Git blobs were verified for its
+README, CBL/CNN1 examples and guide-performance notebooks. The latter explicitly
+distinguishes the single guide used for Perturb-seq from two-guide averages in
+the separate fitness screen, and compares guide cassette positions A/B. The
+examples include PTPN12/SNAI1 and CBL/CNN1 cDNA-expression plotting code for CD235a
+and CD71. These observations further limit novelty and independent-guide claims;
+they do not verify our specific single-target effect sizes. Targeted code/markdown
+was read, not executed. This does not complete original-article or supplement
+review. [Source hashes and cell references](../data_literature_review/norman_original_code_review.json)
+record the scope.
 
 Before proposing a new regulator mechanism, review the original Norman full text
 and supplements; distinguish single perturbations from combinations and CRISPRa

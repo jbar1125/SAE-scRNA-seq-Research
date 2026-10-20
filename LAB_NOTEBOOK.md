@@ -1126,3 +1126,115 @@ both joint p-values are <1e-8. This is scale robustness in the same data, not
 independent confirmation or evidence of a new mechanism. All 1,179 joint records,
 linear outputs and exact raw/compressed hashes are archived. The dual suite passed
 separately, bringing distinct exercised standalone suites to 18.
+
+## 2026-10-18 — Capped NMF output and phase-diagnostic launch
+
+The NMF fit completed its fixed 200 iterations in 1,799.97 seconds of concurrent
+one-thread wall time, retaining the explicit convergence warning. Relative
+uncentered Frobenius error is .33394, not a PCA explained-variance ratio. It matches
+TF, heme, effector and Cycling panels with6,21, 54,0 upward associations; other panels
+are unscored. All four matched identity tests have Holm p=.009. This unconverged
+cap cannot support a definitive method ranking, and effector marker-presence vs
+direct-score detection eligibility remains a mismatch. Actual cell-factor/model
+hashes, dimensions, nonnegativity and source fingerprints verified; full outputs,
+all 945 rows and warnings are archived. The queued control-only SAE then started
+without interrupting the all-cell primary. Both full-size fits remain unfinished.
+
+An explicitly exploratory archived-output comparison found 23 of 52 PCA Cycling-up
+calls with direct Cycling-marker AUC<=.45; 48 of 52 had marker AUC<.5. This need not
+mean PCA failure: broad scores may combine different cell-cycle programs. A phase
+diagnostic was fixed before its outcomes (`241b95c`), using 97 external S/G2M genes,
+the existing split and all 105 singles. Both directions plus all 945 original PCA
+hypotheses enter joint Holm 1,365 families, including separate target omission.
+The new family-retention test passed; full phase scores are running.
+
+The maintained Scanpy tutorial moved, and its current notebook points to a
+checksum-pinned Dropbox ZIP. That host was added to the network draft but returned
+403. A Broad Institute workshop copy is pinned to its commit and exact Git blob;
+ETH/NBIS indexed copies have the same blob. All 97 symbols are distinct and the
+current tutorial defines first 43 as S, remaining 54 as G2M. The canonical ZIP itself
+was not retrieved or independently verified. Source provenance records that limit.
+Crossref verifies the cited Tirosh paper's 2016 print year despite the tutorial's
+2015 wording; this is bibliographic verification, not full primary-text review.
+
+The phase diagnostic completed. Forty-two of 43 S markers and all 54 G2M markers
+were eligible (only MLF1IP was absent; no alias mapping). Across all 105 singles,
+joint correction gave zero upward calls in either phase, 52 S decreases and 37
+G2M decreases, all retained after target omission. Of 50 PCA Cycling-up calls
+retained under joint correction, 28 also had S decreases, 21 G2M decreases, and 19
+both. The original 52-case set gives 29, 22 and 20 respectively. The finer-phase
+upregulation explanation is unsupported under these score/threshold choices;
+neither actual phase arrest nor PCA failure is established. All directional
+records, 105 paired comparisons and the complete 1,365-test families are archived.
+
+## 2026-10-20: full-size SAE completion and common-inference continuation
+
+All three primary seeds finished their declared 200 epochs during the pause. The
+archive watcher validated and pushed complete JSON/log pairs and joint Holm27.
+Today a second artifact check confirmed actual source/input/model/activation hashes,
+checkpoint epochs and dimensions. TF, effector and Cycling matched in every seed
+(raw identity p=.001, joint Holm p=.027); heme and all other panels remained unscored.
+The sole repeated legacy candidate is effector-associated KLF1, with background
+percentiles63/73/68. The TF list had11 candidates in seed2 only (percentile98).
+No candidate combines the old background gate and at-least-two-seed agreement.
+These gates would not by themselves establish specificity if met. The epoch20
+heme match does not persist to the declared endpoints; no favorable epoch is selected.
+
+The separate control-only seed also finished200 epochs on11855 controls, encoding
+all111445 cells. Heme, effector and Cycling matched; KLF1 was the only heme candidate
+(background percentile82), with no effector/Cycling candidates. All four fits share
+scientific source hashes. Their complete36-hypothesis exploratory identity family
+gives Holm p=.036 for matched tests. The real control-only fit recovers named
+features despite the earlier synthetic0/8 result; one seed does not establish
+general success or failure. Full compact outputs/log and validator are archived.
+
+A separate common-inference plan was committed before new annotation outcomes
+(30af531), after the original model/baseline/phase results. A pre-execution precision
+correction (5d19cc9) fixes9999 identity permutations for all6 arms:999 would have
+minimum p=.001 and could never reject first in a54-test Holm family. Saved SAE/NMF
+scores will enter discovery-only annotation and identical inference controls;
+PCA fit_transform must be exactly recovered and all945 old comparison estimates
+reproduced before use. Joint BH covers5670 associations and Holm54 identity tests.
+All panels, failures and105 singles are retained; no new SAE optimization occurs.
+The new family/recovery suite and required V0b checks passed before execution.
+Twenty distinct standalone suites have now been exercised,15 together and5 separately.
+The full common-inference run is in progress; unit tests are not full-data evidence.
+
+### 2026-10-20: completed common inference and signed-weight diagnostic
+
+All six arms completed common inference. All 5,670 association hypotheses and 54
+identity hypotheses were retained; 9,999 permutations executed per arm. Exact
+original PCA/NMF annotation, AUC and p-value estimates and every control split
+reproduced before combined interpretation. All matched identity tests have raw
+p=.0001 and joint Holm p=.0054. All six models match Cycling, but only PCA has
+upward associations (52); the other five have none. All-cell SAE TF counts are
+0/0/5, effector 1/1/1; KLF1 remains the sole repeated candidate. Control-only heme
+no longer matches (adjusted p=.0990). Complete outputs and all failures archived.
+
+Twenty of the 52 PCA-up associations have both external phase AUCs<=.45; this is
+a descriptive effect rule, distinct from19 jointly significant doubly decreased
+cases among50 PCA calls in the phase diagnostic. A separately declared signed-
+weight follow-up (a0402ff) passes its fixed score-fidelity gate: RMSE/SD=.000154
+and maximum AUC difference=.0000378. All428505 contributions across105 singles
+and4081 genes recover projected means (max absolute error2.22e-16). Only32 of97
+external phase genes enter the PCA input. In all20 direction-discordant cases,
+the represented phase genes lower the mean while other positive-weight and
+negative-weight classes raise it. This is deterministic mean algebra, not rank
+attribution or biological mechanism. Among all105,94 have positive negative-
+weight sums, so the behavior is not unique to the selected cases. Complete
+contributions, partition estimates, source/model/score hashes and checks retained.
+
+The four-panel manuscript now includes the completed fits and these diagnostics,
+plus a claim-to-evidence ledger. The new comparison figure is visually inspected
+and deterministic as PNG/SVG. The attribution test passes separately, for21
+distinct suites (15 together and6 separately); syntax, required V0b and all four
+frozen specs/two bundles pass again. No new regulatory mechanism or SAE advantage
+is established, and the manuscript is not submitted.
+
+Original authors' Git blobs were retrieved and verified. Their guide-performance
+code distinguishes the single Perturb-seq guide from two-guide averages in the
+separate fitness screen, and explicitly studies cassette orientation. Their
+examples include PTPN12/SNAI1 and CBL/CNN1 CD235a/CD71 cDNA plotting. This is code
+context, not full original-article/supplement review or independent validation.
+Ten citation records now include Tirosh2016; no original-paper gene-list audit
+is claimed.

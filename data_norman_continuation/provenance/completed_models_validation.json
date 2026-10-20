@@ -1,0 +1,268 @@
+{
+  "completed_utc": "2026-10-20T17:07:02.155326+00:00",
+  "status": "PASS",
+  "input_sha256": "a09744916427b08d75dade996d059f717e4812463292a1e5a4e5450589cf2c6a",
+  "models": [
+    {
+      "arm": "all",
+      "seed": 0,
+      "epochs": 200,
+      "training_cells": 111445,
+      "activated_features": 474,
+      "checkpoint_sha256": "5713cc97418d6b09192bcad3a94a182e5c0d7b13ba0d08685019038c27c1d642",
+      "activations_sha256": "7fdcbcba5ead286fb91f5c19747ee14c57554594e2d2e230cc0d4e5bc5215e28"
+    },
+    {
+      "arm": "all",
+      "seed": 1,
+      "epochs": 200,
+      "training_cells": 111445,
+      "activated_features": 461,
+      "checkpoint_sha256": "80870da0a6326245a226c02b3b5790ab6615eddb48ced65033050e27fc1ca09c",
+      "activations_sha256": "9f4b10738855be2f44a15b91701562c5752714d338847f5a063384fa60e364af"
+    },
+    {
+      "arm": "all",
+      "seed": 2,
+      "epochs": 200,
+      "training_cells": 111445,
+      "activated_features": 466,
+      "checkpoint_sha256": "97fde9fef91c4697d0035be6efd3aaf5924f5ae7906f60250a9acd4cb443ba43",
+      "activations_sha256": "3b310d13ca87b9fcf24cf072080b0d56d6c28f54bdcb0d6729cbf0c62306038d"
+    },
+    {
+      "arm": "control",
+      "seed": 0,
+      "epochs": 200,
+      "training_cells": 11855,
+      "activated_features": 2014,
+      "checkpoint_sha256": "59d4ee640b2bc8737aeb46e15fad2aaea596d10c4428732895b3c18fbc0cf50a",
+      "activations_sha256": "d35eca30f0f8698ee2690228dff96bb725137393fb992b88f398ae320025d052"
+    }
+  ],
+  "primary_joint_27_reproduced": true,
+  "cross_arm_identity_family": {
+    "size": 36,
+    "method": "Holm",
+    "scope": "Exploratory four-fit combination; conditional cell-level heterogeneity only.",
+    "records": [
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Ery_TF",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Ery_Heme",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Ery_Membrane",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Ery_Effector",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Gran_TF",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Gran_Primary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Gran_Secondary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Progenitor",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 0,
+        "program": "Cycling",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Ery_TF",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Ery_Heme",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Ery_Membrane",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Ery_Effector",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Gran_TF",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Gran_Primary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Gran_Secondary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Progenitor",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 1,
+        "program": "Cycling",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Ery_TF",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Ery_Heme",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Ery_Membrane",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Ery_Effector",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Gran_TF",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Gran_Primary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Gran_Secondary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Progenitor",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "all",
+        "seed": 2,
+        "program": "Cycling",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Ery_TF",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Ery_Heme",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Ery_Membrane",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Ery_Effector",
+        "holm_p": 0.036000000000000004
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Gran_TF",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Gran_Primary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Gran_Secondary",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Progenitor",
+        "holm_p": 1.0
+      },
+      {
+        "arm": "control",
+        "seed": 0,
+        "program": "Cycling",
+        "holm_p": 0.036000000000000004
+      }
+    ]
+  },
+  "validator_sha256": "1fd7a2d04c05033e4dda7b67de84e9e92e0e225aa76ec292e204e6d810ec9df9"
+}

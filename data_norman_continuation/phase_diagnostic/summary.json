@@ -1,0 +1,153 @@
+{
+  "family_size": 1365,
+  "counts": {
+    "S": {
+      "up": {
+        "primary": 0,
+        "omission_consistent": 0
+      },
+      "down": {
+        "primary": 52,
+        "omission_consistent": 52
+      }
+    },
+    "G2M": {
+      "up": {
+        "primary": 0,
+        "omission_consistent": 0
+      },
+      "down": {
+        "primary": 37,
+        "omission_consistent": 37
+      }
+    }
+  },
+  "scope": "Different phase signatures and PCA axes are different measurements, and stress/state mixtures or compositional effects remain possible. Gene expression scores do not measure cell-cycle progression or arrest. Conditional cell-level p-values, technical strata and reusing the same cells do not establish experimental independence, a mechanism, method superiority or novelty.",
+  "uncompressed_source_sha256": "31324a6c6e551e8c872f005c096c5c4300a15610987ebd6d3796a6b600758525",
+  "coverage": {
+    "S": {
+      "eligible_markers": [
+        "MCM5",
+        "PCNA",
+        "TYMS",
+        "FEN1",
+        "MCM2",
+        "MCM4",
+        "RRM1",
+        "UNG",
+        "GINS2",
+        "MCM6",
+        "CDCA7",
+        "DTL",
+        "PRIM1",
+        "UHRF1",
+        "HELLS",
+        "RFC2",
+        "RPA2",
+        "NASP",
+        "RAD51AP1",
+        "GMNN",
+        "WDR76",
+        "SLBP",
+        "CCNE2",
+        "UBR7",
+        "POLD3",
+        "MSH2",
+        "ATAD2",
+        "RAD51",
+        "RRM2",
+        "CDC45",
+        "CDC6",
+        "EXO1",
+        "TIPIN",
+        "DSCC1",
+        "BLM",
+        "CASP8AP2",
+        "USP1",
+        "CLSPN",
+        "POLA1",
+        "CHAF1B",
+        "BRIP1",
+        "E2F8"
+      ],
+      "missing_markers": [
+        "MLF1IP"
+      ],
+      "ineligible_discovery_markers": []
+    },
+    "G2M": {
+      "eligible_markers": [
+        "HMGB2",
+        "CDK1",
+        "NUSAP1",
+        "UBE2C",
+        "BIRC5",
+        "TPX2",
+        "TOP2A",
+        "NDC80",
+        "CKS2",
+        "NUF2",
+        "CKS1B",
+        "MKI67",
+        "TMPO",
+        "CENPF",
+        "TACC3",
+        "FAM64A",
+        "SMC4",
+        "CCNB2",
+        "CKAP2L",
+        "CKAP2",
+        "AURKB",
+        "BUB1",
+        "KIF11",
+        "ANP32E",
+        "TUBB4B",
+        "GTSE1",
+        "KIF20B",
+        "HJURP",
+        "CDCA3",
+        "HN1",
+        "CDC20",
+        "TTK",
+        "CDC25C",
+        "KIF2C",
+        "RANGAP1",
+        "NCAPD2",
+        "DLGAP5",
+        "CDCA2",
+        "CDCA8",
+        "ECT2",
+        "KIF23",
+        "HMMR",
+        "AURKA",
+        "PSRC1",
+        "ANLN",
+        "LBR",
+        "CKAP5",
+        "CENPE",
+        "CTCF",
+        "NEK2",
+        "G2E3",
+        "GAS2L3",
+        "CBX5",
+        "CENPA"
+      ],
+      "missing_markers": [],
+      "ineligible_discovery_markers": []
+    }
+  },
+  "pca_cycling_comparison": {
+    "original": {
+      "up_calls": 52,
+      "S_down": 29,
+      "G2M_down": 22,
+      "both_down": 20
+    },
+    "joint": {
+      "up_calls": 50,
+      "S_down": 28,
+      "G2M_down": 21,
+      "both_down": 19
+    }
+  }
+}

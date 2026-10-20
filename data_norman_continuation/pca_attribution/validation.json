@@ -1,0 +1,10 @@
+{
+  "status": "PASS",
+  "complete_gene_contribution_records": 428505,
+  "n_unique_perturbations": 105,
+  "n_unique_genes_per_perturbation": 4081,
+  "every_source_and_output_hash_verified": true,
+  "all_gene_and_partition_sums_recover_score_mean": true,
+  "maximum_absolute_sum_error": 2.220446049250313e-16,
+  "fidelity_gate_passed": true
+}

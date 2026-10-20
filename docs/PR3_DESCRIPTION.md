@@ -1,101 +1,72 @@
 # Suggested PR title
 
-Audit SAE program interpretation and preserve reproducible publication evidence
+Audit gene-program interpretation with completed CPU fits and archived evidence
 
 # Description
 
-The historical program-modulation quantitative gates accept a shared response to
-every perturbation as though it established perturbation-identity specificity.
-An absent marker match also returned feature -1 and silently scored the last
-activation column. This branch now reproduces those failures, leaves unmatched
-programs unscored, and separately tests conditional identity-associated rank
-heterogeneity with controls fixed, optional exchangeability strata, and Holm
-correction across every planned program.
+This branch tests what biologically annotated features support in structural and
+perturbation analyses. It preserves the failed original asymmetry hypothesis,
+repairs an unmatched-feature index bug, demonstrates limits of legacy modulation
+gates and conditional identity inference, and now archives the completed Norman
+CPU experiments alongside direct baselines and publication materials.
 
-The branch includes the earlier structural hardening, causal pipeline and dated
-errata, plus the continuation audit. Documentation now distinguishes preserved
-Gate-0 evidence from historical causal outputs that were not archived. It corrects
-all-cell training, the wrong-background essentiality figure, the PCA/NMF-to-SAE
-ladder interpretation, and unrun embedding comparisons. Frozen specifications
-and Gate-0 decision bundles remain unchanged.
+Frozen specifications and both Gate-0 bundles remain unchanged. Historical causal
+JSONs were lost; their old numbers are excluded from the primary manuscript.
+Dated corrections cover all-cell training, the wrong-background essentiality
+claim, the PCA/NMF-to-SAE ladder and unrun embedding comparisons.
 
-## New evidence and checks
+## Completed evidence
 
-- Four synthetic worlds, 20 seeds each, 99 permutations: historical quantitative
-  gates pass 20/20 generic one-axis worlds and 20/20 absent-marker worlds. The
-  corrected identity test rejects 0/20 generic worlds and detects 20/20 distinct-
-  responder worlds. Manual biological coherence was not scored.
-- Separate deployed-default null calibration: nine stipulated matched features,
-  999 permutations, 200 independent simulations; 6/200 familywise Holm rejections,
-  3.0% (exact 95% interval 1.11–6.42%). Finite simulated calibration is not proof
-  for arbitrary experimental designs.
-- Raw simulation outputs, executed generator, source hashes, versions, parameters
-  and summaries are retained under `data_program_modulation_audit/`.
-- A later fixed boundary audit retains 600 records (100 seeds, six analyses).
-  Variable-strength generic effects make all nine identity tests reject in every
-  simulation despite rank-one group effects. Invalid cell shuffling in a clustered
-  population null rejects in 100/100 worlds, versus 8/100 for a separate simulated
-  cluster-unit analysis (exact 95% interval 3.52–15.16%). Complete identity/batch
-  confounding is correctly reported as unidentifiable. These outcomes quantify
-  scope and dependence limits; they do not establish a validated biological test.
-- All original standalone suites and new counterexample/specificity suites,
-  syntax checks, frozen hashes, and synthetic actual-training CLI checks have
-  been exercised. See the continuation audit and reproducibility guide.
-- Corrected historical figures include descriptive uncertainty and are
-  deterministic across consecutive generations.
+- Frozen structural analyses:0/10 SAE seeds support the original hypothesis in
+  each dataset; only mouse NMF supports it across five methods and two datasets.
+- Synthetic audits: legacy gates accept identical generic responses 20/20;
+  conditional identity inference still rejects all nine panels in 100/100
+  variable-strength rank-one worlds. Invalid clustered-cell shuffling rejects
+ 100/100 versus 8/100 for a separate cluster-mean analysis. Complete outputs,
+  source hashes, exact intervals and untestable cases are retained.
+- Fresh heldout-control marker baseline: all 105 singles, all nine panels and
+ 945 tests. Heme 37 primary associations,29 surviving target omission, depth
+  matching and all four control references. KLF 1 TF AUC.615 becomes.425 after
+  own-transcript omission; downstream heme/membrane responses persist.
+- All three 2048-feature primary SAE seeds finished 200 epochs. TF, effector and
+  Cycling match in every seed (joint Holm 27 p=.027). KLF 1 is the sole repeated
+  legacy candidate but background percentiles 63/73/68 fail the old gate. No
+  candidate combines that gate and two-seed agreement. One control-only seed
+  also finished and is separately archived; it is not biological replication.
+- Direct rank 64 PCA and NMF completed. NMF reached its fixed 200-iteration cap
+  without convergence; this limitation is preserved in every comparison.
+- Common downstream inference across all six representations completed with
+ 5670 association hypotheses and 54 identity hypotheses,9999 permutations and
+  identical discovery/inference controls. Every original PCA/NMF comparison
+  reproduced before interpreting the combined family. All six match Cycling,
+  but only PCA has upward associations(52). No superiority follows from counts.
+- External phase diagnostic: no upward S/G 2 M calls;52 S and 37 G 2 M decreases.
+  Among 50 jointly retained PCA calls,19 decrease in both phases. In the common
+  family,20/52 meet both phase AUC<=.45 thresholds, a descriptive effect rule.
+- Signed PCA attribution retains all 428505 gene contributions. Its projection
+  closely matches recovered original scores(RMSE/SD=.000154,max AUC difference
+  .0000378). In all 20 direction-discordant cases, represented phase genes lower
+  the mean while other weighted genes raise it. This explains score means, not
+  ranks, cell-cycle progression or molecular causality.
+- All 131 double constructs and nine panels are retained in 1179-test marker
+  contrasts, plus joint 2358-test log/linear sensitivity. Twenty-one heme contrasts
+  persist across scales. Known CBL/CNN 1 biology is contextual recovery, not novelty.
 
-## Fresh real-data continuation
+## Publication and validation
 
-The public Norman raw file is now downloaded, fingerprinted and prepared. A
-full-data external-marker baseline uses 5,926 discovery and 5,929 heldout controls,
-eight gemgroup strata, all nine panels and all 105 sufficiently sampled single
-perturbations (BH over 945 comparisons). Heme associations number 37; 29 survive
-target omission, discovery-defined RNA-depth matching and all four negative-control
-references. The reference sensitivity corrects all 3,780 comparisons jointly.
+The manuscript, four main figures, supplementary figure, claim-to-evidence ledger,
+full result records and targeted literature review are versioned. Ten citations
+have verified metadata. Two primary full texts and original Norman analysis code
+were reviewed selectively; the original Norman paper/supplements remain unchecked.
 
-KLF1's TF-panel AUC falls from 0.615 to 0.425 after its own transcript is omitted,
-while its heme and membrane associations persist. CBL and PTPN12 survive all
-sensitivities; UBASH3B falls below the fixed effect floor against one reference.
-These are conditional marker-score associations, not biological novelty or an
-SAE advantage. Complete JSONs, source/data hashes, a 945-row table and reproducible
-figures are archived in `data_norman_continuation/`.
+Twenty-one distinct standalone suites were exercised(fifteen together and six
+separately), including complete-family, score-recovery and mean-attribution tests.
+Syntax, actual end-to-end research executions, exact completed-model artifacts,
+frozen hashes and deterministic figure checks pass. Full command/status scopes
+are in docs/CONTINUATION_VERIFICATION.md.
 
-The declared ordinary PCA comparison also completed: 64 components, both signed
-orientations, discovery-only annotation and the same inference controls, with
-joint BH over 945 tests. Ery_TF and Cycling matched (28 and 52 associations);
-the other seven panels were unmatched and remain unscored. Different model
-capacities and score definitions prevent a superiority claim from these counts.
-
-All 15 suites passed together with no skips; the completed-result archiver and
-direct-PCA suites passed separately (17 distinct suites exercised). Full-size CPU seed 0 is
-training toward 200 epochs with resumable model/optimizer/RNG checkpoints; seeds
-1 and 2 are queued sequentially. A separate copied epoch-20 checkpoint completed
-full-data inference; its complete nine-panel outputs are archived as an interim
-readiness check, not a completed primary seed. A tested watcher will validate and
-publish compact outputs after actual full-seed completion.
-
-Crossref verified nine bibliographic references. Targeted primary-source review
-documents known CBL/erythroid and UBASH3B/erythroleukemia context and distinguishes
-model-internal circuits from cellular causality. Novelty remains unestablished;
-the original Norman full text and supplements still require review.
-
-An additional declared exploratory screen covers all 131 double constructs and
-all nine marker panels (1,179 tests), using within-gemgroup four-group additive
-contrasts and target omission. A post-primary log/linear sensitivity reproduces
-the original outputs exactly and jointly corrects all 2,358 scale-specific tests.
-Twenty-one heme contrasts retain the same sign and effect/correction rules on
-both scales. The known CBL+CNN1 erythroid response is recovered; no new biological
-genetic interaction is claimed. Complete raw outputs are retained with lossless
-compression, all comparisons, source hashes and pointwise uncertainty.
-
-## Scope and outstanding work
-
-No new biological discovery is established. GitHub API access recovered and this
-PR is updated through REST; no GPU is attached and the user chose CPU execution.
-The manuscript now includes preserved structural evidence, the simulation audit
-and the fresh marker/PCA baselines. Full SAE completion, remaining primary-text review, confirmed
-authorship/disclosures, independent validation and submission remain outstanding.
-
-Conditional cell-level identity heterogeneity does not establish pathway
-specificity, biological replication, novelty, or SAE superiority. Full Norman
-runs, direct NMF and appropriate guide/batch validation remain separate experiments.
+No new biological mechanism, independent replication or SAE advantage is
+established. The paper reports representation dependence and score-response
+discordance under the tested conditions. Authorship/affiliations, disclosures,
+primary-text claim review and durable large-artifact deposition remain required
+before submission. This remains a draft PR.

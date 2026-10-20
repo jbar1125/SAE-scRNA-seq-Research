@@ -27,7 +27,7 @@ Start with [the master summary](docs/PROJECT_MASTER_SUMMARY.md),
 | Replogle CRISPRi, K562 and RPE1 | Historical exploratory results; original JSONs missing | Recorded perturbation-responsive programs are mainly housekeeping/chromatin programs. Original outputs from ephemeral GPU instances must be regenerated and archived. [Causal results](docs/COMPONENT2_RESULTS.md). |
 | Causal representation ladder | Historical exploratory results | Every arm trains an SAE: on expression, PCA-reduced input, or NMF-reduced input. This is not a direct SAE-versus-PCA/NMF comparison. |
 | Norman CRISPRa grounding and regulon recovery | Historical exploratory results; original JSONs missing | Grounding rate did not exceed the recorded perturbation-identity shuffle null; single-TF regulon recovery was unsuccessful. Neither result establishes absence of all biological signal. |
-| Program-level modulation | Analysis implemented; full real-data validation pending | Named-program test and synthetic checks exist. No completed full-scale discovery is established in the committed record. [Spec](config/program_modulation_spec.json). |
+| Program-level modulation | Three full-size CPU seeds and one control-only sensitivity completed | Three panels match in all primary seeds; KLF1 is the sole repeated legacy candidate and fails the old background gate. No discovery is established. [Completed fits](docs/NORMAN_COMPLETED_MODELS.md). |
 | Expression versus foundation-model embedding | Not run | The published 6.2% figure uses a different protocol and is not a matched baseline for this project. |
 
 The Gate-0 metric was version-locked before the final runs, following exploratory
@@ -49,12 +49,22 @@ selective pathway regulation or biological replication.
 The [fresh Norman continuation](docs/NORMAN_CONTINUATION_RESULTS.md) now includes
 a completed full-data, held-out-control marker baseline: 37 heme-panel associations,
 of which 29 survive target omission, RNA-depth matching and every negative-control
-reference. These are conditional marker-score associations. The full-size CPU SAE
-run is training with resumable checkpoints; it has no completed result yet.
+reference. These are conditional marker-score associations. All three full-size CPU
+SAE seeds completed their fixed 200 epochs and are archived with a separate
+one-seed control-only sensitivity. No candidate combines the old background gate
+with two-seed agreement. See [the interpretation](docs/NORMAN_COMPLETED_MODELS.md).
 An ordinary signed-PCA comparison also completed, with all annotation failures
 and 945 comparisons archived. Its TF and Cycling features recover different
 responses from the direct marker scores; unequal capacities and procedures
-preclude a superiority claim. Direct NMF is running under a separately fixed plan.
+preclude a superiority claim. Direct NMF completed its fixed 200-iteration cap
+without convergence. A [phase diagnostic](docs/NORMAN_PHASE_DIAGNOSTIC.md) found
+that 19 jointly retained Cycling PCA increases coexist with decreases in both
+external S and G2M scores; this is score discordance, not measured phase arrest.
+A [common six-model protocol](docs/NORMAN_SHARED_INFERENCE.md) and
+[signed-weight attribution](docs/NORMAN_PCA_ATTRIBUTION.md) now explain the score
+means with all hypotheses and gene contributions retained. The
+[claim-to-evidence ledger](docs/CLAIM_EVIDENCE_LEDGER.md) maps manuscript wording
+to its complete evidence and limits.
 The [targeted literature review](docs/LITERATURE_REVIEW.md) records prior biology
 and unverified novelty rather than presenting known CBL responses as a discovery.
 

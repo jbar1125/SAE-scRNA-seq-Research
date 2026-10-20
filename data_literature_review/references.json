@@ -1493,6 +1493,766 @@
         "cached_response_sha256": "168ace2d94929ae464cda4862e22d8eefb6003eca7085c47a214c070c2fb0a88",
         "scope": "Bibliographic metadata; a hash does not imply full-text claim verification."
       }
+    },
+    {
+      "DOI": "10.1126/science.aad0501",
+      "title": [
+        "Dissecting the multicellular ecosystem of metastatic melanoma by single-cell RNA-seq"
+      ],
+      "author": [
+        {
+          "given": "Itay",
+          "family": "Tirosh",
+          "sequence": "first",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Benjamin",
+          "family": "Izar",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Sanjay M.",
+          "family": "Prakadan",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "suffix": "II",
+          "given": "Marc H.",
+          "family": "Wadsworth",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Daniel",
+          "family": "Treacy",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "John J.",
+          "family": "Trombetta",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Asaf",
+          "family": "Rotem",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christopher",
+          "family": "Rodman",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Christine",
+          "family": "Lian",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Pathology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "George",
+          "family": "Murphy",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Pathology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Mohammad",
+          "family": "Fallahi-Sichani",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Program in Therapeutic Sciences, Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ken",
+          "family": "Dutton-Regester",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Department of Genetics and Computational Biology, QIMR Berghofer Medical Research Institute, Brisbane, Queensland, Australia."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Jia-Ren",
+          "family": "Lin",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "HMS LINCS Center and Laboratory of Systems Pharmacology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ofir",
+          "family": "Cohen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Parin",
+          "family": "Shah",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Diana",
+          "family": "Lu",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alex S.",
+          "family": "Genshaft",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Travis K.",
+          "family": "Hughes",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Division of Health Sciences and Technology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Carly G. K.",
+          "family": "Ziegler",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Division of Health Sciences and Technology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Samuel W.",
+          "family": "Kazer",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aleth",
+          "family": "Gaillard",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Kellie E.",
+          "family": "Kolb",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alexandra-Chlo\u00e9",
+          "family": "Villani",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Cory M.",
+          "family": "Johannessen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aleksandr Y.",
+          "family": "Andreev",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Eliezer M.",
+          "family": "Van Allen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Monica",
+          "family": "Bertagnolli",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Surgical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Department of Surgical Oncology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Peter K.",
+          "family": "Sorger",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Program in Therapeutic Sciences, Department of Systems Biology, Harvard Medical School, Boston, MA 02115, USA."
+            },
+            {
+              "name": "HMS LINCS Center and Laboratory of Systems Pharmacology, Harvard Medical School, Boston, MA 02115, USA."
+            },
+            {
+              "name": "Ludwig Center at Harvard, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Ryan J.",
+          "family": "Sullivan",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Division of Medical Oncology, Massachusetts General Hospital Cancer Center, Boston, MA 02114, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Keith T.",
+          "family": "Flaherty",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Division of Medical Oncology, Massachusetts General Hospital Cancer Center, Boston, MA 02114, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Dennie T.",
+          "family": "Frederick",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Division of Medical Oncology, Massachusetts General Hospital Cancer Center, Boston, MA 02114, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Judit",
+          "family": "Jan\u00e9-Valbuena",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Charles H.",
+          "family": "Yoon",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Department of Surgical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Department of Surgical Oncology, Brigham and Women\u2019s Hospital, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Orit",
+          "family": "Rozenblatt-Rosen",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Alex K.",
+          "family": "Shalek",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Institute for Medical Engineering and Science, Massachusetts Institute of Technology (MIT), Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Department of Chemistry, MIT, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Ragon Institute of Massachusetts General Hospital, MIT and Harvard University, Cambridge, MA 02139, USA."
+            },
+            {
+              "name": "Division of Health Sciences and Technology, Harvard Medical School, Boston, MA 02115, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Aviv",
+          "family": "Regev",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Biology and Koch Institute, MIT, Boston, MA 02142, USA."
+            },
+            {
+              "name": "Howard Hughes Medical Institute, Chevy Chase, MD 20815, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        },
+        {
+          "given": "Levi A.",
+          "family": "Garraway",
+          "sequence": "additional",
+          "affiliation": [
+            {
+              "name": "Broad Institute of MIT and Harvard, Cambridge, MA 02142, USA."
+            },
+            {
+              "name": "Department of Medical Oncology, Dana-Farber Cancer Institute, Harvard Medical School, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Center for Cancer Precision Medicine, Dana-Farber Cancer Institute, Boston, MA 02215, USA."
+            },
+            {
+              "name": "Ludwig Center at Harvard, Boston, MA 02215, USA."
+            }
+          ],
+          "role": [
+            {
+              "vocabulary": "crossref",
+              "role": "author"
+            }
+          ]
+        }
+      ],
+      "container-title": [
+        "Science"
+      ],
+      "volume": "352",
+      "issue": "6282",
+      "page": "189-196",
+      "article-number": null,
+      "published-print": {
+        "date-parts": [
+          [
+            2016,
+            4,
+            8
+          ]
+        ]
+      },
+      "published-online": null,
+      "source": {
+        "provider": "Crossref",
+        "url": "https://api.crossref.org/works/10.1126/science.aad0501",
+        "raw_response_sha256": "0a0c853b3a69e998c4c4bea31485713ceb2a1d659471ed5d6138056ea0d1ea5d",
+        "review_scope": "Metadata only; full primary paper not read. External list provenance is separately pinned."
+      }
     }
-  ]
+  ],
+  "updated_utc": "2026-10-20T17:15:30.748489+00:00"
 }

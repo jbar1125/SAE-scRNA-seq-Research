@@ -12,3 +12,8 @@ This is not a systematic search or proof of novelty. Metadata verification,
 abstract review, targeted full-text review and experimental reproduction are
 different levels of evidence. No funding or ethics statement from another
 paper is attributed to this project.
+
+`norman_original_code_review.json` pins verified blobs from the original authors'
+repository and identifies reviewed notebook cells. This is code-context review,
+not execution or full original-article/supplement review. Ten bibliographic
+references now include the Tirosh citation used by the external phase diagnostic.
