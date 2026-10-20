@@ -1,0 +1,12 @@
+{
+  "status": "PASS",
+  "checked_utc": "2026-10-20T18:15:13.726037+00:00",
+  "association_family": 6615,
+  "identity_family": 63,
+  "unique_csv_records": 6615,
+  "actual_factor_hashes_and_values_checked": true,
+  "joint_corrections_reproduced": true,
+  "raw_result_sha256": "b71b980c97e52370a71b9c76c1e533b600be9fdfa95d0212cac519fb7d74b96f",
+  "compressed_result_sha256": "b9baaaf28af2824421296677b02995ec7c586be9f93a1d828715ea3fd8ad72d0",
+  "generator_sha256": "60a0a249e984bacc75371cff681345423a0d20859d7c5814e009b55aae3d922c"
+}

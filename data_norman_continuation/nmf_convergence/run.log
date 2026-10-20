@@ -1,0 +1,41 @@
+{"stage": "loaded", "shape": [111445, 4081], "initial_error": 3077.26953125, "settings": {"n_components": 64, "init": "custom", "solver": "mu", "beta_loss": "frobenius", "tol": 0.0001, "max_iter": 800, "random_state": 0}, "threads": 4}
+Epoch 10 reached after 59.589 seconds, error: 3075.522949
+Epoch 20 reached after 103.995 seconds, error: 3073.908936
+Epoch 30 reached after 146.759 seconds, error: 3072.431152
+Epoch 40 reached after 180.276 seconds, error: 3071.057861
+Epoch 50 reached after 214.103 seconds, error: 3069.784912
+Epoch 60 reached after 298.266 seconds, error: 3068.593506
+Epoch 70 reached after 335.379 seconds, error: 3067.471436
+Epoch 80 reached after 393.424 seconds, error: 3066.426514
+Epoch 90 reached after 449.864 seconds, error: 3065.438965
+Epoch 100 reached after 503.872 seconds, error: 3064.506592
+Epoch 110 reached after 557.573 seconds, error: 3063.628906
+Epoch 120 reached after 614.257 seconds, error: 3062.795166
+Epoch 130 reached after 653.414 seconds, error: 3062.002197
+Epoch 140 reached after 705.071 seconds, error: 3061.244141
+Epoch 150 reached after 750.448 seconds, error: 3060.528809
+Epoch 160 reached after 797.555 seconds, error: 3059.840576
+Epoch 170 reached after 839.175 seconds, error: 3059.193115
+Epoch 180 reached after 888.211 seconds, error: 3058.568848
+Epoch 190 reached after 936.907 seconds, error: 3057.976807
+Epoch 200 reached after 991.394 seconds, error: 3057.408691
+Epoch 210 reached after 1054.896 seconds, error: 3056.863037
+Epoch 220 reached after 1101.292 seconds, error: 3056.337891
+Epoch 230 reached after 1157.706 seconds, error: 3055.833740
+Epoch 240 reached after 1211.482 seconds, error: 3055.349854
+Epoch 250 reached after 1284.369 seconds, error: 3054.882812
+Epoch 260 reached after 1518.087 seconds, error: 3054.433594
+Epoch 270 reached after 1581.016 seconds, error: 3053.996826
+Epoch 280 reached after 1681.695 seconds, error: 3053.583252
+Epoch 290 reached after 1760.319 seconds, error: 3053.177246
+Epoch 300 reached after 1840.604 seconds, error: 3052.781982
+Epoch 310 reached after 1911.392 seconds, error: 3052.404297
+Epoch 320 reached after 2008.878 seconds, error: 3052.040039
+Epoch 330 reached after 2065.429 seconds, error: 3051.683350
+Epoch 340 reached after 2111.350 seconds, error: 3051.339600
+Epoch 350 reached after 2160.019 seconds, error: 3051.009766
+Epoch 360 reached after 2208.372 seconds, error: 3050.689209
+Epoch 370 reached after 2261.930 seconds, error: 3050.381104
+Epoch 380 reached after 2306.533 seconds, error: 3050.078613
+{"stage": "fit_complete", "fit": {"settings": {"n_components": 64, "init": "custom", "solver": "mu", "beta_loss": "frobenius", "tol": 0.0001, "max_iter": 800, "random_state": 0}, "iterations": 380, "fit_elapsed_seconds": 2339.615656395006, "convergence_warning_absent": true, "warnings": [], "reconstruction_frobenius_error": 3050.07861328125, "stopping_reference": "New custom-initialization error; not bit-identical uninterrupted continuation.", "original_capped_error": 3077.26953125, "relative_reconstruction_error": 0.33099308609962463}}
+{"stage": "complete", "fit": {"settings": {"n_components": 64, "init": "custom", "solver": "mu", "beta_loss": "frobenius", "tol": 0.0001, "max_iter": 800, "random_state": 0}, "iterations": 380, "fit_elapsed_seconds": 2339.615656395006, "convergence_warning_absent": true, "warnings": [], "reconstruction_frobenius_error": 3050.07861328125, "stopping_reference": "New custom-initialization error; not bit-identical uninterrupted continuation.", "original_capped_error": 3077.26953125, "relative_reconstruction_error": 0.33099308609962463}, "new_arm_counts": {"Ery_TF": {"matched": true, "n_associations": 10, "identity_holm_p": 0.0063}, "Ery_Heme": {"matched": true, "n_associations": 35, "identity_holm_p": 0.0063}, "Ery_Membrane": {"matched": true, "n_associations": 27, "identity_holm_p": 0.0063}, "Ery_Effector": {"matched": true, "n_associations": 52, "identity_holm_p": 0.0063}, "Gran_TF": {"matched": false, "n_associations": null, "identity_holm_p": 1.0}, "Gran_Primary": {"matched": false, "n_associations": null, "identity_holm_p": 1.0}, "Gran_Secondary": {"matched": false, "n_associations": null, "identity_holm_p": 1.0}, "Progenitor": {"matched": false, "n_associations": null, "identity_holm_p": 1.0}, "Cycling": {"matched": true, "n_associations": 0, "identity_holm_p": 0.0063}}}
