@@ -1238,3 +1238,82 @@ examples include PTPN12/SNAI1 and CBL/CNN1 CD235a/CD71 cDNA plotting. This is co
 context, not full original-article/supplement review or independent validation.
 Ten citation records now include Tirosh2016; no original-paper gene-list audit
 is claimed.
+
+## 2026-10-20: completed numerical and historical-program follow-ups
+
+The bounded NMF warm restart met its declared tolerance after380 further
+iterations,2339.6seconds on four CPU threads. Frobenius error3077.269531 became
+3050.078613 (0.88% lower); the stopping reference resets, so this is not an
+uninterrupted580-iteration trajectory or a global-optimum claim. Joint seven-fit
+BH6615/Holm63 retains the original capped fit. New TF/heme/membrane/effector/
+Cycling counts are10/35/27/52/0. A membrane annotation appears after a small
+error change. Actual factors/source hashes, complete raw comparisons and warnings
+were checked and pushed automatically (ea054d5).
+
+The exact historical K562 list was fixed before new context outcomes (54b1633):
+HBZ,ALAS2,HBG1,HBG2,HBA1,SLC25A37,GYPB,BLVRB. All eight are in the unchanged
+4081-gene input and eligible for direct scores. Original945 direct comparisons
+and parameters reproduced. Complete eight-arm BH8400/Holm80 includes all ten
+panels, all105 singles, seven learned fits and direct markers. Historical-program
+counts are63/61/61 all-cell SAE,8 control-only SAE,65 PCA,54/52 NMF and57 direct.
+Sixty candidates recur in all three primary seeds,62 in at least two. This is
+computational agreement on the same cells. CBL,UBASH3B,PTPN12 recur, but PCA/NMF
+also recover the program. The list changes context and granularity together, and
+its historical selection on the same data is not independent confirmation.
+Nominal p/q calculations do not replay that selection process.
+
+The unchanged reference/depth helper reproduced the full primary exactly. All
+4200 reference comparisons,1050 depth comparisons and8400 technical-partition
+records are retained. Thirty-nine of57 direct calls survive all references/depth;
+CBL,UBASH3B,PTPN12,KLF1 remain. Minimum reference AUCs are.679,.616,.683,.814 and
+depth AUCs.750,.701,.753,.862. Technical references are not biological replicates.
+The extraction adapter records that its added provenance describes lossless
+extraction of the actual direct_fit, not a new primary execution.
+
+A separately fixed gene diagnostic (1b4437b) retains10080 hypotheses, including
+840 individual transcripts and840 single-marker omissions. Forty-six primary
+calls survive every omission;38 also survive references/depth. All three historic
+leads meet the criterion for all eight individual genes and every omission.
+KLF1 has seven individual calls because GYPB AUC=.519, despite all omissions
+passing. No absence or mechanism is inferred. This prompted a fixed denominator
+sensitivity (ec6fa81), retaining all11025 old/new hypotheses after recovering945
+original estimates. Excluding the eight signature genes from the library sum,
+while fixing score weights, retains57 aggregate calls. KLF1 GYPB becomes.521
+and remains below the.55 floor. This adjustment does not explain the threshold
+result; neither denominator estimates absolute RNA abundance. No genes or
+thresholds were revised after outcomes.
+
+The target-RNA screen retains109 comparisons:90/105 direct labels pass,three
+symbols are absent andtwo of four author alternatives pass. BAK1/BCL2L11 do show
+RNA induction, so an unexplained old-code exclusion cannot mean absent RNA
+induction. A descriptive pairing retains all105 labels:19/20 PCA-up/both-phase-
+down cases have target-RNA increases; C3orf72 is the exception. No cases are
+dropped and no new significance test is claimed.
+
+Seven actual model/count archives (1696336750 compressed bytes) passed complete
+streamed checksum roundtrips. Original files remain unchanged. A GitHub draft
+release was created, but uploads.github.com is denied by CONNECT HTTP403 before
+authentication. It has no assets. The host was saved in the environment draft;
+saving does not apply runtime policy. Authorship/affiliation/contact/funding facts
+were requested asynchronously and remain unconfirmed. No paper was submitted.
+Twenty-four distinct standalone suites have passed (15 together,9 separately).
+
+
+### 2026-10-20: publication review copies and final consolidation
+
+A 25-page PDF and editable Word review draft were rendered with system
+Pandoc/XeLaTeX. All five figures are embedded; source/figure/output hashes, PDF
+content checks and Word ZIP CRC are recorded in docs/review/render_manifest.json.
+The abstract starts on its own page, DOI links wrap without clipping, and the
+supplementary figure/caption stay together. The legacy robustness image's title
+was narrowed to displayed sensitivity settings; its count calculations were
+unchanged, and two PNG/SVG renderings were byte-identical. Required V0b logic
+was rerun successfully after the presentation edits. Author facts remain pending.
+
+The PR description now covers completed primary/control fits, the positive
+historical-program result and its selection limits, numerical NMF sensitivity,
+signed PCA attribution, target RNA and all 24 exercised suites. The cloud startup
+draft records all fits as complete and preserves the tested installation and
+network settings. Saving the draft does not apply or publish it. No submission,
+merge, new mechanism, independent replication or public archive deposition is
+claimed. Large-asset upload remains denied at the network CONNECT stage.

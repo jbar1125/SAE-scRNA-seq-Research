@@ -1,0 +1,14 @@
+mkdir -p failed for path /home/agent/.config/matplotlib: [Errno 30] Read-only file system: '/home/agent/.config/matplotlib'
+Matplotlib created a temporary cache directory at /tmp/matplotlib-2p2gjfgt because there was an issue with the default path (/home/agent/.config/matplotlib); it is highly recommended to set the MPLCONFIGDIR environment variable to a writable directory, in particular to speed up the import of Matplotlib and to better support multiprocessing.
+{
+  "direct_name": {
+    "n_planned": 105,
+    "n_present": 102,
+    "n_target_rna_increases": 90
+  },
+  "author_alternative": {
+    "n_planned": 4,
+    "n_present": 4,
+    "n_target_rna_increases": 2
+  }
+}

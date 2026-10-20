@@ -97,8 +97,10 @@ def fig_method_dependence():
 
 
 def fig_robustness():
-    """Compact diverging strip: granulocyte-minus-erythroid across every stress test
-    (mouse). All >= 0 -> the verdict never flips toward the original claim."""
+    """Display mouse count differences for the selected sensitivity settings.
+
+    This panel does not display every threshold or marker-omission experiment.
+    """
     pts = []
     r2 = json.load(open("data_g0/robustness/r2_l0_band_summary.json"))["points"]
     for p in r2:
@@ -122,14 +124,17 @@ def fig_robustness():
         ax.spines[s].set_visible(False)
     ax.spines["bottom"].set_color(MUT); ax.tick_params(length=0)
     ax.grid(axis="x", color="#e5e7eb", lw=0.8, zorder=0)
-    ax.set_title("Mouse verdict is stable across every stress test", fontsize=12.5,
+    ax.set_title("Mouse counts across displayed sensitivity settings", fontsize=12.5,
                  color=INK, loc="left", pad=10)
-    fig.text(0.125, 0.885, "granulocyte − erythroid real programs; > 0 everywhere "
-             "= never the original claim", ha="left", fontsize=9, color=MUT)
-    ax.set_xlabel("granulocyte − erythroid real-program count", fontsize=9.5, color=MUT)
+    fig.text(0.125, 0.885, "Positive values oppose the original direction; "
+             "displayed settings only", ha="left", fontsize=9, color=MUT)
+    ax.set_xlabel("granulocyte − erythroid above-control count", fontsize=9.5, color=MUT)
     fig.subplots_adjust(left=0.18, right=0.97, top=0.80, bottom=0.12)
     for ext in ("png", "svg"):
-        fig.savefig(OUT / f"fig_robustness.{ext}", dpi=200, metadata=_META)
+        path = OUT / f"fig_robustness.{ext}"
+        fig.savefig(path, dpi=200, metadata=_META)
+        if ext == "svg":
+            path.write_text("\n".join(line.rstrip() for line in path.read_text().splitlines()) + "\n")
     plt.close(fig)
     print("wrote docs/figures/fig_robustness.{png,svg}")
 

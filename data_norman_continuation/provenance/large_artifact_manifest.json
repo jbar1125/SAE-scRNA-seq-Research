@@ -1,0 +1,177 @@
+{
+  "created_utc": "2026-10-20T17:45:01.681530+00:00",
+  "git_commit": "27da2606f7ae96c10db0cfee44b4898430b2122a",
+  "purpose": "Review archives of actual large artifacts. Original files unchanged. These are not biological replications or a new experiment.",
+  "archives": [
+    {
+      "filename": "norman-sae-primary-seed0.tar.gz",
+      "bytes": 177596217,
+      "sha256": "b6ad388ede80594322400a38244e55a236a348537a703c020bb83e926ba08b9a",
+      "members": {
+        "research-runs/norman-sae-primary/seed0.pt": {
+          "sha256": "5713cc97418d6b09192bcad3a94a182e5c0d7b13ba0d08685019038c27c1d642",
+          "bytes": 200644345
+        },
+        "research-runs/norman-sae-primary/seed0.json": {
+          "sha256": "b7f5cea97eafaada5ab7d98b9b19764787a47db570cfc7121d4f46304ccf34c8",
+          "bytes": 79460
+        },
+        "research-runs/norman-sae-primary/seed0.log": {
+          "sha256": "678fba927865b2169f13f02f9f1033baec9c5c5eac64370f5ffbe5586220f028",
+          "bytes": 5879
+        },
+        "research-runs/norman-sae-primary/seed0_activations.npy": {
+          "sha256": "7fdcbcba5ead286fb91f5c19747ee14c57554594e2d2e230cc0d4e5bc5215e28",
+          "bytes": 912957568
+        }
+      },
+      "roundtrip_validation": "PASS"
+    },
+    {
+      "filename": "norman-sae-primary-seed1.tar.gz",
+      "bytes": 177102078,
+      "sha256": "17d3295f39bb7cbf116bf43cd134c2203ecdb308b6151c101a7ebc4535d64c74",
+      "members": {
+        "research-runs/norman-sae-primary/seed1.pt": {
+          "sha256": "80870da0a6326245a226c02b3b5790ab6615eddb48ced65033050e27fc1ca09c",
+          "bytes": 200644345
+        },
+        "research-runs/norman-sae-primary/seed1.json": {
+          "sha256": "6f61407da6a065ad422cde51be794f41eff8da702217eb0d5743a54a51ba147c",
+          "bytes": 79668
+        },
+        "research-runs/norman-sae-primary/seed1.log": {
+          "sha256": "02ff7a57f19781635683aef1073cb1fc99695c304f1a0d4a0051c7e653c7cedf",
+          "bytes": 5860
+        },
+        "research-runs/norman-sae-primary/seed1_activations.npy": {
+          "sha256": "9f4b10738855be2f44a15b91701562c5752714d338847f5a063384fa60e364af",
+          "bytes": 912957568
+        }
+      },
+      "roundtrip_validation": "PASS"
+    },
+    {
+      "filename": "norman-sae-primary-seed2.tar.gz",
+      "bytes": 177280875,
+      "sha256": "f029376846474104b726d6895e4cd61aa33b160ba0ad0fa2936588e79711d5e9",
+      "members": {
+        "research-runs/norman-sae-primary/seed2.pt": {
+          "sha256": "97fde9fef91c4697d0035be6efd3aaf5924f5ae7906f60250a9acd4cb443ba43",
+          "bytes": 200644345
+        },
+        "research-runs/norman-sae-primary/seed2.json": {
+          "sha256": "362fc40e2acdd9142e111fcf4510db525ced102a8da948784118eba60d425958",
+          "bytes": 81427
+        },
+        "research-runs/norman-sae-primary/seed2.log": {
+          "sha256": "985b7f2cfa61a4693fb2ebf894ea1a2954f877ec7373e61638c19a69df051f41",
+          "bytes": 5971
+        },
+        "research-runs/norman-sae-primary/seed2_activations.npy": {
+          "sha256": "3b310d13ca87b9fcf24cf072080b0d56d6c28f54bdcb0d6729cbf0c62306038d",
+          "bytes": 912957568
+        }
+      },
+      "roundtrip_validation": "PASS"
+    },
+    {
+      "filename": "norman-sae-control-sensitivity-seed0.tar.gz",
+      "bytes": 206214089,
+      "sha256": "7d7e42f2e58997854d3407ebaad9a991c02e61d960c4820d0a5783ce471295cb",
+      "members": {
+        "research-runs/norman-sae-control-sensitivity/seed0.pt": {
+          "sha256": "59d4ee640b2bc8737aeb46e15fad2aaea596d10c4428732895b3c18fbc0cf50a",
+          "bytes": 200644345
+        },
+        "research-runs/norman-sae-control-sensitivity/seed0.json": {
+          "sha256": "a9ee81939840ce91b223bb79762f3a275a9cf119b527f61647b77eb48f124a45",
+          "bytes": 81433
+        },
+        "research-runs/norman-sae-control-sensitivity/seed0.log": {
+          "sha256": "8335303d24c176a2b48141d308037714c24a46d58077639ab1b271a8ed327bc5",
+          "bytes": 6394
+        },
+        "research-runs/norman-sae-control-sensitivity/seed0_activations.npy": {
+          "sha256": "d35eca30f0f8698ee2690228dff96bb725137393fb992b88f398ae320025d052",
+          "bytes": 912957568
+        }
+      },
+      "roundtrip_validation": "PASS"
+    },
+    {
+      "filename": "norman-direct-factor-models.tar.gz",
+      "bytes": 54995035,
+      "sha256": "c93e87e731f4cd1404fd5b2edabf6090f972e783618a059593b64efdd62e668b",
+      "members": {
+        "research-runs/norman-direct-pca-v1/seed0_model.npz": {
+          "sha256": "83b5889330caaa8e2a34ae23f11cf5abf0f85bbe75bfec385f42076fa61bfe02",
+          "bytes": 1013989
+        },
+        "research-runs/norman-direct-nmf-v2/seed0_model.npz": {
+          "sha256": "ea211f3d8d74bf6b58ab3a27c5d53eda86f2b5ff7ab196d5507a7c89408bce90",
+          "bytes": 703280
+        },
+        "research-runs/norman-direct-nmf-v2/seed0_fitted_scores.npy": {
+          "sha256": "4511484f2934e8d0a7bded57efe79fd735b6340a6ab4ca6d7923142d97043b1a",
+          "bytes": 28530048
+        },
+        "research-runs/norman-shared-inference-v1/reproduced_pca_fit_transform.npy": {
+          "sha256": "956531bd4ecc475cca6dfac4ad6216e2681e651303324f7267b3eeb97f3134b5",
+          "bytes": 28530048
+        }
+      },
+      "roundtrip_validation": "PASS"
+    },
+    {
+      "filename": "norman-prepared-unique-counts.tar.gz",
+      "bytes": 875317945,
+      "sha256": "490d3974bc02526b4b9ce2f117b79f15ac6cf2ee4061c2aed6c60e0eaf836239",
+      "members": {
+        "datasets/sae-scrna/norman_pert_unique.h5ad": {
+          "sha256": "a09744916427b08d75dade996d059f717e4812463292a1e5a4e5450589cf2c6a",
+          "bytes": 3002237648
+        }
+      },
+      "roundtrip_validation": "PASS"
+    },
+    {
+      "filename": "norman-warm-restarted-nmf.tar.gz",
+      "bytes": 27830511,
+      "sha256": "6ccca454935789ab4b655a0efd764fe4ca5055b9070fd1675635a1282965a88e",
+      "members": {
+        "research-runs/norman-nmf-convergence-v1/model.npz": {
+          "sha256": "6f4429ecd040450a6a149d1fdcbc8d25a0addd6d653da11a610517785054481c",
+          "bytes": 572261
+        },
+        "research-runs/norman-nmf-convergence-v1/fitted_scores.npy": {
+          "sha256": "8f7b9a752c7c062f99ce4abf491daa07dcd8156c95adbb76e4edd8b8be68354c",
+          "bytes": 28530048
+        },
+        "research-runs/norman-nmf-convergence-v1/results.json": {
+          "sha256": "b71b980c97e52370a71b9c76c1e533b600be9fdfa95d0212cac519fb7d74b96f",
+          "bytes": 5655225
+        },
+        "research-runs/norman-nmf-convergence-v1/comparisons.csv": {
+          "sha256": "afb700d31474e45c6c4b165bf0f2d3167fb61e42e772431951820aeeda89e99d",
+          "bytes": 547584
+        },
+        "research-runs/norman-nmf-convergence-v1.log": {
+          "sha256": "e4d16f3a6557bc16ecf1410eaf9433a1c7d6d032b32295625d2056b6b9247a35",
+          "bytes": 4361
+        }
+      },
+      "roundtrip_validation": "PASS"
+    }
+  ],
+  "restore": "Inspect members first. Relative paths start research-runs/ or datasets/. Restore only into a fresh workspace; do not overwrite existing data. Recorded absolute source paths are cloud-instance provenance.",
+  "publication_status": "Verified local archives. GitHub draft release418693745 has no assets: uploads.github.com CONNECT is blocked withHTTP403 by the network proxy. Required domain was saved in the environment draft, not applied to runtime.",
+  "generator_sha256": "aaa0501fe1a79733e8f641dbdc095e3bc21285847d80452af4c64fe076a814e4",
+  "updated_utc": "2026-10-20T18:20:41.384762+00:00",
+  "draft_release": {
+    "id": 418693745,
+    "html_url": "https://github.com/jbar1125/SAE-scRNA-seq-Research/releases/tag/untagged-946312202e5a97d2132f",
+    "draft": true,
+    "assets_uploaded": 0
+  }
+}

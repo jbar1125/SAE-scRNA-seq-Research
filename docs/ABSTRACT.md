@@ -1,66 +1,40 @@
 # Abstract draft
 
-Manuscript draft based on committed Gate-0 evidence, an archived simulation audit,
-and a fresh Norman marker baseline. Older causal outputs were not preserved and
-remain exploratory context; new full-size SAE training is unfinished.
-This is not a claim of a new biological discovery.
+Updated 2026-10-20 from [the manuscript](MANUSCRIPT_DRAFT.md). All three full-size
+SAE fits and the historical-program robustness diagnostics completed. The
+positive conditional program result is not a new regulator mechanism or an SAE
+advantage. Author details and submission checks remain.
 
 ## Working title
 
-Measured hematopoietic gene-program modularity depends on decomposition:
-a cross-species audit of sparse-autoencoder interpretation
+Representation and annotation change measured structure and perturbation responses of hematopoietic gene programs
 
 ## Abstract
 
-Sparse autoencoders (SAEs) produce interpretable features from single-cell RNA
-sequencing, but a plausible gene set does not establish that the inferred program
-structure is intrinsic to the cells. This study tests an initial hypothesis that
-erythroid commitment is more distributed than granulocyte commitment and examines
-whether its verdict persists across decomposition methods.
+Biological labels on sparse-autoencoder (SAE) features need not determine a
+representation-independent structure or a faithful perturbation readout. We audited
+hematopoietic gene programs across structural and perturbation analyses. A
+version-locked analysis following exploratory development used mouse Paul15 data
+(2,730 cells, 2,012 genes) and human Setty marrow data (4,142 cells, 2,032 genes).
+None of ten SAE seeds per dataset supported the hypothesis that erythroid commitment is more distributed than granulocyte
+commitment; only mouse NMF supported it among ten method-by-dataset combinations.
+Legacy modulation gates accepted identical generic responses in 20/20 simulated
+worlds. Conditional identity tests removed that failure but rejected all nine
+panels in 100/100 worlds with variable-strength generic effects. Three fresh
+200-epoch Norman CRISPRa SAE fits left normal-marrow heme and membrane panels
+unmatched. The exact historical eight-gene K562 program instead yielded 63, 61, 61
+associations, with 57 direct-score calls and 38 surviving reference, depth and every single gene omission check. Ordinary PCA recovered 65, while one control-only SAE recovered 8.
+Program definition and granularity therefore changed recovery; this historically
+selected signature does not provide independent confirmation. A 0.88% decrease in
+NMF reconstruction error also added a membrane annotation. Twenty Cycling PCA-up
+associations had both external phase AUCs≤0.45; verified signed-weight attribution
+showed falling phase-gene contributions outweighed by other genes. These results
+support conditional program associations and representation/annotation dependence
+in the tested systems. They do not establish pathway-specific regulation,
+independent biological replication, new regulator mechanisms or an SAE advantage.
 
-A version-locked final analysis was applied to mouse Paul15 myeloid data
-(2,730 cells, 2,012 genes) and human Setty 2019 CD34+ marrow data
-(4,142 cells, 2,032 genes), after exploratory metric and marker development.
-Ten SAE seeds per dataset were evaluated with a control-referenced decoder-loading
-metric, an abundance-matched permutation null, a fixed effect floor, and
-false-discovery-rate control. Structural comparisons included PCA, NMF,
-co-expression regulons, and ICA; ICA used a smaller convergent rank. Robustness
-analyses varied thresholds, sparsity, seed count, and gene-panel size.
+## Evidence
 
-The original hypothesis was supported in none of the ten SAE seeds in either
-dataset. Median erythroid/granulocyte above-control program counts were 1.5/3
-in mouse and 1/2 in human. Across five decomposition families and two datasets,
-only mouse NMF supported the original decision rule. No single-marker omission
-changed the SAE decision among 34 mouse and 36 human omissions. The original
-hypothesis remained unsupported in the reported threshold, sparsity, seed-count,
-and gene-panel sweeps, although some conditions produced ties rather than the
-opposite direction.
-
-A fresh Norman CRISPRa external-marker baseline tested all nine panels across 105
-perturbations using heldout controls and technical strata. Thirty-seven heme-panel
-associations met the declared criterion; 29 also survived target omission,
-RNA-depth matching and every negative-control reference. KLF1's TF-panel AUC fell
-from 0.615 to 0.425 when its own transcript was omitted, while downstream marker
-associations persisted. These are conditional marker-score associations, not a
-new mechanism or evidence that SAEs improve on direct gene-set scores.
-
-These results demonstrate method dependence of this operational program-modularity
-measure in two datasets. They do not establish a method-independent biological
-partition or a causal lineage mechanism. Exploratory Perturb-seq analyses motivated
-further tests of program-level modulation, but do not yet establish an SAE advantage
-over foundation-model representations or a novel lineage-regulatory discovery.
-
-## Evidence and scope
-
-- Structural numbers trace to `data_g0/` and `data_g0_human/`: the frozen
-  `v0b_outputs/` bundles, `baselines/`, `grn/`, `ica/`, `sensitivity/`, and
-  `robustness/` summaries.
-- One dataset per species limits generalization. Human CD34+ selection and the
-  smaller ICA rank limit direct comparability. Marker panels and the chosen
-  metric define the operational quantity measured.
-- SHA locking records an analysis version; exploratory development preceded the
-  final Gate-0 runs. Later causal amendments followed inspected outcomes.
-- Original Component 2 JSONs were lost with ephemeral compute instances.
-  [The causal results record](COMPONENT2_RESULTS.md) distinguishes historical
-  reports from preserved machine-readable evidence. A publication extending this
-  abstract to causal results requires archived reruns and appropriate uncertainty.
+See [the claim-to-evidence ledger](CLAIM_EVIDENCE_LEDGER.md) for complete sources,
+chronology and limits. Nominal historical-program p/q values do not replay the
+original signature-selection process on these same data.

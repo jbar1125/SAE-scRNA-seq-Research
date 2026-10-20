@@ -50,11 +50,15 @@ updated AnnData CLI path executed. The current CLI smoke fixture yielded no
 significant named-program matches; it verifies safe unscored behavior, not a
 biological result. A later full-data marker baseline and its explicit sensitivities
 completed and are archived in [the continuation record](NORMAN_CONTINUATION_RESULTS.md);
-full-size SAE training is still running. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
+all three full-size SAE seeds and one control-only seed are now complete and
+archived. See [the audit](PROGRAM_MODULATION_AUDIT.md) for the separately
 archived 80 design-counterexample runs and 200 deployed-default null simulations.
 
 After that combined run, the completed-result archiver, direct signed-PCA and
-dual-marker suites passed separately (**18 distinct suites exercised** in total). Their
+dual-marker suites passed separately. Later phase, common-inference, attribution
+and actual NMF warm-restart suites also passed. Target-RNA and expanded-context
+suites passed separately (**24 distinct suites exercised**
+in total, fifteen together and nine separately). Their
 checks include recovery after interrupted evidence publication, rejecting partial
 or incompatible seeds, PCA sign invariance, retained no-match hypotheses and
 discovery-only annotation conditional on fixed scores. The full-data PCA command
@@ -67,6 +71,27 @@ all failures. These are scale-dependent conditional-cell additive departures,
 not validated molecular genetic interactions. See
 [the result record](NORMAN_DUAL_MARKER_RESULTS.md) and
 [the command/status table](CONTINUATION_VERIFICATION.md).
+
+The six-representation common inference retained all 5,670 association hypotheses
+and 54 identity hypotheses with 9,999 permutations. All original PCA/NMF
+comparisons and control IDs reproduced before combined interpretation. The signed
+PCA diagnostic retained all 428,505 contributions, checked every sum, and passed
+its declared original-score fidelity bounds. These actual full-data executions
+are distinct from unit checks and independent biological replication.
+
+The bounded NMF warm restart also completed: 380 further iterations met its
+declared numerical criterion. Actual factors and complete 6,615/63 correction
+families were validated and archived. This is a warm restart, not uninterrupted
+continuation or proof of a global optimum. Historical-program, reference/depth,
+gene-omission and denominator diagnostics likewise completed; see
+[NORMAN_K562_CONTEXT.md](NORMAN_K562_CONTEXT.md). Their nominal tests do not replay
+historical signature selection on the same data.
+
+[NORMAN_REPRODUCTION.md](NORMAN_REPRODUCTION.md) records the exact cloud paths and
+fresh-output commands. Seven large archives totaling 1,696,336,750 bytes passed
+streamed member-checksum validation locally. GitHub release-asset upload is blocked
+at the proxy before authentication, so public large-artifact deposition remains
+incomplete. The saved network draft does not apply runtime changes.
 
 ```bash
 python -m pip check

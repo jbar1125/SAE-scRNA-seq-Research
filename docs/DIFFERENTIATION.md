@@ -5,6 +5,15 @@ a completed expression-vs-embedding comparison and a validated GATA1 anchor are
 withdrawn. The supported contribution is an expression-space interpretability audit.
 See [PROJECT_MASTER_SUMMARY.md](PROJECT_MASTER_SUMMARY.md), sections 8-10 and 16.
 
+**2026-10-20 continuation:** three full-size expression SAEs, one real control-only
+sensitivity and direct PCA/NMF baselines now have archived outputs. A common
+downstream protocol and signed-weight diagnostic quantify response discordance
+under the same annotation label. See [the completed comparison](NORMAN_SHARED_INFERENCE.md),
+[attribution](NORMAN_PCA_ATTRIBUTION.md) and updated
+[literature review](LITERATURE_REVIEW.md). The historical ladder descriptions
+below remain distinct from these new direct-factor experiments. The new evidence
+does not establish a novel regulatory mechanism or method superiority.
+
 ## Competitor landscape recorded on 2026-07-18
 
 These descriptions were checked against search abstracts, not full texts; direct

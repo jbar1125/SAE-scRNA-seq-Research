@@ -23,6 +23,15 @@ phase AUCs are ≤.45, and signed weights explain how the score mean rises despi
 a negative contribution from represented phase genes. This is a score-interpretation
 finding in these data, without a new mechanism or method-superiority claim.
 
+The [historical K562 program](NORMAN_K562_CONTEXT.md) follow-up is now complete:
+the exact eight-gene lead yields 63/61/61 all-cell SAE associations and 57 direct
+score calls. Thirty-eight survive reference/depth and every single-gene omission;
+CBL, UBASH3B and PTPN12 each show all eight transcript increases under the rule.
+PCA and NMF also recover the program. The list changes both context and breadth,
+and historical selection on these data prevents independent confirmation.
+The [bounded NMF sensitivity](NORMAN_NMF_CONVERGENCE.md) also completed and met
+its numerical criterion. Preserve each original family when comparing outcomes.
+
 ## Dataset and design
 
 The raw Norman file was downloaded from the public scverse S3 source, checked at

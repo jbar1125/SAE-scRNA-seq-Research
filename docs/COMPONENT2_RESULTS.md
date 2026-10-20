@@ -5,9 +5,18 @@ versus-foundation-model advantage is established. The original causal result JSO
 were lost with ephemeral GPU instances. The dated tables and notebook reports
 below preserve the research history, but are not a substitute for archived reruns.
 
-A fresh, archived external-marker analysis is now complete; the full-size SAE
-CPU run remains in progress. See [the continuation record](NORMAN_CONTINUATION_RESULTS.md).
-These new marker outputs do not recreate the lost historical causal JSONs below.
+A fresh archived external-marker analysis, three full-size 200-epoch SAE seeds,
+one control-only sensitivity and the common six-model comparison are complete.
+See [the continuation record](NORMAN_CONTINUATION_RESULTS.md) and
+[completed fits](NORMAN_COMPLETED_MODELS.md). No legacy candidate combines its
+background criterion with two-seed agreement. These new outputs do not recreate
+the lost historical causal JSONs below.
+
+The later [historical K562 program](NORMAN_K562_CONTEXT.md) gives a positive
+conditional association result: 63/61/61 all-cell SAE calls and 57 direct calls,
+with 38 surviving reference/depth and all single-gene omissions. CBL, UBASH3B and
+PTPN12 recur; PCA/NMF also recover them. This broader historically selected list
+does not establish new regulators, pathway specificity or independent confirmation.
 
 ## Current interpretation
 

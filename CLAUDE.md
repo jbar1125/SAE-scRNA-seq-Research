@@ -9,9 +9,11 @@ and [NORMAN_CPU_RUNS.md](docs/NORMAN_CPU_RUNS.md). Check existing CPU trainers a
 `continue_norman_cpu.sh` and `archive_norman_cpu_results.py` workers before
 starting another long job. All three 200-epoch primary SAE fits and one control-only
 fit completed; read [NORMAN_COMPLETED_MODELS.md](docs/NORMAN_COMPLETED_MODELS.md).
-Ordinary PCA completed and direct NMF reached its cap without convergence.
-The six-model common-inference follow-up is separate; inspect its existing
-`/workspace/research-runs/norman-shared-inference-v1.log` before duplicating it. Read
+Ordinary PCA and the capped NMF completed; a separate bounded NMF warm restart
+met tolerance after 380 further iterations. The historical K562 program,
+reference/depth, single-gene omission and composition checks also completed.
+Read [NORMAN_K562_CONTEXT.md](docs/NORMAN_K562_CONTEXT.md) for positive conditional
+associations and selection limits. Do not duplicate completed fits. Read
 [LITERATURE_REVIEW.md](docs/LITERATURE_REVIEW.md) before proposing novelty.
 Then read the
 current-state and limitations sections of
@@ -126,10 +128,14 @@ foundation-model embedding comparison was never run, and a published 6.2% rate i
 not a matched null for this pipeline.
 
 Norman grounding and single-TF regulon recovery did not support their intended
-claims. A stable erythroid-like feature is a lead requiring proper null tests and
-replication. Program-level modulation is implemented; no new full-scale real-data
-discovery is established in the committed record. New evidence must be archived,
-checked against the exact analysis plan, and compared with appropriate baselines.
+claims. Fresh full-size training and historical-program follow-ups are complete.
+The historically selected eight-gene K562 program has 63/61/61 all-cell SAE calls,
+57 direct-score calls and 38 surviving references, depth and every gene omission;
+PCA also recovers it. Historical selection used the same cells, so these are
+conditional exploratory associations, not independent confirmation, a new
+regulator mechanism or an SAE advantage. Read the complete archived outputs and
+NORMAN_K562_CONTEXT.md before proposing additional work. Model/data archives are
+verified locally; GitHub asset upload remains blocked by the network proxy.
 
 ## Working style
 

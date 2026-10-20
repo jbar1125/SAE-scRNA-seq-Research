@@ -45,9 +45,18 @@
     "Four completed full-size SAE checkpoints and actual activation/input/source hashes validated, original primary Holm27 reproduced and control-only complete record archived",
     "Actual six-model common inference; all5670 association and54 identity hypotheses,9999 permutations per arm, exact old PCA/NMF comparisons reproduced",
     "Actual PCA mean attribution; all428505 contributions and105 partition sums checked, declared score-fidelity gate passed",
-    "New common-comparison PNG/SVG byte-identical across two generations; rendered image inspected"
+    "New common-comparison PNG/SVG byte-identical across two generations; rendered image inspected",
+    "Actual bounded NMF warm restart: tolerance met after380 further iterations; factors and6615/63 family validated and pushed",
+    "Actual complete target-RNA109 and paired105-row diagnostics, including absent targets",
+    "Actual historical K562 programme across8arms:8400 associations and80 identity hypotheses, original945 direct records reproduced",
+    "Actual context sensitivity:4200 references,1050 depth,8400 technical partition records, primary reproduced exactly",
+    "Actual single-gene and omission diagnostics:10080 complete hypotheses,1680 new, jointBH independently reproduced",
+    "Actual composition sensitivity:11025 complete hypotheses,945 old records recovered, fixed weights, jointBH independently reproduced",
+    "Seven large model/count archives built and every member streamed back to its originalSHA256; locally verified, remote upload blocked",
+    "Actual PDF/Word internal review build: source and five figure hashes fixed, PDF content checked, Word CRC and five embedded images verified; final pages inspected",
+    "Robustness figure title limited to displayed sensitivity settings; PNG/SVG reproduced byte-identically twice without changing count calculations"
   ],
-  "sae_status": "PASS: all three all-cell seeds and one exploratory control-only seed completed200 epochs; exact input/model/activation/source hashes and completed dimensions validated on2026-10-20. Primary Holm27 summary reproduced. No new biological discovery established.",
+  "sae_status": "PASS: all three declared all-cell seeds and one control-only sensitivity completed200 epochs. Separate historical K562 programme has positive conditional associations; no independent biological validation or novel regulator mechanism established.",
   "additional_standalone_suites": [
     {
       "suite": "tests/test_norman_result_archive.py",
@@ -78,8 +87,33 @@
       "suite": "tests/test_norman_pca_attribution.py",
       "status": "PASS",
       "scope": "Separate run: exact signed mean decomposition and stratum-composition counterexample."
+    },
+    {
+      "suite": "tests/test_norman_nmf_convergence.py",
+      "status": "PASS",
+      "scope": "Separate run. Actual small warm fit preserves starting artifacts and retains seven-arm families."
+    },
+    {
+      "suite": "tests/test_norman_target_rna.py",
+      "status": "PASS",
+      "scope": "Separate run. Induced gene, absent target and noninduced author-alternative comparisons retained."
+    },
+    {
+      "suite": "tests/test_norman_k562_context.py",
+      "status": "PASS",
+      "scope": "Separate run. Complete eight-arm expanded family retained, including unscored hypotheses."
     }
   ],
-  "standalone_suites_executed_total": 21,
-  "updated_utc": "2026-10-20T17:28:46.491175+00:00"
+  "standalone_suites_executed_total": 24,
+  "updated_utc": "2026-10-20T19:13:16.561488+00:00",
+  "large_archive_upload": {
+    "status": "FAIL_NETWORK",
+    "stage": "CONNECT tunnel to uploads.github.com",
+    "http_status": 403,
+    "draft_release_id": 418693745,
+    "assets_uploaded": 0,
+    "network_host_saved_in_draft": true,
+    "runtime_policy_applied": false
+  },
+  "review_render_manifest": "docs/review/render_manifest.json"
 }

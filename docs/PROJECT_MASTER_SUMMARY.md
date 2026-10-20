@@ -9,6 +9,12 @@
 > and the external S/G2M diagnostic are also archived. The historical narrative
 > below retains its original date; its pending-run instructions are superseded.
 > No new biological discovery is established.
+> The exact historical eight-gene K562 program has since yielded 63/61/61
+> all-cell SAE associations and 57 direct-score calls; 38 survive reference,
+> depth and every single-gene omission. CBL/UBASH3B/PTPN12 remain, and ordinary
+> PCA/NMF also recover the program. This is conditional recovery of a historically
+> selected program, not independent confirmation or a new regulator mechanism.
+> See [NORMAN_K562_CONTEXT.md](NORMAN_K562_CONTEXT.md).
 > A subsequent 600-record synthetic audit quantifies generic-severity and
 > correlated-cell limits. [The literature review](LITERATURE_REVIEW.md) records
 > prior CBL/erythroid biology and distinguishes abstract from full-text checks.

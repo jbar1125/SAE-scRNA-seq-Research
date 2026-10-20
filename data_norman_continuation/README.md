@@ -39,6 +39,23 @@ See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
 - `pca_attribution/`: all 105 comparison estimates and 428,505 gene contributions
   to the saved component's projected mean. Explicit original-score fidelity
   gates pass. This explains a score mean, not ranks or cellular causality.
+- `nmf_convergence/`: actual bounded warm restart met tolerance after 380 further
+  iterations; original capped model preserved. All 6,615 comparisons and 63
+  identity hypotheses, model/score hashes and warnings are retained.
+- `target_rna/`: all 109 direct/alternative transcript comparisons and a separate
+  105-row post hoc pairing with the phase diagnostic. No old label is excluded.
+- `k562_context/`: the exact historical eight-gene program across seven learned
+  models and direct scores, all 8,400 association and 80 identity hypotheses;
+  original direct scores reproduced first. The gene list was selected historically
+  from these same data, so nominal values do not calibrate its full selection.
+- `k562_context_sensitivity/`: exact primary reproduced, every control reference
+  (4,200 comparisons), depth strata (1,050) and technical-partition estimates.
+- `k562_gene_robustness/`: all 10,080 old/new hypotheses, each individual transcript
+  and single-gene omission; all 105 labels retained. Thirty-eight primary calls
+  also survive references, depth and all omissions, as a descriptive intersection.
+- `k562_composition/`: all 11,025 hypotheses for the fixed-weight alternative
+  denominator, after recovering 945 original gene/program comparisons. Neither
+  denominator establishes absolute RNA abundance.
 - `dual_marker/`: all 1,179 planned dual-marker contrasts and target-omission
   estimates, with exact compressed JSON, stratum counts, complete CSV and source
   fingerprints. These are scale-dependent additive departures, not validated
@@ -48,11 +65,11 @@ See [the result record](../docs/NORMAN_CONTINUATION_RESULTS.md) and
   metadata heuristic omitted `gemgroup`; its explicit cross-tab verifies eight
   technical partitions with controls and all interventions. They are not
   biological replicates. Timing estimates are variable preflight measurements.
-- `validation.json`: 15 standalone suites passed together, plus the completed-
-  result archiver, direct-PCA and dual-marker suites passed separately; frozen integrity,
-  phase, common-inference and attribution suites passed separately; actual CLI/training and
-  rendering checks are distinguished from biological claims. The completed-model
-  validator and its complete four-model record are in `provenance/`.
+- `validation.json`: 15 standalone suites passed together and nine additional
+  suites separately, for 24 distinct suites exercised. Actual CLI/training,
+  frozen-integrity and review-rendering checks are distinguished from biological
+  claims. The completed-model validator and its complete four-model record are
+  in `provenance/`.
 - `sae_interim_epoch20/`: a separate copied partial model's full-data inference
   diagnostic, with all nine outcomes. Twenty of the planned 200 epochs had
   completed; this is not a completed primary seed or an independent replicate.
@@ -66,3 +83,8 @@ independently authenticated expected checksum. No model seed or technical
 partition constitutes independent biological replication. Robust intersections
 are descriptive sensitivity summaries. These associations do not establish a
 new mechanism, novelty, pathway specificity or an SAE advantage.
+
+`provenance/large_artifact_manifest.json` lists seven actual large review archives
+and exact roundtrip-checked member hashes. They are local and outside Git.
+GitHub's empty draft release has no model/data assets because the upload host is
+blocked at the network proxy. Prepared archives are not public deposition.

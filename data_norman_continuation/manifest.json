@@ -1,6 +1,6 @@
 {
   "artifacts": {
-    "README.md": "f16f7224d941a540c849d8769fcc3b581c518f0243bf337a3a51ed4066062d54",
+    "README.md": "922b8233a5212675c8d021d5a63159246756bc0273f9875a344955ed7ab81fb4",
     "direct_nmf/comparisons.csv": "9562fbcfe90ad6767c124820dff123813cb594fd15587ab784db32269f59c61d",
     "direct_nmf/seed0.json": "10cb3aff72c5ee644706045e51b0351cd6ecba838fabf366d8141246c6ee10a1",
     "direct_nmf/seed0.log": "54c418393e5751d282c93e33964ffbecc28561d0de2c58cbe01714129a3442a6",
@@ -17,12 +17,38 @@
     "dual_marker/scale_sensitivity.log": "29119a5433308014a3b895b353ae625a4c0ed2ccecf19299fd2b110364e9ccf0",
     "dual_marker/scale_sensitivity_summary.json": "201ed226bbf5b72f449174586d101f41d251e3eeff80e56681fff5d96bfabaee",
     "dual_marker/summary.json": "1574a67a6fa07c115abb4716c055a723d7fbb89a1bf68a092729b2cd348bcd67",
+    "k562_composition/comparisons.csv": "e83eeb4d8bb45883d56f628785fe9fba4312c5f0b6e34b55ecaaf5e54515679a",
+    "k562_composition/results.json.gz": "14d3045e728bed7aa7aeaf09f9b35121f4b1f6b3c1a79a0a96660ce46451c993",
+    "k562_composition/run.log": "cc11faeb9376131c35e1d847cb45b16261f3a9bf4df51dd941a9401551ad0ee7",
+    "k562_composition/summary.json": "9993167cfd8d4db9aa2877da2e95d3bae7456b9cd215c7388064e2064e487baa",
+    "k562_composition/validation.json": "63f16fe7a3b9e765867155831a1735351f012a4efbcb10276e941ab8709f4980",
+    "k562_context/comparisons.csv": "6836db85e0379edabc4ef0f7b904c06f1fc5748b94eee594c00fbd03f4cdb9d3",
+    "k562_context/results.json.gz": "121ec40831704dfa1d43d30f1e8955403739022be0656fd49e6788352711c01b",
+    "k562_context/run.log": "9e50a9cbed8ce6d4e28ef00c08c156e8fecfaa2f825a65742fd6dcf4cd41cf41",
+    "k562_context/summary.json": "9f0712aa4a518e8138309baea59fd752160faf4c719c266e3bbc838b1c2798a9",
+    "k562_context/validation.json": "de72460b381389877fee09986e970b403c5ebb8f0ee85843001f83c8f9572768",
+    "k562_context_sensitivity/comparisons.csv": "09f79c3a42463d1dc222a13d34837e88116f1a4f26cc07f3e7cd4d31fbc2aab4",
+    "k562_context_sensitivity/extracted_direct_fit.json.gz": "a1c2e9ff1921d2dec831b60c3aa4a4cf6dc2680881e876b17f07ea36a8bf75af",
+    "k562_context_sensitivity/results.json.gz": "5a11208566947d33e6e276e70eaa595ae047109c54edce33d75ef41f247acb30",
+    "k562_context_sensitivity/run.log": "14dd35574f84ec564606e0f6293712b02a353cd982ecda2dc2024c243e3b7f05",
+    "k562_context_sensitivity/summary.json": "ee0c0fa546d1c45f152b469e6d4b9583446467c904c22f6f68c992a9252d51a1",
+    "k562_context_sensitivity/validation.json": "59a4d55ee61db0d93f50e6bd1e6f77f28a1dc832ca22ca7df5dd4620794d5f7a",
+    "k562_gene_robustness/comparisons.csv": "0746f64e77254e4e5051dbd276b4c12d41773358c0e047b807732e0c1d824e32",
+    "k562_gene_robustness/results.json.gz": "8d89427487a426676c259ce64d06b9f77a6fc463b18401779f7d708faa69a451",
+    "k562_gene_robustness/run.log": "799d9105e0848dcf175871611b469ac8155d49cd71aa762296212779798f311a",
+    "k562_gene_robustness/summary.json": "1aa11a273940196a9ebcbbc45a76e7904739190c78eff0cb2c9775a7c8e78bec",
+    "k562_gene_robustness/validation.json": "31ed223fadef985b0884df3e6c488ab6298c135ab07af11829817a4cba9870f4",
     "marker_baseline/comparisons.csv": "1acea1fd21a77199a770935f5c01c56cfbf33628e90c97b9c5cd0cdbd396fbaf",
     "marker_baseline/gemgroup_seed0.json": "04c203360aaeedeb27b0030fd38e478ee3428cdb153b0b2d276a56b2aaeb12ca",
     "marker_baseline/gemgroup_seed0.log": "77d8c812fc63b20abcb43c819e5fdacd2707dc2bfc80ce6ff1ed282fde733638",
     "marker_baseline/sensitivity_seed0.json": "35c9ef0b6332ca6aae2fb297bf8558500f69f4b790f2bc680ed562b278d94c9f",
     "marker_baseline/sensitivity_seed0.log": "69a35571f67b6cbcd1e83a6086df3e14a2f9d30475277c4e2a6c6a2b2291e19b",
     "marker_baseline/summary.json": "836bd30fbd047f99210b508011289dcf96fd4fde290ff062dc35afc5a1f7e41b",
+    "nmf_convergence/comparisons.csv": "afb700d31474e45c6c4b165bf0f2d3167fb61e42e772431951820aeeda89e99d",
+    "nmf_convergence/results.json.gz": "b9baaaf28af2824421296677b02995ec7c586be9f93a1d828715ea3fd8ad72d0",
+    "nmf_convergence/run.log": "e4d16f3a6557bc16ecf1410eaf9433a1c7d6d032b32295625d2056b6b9247a35",
+    "nmf_convergence/summary.json": "7246ade997784b0e0d28181d9641ad5f034727b65c2cec28520d475a2d8278a3",
+    "nmf_convergence/validation.json": "01c574ef756aece23f0e69b9c18884c652660bb1c1a001320bcd70fd1fb610e5",
     "pca_attribution/comparisons.csv": "455950d70511b92af5ffd1f412bc6502efc1ec272484d9c4b16326486821478d",
     "pca_attribution/gene_contributions.csv.gz": "f3df0638065aa0ca7444669275235b5af8c4220393c2b0549d1ca0c670b0f3f4",
     "pca_attribution/results.json": "48122051d1ec47dd5e8fb2ef9f448e13b676fc4098ca6e3563c38dc9e6b7a7b0",
@@ -34,13 +60,16 @@
     "phase_diagnostic/summary.json": "efd856679255b22b660dfb4a2d7924b8880eedf7c3e49199f0ecf9e1548cbe09",
     "provenance/actual_trainer_profile.json": "d7e37a9b1c8b4828aee2ecde8ef4d86b32acf85586c1ec615264bdc3e8f75939",
     "provenance/actual_trainer_profile.py": "51af45a74e607dba7a38aee8d0a07b022808f821f50bb8e004b568eec9b57252",
+    "provenance/build_publication_archives.py": "aaa0501fe1a79733e8f641dbdc095e3bc21285847d80452af4c64fe076a814e4",
     "provenance/completed_models_validation.json": "702ab2327f8c8cd47d424a765b9e23755e7ef9ce88e5c18fe0ca125d68414e8b",
     "provenance/compute_profile.json": "9e8aba7a21a638374f456d903491979c5aa804564b12bf0a64c66c5758c94284",
     "provenance/compute_profile.py": "4b0211b5f02cf390b9116bc5c42c0ec58972611840e0cb456b0caf1020d0994a",
     "provenance/gemgroup_exchangeability.json": "22c021475af09856f0d2a85ce3881bb46eb7a3dc7ac5601393858603722bf4d5",
+    "provenance/large_artifact_manifest.json": "545a91fbdce477749445a2dfb6ba5f7acf6e64ef4620272ed86a26d56c6f92fd",
     "provenance/metadata_only.json": "e064df298f445f2963c75197a4e6cf5cd243cdecc26990108d86d3baada5d05a",
     "provenance/norman_download_manifest.json": "1414cf910acc46dab6bd0bdc0d4ded75fb60c7144c4faea8cf55bebd178c0307",
     "provenance/norman_pert_unique.manifest.json": "ae0dd3d43b32f037bebdc8bbfdc7cfe9f444226c18b2dee33e590d01162cb112",
+    "provenance/run_context_sensitivity.py": "c3c3a2ceb7b3b2367fbf050d3b7305b0312b1157b62efc979ba5d35850e3edb3",
     "provenance/validate_completed_models.py": "1fd7a2d04c05033e4dda7b67de84e9e92e0e225aa76ec292e204e6d810ec9df9",
     "sae_control_sensitivity/seed0.json": "a9ee81939840ce91b223bb79762f3a275a9cf119b527f61647b77eb48f124a45",
     "sae_control_sensitivity/seed0.log": "8335303d24c176a2b48141d308037714c24a46d58077639ab1b271a8ed327bc5",
@@ -63,15 +92,30 @@
     "shared_inference/run.log": "8bab5ed31900271dd38fa4b1b5338f49078539e162012f0874bce22d4654716a",
     "shared_inference/summary.json": "d99765535b655a81ff7a7a57c753e18aa16d75f32a1efb2a5a690eefbf3abf21",
     "shared_inference/validation.json": "b6b8681a913a55b3068e7842f360c93a32d82ad9bdb0a4184ea97842e756b5d6",
-    "validation.json": "d8a0d9856b175e87da5510b598362f6c299c5eedad8d33defbb90803aadc0349",
+    "target_rna/comparisons.csv": "b5322bad8a4a7607395dceb24b405b0d9d45215644787e210629f0dda947975e",
+    "target_rna/cross_diagnostic.csv": "5a4ef41ca4f09d07af21040c4d5ab026481dc7169a45b9676091e2b603be4f2e",
+    "target_rna/cross_diagnostic_summary.json": "7a6fd1a688ba2a7340707c60ec27644bbc9c1bf386dddb4749d2aaa5ae1a55ea",
+    "target_rna/results.json": "04f61d29fa5ce3f673d2afdd13d241800438fee98ddc00310c43bf47bc099e81",
+    "target_rna/run.log": "edc11c4b172c7c4568237dfd6bf92f81df58adeedaaffdee3f73944f09374e82",
+    "target_rna/validation.json": "6ee2706542d6614a99eecb7ab81cc5e8ff6bfb1c0cdc79b793ba554be238d4b4",
+    "validation.json": "847ccbbe151fcddb9b64185195ef8407405c7dffc1e694c68a22556307c083d3",
+    "validation_logs/context_sensitivity_relevant.log": "bb94b144564768a4d577643c38e188c0d91671b2d2f56e465356961885749632",
     "validation_logs/direct_pca.log": "2afeacfb39d61f01f1fed9d6db4cc58eb08d41811298e71b45b417d2783dacba",
     "validation_logs/dual_marker.log": "815fb245c12fd2e3fd04ce1a40699c71f2aefa0ec8875cdfcd6b6d558d634949",
     "validation_logs/fifteen_suites.log": "26a8267698d6c564f552806ae29d3a01fa1c16806d3660e1b7242f7623a00a2b",
+    "validation_logs/frozen_review_final.log": "3543aad479e94f47d3f084a0ef09d36c9bd46f2b9e55ce77f20be896dc394243",
+    "validation_logs/gene_robustness_relevant.log": "89c8b6e3d0277980be12ccfd39489e00252304f1a66365ade158d1499e72549e",
+    "validation_logs/k562_context.log": "0e4b1fb88fc83a045913641fcd47e096c894499f8d90eb87e4224a12f0fcd878",
+    "validation_logs/manuscript_render.log": "549c6ec63916d99a9ca29934d85021b86921c37a492a43ee8292706303ebedee",
+    "validation_logs/nmf_convergence.log": "8001304ff22d894b61e2d6e65521f286e13b1326e3906aae23ef82933d490d79",
     "validation_logs/pca_attribution.log": "952fa5376773fe34a2f725553a3fba828a872577c9bc15512aa7c59a7dcc5fa2",
     "validation_logs/phase_diagnostic.log": "e5b057e520536caafa159c607978b07820b6b31344f30b7ddb375188b7a09faf",
     "validation_logs/result_archive.log": "9f6946362de7c019066cd4d1735811ce827888b774b1f30272b5b6091cf9dfbe",
     "validation_logs/shared_inference.log": "80412bc7392fd96ebf005f9bc9efcfc0e041f11450fe2a14c29417621cd94e23",
-    "validation_logs/v0b_oct20.log": "becbffd5eed2f0c403dfe94f00e1d2bd201dd2ef3eaa75f5bf7d304abff8e533"
+    "validation_logs/target_rna.log": "085c57e564f86f4e4bda39ae72b053e0bfde592825b726d4f4aac5d702cc1b05",
+    "validation_logs/v0b_oct20.log": "becbffd5eed2f0c403dfe94f00e1d2bd201dd2ef3eaa75f5bf7d304abff8e533",
+    "validation_logs/v0b_oct20_final.log": "becbffd5eed2f0c403dfe94f00e1d2bd201dd2ef3eaa75f5bf7d304abff8e533",
+    "validation_logs/v0b_review_final.log": "becbffd5eed2f0c403dfe94f00e1d2bd201dd2ef3eaa75f5bf7d304abff8e533"
   },
   "source_sha256": {
     "src/marker_program_baseline.py": "868d17702fd2676464f3e8a0135fb2363b6b7fb836a36c7c942653893a7add9a",
@@ -95,12 +139,27 @@
     "config/cell_cycle/source.json": "342db6d3f9544861b30e735a0a2d169571a4ea8ae663c0c4d5fe855a6a3ce8ee",
     "src/norman_shared_inference.py": "a239ecf0c90debd09d58cd3ec7e80e42248054c6340b167d1fed2203c952de9c",
     "src/norman_pca_attribution.py": "7ad49acb02e286f16e386e8cdc185962fca9eb1eaf5f13558ca131c5b0e4a1b4",
-    "src/make_norman_comparison_figure.py": "df47f5dafcd9696c469cf324c9d9443c1f059b2dfd3be06b9e4675761e0263b2",
+    "src/make_norman_comparison_figure.py": "738d7dafb987b2db84461c8682c2ed97b4c8d2c0c8fd9f3d3e8964a4772d6919",
     "config/norman_shared_inference_plan.json": "ac522c57c747fcbb0fe95b238885dcf14cade2da90b74155b0cf6166f1977777",
     "config/norman_pca_attribution_plan.json": "4ea3219a2192e58e78f092d7bb2c1312203a0c36376e6a780777b9c5aabb8ad2",
-    "config/norman_control_sae_sensitivity_plan.json": "8ee3894868fcc362d42dceca9ab3c032db48fec77d19b298e7f751a247955d90"
+    "config/norman_control_sae_sensitivity_plan.json": "8ee3894868fcc362d42dceca9ab3c032db48fec77d19b298e7f751a247955d90",
+    "src/norman_k562_context.py": "d92e63873cf856d3e63bdad6f1e3d36d317bcc208ad98b3a9eb823a0ab77ca87",
+    "src/norman_k562_composition.py": "937b0daac1606e2897ce123af6918c2683a2b6e9626edd231c5513f7a92fc641",
+    "src/norman_target_rna.py": "802cc792863237ce86bdebe6b134b445a8258a73b298faf07a206050c906b77c",
+    "src/norman_k562_gene_robustness.py": "ef0ad311e2999ebafe26fb4fd981072375f536290b5ea8d441a90cce1f8d6830",
+    "src/norman_nmf_convergence.py": "8006f7199b5fdb2c69c6372793b22bc46c4edd94ffebc9850ed102519dad8d8b",
+    "config/norman_k562_context_plan.json": "c3fca382f82062a01e6223e7531142c27b7c9d213c56cd28cf2e566f2497b154",
+    "config/norman_k562_gene_robustness_plan.json": "6b5a4802b382b162813fd7ecb2d456daa2e6ea14bb8412f42eed1e610e5d2383",
+    "config/norman_k562_composition_plan.json": "fc7dc15e88f9722d5064c9840f5cb495412d2623f8a28dea87a14315c1927571",
+    "config/norman_k562_context_sensitivity_plan.json": "3523d730cd8827339f85d147bf27efa7f9e682a39b594a8c6e4938185f4428c2",
+    "config/norman_target_rna_plan.json": "050714b6e44130c776049682c26e658503f982ac671046c2f0c5ffb8388aed8a",
+    "config/norman_nmf_convergence_plan.json": "1e418173d29b413a46bd7f84ec1cd721cab658df81f4d6dab3958e256fbbf51b",
+    "config/norman_cpu_execution_plan.json": "fdf5a2eacdf66968fcbc4b68594bcdfd1a126d9a2a2dacf5de83efd0e636af05",
+    "src/make_figures.py": "16be865f3b360714334126c206659ebfd2431e606349292f082b1b575e8e6aa7",
+    "src/build_manuscript_review.py": "b7cb92ab16f47c0e2f2139f08b51199783dd6615525ae0c01e83f11a745a7751",
+    "src/program_modulation.py": "8256b31525ff854a905ddec2ec00fe593818827d71c7268bd06fdedbce6efece"
   },
-  "updated_utc": "2026-10-20T17:28:46.631568+00:00",
+  "updated_utc": "2026-10-20T19:13:32.718220+00:00",
   "compressed_json_sources": {
     "dual_marker/results.json.gz": {
       "uncompressed_sha256": "8fe0ca5d869e971ecd896f2fca9530d059e9ebe011094ee4ba9cc458803e44c3"
@@ -113,6 +172,27 @@
     },
     "shared_inference/results.json.gz": {
       "uncompressed_sha256": "5a93066fe651c156dfebab77361958642675d737df5ac606a42e8f5d7a367262"
+    },
+    "nmf_convergence/results.json.gz": {
+      "uncompressed_sha256": "b71b980c97e52370a71b9c76c1e533b600be9fdfa95d0212cac519fb7d74b96f"
+    },
+    "k562_context/results.json.gz": {
+      "uncompressed_sha256": "f2b6bc2e63c44ece860765d919a7df1d7bb2a1745aab7a2d1f68f544b4928c5f"
+    },
+    "k562_gene_robustness/results.json.gz": {
+      "uncompressed_sha256": "ab999d49b2a6c771796a68a1e2c0ed83c9be49bbc9aedb2d4b7a191d2a92097b"
+    },
+    "k562_composition/results.json.gz": {
+      "uncompressed_sha256": "01cd61141a00abcbe535cc8ab18216025af3f8645d4d8f8c617ff92341af2461"
+    },
+    "k562_context_sensitivity/results.json.gz": {
+      "uncompressed_sha256": "4e0ce9790478774e854cf6e51581cdcc5a01f5b86158c989515086e90057898b"
+    },
+    "k562_context_sensitivity/extracted_direct_fit.json.gz": {
+      "uncompressed_sha256": "52cd8612d56fc82d065341ad4f74982984da8dfb3eb2e3db709169eb98276695"
     }
+  },
+  "presentation_source_previous_sha256": {
+    "src/make_norman_comparison_figure.py": "df47f5dafcd9696c469cf324c9d9443c1f059b2dfd3be06b9e4675761e0263b2"
   }
 }

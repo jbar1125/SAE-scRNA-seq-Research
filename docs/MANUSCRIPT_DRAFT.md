@@ -1,8 +1,9 @@
-# Measured hematopoietic gene-program modularity depends on decomposition: a computational audit of sparse-autoencoder interpretation
+# Representation and annotation change measured structure and perturbation responses of hematopoietic gene programs
 
 **Internal manuscript draft, updated 2026-10-20. Not ready for submission.** Primary numerical
 results below come from preserved Gate-0 artifacts and a fresh, archived Norman
-external-marker analysis and completed full-size SAE fits. Historical causal analyses lack their original result
+external-marker analysis, completed full-size SAE fits and exploratory
+historical-program diagnostics. Historical causal analyses lack their original result
 JSONs and are excluded from the primary results. The program-modulation design audit uses synthetic data and tests statistical
 interpretation, not biological discovery. No novel biological mechanism is claimed.
 
@@ -12,29 +13,27 @@ and each mentor's role. No mentor approval is implied by this draft.
 
 ## Abstract
 
-Biologically recognizable sparse-autoencoder (SAE) features need not identify a
-method-independent program structure or preserve signature-response directions
-under perturbation. We tested whether erythroid commitment is more distributed
-than granulocyte commitment using a version-locked analysis following exploratory
-development. Mouse Paul15 data contained 2,730 cells and 2,012 genes; human Setty
-marrow data contained 4,142 cells and 2,032 genes. None of ten SAE seeds per dataset
-supported the original hypothesis. Only mouse NMF supported the decision rule
-among five decomposition families across two datasets. Marker omissions changed
-none of 34 mouse or 36 human decisions. A separate synthetic audit showed that
-legacy modulation gates accepted identical generic responses in 20/20 worlds.
-Conditional identity inference removed that failure but rejected all nine panels
-in 100/100 worlds containing only variable-strength generic effects. In fresh
-Norman CRISPRa data, a heldout-control marker baseline identified 37 heme-score
-associations; 29 survived target omission, depth matching and all control references.
-Three completed 200-epoch SAE fits produced no candidate combining the legacy
-background criterion with two-seed agreement. A common downstream protocol across
-six representations retained different response patterns under the same Cycling
-label. Twenty of 52 upward PCA associations had both external phase AUCs≤.45.
-Signed-weight attribution showed falling phase-gene contributions outweighed by
-other genes in all 20 cases, with explicit score-fidelity verification. These
-observations establish representation dependence and score-response discordance
+Biological labels on sparse-autoencoder (SAE) features need not determine a
+representation-independent structure or a faithful perturbation readout. We audited
+hematopoietic gene programs across structural and perturbation analyses. A
+version-locked analysis following exploratory development used mouse Paul15 data
+(2,730 cells, 2,012 genes) and human Setty marrow data (4,142 cells, 2,032 genes).
+None of ten SAE seeds per dataset supported the hypothesis that erythroid commitment is more distributed than granulocyte
+commitment; only mouse NMF supported it among ten method-by-dataset combinations.
+Legacy modulation gates accepted identical generic responses in 20/20 simulated
+worlds. Conditional identity tests removed that failure but rejected all nine
+panels in 100/100 worlds with variable-strength generic effects. Three fresh
+200-epoch Norman CRISPRa SAE fits left normal-marrow heme and membrane panels
+unmatched. The exact historical eight-gene K562 program instead yielded 63, 61, 61
+associations, with 57 direct-score calls and 38 surviving reference, depth and every single gene omission check. Ordinary PCA recovered 65, while one control-only SAE recovered 8.
+Program definition and granularity therefore changed recovery; this historically
+selected signature does not provide independent confirmation. A 0.88% decrease in
+NMF reconstruction error also added a membrane annotation. Twenty Cycling PCA-up
+associations had both external phase AUCs≤0.45; verified signed-weight attribution
+showed falling phase-gene contributions outweighed by other genes. These results
+support conditional program associations and representation/annotation dependence
 in the tested systems. They do not establish pathway-specific regulation,
-independent biological replication, a new mechanism or an SAE advantage.
+independent biological replication, new regulator mechanisms or an SAE advantage.
 
 ## Introduction
 
@@ -260,6 +259,13 @@ Actual joint-fit cell factors were retained rather than recomputed with a later
 transform. The cap was reached with a convergence warning; this is a limited
 exploratory comparator, not a converged optimum or a definitive method ranking.
 
+A later bounded sensitivity used the actual capped NMF factors as custom
+initialization, with the same rank, solver and tolerance and at most 800 further
+iterations. This resets the solver's initial-error stopping reference and is not
+bit-identical uninterrupted continuation. The complete seven-fit family, retaining
+both NMF versions, used joint BH over 6,615 associations and Holm over 63 identity
+tests. Its plan preceded additional optimization and retained every outcome.
+
 ### Completed Norman SAE fits and phase diagnostic
 
 Three all-cell TopK SAEs used seeds 0, 1 and 2, 2,048 features, k=32, 200 epochs,
@@ -273,6 +279,13 @@ one-seed training-population sensitivity, not an independent validation sample.
 Actual checkpoints, input/activation/model hashes, completed epochs and dimensions
 were verified before archiving compact outputs. Original inference differs from
 the discovery/inference split of the direct baselines.
+
+A later intervention-label diagnostic retained all 105 direct-name target RNA
+comparisons plus four author-recorded alternative transcript labels. All-gene
+normalization preceded subsetting; the existing inference controls and stratified
+tests were reused. One 109-test BH family included absent p=1 records; calls also
+required AUC≥.55. Alternative transcripts were not assumed equivalent genes.
+No previous analysis removed labels based on this outcome-informed diagnostic.
 
 After observing PCA/marker score discordance, an exploratory phase diagnostic
 fixed the external 43 S and 54 G2M gene lists used in the maintained Scanpy
@@ -305,6 +318,37 @@ means, not ranks. The later linear projection was compared with recovered origin
 scores using fixed fidelity bounds (normalized RMSE≤.01 and maximum AUC difference
 ≤.005). All 105 perturbations and 4,081 genes were retained; requested external
 phase genes were separated from other genes and crossed with weight sign.
+
+### Historical K562 program and robustness
+
+After the original comparisons, an exploratory plan fixed the exact historical
+lead: HBZ, ALAS2, HBG1, HBG2, HBA1, SLC25A37, GYPB and BLVRB. This signature
+was previously selected from the same Norman data; fixing it before reruns does
+not create independent confirmation. The same downstream procedures added one
+panel to the original nine across all seven completed learned representations
+and direct marker scores. No models were refit or genes added to their fixed
+input. All 945 original direct-marker comparisons, parameters and split IDs had
+to reproduce before interpretation. Joint BH included all 8,400 association
+hypotheses and Holm all 80 identity hypotheses, using 9,999 permutations for the
+new tests. The list changes cell context and program granularity together.
+
+A subsequent fixed sensitivity reused the ten-panel direct scores, discovery
+parameters and all 105 labels. BH covered all 4,200 control-reference comparisons
+and 1,050 depth comparisons, separately for primary and target omission. The
+intersection additionally required the eight-arm primary call. It is descriptive
+robustness, not a new FDR guarantee. Neither these nominal corrections nor identity
+permutations replay the historical signature-selection process. The complete
+selection procedure has not been calibrated by these diagnostics.
+
+Individual-transcript and single-marker-omission diagnostics retained all
+105 labels and the same eight genes. The original 8,400 comparisons plus
+840 individual-transcript and 840 omission comparisons entered nominal BH over
+10,080. All omission scores averaged seven genes using frozen discovery weights;
+no success threshold for the number of individual gene increases was selected.
+A further denominator sensitivity excluded these eight genes from library-size
+normalization while retaining weights. It reproduced all 945 original gene/program
+comparisons before adding 945 new comparisons to nominal BH over 11,025. Neither
+normalization establishes absolute RNA abundance or same-cell coactivation.
 
 ### Exploratory dual-construct marker contrasts
 
@@ -449,6 +493,15 @@ not contain KLF1, and both survived the sensitivities. Removing CEBPA or CEBPE
 left only two granulocyte-TF markers, so those omission comparisons were
 unscorable rather than clean negatives.
 
+The target-transcript diagnostic found 90 RNA increases among all 105 direct-name
+comparisons. Three direct symbols were absent and 12 observed transcripts failed
+the combined effect/significance rule. Two author-recorded alternatives increased
+under labels with absent direct symbols, without proving transcript equivalence
+or protein function. BAK1 and BCL2L11 had direct RNA AUCs .793 and .715 despite an
+unexplained original-code comment that they did not work; that comment therefore
+cannot be interpreted as absent RNA induction. All 109 records are
+[retained](NORMAN_TARGET_RNA.md), with single-guide and observed-cell limits.
+
 ![Marker-score robustness and direct-target diagnostic](figures/fig_norman_marker_baseline.png)
 
 **Figure 2. Fixed-marker associations and an own-transcript diagnostic.** Panel A
@@ -489,6 +542,16 @@ uncentered Frobenius error was 0.334, which is not comparable to PCA's centered
 explained-variance ratio. Nonconvergence, unequal capacity and different marker
 eligibility prevent a superiority claim; in particular, effector matching beside
 an unscorable direct score is not evidence of better biological recovery.
+
+The bounded warm restart met its numerical tolerance after 380 further iterations
+(2,339.6 seconds with four CPU threads). Frobenius error decreased from 3,077.27
+to 3,050.08, a 0.88% reduction; relative uncentered error was 0.331. The membrane
+panel now matched, and seven-fit joint association counts were TF 10, heme 35,
+membrane 27, effector 52 and Cycling 0. Other panels remained unscored. Matched
+identity tests had Holm p=.0063 across 63 hypotheses. Numerical stopping therefore
+changed annotation coverage despite a small reconstruction-error change, without
+establishing a global optimum or biological method ranking. Both complete fits
+and all comparisons remain [archived](NORMAN_NMF_CONVERGENCE.md).
 
 The phase diagnostic retained 42/43 S and 54/54 G2M markers. Neither signature
 had an upward call; 52 S and 37 G2M decreases passed correction and target omission.
@@ -574,13 +637,52 @@ The saved linear projection approximated recovered PCA scores with normalized
 RMSE .000154 and maximum AUC difference .0000378, passing the fixed fidelity gate.
 All 428,505 gene contributions reconstructed the 105 projected mean changes
 (maximum absolute error 2.22e-16). Thirty-two of 97 external phase genes enter the
-PCA input. Their net weighted contribution was negative in all 20 direction-
-discordant cases, while other positive-weight and other negative-weight gene
+PCA input. Their net weighted contribution was negative in all 20 direction-discordant cases, while other positive-weight and other negative-weight gene
 classes each contributed positively. The latter increases when its genes decrease.
 This post hoc partition summary explains score means without attributing ranks,
 phase progression, cellular mechanism or superiority to the result. Across all
 105 perturbations, 94 had positive negative-weight sums; this algebra is not unique
 to the selected cases. Complete partitions and every gene contribution are retained.
+
+### The historical broad K562 program recovered associations across methods
+
+All eight historical genes were present in the fixed model input and met direct-score eligibility. The new program matched every representation. Under the joint
+8,400-test association family, all-cell SAE seeds yielded 63, 61, 61 calls; 60 candidates
+appeared in all three and 62 in at least two. Direct scores yielded 57, ordinary
+PCA 65, capped/warm NMF 54/52 and one control-only SAE 8. Each historical-program
+identity test had Holm p=.008 across all 80 hypotheses. Agreement concerns models
+of shared cells and does not constitute biological replication or an SAE advantage.
+
+CBL, UBASH3B and PTPN12 appeared in every all-cell seed, both NMF fits, PCA and
+direct scores. Their all-cell SAE AUC ranges were .759–.762, .699–.701 and
+.778–.784; direct-score AUCs were .748, .698 and .753. The control-only fit gave
+.535, .517 and .538, below the .55 effect floor. One control-only seed cannot
+establish general failure of that training approach.
+
+Thirty-nine of 57 direct-score calls survived primary, target omission, depth
+matching and all four control references. All three historical candidates and
+KLF1 remained; minimum reference AUCs were .679, .616, .683 and .814, respectively.
+Their depth-matched AUCs were .750, .701, .753 and .862. These targets are not
+signature genes, so their target-omission score is unchanged. Full outcomes and
+all references are [archived](NORMAN_K562_CONTEXT.md).
+
+Single-gene omissions retained 46 of 57 primary direct-score calls; 38 also
+survived all preceding reference/depth checks. CBL, UBASH3B and PTPN12 met the
+RNA-increase criterion for all eight individual genes and every omission score.
+Their lowest omission AUCs were .729, .684 and .724. KLF1 passed all omissions
+but seven individual transcripts, with GYPB AUC .519 below the .55 effect floor.
+Excluding signature genes from the denominator left 57 aggregate calls and moved
+KLF1 GYPB only to .521. This particular compositional adjustment does not explain
+that threshold result; it does not prove absent GYPB response or absolute
+transcriptional differences. All 105 labels and all original/new comparisons
+remain archived, including unfavorable outcomes.
+
+This broader list combines biosynthetic and effector genes and contains fetal/
+embryonic globins. The analysis therefore cannot isolate cell context from
+program granularity or establish recovery of a distinct heme submodule. Its
+historical selection and shared observed cells further limit inference. The
+positive association recovery is compatible with the original nine-panel match
+failures; neither result identifies a new pathway-specific regulator.
 
 ### Additive departures depended on the marker panel and score scale
 
@@ -671,6 +773,13 @@ scores. The [targeted literature review](LITERATURE_REVIEW.md) documents what wa
 read and what remains unchecked, including the original Norman full text and
 supplements. We do not characterize PTPN12 or UBASH3B as newly discovered regulators.
 
+The historical K562 program illustrates an additional boundary: changing a
+marker definition can recover a broad response missed by narrower panels. It does
+not identify a better representation or validate a biological module partition.
+Because the signature came from the same dataset, nominal p/q values do not
+account for its entire historical selection. Independent perturbation experiments
+remain necessary for a new regulator or pathway-specific causal claim.
+
 ## Data and code availability
 
 Code and small structural evidence artifacts are available in
@@ -717,6 +826,12 @@ compute support, conflicts of interest, and acknowledgments. Confirm applicable
 public-data ethics and competition or journal disclosure requirements; no ethics
 determination, institutional approval, or exemption is asserted in this draft.
 
+**Assistance disclosure, factual draft record:** the continuation used OpenAI
+Codex for code changes, computational execution, artifact and targeted literature
+checks, and manuscript drafting. Human author review and approval remain pending.
+Additional assistance in earlier phases and venue-specific wording require an
+author-confirmed account.
+
 ## References
 
 Bibliographic fields were checked against Crossref, with retrieval provenance in
@@ -726,36 +841,36 @@ do not imply that every cited paper was read in full.
 
 1. Paul F, et al. Transcriptional heterogeneity and lineage commitment in myeloid
    progenitors. *Cell*. 2015;163:1663–1677.
-   https://doi.org/10.1016/j.cell.2015.11.013
+   <https://doi.org/10.1016/j.cell.2015.11.013>
 2. Setty M, et al. Characterization of cell fate probabilities in single-cell data
    with Palantir. *Nature Biotechnology*. 2019;37:451–460.
-   https://doi.org/10.1038/s41587-019-0068-4
+   <https://doi.org/10.1038/s41587-019-0068-4>
 3. Benjamini Y, Hochberg Y. Controlling the false discovery rate: a practical and
    powerful approach to multiple testing. *Journal of the Royal Statistical
    Society: Series B*. 1995;57:289–300.
-   https://doi.org/10.1111/j.2517-6161.1995.tb02031.x
+   <https://doi.org/10.1111/j.2517-6161.1995.tb02031.x>
 4. Wolf FA, Angerer P, Theis FJ. SCANPY: large-scale single-cell gene expression
    data analysis. *Genome Biology*. 2018;19:15.
-   https://doi.org/10.1186/s13059-017-1382-0
+   <https://doi.org/10.1186/s13059-017-1382-0>
 5. Replogle JM, et al. Mapping information-rich genotype-phenotype landscapes with
    genome-scale Perturb-seq. *Cell*. 2022;185:2559–2575.e28.
-   https://doi.org/10.1016/j.cell.2022.05.013
+   <https://doi.org/10.1016/j.cell.2022.05.013>
 6. Norman TM, et al. Exploring genetic interaction manifolds constructed from
    rich single-cell phenotypes. *Science*. 2019;365(6455):786–793.
-   https://doi.org/10.1126/science.aax4438
+   <https://doi.org/10.1126/science.aax4438>
 7. Han H, et al. TRRUST v2: an expanded reference database of human and mouse
    transcriptional regulatory interactions. *Nucleic Acids Research*.
-   2018;46(D1):D380–D386. https://doi.org/10.1093/nar/gkx1013
+   2018;46(D1):D380–D386. <https://doi.org/10.1093/nar/gkx1013>
 8. Wang J, et al. FLI1 induces erythroleukemia through opposing effects on
    UBASH3A and UBASH3B expression. *BMC Cancer*. 2024;24:326.
-   https://doi.org/10.1186/s12885-024-12075-2
+   <https://doi.org/10.1186/s12885-024-12075-2>
 9. Kendiukhov I. Causal circuit tracing reveals distinct computational
    architectures in single-cell foundation models: inhibitory dominance,
    biological coherence, and cross-model convergence. *Bioinformatics*.
-   2026;42(7):btag379. https://doi.org/10.1093/bioinformatics/btag379
+   2026;42(7):btag379. <https://doi.org/10.1093/bioinformatics/btag379>
 10. Tirosh I, et al. Dissecting the multicellular ecosystem of metastatic melanoma
     by single-cell RNA-seq. *Science*. 2016;352(6282):189–196.
-    https://doi.org/10.1126/science.aad0501
+    <https://doi.org/10.1126/science.aad0501>
 
 ## Supplementary figure
 

@@ -5,6 +5,11 @@ completed 200 epochs. The sequence and archive workers exited after completion.
 The six-model common-inference and signed-weight diagnostics also completed;
 their compact full evidence is archived. Original PCA scores were successfully
 recovered, with the complete old inference reproduced before their use.
+The bounded NMF warm restart and historical K562 context, reference/depth,
+gene-omission and composition diagnostics also completed. Their checked full
+evidence is archived. Do not restart old workers or fits. Read
+[NORMAN_K562_CONTEXT.md](NORMAN_K562_CONTEXT.md) for positive conditional results
+and the limits of historical selection.
 Read [the completed-fit interpretation](NORMAN_COMPLETED_MODELS.md); do not rerun
 these commands merely because no trainer is alive. Commands below preserve the
 executed configurations and support recovery if artifacts are independently lost.

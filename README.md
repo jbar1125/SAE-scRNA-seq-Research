@@ -27,7 +27,8 @@ Start with [the master summary](docs/PROJECT_MASTER_SUMMARY.md),
 | Replogle CRISPRi, K562 and RPE1 | Historical exploratory results; original JSONs missing | Recorded perturbation-responsive programs are mainly housekeeping/chromatin programs. Original outputs from ephemeral GPU instances must be regenerated and archived. [Causal results](docs/COMPONENT2_RESULTS.md). |
 | Causal representation ladder | Historical exploratory results | Every arm trains an SAE: on expression, PCA-reduced input, or NMF-reduced input. This is not a direct SAE-versus-PCA/NMF comparison. |
 | Norman CRISPRa grounding and regulon recovery | Historical exploratory results; original JSONs missing | Grounding rate did not exceed the recorded perturbation-identity shuffle null; single-TF regulon recovery was unsuccessful. Neither result establishes absence of all biological signal. |
-| Program-level modulation | Three full-size CPU seeds and one control-only sensitivity completed | Three panels match in all primary seeds; KLF1 is the sole repeated legacy candidate and fails the old background gate. No discovery is established. [Completed fits](docs/NORMAN_COMPLETED_MODELS.md). |
+| Original nine-panel modulation | Three full-size CPU seeds and one control-only sensitivity completed | Three panels match in all primary seeds; KLF1 is the sole repeated legacy candidate for these panels and fails the old background gate. [Completed fits](docs/NORMAN_COMPLETED_MODELS.md). |
+| Historical K562 program | Complete exploratory follow-up | 63/61/61 all-cell SAE associations, 57 direct-score calls; 38 survive reference, depth and every single-gene omission. PCA also recovers the program. [Results](docs/NORMAN_K562_CONTEXT.md). |
 | Expression versus foundation-model embedding | Not run | The published 6.2% figure uses a different protocol and is not a matched baseline for this project. |
 
 The Gate-0 metric was version-locked before the final runs, following exploratory
@@ -65,6 +66,15 @@ A [common six-model protocol](docs/NORMAN_SHARED_INFERENCE.md) and
 means with all hypotheses and gene contributions retained. The
 [claim-to-evidence ledger](docs/CLAIM_EVIDENCE_LEDGER.md) maps manuscript wording
 to its complete evidence and limits.
+
+The exact historical eight-gene K562 program now recovers CBL, UBASH3B and PTPN12
+across all three complete SAE fits and direct scores. All three pass every control
+reference, depth matching, individual-transcript criteria and single-gene omissions.
+The list mixes biosynthesis and effector genes and was selected from these same
+data in earlier work. This is positive program-association evidence, not independent
+confirmation, a new regulator mechanism or an SAE advantage. A bounded NMF warm
+restart also met its numerical tolerance and changed annotation coverage despite
+only a 0.88% reconstruction-error decrease. All original capped results remain.
 The [targeted literature review](docs/LITERATURE_REVIEW.md) records prior biology
 and unverified novelty rather than presenting known CBL responses as a discovery.
 

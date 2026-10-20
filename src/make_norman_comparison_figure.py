@@ -28,13 +28,13 @@ def main():
     both = (y >= .55) & (s <= .45) & (g <= .45)
     plt.rcParams.update({'font.size': 9, 'svg.hashsalt': 'norman-six-model-comparison-v1',
                          'font.family': 'DejaVu Sans'})
-    fig = plt.figure(figsize=(13, 5.5), layout='constrained')
-    grid = fig.add_gridspec(1, 3, width_ratios=[1.35, 1, 1])
-    ax = fig.add_subplot(grid[0])
+    fig = plt.figure(figsize=(7.2, 7.4), layout='constrained')
+    grid = fig.add_gridspec(2, 2, height_ratios=[1.15, 1])
+    ax = fig.add_subplot(grid[0, :])
     cmap = plt.get_cmap('Blues').copy()
     cmap.set_bad('#e1e1e1')
     ax.imshow(np.ma.masked_invalid(counts), cmap=cmap, vmin=0, vmax=54, aspect='auto')
-    ax.set_xticks(range(6), ['SAE 0', 'SAE 1', 'SAE 2', 'Control\nSAE 0', 'PCA', 'NMF*'], rotation=40, ha='right')
+    ax.set_xticks(range(6), ['SAE 0', 'SAE 1', 'SAE 2', 'Control\nSAE 0', 'PCA', 'NMF*'])
     ax.set_yticks(range(9), [p.replace('_', ' ') for p in panels])
     for i in range(9):
         for j in range(6):
@@ -44,7 +44,7 @@ def main():
     ax.set_title('A  Joint association counts', loc='left', fontweight='bold')
     ax.set_xlabel('U: unscored   *NMF reached cap without convergence', fontsize=8)
     for index, (values, name) in enumerate([(s, 'S'), (g, 'G2M')], start=1):
-        axis = fig.add_subplot(grid[index])
+        axis = fig.add_subplot(grid[1, index - 1])
         axis.axhspan(.55, .95, xmin=0, xmax=.45, color='#f7eee8', alpha=.7)
         axis.scatter(values[~both], y[~both], s=23, c='#457b9d', alpha=.8, linewidths=0)
         axis.scatter(values[both], y[both], s=30, c='#b44530', alpha=.9, linewidths=0,
@@ -55,13 +55,16 @@ def main():
         axis.axvline(.5, color='#999999', linewidth=.6)
         axis.set(xlim=(0, 1), ylim=(.25, .9), xlabel=f'External {name} score AUC', ylabel='Cycling PCA feature AUC')
         axis.set_title(f'{"B" if index == 1 else "C"}  Paired directions: {name}', loc='left', fontweight='bold')
-        axis.legend(loc='lower left', fontsize=7, frameon=False)
+        axis.legend(loc='lower left', fontsize=8, frameon=False)
         axis.spines[['top', 'right']].set_visible(False)
-    fig.suptitle('Common inference retains different measurements under the same program label', fontsize=12)
+    fig.suptitle('Different measurements under the same program label', fontsize=11)
     dest = ROOT / 'docs/figures'
     for suffix in ['png', 'svg']:
         metadata = {'Date': None} if suffix == 'svg' else {'Software': 'SAE-scRNA-seq-Research'}
         fig.savefig(dest / f'fig_norman_common_inference.{suffix}', dpi=200, metadata=metadata)
+        if suffix == 'svg':
+            target = dest / 'fig_norman_common_inference.svg'
+            target.write_text('\n'.join(line.rstrip() for line in target.read_text().splitlines()) + '\n')
     plt.close(fig)
 
 
